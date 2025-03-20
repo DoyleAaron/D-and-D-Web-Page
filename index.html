@@ -1,88 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dayner - A World of Kingdoms</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        img {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border: 2px solid #333;
-        }
-        .section {
-            text-align: left;
-            margin-top: 20px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dayner - A World of Kingdoms</title>
+  <style>
+    /* Basic body and container styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Title and intro */
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    p.intro {
+      margin: 0 0 20px 0;
+      color: #555;
+    }
+    
+    /* Map Image */
+    img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+    
+    /* Navigation styles */
+    nav {
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: inline-block; /* Center the menu block */
+      text-align: left;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    /* Top-level menu items */
+    nav ul li {
+      position: relative;
+      padding: 10px 15px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid #444; /* subtle divider */
+    }
+    nav ul li:hover {
+      background: #444;
+    }
+    nav ul li:last-child {
+      border-bottom: none; /* remove bottom border on last item */
+    }
+    
+    /* Submenu (dropdown) styling */
+    nav ul li ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 5px 0 0 0;
+      background: #444;
+      display: none; /* Hidden by default */
+      border-left: 2px solid #555;
+    }
+    nav ul li ul li {
+      border-bottom: 1px solid #555;
+    }
+    nav ul li ul li:hover {
+      background: #555;
+    }
+    
+    /* Submenu items text style */
+    nav ul li ul li {
+      padding: 8px 15px;
+      color: #eee;
+      cursor: pointer;
+    }
+    
+    /* Toggle arrow indicator */
+    .has-submenu::after {
+      content: '▼';
+      float: right;
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+    .open::after {
+      content: '▲'; /* Flip arrow when open */
+    }
+
+    /* Example content section */
+    .content-section {
+      text-align: left;
+      margin-top: 30px;
+    }
+    .content-section h2 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+    }
+    .content-section p {
+      color: #555;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Dayner - A World of Kingdoms</h1>
-        <img src="map.png" alt="Map of Dayner">
-        
-        <div class="section">
-            <h2>1. Overview of Dayner</h2>
-            <p>The continent of Dayner stretches approximately 1,040 miles from the northernmost island of Kluimont down to the southern shores of Islefield, with an east-to-west span of around 800 miles.</p>
-        </div>
-        
-        <div class="section">
-            <h2>2. Political Divisions</h2>
-            <p>Dayner is divided into three large kingdoms and an independent volcanic isle:</p>
-            <ul>
-                <li><strong>Braewood Kingdom</strong> - The largest and most politically dominant realm.</li>
-                <li><strong>Islefield Kingdom</strong> - A southern kingdom known for its maritime trade and elven influence.</li>
-                <li><strong>Kluimont Kingdom</strong> - A secluded island kingdom with deep magical roots.</li>
-                <li><strong>Lavalto Isle</strong> - A fiercely independent volcanic island, home to secretive rulers.</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>3. Population & Culture</h2>
-            <p>The estimated population of Dayner is between 2 to 2.5 million, with diverse racial and cultural distributions across the kingdoms.</p>
-        </div>
-        
-        <div class="section">
-            <h2>4. Notable Regions</h2>
-            <ul>
-                <li><strong>Braewood</strong> - The seat of power, home to a vast human population with scattered dwarven strongholds.</li>
-                <li><strong>Islefield</strong> - Dominated by elven aristocracy, renowned for its rich farmlands and skilled sailors.</li>
-                <li><strong>Kluimont</strong> - A kingdom of secrets, magic, and rumored ties to an ancient dragon.</li>
-                <li><strong>Lavalto</strong> - Ruled by an enigmatic vampiric elite, shrouded in dark legends and dangerous secrets.</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>5. Key Conflicts & Tensions</h2>
-            <p>From historical battles to modern-day political maneuvering, Dayner is a land rife with tensions:</p>
-            <ul>
-                <li>Braewood's military strength contrasts with Kluimont’s arcane advancements.</li>
-                <li>Elven rule in Islefield maintains delicate peace with human factions.</li>
-                <li>Lavalto's dark rulers hold unknown power over trade and politics.</li>
-            </ul>
-        </div>
-    </div>
+  <div class="container">
+    <h1>Dayner - A World of Kingdoms</h1>
+    <img src="map.jpg" alt="Map of Dayner" />
+
+    <p class="intro">
+      Welcome to Dayner, a realm of vast kingdoms, hidden powers, and endless adventures. 
+      Explore the lore and uncover epic stories that span centuries.
+    </p>
+
+    <!-- Navigation with nested lists (toggled on click via JS) -->
+    <nav>
+      <ul id="menu">
+        <li class="has-submenu">Character Lore
+          <ul>
+            <li>Beasts and Creatures</li>
+            <li>Historic Characters</li>
+            <li>Modern Characters</li>
+            <li>Player Characters</li>
+          </ul>
+        </li>
+        <li>General 5e Lore</li>
+        <li class="has-submenu">General Lore of Dayner
+          <ul>
+            <li class="has-submenu">History
+              <ul>
+                <li>Ancient History</li>
+                <li>Historic Battles</li>
+                <li>Modern History</li>
+              </ul>
+            </li>
+            <li class="has-submenu">Politics
+              <ul>
+                <li>Factions and Orgs</li>
+                <li>Power and Disputes</li>
+                <li>Race</li>
+              </ul>
+            </li>
+            <li>Geography and Climate</li>
+            <li>Population</li>
+            <li>Wealth Distribution</li>
+          </ul>
+        </li>
+        <li class="has-submenu">Kingdoms
+          <ul>
+            <li>Braewood</li>
+            <li>Islefield</li>
+            <li>Kluimont</li>
+            <li>Lavalto</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+
+
+  <script>
+    // JavaScript to handle toggling submenus on click
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuItems = document.querySelectorAll('#menu > li.has-submenu');
+
+      menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          // Prevent click from affecting other elements higher up
+          e.stopPropagation();
+
+          // Toggle 'open' class for arrow flipping
+          this.classList.toggle('open');
+
+          // Find the submenu (ul) inside the clicked li
+          const submenu = this.querySelector('ul');
+          if (submenu) {
+            // Toggle display
+            if (submenu.style.display === 'block') {
+              submenu.style.display = 'none';
+            } else {
+              submenu.style.display = 'block';
+            }
+          }
+        });
+      });
+
+      // Prevent submenus from closing if user clicks directly on a child item
+      const allSubItems = document.querySelectorAll('#menu li ul li');
+      allSubItems.forEach(subItem => {
+        subItem.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
+
