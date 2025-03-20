@@ -112,62 +112,81 @@
         <!-- Character Lore -->
         <li class="has-submenu">Character Lore
           <ul>
-            <li data-file="beasts_and_creatures.md">Beasts and Creatures</li>
-            <li data-file="historic_characters.md">Historic Characters</li>
-            <li data-file="modern_characters.md">Modern Characters</li>
-            <li data-file="player_characters.md">Player Characters</li>
+            <li class="has-submenu">Historic Characters
+              <ul>
+                <!-- Using the provided path for one character as a placeholder -->
+                <li data-file="Lore\DND\Character Lore\Historic Characters\General Arach Tharne.md">General Arach Tharne</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\General Yon Garathorn.md">General Yon Garathorn</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Grand Inquisitor Pellaro.md">Grand Inquisitor Pellaro</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\High Thane Broldir Flameforged.md">High Thane Broldir Flameforged</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Imperial Warmaster Dravarian.md">Imperial Warmaster Dravarian</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Legate Sienna Valtoris.md">Legate Sienna Valtoris</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Pirate Queen Aris “Steel-Eye”.md">Pirate Queen Aris “Steel-Eye</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Princess Araleth Oakheath.md">Princess Araleth Oakheath</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Sea Lord Helmar Lynth.md">Sea Lord Helmar Lynth</li>
+              </ul>
+            </li>
+            <li class="has-submenu">Beasts and Creatures
+              <ul>
+                <li data-file="Placeholder.md">[Add Placeholder]</li>
+              </ul>
+            </li>
+            <li class="has-submenu">Modern Characters
+              <ul>
+                <li data-file="Placeholder.md">[Add Placeholder]</li>
+              </ul>
+            </li>
+            <li class="has-submenu">Player Characters
+              <ul>
+                <li data-file="Placeholder.md">[Add Placeholder]</li>
+              </ul>
+            </li>
           </ul>
         </li>
-        <!-- General 5e Lore -->
-        <li data-file="general_5e_lore.md">General 5e Lore</li>
+        <!-- General 5e Lore (Placeholder Path) -->
+        <li data-file="General5eLore.md">General 5e Lore</li>
         <!-- General Lore of Dayner -->
         <li class="has-submenu">General Lore of Dayner
           <ul>
             <li class="has-submenu">History
               <ul>
-                <li data-file="ancient_history.md">Ancient History</li>
-                <li data-file="historic_battles.md">Historic Battles</li>
-                <li data-file="modern_history.md">Modern History</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Ancient History.md">Ancient History</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Historic Battles.md">Historic Battles</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Recent History.md">Modern History</li>
               </ul>
             </li>
             <li class="has-submenu">Politics
               <ul>
-                <li data-file="factions_and_orgs.md">Factions and Orgs</li>
-                <li data-file="power_and_disputes.md">Power and Disputes</li>
-                <li data-file="race.md">Race</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Factions and Orgs.md">Factions and Orgs</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Power and Disputes.md">Power and Disputes</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Race.md">Race</li>
               </ul>
             </li>
-            <li data-file="geography_and_climate.md">Geography and Climate</li>
-            <li data-file="population.md">Population</li>
-            <li data-file="wealth_distribution.md">Wealth Distribution</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Geography and Climate.md">Geography and Climate</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Population.md">Population</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Wealth Distribution.md">Wealth Distribution</li>
           </ul>
         </li>
         <!-- Kingdoms -->
         <li class="has-submenu">Kingdoms
           <ul>
-            <li data-file="braewood.md">Braewood</li>
-            <li data-file="islefield.md">Islefield</li>
-            <li data-file="kluimont.md">Kluimont</li>
-            <li data-file="lavalto.md">Lavalto</li>
+            <li data-file="Lore\DND\Kingdoms\Braewood\Braewood.md">Braewood</li>
+            <li data-file="Lore\DND\Kingdoms\Islefield\Islefield.md">Islefield</li>
+            <li data-file="Lore\DND\Kingdoms\Kluimont\Kluimont.md">Kluimont</li>
+            <li data-file="Lore\DND\Kingdoms\Lavalto\Lavalto.md">Lavalto</li>
           </ul>
         </li>
       </ul>
     </div>
 
-<<<<<<< HEAD
     <!-- Content Display Area -->
     <div class="content" id="content">
       <h1>Welcome to Dayner</h1>
       <img src="map.jpg" alt="Map of Dayner" />
-      <p>
-        Select a topic from the menu on the left to view the lore. The content below will update with information loaded from Markdown files.
-      </p>
+      <p>Select a topic from the menu on the left to load the corresponding lore.</p>
     </div>
   </div>
 
-=======
-<!-- Test for push -->
->>>>>>> 4063bb2433e90289577ce2d4a248fd01bfe40408
   <script>
     // Toggle submenu visibility on click
     document.addEventListener('DOMContentLoaded', function() {
@@ -179,19 +198,20 @@
           this.classList.toggle('open');
           const submenu = this.querySelector(':scope > ul');
           if (submenu) {
-            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
           }
         });
       });
       
-      // Attach event listeners to all <li> items that have a data-file attribute
+      // Attach event listeners to all <li> elements with a data-file attribute
       const fileItems = document.querySelectorAll('.sidebar [data-file]');
       fileItems.forEach(item => {
         item.addEventListener('click', function(e) {
           e.stopPropagation();
-          // Remove active class from other items (optional)
+          // Optionally remove 'active' class from other items and add to this one
           fileItems.forEach(i => i.classList.remove('active'));
           this.classList.add('active');
+          
           // Fetch and display the markdown file in the content area
           const file = this.getAttribute('data-file');
           loadMarkdown(file);
@@ -209,7 +229,7 @@
           })
           .then(mdText => {
             // Convert markdown to HTML using marked.js
-            const html = marked(mdText);
+            const html = marked.parse(mdText);
             document.getElementById('content').innerHTML = html;
           })
           .catch(error => {
