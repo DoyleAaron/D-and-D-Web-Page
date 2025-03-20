@@ -4,96 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dayner - A World of Kingdoms</title>
+  <!-- Include marked.js from CDN for Markdown conversion -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
-    /* Basic body and container styling */
+    /* Global Styles */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background: #f4f4f4;
-      text-align: center;
     }
     .container {
-      width: 80%;
+      display: flex;
+      width: 90%;
       margin: 40px auto;
       background: #fff;
-      padding: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 80vh;
     }
-    
-    /* Title and intro */
-    h1 {
-      margin-bottom: 10px;
-      color: #333;
+    /* Sidebar (Navigation) */
+    .sidebar {
+      width: 300px;
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      box-sizing: border-box;
     }
-    p.intro {
-      margin: 0 0 20px 0;
-      color: #555;
+    .sidebar h2 {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
     }
-    
-    /* Map Image */
-    img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border: 2px solid #333;
-      margin-bottom: 20px;
-    }
-    
-    /* Navigation styles */
-    nav {
-      margin-bottom: 20px;
-    }
-    nav ul {
+    .sidebar ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
-      display: inline-block; /* Center the menu block */
-      text-align: left;
-      background: #333;
-      border-radius: 5px;
-      overflow: hidden;
     }
-    /* Top-level menu items */
-    nav ul li {
-      position: relative;
+    .sidebar ul li {
       padding: 10px 15px;
-      color: #fff;
       cursor: pointer;
+      border-bottom: 1px solid #444;
+      position: relative;
       user-select: none;
-      border-bottom: 1px solid #444; /* subtle divider */
     }
-    nav ul li:hover {
+    .sidebar ul li:hover {
       background: #444;
     }
-    nav ul li:last-child {
-      border-bottom: none; /* remove bottom border on last item */
+    .sidebar ul li:last-child {
+      border-bottom: none;
     }
-    
-    /* Submenu (dropdown) styling */
-    nav ul li ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 5px 0 0 0;
-      background: #444;
-      display: none; /* Hidden by default */
-      border-left: 2px solid #555;
-    }
-    nav ul li ul li {
-      border-bottom: 1px solid #555;
-    }
-    nav ul li ul li:hover {
-      background: #555;
-    }
-    
-    /* Submenu items text style */
-    nav ul li ul li {
-      padding: 8px 15px;
-      color: #eee;
-      cursor: pointer;
-    }
-    
-    /* Toggle arrow indicator */
+    /* Arrow indicator for items with submenu */
     .has-submenu::after {
       content: '▼';
       float: right;
@@ -101,114 +63,155 @@
       margin-top: 4px;
     }
     .open::after {
-      content: '▲'; /* Flip arrow when open */
+      content: '▲';
     }
-
-    /* Example content section */
-    .content-section {
-      text-align: left;
-      margin-top: 30px;
+    /* Nested Submenus */
+    .sidebar ul li ul {
+      list-style-type: none;
+      padding-left: 15px;
+      display: none;
+      background: #444;
     }
-    .content-section h2 {
-      color: #333;
+    .sidebar ul li ul li {
+      padding: 8px 15px;
+      border-bottom: 1px solid #555;
+    }
+    .sidebar ul li ul li:hover {
+      background: #555;
+    }
+    
+    /* Content Area */
+    .content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .content h1 {
+      font-size: 1.8em;
+      margin-top: 0;
       border-bottom: 2px solid #333;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
     }
-    .content-section p {
-      color: #555;
-      line-height: 1.6;
+    /* Map image at top of content area */
+    .content img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border: 2px solid #333;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Dayner - A World of Kingdoms</h1>
-    <img src="map.jpg" alt="Map of Dayner" />
-
-    <p class="intro">
-      Welcome to Dayner, a realm of vast kingdoms, hidden powers, and endless adventures. 
-      Explore the lore and uncover epic stories that span centuries.
-    </p>
-
-    <!-- Navigation with nested lists (toggled on click via JS) -->
-    <nav>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+      <h2>Navigation</h2>
       <ul id="menu">
+        <!-- Character Lore -->
         <li class="has-submenu">Character Lore
           <ul>
-            <li>Beasts and Creatures</li>
-            <li>Historic Characters</li>
-            <li>Modern Characters</li>
-            <li>Player Characters</li>
+            <li data-file="beasts_and_creatures.md">Beasts and Creatures</li>
+            <li data-file="historic_characters.md">Historic Characters</li>
+            <li data-file="modern_characters.md">Modern Characters</li>
+            <li data-file="player_characters.md">Player Characters</li>
           </ul>
         </li>
-        <li>General 5e Lore</li>
+        <!-- General 5e Lore -->
+        <li data-file="general_5e_lore.md">General 5e Lore</li>
+        <!-- General Lore of Dayner -->
         <li class="has-submenu">General Lore of Dayner
           <ul>
             <li class="has-submenu">History
               <ul>
-                <li>Ancient History</li>
-                <li>Historic Battles</li>
-                <li>Modern History</li>
+                <li data-file="ancient_history.md">Ancient History</li>
+                <li data-file="historic_battles.md">Historic Battles</li>
+                <li data-file="modern_history.md">Modern History</li>
               </ul>
             </li>
             <li class="has-submenu">Politics
               <ul>
-                <li>Factions and Orgs</li>
-                <li>Power and Disputes</li>
-                <li>Race</li>
+                <li data-file="factions_and_orgs.md">Factions and Orgs</li>
+                <li data-file="power_and_disputes.md">Power and Disputes</li>
+                <li data-file="race.md">Race</li>
               </ul>
             </li>
-            <li>Geography and Climate</li>
-            <li>Population</li>
-            <li>Wealth Distribution</li>
+            <li data-file="geography_and_climate.md">Geography and Climate</li>
+            <li data-file="population.md">Population</li>
+            <li data-file="wealth_distribution.md">Wealth Distribution</li>
           </ul>
         </li>
+        <!-- Kingdoms -->
         <li class="has-submenu">Kingdoms
           <ul>
-            <li>Braewood</li>
-            <li>Islefield</li>
-            <li>Kluimont</li>
-            <li>Lavalto</li>
+            <li data-file="braewood.md">Braewood</li>
+            <li data-file="islefield.md">Islefield</li>
+            <li data-file="kluimont.md">Kluimont</li>
+            <li data-file="lavalto.md">Lavalto</li>
           </ul>
         </li>
       </ul>
-    </nav>
+    </div>
 
-
+    <!-- Content Display Area -->
+    <div class="content" id="content">
+      <h1>Welcome to Dayner</h1>
+      <img src="map.jpg" alt="Map of Dayner" />
+      <p>
+        Select a topic from the menu on the left to view the lore. The content below will update with information loaded from Markdown files.
+      </p>
+    </div>
+  </div>
 
   <script>
-    // JavaScript to handle toggling submenus on click
+    // Toggle submenu visibility on click
     document.addEventListener('DOMContentLoaded', function() {
-      const menuItems = document.querySelectorAll('#menu > li.has-submenu');
-
+      const menuItems = document.querySelectorAll('.sidebar .has-submenu');
+      
       menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
-          // Prevent click from affecting other elements higher up
           e.stopPropagation();
-
-          // Toggle 'open' class for arrow flipping
           this.classList.toggle('open');
-
-          // Find the submenu (ul) inside the clicked li
-          const submenu = this.querySelector('ul');
+          const submenu = this.querySelector(':scope > ul');
           if (submenu) {
-            // Toggle display
-            if (submenu.style.display === 'block') {
-              submenu.style.display = 'none';
-            } else {
-              submenu.style.display = 'block';
-            }
+            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
           }
         });
       });
-
-      // Prevent submenus from closing if user clicks directly on a child item
-      const allSubItems = document.querySelectorAll('#menu li ul li');
-      allSubItems.forEach(subItem => {
-        subItem.addEventListener('click', function(e) {
+      
+      // Attach event listeners to all <li> items that have a data-file attribute
+      const fileItems = document.querySelectorAll('.sidebar [data-file]');
+      fileItems.forEach(item => {
+        item.addEventListener('click', function(e) {
           e.stopPropagation();
+          // Remove active class from other items (optional)
+          fileItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          // Fetch and display the markdown file in the content area
+          const file = this.getAttribute('data-file');
+          loadMarkdown(file);
         });
       });
+      
+      // Function to load markdown and display it in the content area
+      function loadMarkdown(file) {
+        fetch(file)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.text();
+          })
+          .then(mdText => {
+            // Convert markdown to HTML using marked.js
+            const html = marked(mdText);
+            document.getElementById('content').innerHTML = html;
+          })
+          .catch(error => {
+            document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
+          });
+      }
     });
   </script>
 </body>
