@@ -9,7 +9,7 @@
   <!-- Include Font Awesome for icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   <style>
-
+    /* Global Styles with updated color scheme and typography */
     :root {
       --primary-color: #2C3E50;
       --secondary-color: #3498DB;
@@ -29,7 +29,6 @@
       transition: all 0.3s ease;
     }
 
-
     body {
       margin: 0;
       padding: 0;
@@ -37,6 +36,7 @@
       background: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
+      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
     }
 
     .container {
@@ -58,6 +58,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      height: 60px; /* Fixed height for consistency */
     }
 
     .header-title {
@@ -65,6 +66,9 @@
       font-weight: bold;
       display: flex;
       align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .header-title i {
@@ -128,6 +132,7 @@
       height: 100vh;
       position: sticky;
       top: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .sidebar-header {
@@ -380,7 +385,7 @@
       padding: 2px 0;
     }
 
-    /* Responsive styling */
+    /* Responsive styling - Enhanced */
     @media (max-width: 992px) {
       .container {
         flex-direction: column;
@@ -388,13 +393,15 @@
       
       .sidebar {
         width: 100%;
-        height: auto;
+        height: 100%;
         position: fixed;
         top: 60px;
         left: 0;
         transform: translateX(-100%);
         z-index: 99;
         box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
       }
       
       .sidebar.open {
@@ -403,6 +410,7 @@
       
       .content-wrapper {
         margin-left: 0;
+        width: 100%;
       }
       
       .mobile-menu-toggle {
@@ -412,24 +420,131 @@
       .search-container {
         max-width: 50%;
       }
-    }
-
-    @media (max-width: 600px) {
-      .search-container {
-        max-width: 70%;
+      
+      .header {
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        top: 0;
       }
       
-      .header-title span {
-        display: none;
+      .content-wrapper {
+        margin-top: 60px;
+        padding-top: 10px;
+      }
+      
+      .map-container {
+        margin-top: 0;
+      }
+    }
+    
+    /* For medium-sized devices */
+    @media (max-width: 768px) {
+      .search-container {
+        max-width: 60%;
+      }
+      
+      .breadcrumb {
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+      
+      .content {
+        padding: 15px;
       }
       
       .info-grid {
         grid-template-columns: 1fr;
       }
       
+      .content h1 {
+        font-size: 1.8em;
+      }
+      
+      .map-overlay h3 {
+        font-size: 1.2em;
+      }
+      
+      .map-overlay p {
+        font-size: 0.9em;
+      }
+    }
+
+    /* For small devices */
+    @media (max-width: 600px) {
+      .search-container {
+        max-width: 65%;
+      }
+      
+      .header-title span {
+        display: none;
+      }
+      
       .character-profile {
         flex-direction: column;
         align-items: center;
+        text-align: center;
+      }
+      
+      .character-avatar {
+        margin-bottom: 15px;
+      }
+      
+      .content h1 {
+        font-size: 1.6em;
+      }
+      
+      .content h2 {
+        font-size: 1.4em;
+      }
+      
+      .content p, .content li {
+        font-size: 0.95em;
+      }
+      
+      .result-item {
+        padding: 10px 15px;
+      }
+      
+      .footer {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      
+      .breadcrumb-item {
+        font-size: 0.9em;
+      }
+    }
+    
+    /* For extra small devices */
+    @media (max-width: 400px) {
+      .search-container {
+        max-width: 60%;
+      }
+      
+      .header {
+        padding: 10px;
+      }
+      
+      .search-input {
+        padding: 8px 8px 8px 30px;
+        font-size: 0.9em;
+      }
+      
+      .search-icon {
+        left: 10px;
+      }
+      
+      .content {
+        padding: 10px;
+      }
+      
+      .theme-toggle {
+        font-size: 1rem;
+      }
+      
+      .mobile-menu-toggle {
+        font-size: 1.2rem;
       }
     }
 
@@ -929,7 +1044,24 @@
       
       // Function to update breadcrumb navigation
       function updateBreadcrumb(element) {
-        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></div>';
+        // Clear existing breadcrumb and start with Home
+        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>';
+        
+        // Add home link click event
+        setTimeout(() => {
+          const homeLink = document.getElementById('home-link');
+          if (homeLink) {
+            homeLink.addEventListener('click', function(e) {
+              e.preventDefault();
+              showHomePage();
+            });
+          }
+        }, 0);
+        
+        // If no element (for home page), just show Home breadcrumb
+        if (!element) {
+          return;
+        }
         
         // Build array of parent menu items
         const breadcrumbItems = [];
@@ -945,18 +1077,30 @@
           finalItemText = current.textContent.trim();
         }
         
+        // Clean up text (remove icons, etc.)
+        finalItemText = finalItemText.replace(/^[\s\uFEFF\xA0\u200B]+|[\s\uFEFF\xA0\u200B]+$/g, ''); // Remove Unicode spaces
+        
         breadcrumbItems.unshift(finalItemText);
         
         // Get parent items
+        let validParentCount = 0;
         while (current.parentElement && current.parentElement.classList) {
           current = current.parentElement;
           
           if (current.classList.contains('has-submenu')) {
             // Get the text directly owned by this element, not including children
-            let itemText = current.childNodes[0].textContent.trim();
-            // Remove the arrow indicator
-            itemText = itemText.replace(/▼|▲/, '').trim();
-            breadcrumbItems.unshift(itemText);
+            const originalText = current.childNodes[0].textContent.trim();
+            // Remove icons and indicators
+            let itemText = originalText.replace(/[\u25B2\u25BC]|▼|▲/, '').trim(); // Remove arrow indicators
+            
+            // Clean text further to remove icon characters
+            itemText = itemText.replace(/^[\s\uFEFF\xA0\u200B]+|[\s\uFEFF\xA0\u200B]+$/g, '');
+            
+            // Only add if it's a meaningful text (not just spaces or icons)
+            if (itemText && itemText.length > 0) {
+              breadcrumbItems.unshift(itemText);
+              validParentCount++;
+            }
           }
           
           // Stop at the main menu
@@ -965,14 +1109,19 @@
           }
         }
         
-        // Add breadcrumb items
-        breadcrumbItems.forEach((item, index) => {
-          if (index === breadcrumbItems.length - 1) {
-            breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${item}</div>`;
-          } else {
-            breadcrumbNav.innerHTML += `<div class="breadcrumb-item"><a href="#">${item}</a></div>`;
-          }
-        });
+        // Add breadcrumb items - only add if we have valid parents
+        if (validParentCount > 0) {
+          breadcrumbItems.forEach((item, index) => {
+            if (index === breadcrumbItems.length - 1) {
+              breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${item}</div>`;
+            } else {
+              breadcrumbNav.innerHTML += `<div class="breadcrumb-item"><a href="#">${item}</a></div>`;
+            }
+          });
+        } else {
+          // If no valid parents, just add the final item directly
+          breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${finalItemText}</div>`;
+        }
       }
       
       // Function to load content
@@ -1046,11 +1195,23 @@
       
       // Template generators for different content types
       function createCharacterTemplate(name, content) {
+        // Check if this is a player character (they have different image handling)
+        const isPlayerCharacter = name.includes('(');
+        let imageName = '';
+        
+        if (isPlayerCharacter) {
+          // For player characters, just use the first part of the name (e.g., "Blorf" from "Blorf of Clan Beren(Kirk)")
+          imageName = name.split(' ')[0];
+        } else {
+          // For other characters, transform the full name
+          imageName = name.toLowerCase().replace(/\s+/g, '').replace(/['"]/g, '');
+        }
+        
         return `
           <div class="content-card">
             <h1>${name}</h1>
             <div class="character-profile">
-              <img src="${name.toLowerCase().replace(/\s+/g, '')}.jpg" alt="${name}" class="character-avatar" onerror="this.src='profile-placeholder.jpg'">
+              <img src="${imageName}.jpg" alt="${name}" class="character-avatar" onerror="this.src='profile-placeholder.jpg'">
               <div class="character-info">
                 ${content}
               </div>
@@ -1083,6 +1244,62 @@
         `;
       }
       
+      // Function to show home page
+      function showHomePage() {
+        // Clear active menu items
+        fileItems.forEach(i => i.classList.remove('active'));
+        
+        // Update breadcrumb
+        breadcrumbNav.innerHTML = '<div class="breadcrumb-item active"><i class="fas fa-home"></i> Home</div>';
+        
+        // Show default home content
+        contentArea.innerHTML = `
+          <div class="map-container">
+            <img src="map.jpg" alt="Map of Dayner" class="map-image" />
+            <div class="map-overlay">
+              <h3>The World of Dayner</h3>
+              <p>A realm of ancient kingdoms, epic battles, and untold adventures waiting to be discovered.</p>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h1>Welcome to Dayner</h1>
+            <p>Welcome to the comprehensive lore compendium of Dayner, a vast and intricate world filled with rich history, diverse kingdoms, and legendary characters.</p>
+            
+            <h2>Getting Started</h2>
+            <p>Navigate through the various categories using the sidebar on the left. You can explore:</p>
+            <ul>
+              <li><strong>Character Lore</strong> - Learn about historic figures, legendary beasts, and your fellow adventurers</li>
+              <li><strong>General 5e Lore</strong> - Understand how the D&D 5e ruleset applies to this world</li>
+              <li><strong>General Lore of Dayner</strong> - Discover the history, politics, geography, and population of this realm</li>
+              <li><strong>Kingdoms</strong> - Explore the unique realms that make up this world</li>
+            </ul>
+            
+            <h2>Quick Search</h2>
+            <p>Use the search bar at the top to quickly find specific lore entries. The search function will scan all available content and present the most relevant results.</p>
+            
+            <h2>Recent Updates</h2>
+            <div class="info-grid">
+              <div class="info-item">
+                <h4>Historic Characters</h4>
+                <p>Added detailed profiles for 9 significant historical figures including General Arach Tharne and Pirate Queen Aris "Steel-Eye".</p>
+              </div>
+              <div class="info-item">
+                <h4>Kingdoms</h4>
+                <p>Updated information on the four major kingdoms: Braewood, Islefield, Kluimont, and Lavalto.</p>
+              </div>
+              <div class="info-item">
+                <h4>Player Characters</h4>
+                <p>Added profile for Blorf of Clan Beren, played by Dylan Kirk.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Hide search results
+        searchResults.style.display = 'none';
+      }
+      
       // Initialize sidebar state - expand items with active children
       function initializeSidebar() {
         const expandActiveParents = () => {
@@ -1103,29 +1320,82 @@
         }
         
         expandActiveParents();
+        
+        // Add event listener to header title for home
+        const headerTitle = document.querySelector('.header-title');
+        headerTitle.addEventListener('click', function() {
+          showHomePage();
+        });
+        headerTitle.style.cursor = 'pointer';
       }
       
       initializeSidebar();
       
-      // Handle keyboard shortcuts
-      document.addEventListener('keydown', function(e) {
-        // Press / to focus search
-        if (e.key === '/' && document.activeElement !== searchInput) {
-          e.preventDefault();
-          searchInput.focus();
-        }
+      // Mobile specific handlers
+      function setupMobileHandlers() {
+        // Close the sidebar when clicking on a menu item on mobile
+        fileItems.forEach(item => {
+          item.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+              sidebar.classList.remove('open');
+            }
+          });
+        });
         
-        // Press Escape to clear search and hide results
-        if (e.key === 'Escape') {
-          searchInput.value = '';
-          searchResults.style.display = 'none';
+        // Handle swipe gestures on mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', e => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        document.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+          const swipeThreshold = 70; // Minimum distance for swipe
           
-          // If sidebar is open on mobile, close it
-          if (window.innerWidth <= 992 && sidebar.classList.contains('open')) {
+          // Right swipe (open sidebar)
+          if (touchEndX - touchStartX > swipeThreshold && touchStartX < 50) {
+            sidebar.classList.add('open');
+          }
+          
+          // Left swipe (close sidebar)
+          if (touchStartX - touchEndX > swipeThreshold && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
           }
         }
-      });
+        
+        // Fix for iOS Safari 100vh issue
+        function fixIOSHeight() {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+          
+          // Adjust sidebar height
+          sidebar.style.maxHeight = `calc(var(--vh, 1vh) * 100 - 60px)`;
+        }
+        
+        // Run on resize and initial load
+        window.addEventListener('resize', fixIOSHeight);
+        fixIOSHeight();
+        
+        // Improve tap target sizes on mobile
+        if ('ontouchstart' in window || navigator.maxTouchPoints) {
+          document.querySelectorAll('.sidebar ul li').forEach(item => {
+            item.style.padding = '14px 20px'; // Larger tap targets
+          });
+          
+          document.querySelectorAll('.breadcrumb-item a').forEach(item => {
+            item.style.padding = '5px'; // Larger tap targets
+          });
+        }
+      }
+      
+      // Call mobile handlers setup
+      setupMobileHandlers();
       
       // Prevent submenu clicks from loading the parent item
       const submenus = document.querySelectorAll('.sidebar ul');
