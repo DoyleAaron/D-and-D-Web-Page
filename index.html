@@ -6,209 +6,735 @@
   <title>Dayner - A World of Kingdoms</title>
   <!-- Include marked.js from CDN for Markdown conversion -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Include Font Awesome for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   <style>
-    /* Global Stylesss */
+    /* Global Styles with updated color scheme and typography */
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #3498DB;
+      --accent-color: #E74C3C;
+      --background-color: #ECF0F1;
+      --text-color: #333;
+      --sidebar-bg: #2C3E50;
+      --sidebar-text: #ECF0F1;
+      --sidebar-hover: #34495E;
+      --sidebar-active: #1ABC9C;
+      --card-bg: #fff;
+      --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
+
     .container {
       display: flex;
-      width: 90%;
-      margin: 40px auto;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      min-height: 80vh;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
     }
+
+    /* Header Bar */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: var(--primary-color);
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-title i {
+      margin-right: 10px;
+    }
+
+    .search-container {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 15px;
+      padding-left: 40px;
+      border-radius: 20px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
     /* Sidebar (Navigation) */
     .sidebar {
       width: 300px;
-      background: #333;
-      color: #fff;
-      padding: 10px;
-      box-sizing: border-box;
+      background: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+      height: 100vh;
+      position: sticky;
+      top: 0;
     }
-    .sidebar h2 {
+
+    .sidebar-header {
+      padding: 20px 15px;
       text-align: center;
-      margin-top: 0;
-      font-size: 1.2em;
-      border-bottom: 1px solid #444;
-      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
+
+    .sidebar-header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
     .sidebar ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
+
     .sidebar ul li {
-      padding: 10px 15px;
+      padding: 12px 20px;
       cursor: pointer;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       position: relative;
       user-select: none;
     }
+
     .sidebar ul li:hover {
-      background: #444;
+      background: var(--sidebar-hover);
     }
-    .sidebar ul li:last-child {
-      border-bottom: none;
+
+    .sidebar ul li.active {
+      background: var(--sidebar-active);
+      color: white;
     }
+
     /* Arrow indicator for items with submenu */
     .has-submenu::after {
-      content: '▼';
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
       float: right;
-      font-size: 0.8em;
-      margin-top: 4px;
+      margin-top: 2px;
     }
+
     .open::after {
-      content: '▲';
+      content: '\f106';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
     }
+
     /* Nested Submenus */
     .sidebar ul li ul {
-      list-style-type: none;
       padding-left: 15px;
       display: none;
-      background: #444;
+      background: rgba(0,0,0,0.1);
     }
+
     .sidebar ul li ul li {
-      padding: 8px 15px;
-      border-bottom: 1px solid #555;
+      padding: 10px 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .sidebar ul li ul li:hover {
-      background: #555;
+
+    /* Breadcrumb navigation */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background: white;
+      border-radius: 4px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      margin: 0 10px;
+      color: #6c757d;
+    }
+
+    .breadcrumb-item a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+      color: var(--text-color);
     }
     
     /* Content Area */
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
     .content {
       flex: 1;
       padding: 20px;
       overflow-y: auto;
-      box-sizing: border-box;
-    }
-    .content h1 {
-      font-size: 1.8em;
-      margin-top: 0;
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
-    }
-    /* Map image at top of content area */
-    .content img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border: 2px solid #333;
-      margin-bottom: 20px;
+      background: var(--background-color);
     }
 
-    .pfp {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: block;
-      margin: 10px auto;
-      object-fit: cover;
+    .content h1 {
+      font-size: 2.2em;
+      margin-top: 0;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      color: var(--primary-color);
     }
-    
+
+    .content h2 {
+      font-size: 1.8em;
+      color: var(--secondary-color);
+      margin-top: 30px;
+    }
+
+    .content h3 {
+      font-size: 1.5em;
+      color: var(--secondary-color);
+    }
+
+    /* Map and content styling */
+    .map-container {
+      position: relative;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .map-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .map-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
+
+    .map-overlay h3 {
+      margin: 0 0 5px 0;
+      color: white;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* Character profile styling */
+    .character-profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .character-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+    }
+
+    .character-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .info-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .info-item h4 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    /* Search results styling */
+    .search-results {
+      display: none;
+      background: white;
+      border-radius: 4px;
+      margin-top: 20px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .search-results h2 {
+      padding: 15px 20px;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .result-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .result-item:hover {
+      background: #f5f5f5;
+    }
+
+    .result-item h3 {
+      margin: 0 0 5px 0;
+      color: var(--secondary-color);
+    }
+
+    .result-path {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .result-snippet {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      background-color: rgba(255, 222, 0, 0.3);
+      padding: 2px 0;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 992px) {
+      .container {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 99;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      }
+      
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .search-container {
+        max-width: 50%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .search-container {
+        max-width: 70%;
+      }
+      
+      .header-title span {
+        display: none;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .character-profile {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* PFP styling improved */
+    .pfp {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+      vertical-align: middle;
+    }
+
+    /* Loading indicator */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid var(--secondary-color);
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Dark theme */
+    body.dark-theme {
+      --background-color: #121212;
+      --text-color: #f1f1f1;
+      --card-bg: #1e1e1e;
+      --card-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    body.dark-theme .breadcrumb {
+      background: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    body.dark-theme .breadcrumb-item:not(:last-child)::after {
+      color: #aaa;
+    }
+
+    body.dark-theme .info-item {
+      background: #2a2a2a;
+    }
+
+    body.dark-theme .search-results {
+      background: #1e1e1e;
+    }
+
+    body.dark-theme .result-item {
+      border-bottom: 1px solid #333;
+    }
+
+    body.dark-theme .result-item:hover {
+      background: #2a2a2a;
+    }
   </style>
 </head>
 <body>
+  <!-- Header Bar with Search -->
+  <div class="header">
+    <button class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="header-title">
+      <i class="fas fa-dragon"></i>
+      <span>Dayner - A World of Kingdoms</span>
+    </div>
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search lore..." id="search-input">
+    </div>
+    <button class="theme-toggle" id="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
   <div class="container">
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
-      <h2>Navigation</h2>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Lore Navigation</h2>
+      </div>
       <ul id="menu">
         <!-- Character Lore -->
-        <li class="has-submenu">Character Lore
+        <li class="has-submenu"><i class="fas fa-users"></i> Character Lore
           <ul>
-            <li class="has-submenu">Historic Characters
+            <li class="has-submenu"><i class="fas fa-scroll"></i> Historic Characters
               <ul>
-                <!-- Using the provided path for one character as a placeholder -->
-                <li data-file="Lore\DND\Character Lore\Historic Characters\General Arach Tharne.md">General Arach Tharne</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\General Yon Garathorn.md">General Yon Garathorn</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Grand Inquisitor Pellaro.md">Grand Inquisitor Pellaro</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\High Thane Broldir Flameforged.md">High Thane Broldir Flameforged</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Imperial Warmaster Dravarian.md">Imperial Warmaster Dravarian</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Legate Sienna Valtoris.md">Legate Sienna Valtoris</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Pirate Queen Aris “Steel-Eye”.md">Pirate Queen Aris “Steel-Eye</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Princess Araleth Oakheath.md">Princess Araleth Oakheath</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Sea Lord Helmar Lynth.md">Sea Lord Helmar Lynth</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\General Arach Tharne.md"><i class="fas fa-user-shield"></i> General Arach Tharne</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\General Yon Garathorn.md"><i class="fas fa-user-shield"></i> General Yon Garathorn</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Grand Inquisitor Pellaro.md"><i class="fas fa-user-tie"></i> Grand Inquisitor Pellaro</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\High Thane Broldir Flameforged.md"><i class="fas fa-hammer"></i> High Thane Broldir Flameforged</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Imperial Warmaster Dravarian.md"><i class="fas fa-chess-king"></i> Imperial Warmaster Dravarian</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Legate Sienna Valtoris.md"><i class="fas fa-user-shield"></i> Legate Sienna Valtoris</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Pirate Queen Aris "Steel-Eye".md"><i class="fas fa-skull-crossbones"></i> Pirate Queen Aris "Steel-Eye"</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Princess Araleth Oakheath.md"><i class="fas fa-crown"></i> Princess Araleth Oakheath</li>
+                <li data-file="Lore\DND\Character Lore\Historic Characters\Sea Lord Helmar Lynth.md"><i class="fas fa-water"></i> Sea Lord Helmar Lynth</li>
               </ul>
             </li>
-            <li class="has-submenu">Beasts and Creatures
+            <li class="has-submenu"><i class="fas fa-dragon"></i> Beasts and Creatures
               <ul>
-                <li data-file="Placeholder.md">[Add Placeholder]</li>
+                <li data-file="Placeholder.md"><i class="fas fa-plus"></i> [Add Placeholder]</li>
               </ul>
             </li>
-            <li class="has-submenu">Modern Characters
+            <li class="has-submenu"><i class="fas fa-user-friends"></i> Modern Characters
               <ul>
-                <li data-file="Placeholder.md">[Add Placeholder]</li>
+                <li data-file="Placeholder.md"><i class="fas fa-plus"></i> [Add Placeholder]</li>
               </ul>
             </li>
-            <li class="has-submenu">Player Characters
+            <li class="has-submenu"><i class="fas fa-dice-d20"></i> Player Characters
               <ul>
                 <li data-file="Lore\DND\Character Lore\Player Characters\Blorf of Clan Beren(Kirk).md">
                   <img src="Blorf.jpg" alt="Blorf of Clan Beren" class="pfp" />
-                  <span>Blorf of Clan Beren(Dylan Kirk)</span>
+                  Blorf of Clan Beren (Dylan Kirk)
                 </li>
-                <!-- You can add more player characters here -->
               </ul>
             </li>
           </ul>
         </li>
-        <!-- General 5e Lore (Placeholder Path) -->
-        <li data-file="General5eLore.md">General 5e Lore</li>
+        <!-- General 5e Lore -->
+        <li data-file="General5eLore.md"><i class="fas fa-book"></i> General 5e Lore</li>
         <!-- General Lore of Dayner -->
-        <li class="has-submenu">General Lore of Dayner
+        <li class="has-submenu"><i class="fas fa-globe"></i> General Lore of Dayner
           <ul>
-            <li class="has-submenu">History
+            <li class="has-submenu"><i class="fas fa-landmark"></i> History
               <ul>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Ancient History.md">Ancient History</li>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Historic Battles.md">Historic Battles</li>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Recent History.md">Modern History</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Ancient History.md"><i class="fas fa-hourglass-start"></i> Ancient History</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Historic Battles.md"><i class="fas fa-chess"></i> Historic Battles</li>
+                <li data-file="Lore\DND\General Lore of Dayner\History\Recent History.md"><i class="fas fa-hourglass-end"></i> Modern History</li>
               </ul>
             </li>
-            <li class="has-submenu">Politics
+            <li class="has-submenu"><i class="fas fa-balance-scale"></i> Politics
               <ul>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Factions and Orgs.md">Factions and Orgs</li>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Power and Disputes.md">Power and Disputes</li>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Race.md">Race</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Factions and Orgs.md"><i class="fas fa-flag"></i> Factions and Orgs</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Power and Disputes.md"><i class="fas fa-gavel"></i> Power and Disputes</li>
+                <li data-file="Lore\DND\General Lore of Dayner\Politics\Race.md"><i class="fas fa-users"></i> Race</li>
               </ul>
             </li>
-            <li data-file="Lore\DND\General Lore of Dayner\Geography and Climate.md">Geography and Climate</li>
-            <li data-file="Lore\DND\General Lore of Dayner\Population.md">Population</li>
-            <li data-file="Lore\DND\General Lore of Dayner\Wealth Distribution.md">Wealth Distribution</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Geography and Climate.md"><i class="fas fa-mountain"></i> Geography and Climate</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Population.md"><i class="fas fa-user-friends"></i> Population</li>
+            <li data-file="Lore\DND\General Lore of Dayner\Wealth Distribution.md"><i class="fas fa-coins"></i> Wealth Distribution</li>
           </ul>
         </li>
         <!-- Kingdoms -->
-        <li class="has-submenu">Kingdoms
+        <li class="has-submenu"><i class="fas fa-chess-rook"></i> Kingdoms
           <ul>
-            <li data-file="Lore\DND\Kingdoms\Braewood\Braewood.md">Braewood</li>
-            <li data-file="Lore\DND\Kingdoms\Islefield\Islefield.md">Islefield</li>
-            <li data-file="Lore\DND\Kingdoms\Kluimont\Kluimont.md">Kluimont</li>
-            <li data-file="Lore\DND\Kingdoms\Lavalto\Lavalto.md">Lavalto</li>
+            <li data-file="Lore\DND\Kingdoms\Braewood\Braewood.md"><i class="fas fa-tree"></i> Braewood</li>
+            <li data-file="Lore\DND\Kingdoms\Islefield\Islefield.md"><i class="fas fa-island-tropical"></i> Islefield</li>
+            <li data-file="Lore\DND\Kingdoms\Kluimont\Kluimont.md"><i class="fas fa-mountain"></i> Kluimont</li>
+            <li data-file="Lore\DND\Kingdoms\Lavalto\Lavalto.md"><i class="fas fa-fire"></i> Lavalto</li>
           </ul>
         </li>
       </ul>
     </div>
 
-    <!-- Content Display Area -->
-    <div class="content" id="content">
-      <h1>Welcome to Dayner</h1>
-      <img src="map.jpg" alt="Map of Dayner" />
-      <p>Select a topic from the menu on the left to load the corresponding lore.</p>
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+      <!-- Breadcrumb navigation -->
+      <div class="breadcrumb" id="breadcrumb">
+        <div class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></div>
+        <div class="breadcrumb-item active">Welcome</div>
+      </div>
+
+      <!-- Search results area -->
+      <div class="search-results" id="search-results">
+        <h2>Search Results</h2>
+        <div class="results-list" id="results-list"></div>
+      </div>
+
+      <!-- Loading indicator -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading content...</p>
+      </div>
+
+      <!-- Content Display Area -->
+      <div class="content" id="content">
+        <div class="map-container">
+          <img src="map.jpg" alt="Map of Dayner" class="map-image" />
+          <div class="map-overlay">
+            <h3>The World of Dayner</h3>
+            <p>A realm of ancient kingdoms, epic battles, and untold adventures waiting to be discovered.</p>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h1>Welcome to Dayner</h1>
+          <p>Welcome to the comprehensive lore compendium of Dayner, a vast and intricate world filled with rich history, diverse kingdoms, and legendary characters.</p>
+          
+          <h2>Getting Started</h2>
+          <p>Navigate through the various categories using the sidebar on the left. You can explore:</p>
+          <ul>
+            <li><strong>Character Lore</strong> - Learn about historic figures, legendary beasts, and your fellow adventurers</li>
+            <li><strong>General 5e Lore</strong> - Understand how the D&D 5e ruleset applies to this world</li>
+            <li><strong>General Lore of Dayner</strong> - Discover the history, politics, geography, and population of this realm</li>
+            <li><strong>Kingdoms</strong> - Explore the unique realms that make up this world</li>
+          </ul>
+          
+          <h2>Quick Search</h2>
+          <p>Use the search bar at the top to quickly find specific lore entries. The search function will scan all available content and present the most relevant results.</p>
+          
+          <h2>Recent Updates</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <h4>Historic Characters</h4>
+              <p>Added detailed profiles for 9 significant historical figures including General Arach Tharne and Pirate Queen Aris "Steel-Eye".</p>
+            </div>
+            <div class="info-item">
+              <h4>Kingdoms</h4>
+              <p>Updated information on the four major kingdoms: Braewood, Islefield, Kluimont, and Lavalto.</p>
+            </div>
+            <div class="info-item">
+              <h4>Player Characters</h4>
+              <p>Added profile for Blorf of Clan Beren, played by Dylan Kirk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>Dayner - A World of Kingdoms &copy; 2025 | A D&D Lore Compendium</p>
+      </footer>
     </div>
   </div>
 
   <script>
-    // Toggle submenu visibility on click
     document.addEventListener('DOMContentLoaded', function() {
+      // DOM Elements
+      const sidebar = document.getElementById('sidebar');
       const menuItems = document.querySelectorAll('.sidebar .has-submenu');
+      const fileItems = document.querySelectorAll('.sidebar [data-file]');
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      const resultsList = document.getElementById('results-list');
+      const contentArea = document.getElementById('content');
+      const breadcrumbNav = document.getElementById('breadcrumb');
+      const loadingIndicator = document.getElementById('loading');
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const themeToggle = document.getElementById('theme-toggle');
       
+      // Theme Toggling
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        const icon = themeToggle.querySelector('i');
+        
+        if (document.body.classList.contains('dark-theme')) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+      
+      // Check for saved theme preference
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+        const icon = themeToggle.querySelector('i');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+      
+      // Mobile Menu Toggle
+      mobileMenuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+      });
+      
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 992 && 
+            !event.target.closest('.sidebar') && 
+            !event.target.closest('.mobile-menu-toggle') &&
+            sidebar.classList.contains('open')) {
+          sidebar.classList.remove('open');
+        }
+      });
+      
+      // Toggle submenu visibility on click
       menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
           e.stopPropagation();
+          
+          // If clicked directly on the submenu icon, toggle only this submenu
           this.classList.toggle('open');
           const submenu = this.querySelector(':scope > ul');
           if (submenu) {
@@ -217,42 +743,397 @@
         });
       });
       
-      // Attach event listeners to all <li> elements with a data-file attribute
-      const fileItems = document.querySelectorAll('.sidebar [data-file]');
+      // Handle file item clicks
       fileItems.forEach(item => {
         item.addEventListener('click', function(e) {
           e.stopPropagation();
-          // Optionally remove 'active' class from other items and add to this one
+          
+          // Remove active class from all items
           fileItems.forEach(i => i.classList.remove('active'));
+          
+          // Add active class to clicked item
           this.classList.add('active');
           
-          // Fetch and display the markdown file in the content area
+          // Hide search results
+          searchResults.style.display = 'none';
+          
+          // Update breadcrumb
+          updateBreadcrumb(this);
+          
+          // Fetch and display content
           const file = this.getAttribute('data-file');
-          loadMarkdown(file);
+          loadContent(file);
+          
+          // Close mobile sidebar after selection
+          if (window.innerWidth <= 992) {
+            sidebar.classList.remove('open');
+          }
         });
       });
       
-      // Function to load markdown and display it in the content area
-      function loadMarkdown(file) {
-        fetch(file)
+      // Search functionality
+      let loreData = [];
+      
+      // Function to fetch and index all content for search
+      function indexAllContent() {
+        fileItems.forEach(item => {
+          const file = item.getAttribute('data-file');
+          if (!file.includes('Placeholder')) {
+            fetchMarkdown(file)
+              .then(content => {
+                if (content) {
+                  loreData.push({
+                    title: item.textContent.trim(),
+                    path: file,
+                    content: content,
+                    element: item
+                  });
+                }
+              });
+          }
+        });
+      }
+      
+      // Call to index content when page loads
+      indexAllContent();
+      
+      // Search input handler
+      searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        
+        if (query.length < 2) {
+          searchResults.style.display = 'none';
+          return;
+        }
+        
+        // Search through indexed content
+        const results = loreData.filter(item => {
+          return item.title.toLowerCase().includes(query) || 
+                 item.content.toLowerCase().includes(query);
+        });
+        
+        // Display results
+        displaySearchResults(results, query);
+      });
+      
+      // Display search results
+      function displaySearchResults(results, query) {
+        resultsList.innerHTML = '';
+        
+        if (results.length === 0) {
+          resultsList.innerHTML = '<div class="result-item">No results found</div>';
+          searchResults.style.display = 'block';
+          return;
+        }
+        
+        results.forEach(result => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'result-item';
+          
+          // Create title with highlight
+          const title = result.title;
+          const highlightedTitle = highlightText(title, query);
+          
+          // Create content snippet with highlight
+          const contentSnippet = createSnippet(result.content, query);
+          
+          resultItem.innerHTML = `
+            <h3>${highlightedTitle}</h3>
+            <div class="result-path">${result.path}</div>
+            <div class="result-snippet">${contentSnippet}</div>
+          `;
+          
+          // Add click event to load the content
+          resultItem.addEventListener('click', function() {
+            // Load the content
+            loadContent(result.path);
+            
+            // Update breadcrumb
+            updateBreadcrumb(result.element);
+            
+            // Hide search results
+            searchResults.style.display = 'none';
+            
+            // Clear search input
+            searchInput.value = '';
+            
+            // Set active menu item
+            fileItems.forEach(i => i.classList.remove('active'));
+            result.element.classList.add('active');
+            
+            // Expand parent menus to show the active item
+            expandParentMenus(result.element);
+          });
+          
+          resultsList.appendChild(resultItem);
+        });
+        
+        searchResults.style.display = 'block';
+      }
+      
+      // Function to highlight text matches
+      function highlightText(text, query) {
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+      }
+      
+      // Function to create a snippet of content with the search term highlighted
+      function createSnippet(content, query) {
+        const lowerContent = content.toLowerCase();
+        const lowerQuery = query.toLowerCase();
+        
+        // Find position of the first occurrence of the query
+        const pos = lowerContent.indexOf(lowerQuery);
+        
+        if (pos === -1) {
+          // If query not found in content, return the first 100 characters
+          return content.substring(0, 100) + '...';
+        }
+        
+        // Calculate snippet start and end positions
+        const snippetStart = Math.max(0, pos - 50);
+        const snippetEnd = Math.min(content.length, pos + query.length + 50);
+        
+        // Create snippet with ellipsis if needed
+        let snippet = '';
+        if (snippetStart > 0) {
+          snippet += '...';
+        }
+        
+        snippet += content.substring(snippetStart, snippetEnd);
+        
+        if (snippetEnd < content.length) {
+          snippet += '...';
+        }
+        
+        // Highlight the query in the snippet
+        return highlightText(snippet, query);
+      }
+      
+      // Function to expand parent menus when loading from search
+      function expandParentMenus(element) {
+        let parent = element.parentElement;
+        
+        while (parent && parent.classList) {
+          if (parent.classList.contains('has-submenu')) {
+            parent.classList.add('open');
+            const submenu = parent.querySelector(':scope > ul');
+            if (submenu) {
+              submenu.style.display = 'block';
+            }
+          }
+          parent = parent.parentElement;
+        }
+      }
+      
+      // Function to update breadcrumb navigation
+      function updateBreadcrumb(element) {
+        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></div>';
+        
+        // Build array of parent menu items
+        const breadcrumbItems = [];
+        let current = element;
+        
+        // Get the text for the final item (without any children text)
+        let finalItemText = current.textContent.trim();
+        const childSpan = current.querySelector('span');
+        if (childSpan) {
+          finalItemText = childSpan.textContent.trim();
+        } else if (current.querySelector('img')) {
+          // If there's an image, get just the text
+          finalItemText = current.textContent.trim();
+        }
+        
+        breadcrumbItems.unshift(finalItemText);
+        
+        // Get parent items
+        while (current.parentElement && current.parentElement.classList) {
+          current = current.parentElement;
+          
+          if (current.classList.contains('has-submenu')) {
+            // Get the text directly owned by this element, not including children
+            let itemText = current.childNodes[0].textContent.trim();
+            // Remove the arrow indicator
+            itemText = itemText.replace(/▼|▲/, '').trim();
+            breadcrumbItems.unshift(itemText);
+          }
+          
+          // Stop at the main menu
+          if (current.id === 'menu') {
+            break;
+          }
+        }
+        
+        // Add breadcrumb items
+        breadcrumbItems.forEach((item, index) => {
+          if (index === breadcrumbItems.length - 1) {
+            breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${item}</div>`;
+          } else {
+            breadcrumbNav.innerHTML += `<div class="breadcrumb-item"><a href="#">${item}</a></div>`;
+          }
+        });
+      }
+      
+      // Function to load content
+      function loadContent(file) {
+        // Show loading indicator
+        loadingIndicator.style.display = 'block';
+        contentArea.style.opacity = '0.5';
+        
+        // Fetch the file content
+        fetchMarkdown(file)
+          .then(mdText => {
+            if (mdText) {
+              // Convert markdown to HTML
+              const html = marked.parse(mdText);
+              
+              // Create enhanced content structure
+              let fileName = file.split('\\').pop().replace('.md', '');
+              
+              // Determine if this is a character, kingdom, or general lore
+              let contentType = 'lore';
+              if (file.includes('Character Lore')) {
+                contentType = 'character';
+              } else if (file.includes('Kingdoms')) {
+                contentType = 'kingdom';
+              }
+              
+              let enhancedHTML = '';
+              
+              // Apply different templates based on content type
+              if (contentType === 'character') {
+                enhancedHTML = createCharacterTemplate(fileName, html);
+              } else if (contentType === 'kingdom') {
+                enhancedHTML = createKingdomTemplate(fileName, html);
+              } else {
+                enhancedHTML = createLoreTemplate(fileName, html);
+              }
+              
+              // Update content area
+              contentArea.innerHTML = enhancedHTML;
+              
+              // Scroll to top
+              contentArea.scrollTop = 0;
+            } else {
+              contentArea.innerHTML = `<div class="content-card">
+                <h1>Content Unavailable</h1>
+                <p>The requested content could not be loaded. This may be a placeholder page that hasn't been filled yet.</p>
+              </div>`;
+            }
+            
+            // Hide loading indicator
+            loadingIndicator.style.display = 'none';
+            contentArea.style.opacity = '1';
+          });
+      }
+      
+      // Function to fetch markdown content
+      function fetchMarkdown(file) {
+        return fetch(file)
           .then(response => {
             if (!response.ok) {
-              throw new Error('Network response was not ok');
+              console.warn(`Failed to fetch ${file}: ${response.status} ${response.statusText}`);
+              return null;
             }
             return response.text();
           })
-          .then(mdText => {
-            // Convert markdown to HTML using marked.js
-            const html = marked.parse(mdText);
-            document.getElementById('content').innerHTML = html;
-          })
           .catch(error => {
-            document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
+            console.error(`Error fetching ${file}:`, error);
+            return null;
           });
       }
+      
+      // Template generators for different content types
+      function createCharacterTemplate(name, content) {
+        return `
+          <div class="content-card">
+            <h1>${name}</h1>
+            <div class="character-profile">
+              <img src="${name.toLowerCase().replace(/\s+/g, '')}.jpg" alt="${name}" class="character-avatar" onerror="this.src='profile-placeholder.jpg'">
+              <div class="character-info">
+                ${content}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      function createKingdomTemplate(name, content) {
+        return `
+          <div class="map-container">
+            <img src="${name.toLowerCase()}-map.jpg" alt="Map of ${name}" class="map-image" onerror="this.src='map.jpg'">
+            <div class="map-overlay">
+              <h3>Kingdom of ${name}</h3>
+            </div>
+          </div>
+          <div class="content-card">
+            <h1>Kingdom of ${name}</h1>
+            ${content}
+          </div>
+        `;
+      }
+      
+      function createLoreTemplate(name, content) {
+        return `
+          <div class="content-card">
+            <h1>${name}</h1>
+            ${content}
+          </div>
+        `;
+      }
+      
+      // Initialize sidebar state - expand items with active children
+      function initializeSidebar() {
+        const expandActiveParents = () => {
+          const active = document.querySelector('.sidebar .active');
+          if (active) {
+            expandParentMenus(active);
+          }
+        };
+        
+        // Expand first submenu initially
+        const firstSubmenu = document.querySelector('.sidebar .has-submenu');
+        if (firstSubmenu) {
+          firstSubmenu.classList.add('open');
+          const submenu = firstSubmenu.querySelector(':scope > ul');
+          if (submenu) {
+            submenu.style.display = 'block';
+          }
+        }
+        
+        expandActiveParents();
+      }
+      
+      initializeSidebar();
+      
+      // Handle keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        // Press / to focus search
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        
+        // Press Escape to clear search and hide results
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          searchResults.style.display = 'none';
+          
+          // If sidebar is open on mobile, close it
+          if (window.innerWidth <= 992 && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+          }
+        }
+      });
+      
+      // Prevent submenu clicks from loading the parent item
+      const submenus = document.querySelectorAll('.sidebar ul');
+      submenus.forEach(submenu => {
+        submenu.addEventListener('click', e => {
+          e.stopPropagation();
+        });
+      });
     });
   </script>
 </body>
 </html>
-
-
