@@ -1,4 +1,3 @@
-![[Blorf.jpg]]
 
 **Name:**  Blorf of Clan Beren
 
