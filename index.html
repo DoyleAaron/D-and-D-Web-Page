@@ -412,6 +412,21 @@
       padding: 2px 0;
     }
 
+    /* Calendar Styles */
+    .calendar-card h2 { margin-top:0; }
+    .calendar { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-top:10px; }
+    .cal-dow { font-weight:600; text-align:center; font-size:0.8rem; padding:6px 0; background:var(--primary-color); color:#fff; border-radius:4px; }
+    .cal-day { text-align:center; padding:10px 0; background:var(--card-bg); border:1px solid #ddd; border-radius:4px; font-size:0.85rem; position:relative; }
+    .cal-day.other-month { opacity:0.35; }
+    .cal-day.selected { background:var(--secondary-color); color:#fff; font-weight:700; box-shadow:0 0 0 2px rgba(0,0,0,0.1); }
+    .cal-day.clickable { cursor:pointer; border-color:var(--secondary-color); }
+    .cal-day.clickable:hover { background:var(--secondary-color); color:#fff; }
+    .calendar-meta { font-size:0.85rem; margin-top:8px; color:var(--text-color); }
+    body.dark-theme .cal-day { border-color:#333; }
+    body.dark-theme .cal-day.other-month { opacity:0.25; }
+    .calendar-back { background:var(--primary-color); color:#fff; border:none; padding:8px 14px; border-radius:4px; cursor:pointer; margin-bottom:10px; }
+    .calendar-back:hover { background:var(--secondary-color); }
+
     /* Responsive styling - Enhanced */
     @media (max-width: 992px) {
       .container {
@@ -867,18 +882,26 @@
           <h2>Recent Updates</h2>
           <div class="info-grid">
             <div class="info-item">
-              <h4>Historic Characters</h4>
-              <p>Added detailed profiles for 9 significant historical figures including General Arach Tharne and Pirate Queen Aris "Steel-Eye".</p>
-            </div>
-            <div class="info-item">
-              <h4>Kingdoms</h4>
-              <p>Updated information on the four major kingdoms: Braewood, Islefield, Kluimont, and Lavalto.</p>
+              <h4>Calendar & Session Logs</h4>
+              <p>Added interactive campaign calendar with linked session records for Feb 9–14, 1225.</p>
             </div>
             <div class="info-item">
               <h4>Player Characters</h4>
-              <p>Added profile for Blorf of Clan Beren, played by Dylan Kirk.</p>
+              <p>Improved player profile image handling and added recent session context.</p>
+            </div>
+            <div class="info-item">
+              <h4>Early Story Arc</h4>
+              <p>Documented pendant mission, first arrest in Sheyton, and Braewood/market events.</p>
             </div>
           </div>
+        </div>
+
+        <!-- World Calendar -->
+        <div class="content-card calendar-card" id="calendar-card">
+          <h2>World Calendar</h2>
+          <div id="world-calendar"></div>
+          <div id="calendar-meta"></div>
+          <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
         </div>
       </div>
 
@@ -1343,7 +1366,7 @@
       }
       
       // Function to show home page
-      function showHomePage() {
+      function showHomePage(scrollTo) {
         // Clear active menu items
         fileItems.forEach(i => i.classList.remove('active'));
         
@@ -1358,6 +1381,13 @@
               <h3>The World of Dayner</h3>
               <p>A realm of ancient kingdoms, epic battles, and untold adventures waiting to be discovered.</p>
             </div>
+          </div>
+
+          <div class="content-card calendar-card">
+            <h2>World Calendar</h2>
+            <div id="world-calendar"></div>
+            <div id="calendar-meta"></div>
+            <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
           </div>
 
           <div class="content-card">
@@ -1379,16 +1409,16 @@
             <h2>Recent Updates</h2>
             <div class="info-grid">
               <div class="info-item">
+                <h4>Calendar & Session Logs</h4>
+                <p>Added interactive campaign calendar with linked session records for Feb 9–14, 1225.</p>
+              </div>
+              <div class="info-item">
                 <h4>Player Characters</h4>
-                <p>Added profiles for Blorf of Clan Beren, played by Dylan Kirk, and Amdir Aeristel, played by Arron.</p>
+                <p>Improved player profile image handling and added recent session context.</p>
               </div>
               <div class="info-item">
-                <h4>Kingdom Development</h4>
-                <p>Currently finalizing population breakdowns, lore, and profiles for every kingdom capital, large city, medium city, town, and village.</p>
-              </div>
-              <div class="info-item">
-                <h4>City & Town Entries</h4>
-                <p>Creating detailed entries for each settlement, including wealth, military strength, happiness, and history — all scaled relative to settlement size.</p>
+                <h4>Early Story Arc</h4>
+                <p>Documented pendant mission, first arrest in Sheyton, and Braewood/market events.</p>
               </div>
             </div>
           </div>
@@ -1396,6 +1426,21 @@
         
         // Hide search results
         searchResults.style.display = 'none';
+        
+        // Render calendar on home
+        if (typeof renderWorldCalendar === 'function') {
+          renderWorldCalendar(currentCalendar.year, currentCalendar.monthIndex, currentCalendar.day);
+        }
+        // If requested, scroll to calendar after render
+        if (scrollTo === 'calendar') {
+          setTimeout(() => {
+            const calEl = document.getElementById('world-calendar');
+            if (calEl) {
+              // contentArea has its own scroll container
+              contentArea.scrollTo({ top: calEl.offsetTop - 10, behavior: 'smooth' });
+            }
+          }, 50);
+        }
       }
       
       // Initialize sidebar state - expand items with active children
@@ -1407,15 +1452,7 @@
           }
         };
         
-        // Expand first submenu initially
-        const firstSubmenu = document.querySelector('.sidebar .has-submenu');
-        if (firstSubmenu) {
-          firstSubmenu.classList.add('open');
-          const submenu = firstSubmenu.querySelector(':scope > ul');
-          if (submenu) {
-            submenu.style.display = 'block';
-          }
-        }
+        // Do not auto-expand any submenu on initial load to keep Character Lore collapsed.
         
         expandActiveParents();
         
@@ -1502,6 +1539,127 @@
           e.stopPropagation();
         });
       });
+      
+      // Calendar rendering script
+      const calendarEvents = { '1225-02-14': 'Lore\\DND\\Calendar\\1225-02-14.md' };
+      // Extend calendar events with previous days
+      Object.assign(calendarEvents, {
+        '1225-02-13': 'Lore\\DND\\Calendar\\1225-02-13.md',
+        '1225-02-12': 'Lore\\DND\\Calendar\\1225-02-12.md',
+        '1225-02-11': 'Lore\\DND\\Calendar\\1225-02-11.md',
+        '1225-02-10': 'Lore\\DND\\Calendar\\1225-02-10.md',
+        '1225-02-09': 'Lore\\DND\\Calendar\\1225-02-09.md'
+      });
+      // Track current calendar selection
+      const currentCalendar = { year:1225, monthIndex:1, day:14 };
+      
+      function showCalendarView() {
+        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>'+
+          '<div class="breadcrumb-item active">Calendar</div>';
+        setTimeout(()=>{ const hl=document.getElementById('home-link'); if(hl){hl.addEventListener('click',e=>{e.preventDefault(); showHomePage();});}},0);
+        contentArea.innerHTML = `
+          <div class="content-card calendar-card">
+            <h2>World Calendar</h2>
+            <div id="world-calendar"></div>
+            <div id="calendar-meta"></div>
+            <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
+          </div>
+        `;
+        renderWorldCalendar(currentCalendar.year, currentCalendar.monthIndex, currentCalendar.day);
+      }
+      
+      function showCalendarDay(year, monthIndex, day, filePath) {
+        currentCalendar.year = year; currentCalendar.monthIndex = monthIndex; currentCalendar.day = day;
+        const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>'+
+          '<div class="breadcrumb-item"><a href="#" id="cal-link">Calendar</a></div>'+
+          '<div class="breadcrumb-item active">'+monthNames[monthIndex]+' '+String(day).padStart(2,'0')+', '+year+'</div>';
+        setTimeout(()=>{
+          const hl=document.getElementById('home-link'); if(hl){hl.addEventListener('click',e=>{e.preventDefault(); showHomePage();});}
+          const cl=document.getElementById('cal-link'); if(cl){cl.addEventListener('click',e=>{e.preventDefault(); showCalendarView();});}
+        },0);
+        fetchMarkdown(filePath).then(mdText => {
+          const html = mdText ? marked.parse(mdText) : '<p>No record.</p>';
+          // Avoid duplicate heading: only add generated H1 if the file does NOT start with an <h1>
+          const needsHeading = !/^\s*<h1/i.test(html);
+          const headingHTML = needsHeading ? '<h1>'+monthNames[monthIndex]+' '+String(day).padStart(2,'0')+', '+year+'</h1>' : '';
+          contentArea.innerHTML = `
+            <div class="content-card">
+              <button class="calendar-back" id="calendar-back">&#8592; Back to Calendar</button>
+              ${headingHTML}
+              ${html}
+            </div>
+          `;
+          const backBtn = document.getElementById('calendar-back');
+          if (backBtn) backBtn.addEventListener('click', () => showHomePage('calendar'));
+        });
+      }
+       function renderWorldCalendar(year, monthIndex, selectedDay) {
+        const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        const dowNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        const calContainer = document.getElementById('world-calendar');
+        const metaEl = document.getElementById('calendar-meta');
+        if(!calContainer) return;
+        // Build date objects (using JS Gregorian proleptic calendar)
+        const firstOfMonth = new Date(year, monthIndex, 1);
+        const startDow = firstOfMonth.getDay();
+        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+        const prevMonthDays = new Date(year, monthIndex, 0).getDate();
+        // Clear
+        calContainer.innerHTML = '';
+        // Header row (day-of-week)
+        const headerFrag = document.createDocumentFragment();
+        dowNames.forEach(d => {
+          const div = document.createElement('div');
+          div.className = 'cal-dow';
+            div.textContent = d;
+          headerFrag.appendChild(div);
+        });
+        // Grid days
+        const gridFrag = document.createDocumentFragment();
+        // Days from previous month to fill
+        for (let i = 0; i < startDow; i++) {
+          const d = document.createElement('div');
+          d.className = 'cal-day other-month';
+          d.textContent = prevMonthDays - startDow + 1 + i;
+          gridFrag.appendChild(d);
+        }
+        // Current month days
+        for (let day = 1; day <= daysInMonth; day++) {
+          const d = document.createElement('div');
+          d.className = 'cal-day';
+          if (day === selectedDay) d.classList.add('selected');
+          d.textContent = day;
+          gridFrag.appendChild(d);
+        }
+        // Append
+        const wrapper = document.createElement('div');
+        wrapper.className = 'calendar';
+        wrapper.appendChild(headerFrag);
+        wrapper.appendChild(gridFrag);
+        calContainer.appendChild(wrapper);
+        // Meta text (using provided weekday override to respect world calendar)
+        const providedWeekday = 'Wednesday';
+        metaEl.textContent = monthNames[monthIndex] + ' ' + selectedDay + ', ' + year + ' (' + providedWeekday + ')';
+        // Attach clickable handlers for dates that have lore entries
+        const dateKeyBase = year + '-' + String(monthIndex+1).padStart(2,'0');
+        const dayEls = wrapper.querySelectorAll('.cal-day:not(.other-month)');
+        dayEls.forEach(el => {
+          const dayNum = el.textContent.trim();
+          const key = dateKeyBase + '-' + dayNum.padStart(2,'0');
+          if (calendarEvents[key]) {
+            el.classList.add('clickable');
+            el.addEventListener('click', () => {
+              showCalendarDay(year, monthIndex, parseInt(dayNum,10), calendarEvents[key]);
+            });
+          }
+        });
+       }
+
+       // Initial world calendar (Feb = 1) Set to Feb 14 1225 Wednesday
+       renderWorldCalendar(1225, 1, 14);
+       // Ensure landing page matches Home button version
+       showHomePage();
     });
   </script>
 </body>
