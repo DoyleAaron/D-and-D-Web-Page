@@ -1,0 +1,139 @@
+/**
+ * CSS Variables - Design Tokens
+ * Dayner D&D Lore Website
+ */
+
+:root {
+  /* Primary Colors - Fantasy Theme */
+  --color-primary: #1a1a2e;
+  --color-primary-light: #16213e;
+  --color-primary-dark: #0f0f1a;
+  
+  /* Accent Colors */
+  --color-accent: #e94560;
+  --color-accent-light: #ff6b6b;
+  --color-accent-dark: #c73e54;
+  
+  /* Secondary Colors */
+  --color-secondary: #0f3460;
+  --color-secondary-light: #1a4f7a;
+  --color-secondary-dark: #0a2540;
+  
+  /* Gold/Metallic Accents */
+  --color-gold: #d4af37;
+  --color-gold-light: #f4d03f;
+  --color-gold-dark: #aa8c2c;
+  
+  /* Background Colors */
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: rgba(26, 26, 46, 0.95);
+  --bg-glass: rgba(15, 52, 96, 0.3);
+  
+  /* Text Colors */
+  --text-primary: #edf2f4;
+  --text-secondary: #8d99ae;
+  --text-muted: #6c757d;
+  --text-accent: #e94560;
+  
+  /* Border Colors */
+  --border-color: rgba(233, 69, 96, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-accent: var(--color-accent);
+  
+  /* Shadow Definitions */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(233, 69, 96, 0.3);
+  --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.3);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  
+  /* Sidebar */
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: 60px;
+  --sidebar-bg: var(--bg-secondary);
+  --sidebar-hover: rgba(233, 69, 96, 0.1);
+  --sidebar-active: var(--color-accent);
+  
+  /* Header */
+  --header-height: 65px;
+  --header-bg: rgba(15, 15, 26, 0.95);
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 50%;
+  
+  /* Typography */
+  --font-primary: 'Cinzel', 'Georgia', serif;
+  --font-secondary: 'Lato', 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Consolas', monospace;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Z-Index Layers */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* Light Theme Override */
+[data-theme="light"] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e9ecef;
+  --bg-card: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  
+  --text-primary: #1a1a2e;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  
+  --border-color: rgba(26, 26, 46, 0.15);
+  --border-light: rgba(0, 0, 0, 0.1);
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  
+  --sidebar-bg: #ffffff;
+  --sidebar-hover: rgba(233, 69, 96, 0.08);
+  
+  --header-bg: rgba(255, 255, 255, 0.95);
+}

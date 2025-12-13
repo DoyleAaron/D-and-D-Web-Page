@@ -1,0 +1,428 @@
+/**
+ * Responsive Styles - Media Queries
+ * Dayner D&D Lore Website
+ */
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
+
+/* Desktop (992px - 1399px) */
+@media (max-width: 1399px) {
+  :root {
+    --sidebar-width: 280px;
+  }
+}
+
+/* Tablet Landscape (768px - 991px) */
+@media (max-width: 991px) {
+  :root {
+    --sidebar-width: 260px;
+    --header-height: 60px;
+  }
+  
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Hide sidebar by default */
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  /* Overlay for mobile */
+  .sidebar-overlay {
+    display: block;
+  }
+  
+  /* Adjust content wrapper */
+  .content-wrapper {
+    margin-left: 0;
+  }
+  
+  /* Adjust header */
+  .header {
+    left: 0;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .header-title span {
+    display: none;
+  }
+  
+  .header-center {
+    margin: 0 var(--spacing-sm);
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Main content */
+  .main-content {
+    padding: calc(var(--header-height) + var(--spacing-md)) var(--spacing-md) var(--spacing-md);
+  }
+  
+  /* Cards */
+  .content-card {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Grid adjustments */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (max-width: 767px) {
+  :root {
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Header */
+  .header-center {
+    max-width: 200px;
+  }
+  
+  .search-input {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    padding-left: 36px;
+    font-size: var(--font-size-sm);
+  }
+  
+  .search-icon {
+    left: var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  /* Grid */
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Map */
+  .map-overlay {
+    padding: var(--spacing-md);
+  }
+  
+  .map-overlay h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .map-overlay p {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Character profile */
+  .character-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .character-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .character-info {
+    min-width: 100%;
+  }
+  
+  /* Cards */
+  .content-card {
+    padding: var(--spacing-md);
+  }
+  
+  .content-card h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  /* Footer */
+  .footer {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Mobile (under 600px) */
+@media (max-width: 599px) {
+  :root {
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --header-height: 56px;
+  }
+  
+  /* Header */
+  .header {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .header-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  .header-right {
+    gap: var(--spacing-xs);
+  }
+  
+  .header-center {
+    max-width: 150px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 85vw;
+    max-width: 300px;
+  }
+  
+  .sidebar-header {
+    padding: var(--spacing-md);
+  }
+  
+  .nav-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  /* Main content */
+  .main-content {
+    padding: calc(var(--header-height) + var(--spacing-sm)) var(--spacing-sm) var(--spacing-sm);
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    gap: 0;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    margin: 0 var(--spacing-xs);
+  }
+  
+  /* Cards */
+  .card,
+  .content-card,
+  .calendar-card {
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+  }
+  
+  /* Search results */
+  .result-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .result-item h3 {
+    font-size: var(--font-size-sm);
+  }
+  
+  .result-snippet {
+    font-size: var(--font-size-xs);
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Tables - horizontal scroll */
+  .content-card table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Character */
+  .character-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Calendar */
+  .cal-dow {
+    font-size: 0.6rem;
+    padding: 3px 0;
+  }
+  
+  .cal-day {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra Small Mobile (under 400px) */
+@media (max-width: 399px) {
+  :root {
+    --font-size-base: 0.9rem;
+  }
+  
+  .header-center {
+    max-width: 120px;
+  }
+  
+  .search-input {
+    padding-left: 30px;
+  }
+  
+  .sidebar {
+    width: 90vw;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase touch targets */
+  .nav-item {
+    min-height: 48px;
+  }
+  
+  .btn {
+    min-height: 44px;
+  }
+  
+  .cal-day {
+    min-height: 44px;
+  }
+  
+  .header-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Remove hover effects that don't work well on touch */
+  .feature-card:hover {
+    transform: none;
+  }
+  
+  .cal-day.clickable:hover {
+    transform: none;
+  }
+  
+  /* Active states for touch */
+  .nav-item:active {
+    background: var(--sidebar-hover);
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .sidebar,
+  .header {
+    border-width: 0.5px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .header,
+  .footer,
+  .breadcrumb,
+  .search-results,
+  .calendar-card,
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+  
+  .main-content {
+    padding: 0 !important;
+  }
+  
+  .content-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+  :root {
+    --header-height: 50px;
+  }
+  
+  .sidebar {
+    max-height: 100vh;
+  }
+  
+  .main-content {
+    padding-top: calc(var(--header-height) + var(--spacing-sm));
+  }
+}

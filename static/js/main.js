@@ -1,0 +1,765 @@
+/**
+ * Dayner D&D Lore Website - Main JavaScript
+ * Consolidated, simplified version for static hosting
+ */
+
+(function() {
+  'use strict';
+
+  // ========================================
+  // CONFIGURATION
+  // ========================================
+  const LORE_BASE_PATH = 'Lore/DND/';
+  
+  const CALENDAR_EVENTS = {
+    '1225-02-09': 'Calendar/1225-02-09.md',
+    '1225-02-10': 'Calendar/1225-02-10.md',
+    '1225-02-11': 'Calendar/1225-02-11.md',
+    '1225-02-12': 'Calendar/1225-02-12.md',
+    '1225-02-13': 'Calendar/1225-02-13.md',
+    '1225-02-14': 'Calendar/1225-02-14.md',
+    '1225-02-15': 'Calendar/1225-02-15.md',
+    '1225-02-16': 'Calendar/1225-02-16.md',
+    '1225-02-17': 'Calendar/1225-02-17.md',
+    '1225-02-18': 'Calendar/1225-02-18.md',
+    '1225-02-19': 'Calendar/1225-02-19.md',
+    '1225-02-20': 'Calendar/1225-02-20.md',
+    '1225-02-21': 'Calendar/1225-02-21.md'
+  };
+
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+                  'July', 'August', 'September', 'October', 'November', 'December'];
+  const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  // ========================================
+  // UTILITY FUNCTIONS
+  // ========================================
+  function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  function extractTitle(path) {
+    const filename = path.split(/[\/\\]/).pop();
+    return filename.replace(/\.md$/, '').replace(/_/g, ' ').replace(/-/g, ' ');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // ========================================
+  // DOM ELEMENTS
+  // ========================================
+  let sidebar, overlay, contentArea, breadcrumb, loading, searchInput, searchResults;
+
+  function initElements() {
+    sidebar = document.getElementById('sidebar');
+    overlay = document.getElementById('sidebar-overlay');
+    contentArea = document.getElementById('content-area');
+    breadcrumb = document.getElementById('breadcrumb');
+    loading = document.getElementById('loading');
+    searchInput = document.getElementById('search-input');
+    searchResults = document.getElementById('search-results');
+  }
+
+  // ========================================
+  // THEME MANAGEMENT
+  // ========================================
+  function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+  }
+
+  function updateThemeIcon(theme) {
+    const icon = document.querySelector('#theme-toggle i');
+    if (icon) {
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  }
+
+  // ========================================
+  // SIDEBAR / NAVIGATION
+  // ========================================
+  let sidebarOpen = false;
+
+  function initNavigation() {
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', toggleSidebar);
+    }
+
+    // Overlay click closes sidebar
+    if (overlay) {
+      overlay.addEventListener('click', closeSidebar);
+    }
+
+    // Escape key closes sidebar
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebarOpen) closeSidebar();
+    });
+
+    // Sidebar collapse button
+    const collapseBtn = document.querySelector('.sidebar-collapse-btn');
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', toggleCollapse);
+    }
+
+    // Logo/title clicks go home
+    const logo = document.querySelector('.sidebar-logo');
+    if (logo) {
+      logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        showHome();
+      });
+    }
+
+    const headerTitle = document.querySelector('.header-title');
+    if (headerTitle) {
+      headerTitle.addEventListener('click', showHome);
+    }
+
+    // Bind submenu toggles
+    bindSubmenus();
+
+    // Bind navigation items
+    bindNavItems();
+  }
+
+  function bindSubmenus() {
+    const submenus = document.querySelectorAll('.nav-item.has-submenu');
+    
+    submenus.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Find the next sibling submenu
+        let submenu = this.nextElementSibling;
+        while (submenu && !submenu.classList.contains('submenu')) {
+          submenu = submenu.nextElementSibling;
+        }
+        
+        if (submenu) {
+          const isOpen = this.classList.contains('open');
+          this.classList.toggle('open', !isOpen);
+          submenu.classList.toggle('open', !isOpen);
+        }
+      });
+    });
+  }
+
+  function bindNavItems() {
+    const navItems = document.querySelectorAll('.nav-item[data-file]');
+    
+    navItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Remove active from all
+        document.querySelectorAll('.nav-item.active').forEach(i => i.classList.remove('active'));
+        
+        // Add active to this
+        this.classList.add('active');
+        
+        // Load content
+        const file = this.dataset.file;
+        if (file) {
+          loadContent(file);
+        }
+
+        // Close sidebar on mobile
+        if (window.innerWidth <= 991) {
+          closeSidebar();
+        }
+      });
+    });
+    
+    // Bind the calendar nav link
+    const calendarNav = document.getElementById('calendar-nav');
+    if (calendarNav) {
+      calendarNav.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Remove active from all nav items
+        document.querySelectorAll('.nav-item.active').forEach(i => i.classList.remove('active'));
+        
+        // Add active to this
+        this.classList.add('active');
+        
+        // Show calendar view
+        showCalendarView();
+        
+        // Close sidebar on mobile
+        if (window.innerWidth <= 991) {
+          closeSidebar();
+        }
+      });
+    }
+  }
+
+  function toggleSidebar() {
+    sidebarOpen ? closeSidebar() : openSidebar();
+  }
+
+  function openSidebar() {
+    sidebarOpen = true;
+    if (sidebar) sidebar.classList.add('open');
+    if (overlay) overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebarOpen = false;
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  function toggleCollapse() {
+    document.body.classList.toggle('sidebar-collapsed');
+    localStorage.setItem('sidebar-collapsed', document.body.classList.contains('sidebar-collapsed'));
+  }
+
+  // ========================================
+  // CONTENT LOADING
+  // ========================================
+  async function loadContent(filePath) {
+    showLoading();
+    hideSearchResults();
+
+    try {
+      const response = await fetch(LORE_BASE_PATH + filePath);
+      
+      if (!response.ok) {
+        throw new Error('File not found: ' + filePath);
+      }
+      
+      const mdText = await response.text();
+      const html = marked.parse(mdText);
+      const title = extractTitle(filePath);
+      
+      renderContent(html, title, filePath);
+      updateBreadcrumb(filePath);
+      
+    } catch (error) {
+      console.error('Error loading content:', error);
+      showError('Content not found', 'The requested lore entry could not be loaded: ' + filePath);
+    }
+
+    hideLoading();
+  }
+
+  function renderContent(html, title, filePath) {
+    const icon = getIconForPath(filePath);
+    
+    contentArea.innerHTML = `
+      <div class="content-card">
+        <h1><i class="fas ${icon}"></i> ${escapeHtml(title)}</h1>
+        <div class="lore-content">${html}</div>
+      </div>
+    `;
+    
+    contentArea.scrollTop = 0;
+  }
+
+  function getIconForPath(path) {
+    const p = path.toLowerCase();
+    if (p.includes('character')) return 'fa-user';
+    if (p.includes('kingdom') || p.includes('braewood') || p.includes('islefield') || p.includes('kluimont') || p.includes('lavalto')) return 'fa-chess-rook';
+    if (p.includes('calendar')) return 'fa-calendar-day';
+    if (p.includes('history')) return 'fa-landmark';
+    if (p.includes('politic')) return 'fa-balance-scale';
+    if (p.includes('geography')) return 'fa-mountain';
+    if (p.includes('population')) return 'fa-users';
+    if (p.includes('wealth')) return 'fa-coins';
+    return 'fa-scroll';
+  }
+
+  function showHome() {
+    hideSearchResults();
+    document.querySelectorAll('.nav-item.active').forEach(i => i.classList.remove('active'));
+
+    contentArea.innerHTML = `
+      <div class="map-container">
+        <img src="map.jpg" alt="Map of Dayner" class="map-image" onerror="this.style.display='none'">
+        <div class="map-overlay">
+          <h3><i class="fas fa-globe"></i> The World of Dayner</h3>
+          <p>A realm of ancient kingdoms, epic battles, and untold adventures.</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h1><i class="fas fa-dragon"></i> Welcome to Dayner</h1>
+        <p>Welcome to the comprehensive lore compendium of Dayner. Navigate through the categories using the sidebar on the left.</p>
+        
+        <h2><i class="fas fa-compass"></i> Where to Start</h2>
+        <div class="info-grid">
+          <div class="feature-card" data-action="load-file" data-file="Character Lore/Modern Characters/Queen Maera Braeden.md">
+            <div class="icon"><i class="fas fa-crown"></i></div>
+            <h3>Queen Maera Braeden</h3>
+            <p>Meet the Queen of Braewood</p>
+          </div>
+          <div class="feature-card" data-action="load-file" data-file="General Lore of Dayner/Population.md">
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <h3>Population</h3>
+            <p>The peoples and races of Dayner</p>
+          </div>
+          <div class="feature-card" data-action="load-file" data-file="Kingdoms/Braewood/Braewood.md">
+            <div class="icon"><i class="fas fa-chess-rook"></i></div>
+            <h3>Braewood</h3>
+            <p>Explore the kingdom of Braewood</p>
+          </div>
+          <div class="feature-card" data-action="calendar">
+            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>Campaign Calendar</h3>
+            <p>Track your adventures through time</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Bind feature card clicks
+    bindFeatureCards();
+    
+    updateBreadcrumb(null);
+  }
+  
+  function bindFeatureCards() {
+    document.querySelectorAll('.feature-card[data-action]').forEach(card => {
+      card.addEventListener('click', function() {
+        const action = this.dataset.action;
+        
+        // Add click animation
+        this.classList.add('clicked');
+        setTimeout(() => this.classList.remove('clicked'), 300);
+        
+        if (action === 'calendar') {
+          showCalendarView();
+        } else if (action === 'expand-menu') {
+          const menuName = this.dataset.menu;
+          scrollToSidebarMenu(menuName);
+        } else if (action === 'load-file') {
+          const file = this.dataset.file;
+          loadContent(file);
+        }
+      });
+    });
+  }
+  
+  function scrollToSidebarMenu(menuName) {
+    // Find the matching sidebar menu and scroll to it with highlight
+    const sidebar = document.getElementById('sidebar');
+    const menuItems = sidebar.querySelectorAll('.nav-item.has-submenu');
+    
+    menuItems.forEach(item => {
+      const textEl = item.querySelector('.menu-text');
+      if (!textEl) return;
+      
+      const text = textEl.textContent.trim();
+      if (text === menuName) {
+        // Find the next sibling submenu and expand it
+        let submenu = item.nextElementSibling;
+        while (submenu && !submenu.classList.contains('submenu')) {
+          submenu = submenu.nextElementSibling;
+        }
+        
+        if (submenu && !item.classList.contains('open')) {
+          item.classList.add('open');
+          submenu.classList.add('open');
+        }
+        
+        // Scroll sidebar to show this menu
+        setTimeout(() => {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+        
+        // Add highlight animation
+        item.classList.add('highlight-pulse');
+        setTimeout(() => item.classList.remove('highlight-pulse'), 1500);
+      }
+    });
+  }
+
+  function updateBreadcrumb(filePath) {
+    let html = `
+      <div class="breadcrumb-item">
+        <a href="#" onclick="showHome(); return false;">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </div>
+    `;
+
+    if (filePath) {
+      const parts = filePath.replace(/\.md$/, '').split(/[\/\\]/);
+      parts.forEach((part, index) => {
+        const isLast = index === parts.length - 1;
+        const displayName = part.replace(/_/g, ' ');
+        
+        if (isLast) {
+          html += `<div class="breadcrumb-item active">${escapeHtml(displayName)}</div>`;
+        } else {
+          html += `<div class="breadcrumb-item"><span>${escapeHtml(displayName)}</span></div>`;
+        }
+      });
+    }
+
+    breadcrumb.innerHTML = html;
+  }
+
+  function showLoading() {
+    if (loading) loading.classList.add('visible');
+    if (contentArea) contentArea.style.opacity = '0.5';
+  }
+
+  function hideLoading() {
+    if (loading) loading.classList.remove('visible');
+    if (contentArea) contentArea.style.opacity = '1';
+  }
+
+  function showError(title, message) {
+    contentArea.innerHTML = `
+      <div class="content-card">
+        <div class="empty-state">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>${escapeHtml(title)}</h3>
+          <p>${escapeHtml(message)}</p>
+          <button class="btn btn-primary" onclick="showHome()">
+            <i class="fas fa-home"></i> Return Home
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ========================================
+  // SEARCH
+  // ========================================
+  let searchIndex = [];
+
+  function initSearch() {
+    if (!searchInput) return;
+
+    // Build index from DOM
+    buildSearchIndex();
+
+    // Search on input
+    searchInput.addEventListener('input', debounce(function() {
+      performSearch(this.value.trim());
+    }, 300));
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape') {
+        hideSearchResults();
+        searchInput.blur();
+      }
+    });
+  }
+
+  function buildSearchIndex() {
+    const navItems = document.querySelectorAll('.nav-item[data-file]');
+    navItems.forEach(item => {
+      const file = item.dataset.file;
+      const title = item.querySelector('.menu-text')?.textContent || item.textContent.trim();
+      searchIndex.push({ title, path: file });
+    });
+  }
+
+  function performSearch(query) {
+    if (query.length < 2) {
+      hideSearchResults();
+      return;
+    }
+
+    const queryLower = query.toLowerCase();
+    const results = searchIndex
+      .filter(item => item.title.toLowerCase().includes(queryLower) || item.path.toLowerCase().includes(queryLower))
+      .slice(0, 15);
+
+    displaySearchResults(results, query);
+  }
+
+  function displaySearchResults(results, query) {
+    const resultsList = document.getElementById('results-list');
+    if (!resultsList || !searchResults) return;
+
+    if (results.length === 0) {
+      resultsList.innerHTML = `<div class="result-item"><p class="text-muted">No results found for "${escapeHtml(query)}"</p></div>`;
+    } else {
+      resultsList.innerHTML = results.map(r => `
+        <div class="result-item" data-path="${escapeHtml(r.path)}">
+          <h3>${escapeHtml(r.title)}</h3>
+          <div class="result-path">${escapeHtml(r.path)}</div>
+        </div>
+      `).join('');
+
+      // Bind clicks
+      resultsList.querySelectorAll('.result-item').forEach(item => {
+        item.addEventListener('click', () => {
+          loadContent(item.dataset.path);
+          hideSearchResults();
+          searchInput.value = '';
+        });
+      });
+    }
+
+    searchResults.classList.add('visible');
+  }
+
+  function hideSearchResults() {
+    if (searchResults) searchResults.classList.remove('visible');
+  }
+
+  // ========================================
+  // CALENDAR
+  // ========================================
+  let calendarState = { year: 1225, month: 1, day: 14 };
+
+  function renderCalendar(containerId, year, month, selectedDay) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    calendarState = { year, month, day: selectedDay };
+
+    const firstOfMonth = new Date(year, month, 1);
+    const startDow = firstOfMonth.getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const prevMonthDays = new Date(year, month, 0).getDate();
+
+    let html = `
+      <div class="calendar-nav">
+        <button class="calendar-nav-btn" onclick="calendarPrev('${containerId}')"><i class="fas fa-chevron-left"></i></button>
+        <span class="calendar-month-year">${MONTHS[month]} ${year}</span>
+        <button class="calendar-nav-btn" onclick="calendarNext('${containerId}')"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="calendar">
+    `;
+
+    // Day headers
+    DAYS.forEach(d => { html += `<div class="cal-dow">${d}</div>`; });
+
+    // Previous month days
+    for (let i = 0; i < startDow; i++) {
+      const day = prevMonthDays - startDow + 1 + i;
+      html += `<div class="cal-day other-month">${day}</div>`;
+    }
+
+    // Current month days
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const hasEvent = CALENDAR_EVENTS[dateKey];
+      const isSelected = day === selectedDay;
+      
+      let classes = 'cal-day';
+      if (isSelected) classes += ' selected';
+      if (hasEvent) classes += ' clickable has-event';
+      
+      html += `<div class="${classes}" data-date="${dateKey}">${day}</div>`;
+    }
+
+    // Fill remaining
+    const totalCells = startDow + daysInMonth;
+    const remaining = (7 - (totalCells % 7)) % 7;
+    for (let i = 1; i <= remaining; i++) {
+      html += `<div class="cal-day other-month">${i}</div>`;
+    }
+
+    html += '</div>';
+    container.innerHTML = html;
+
+    // Bind clicks on event days
+    container.querySelectorAll('.cal-day.clickable').forEach(dayEl => {
+      dayEl.addEventListener('click', function() {
+        // Add click animation
+        this.classList.add('clicked');
+        
+        const dateKey = this.dataset.date;
+        if (CALENDAR_EVENTS[dateKey]) {
+          // Small delay for animation
+          setTimeout(() => {
+            loadCalendarContent(CALENDAR_EVENTS[dateKey]);
+          }, 150);
+        }
+      });
+    });
+  }
+
+  // Load calendar content with back navigation
+  async function loadCalendarContent(filePath) {
+    showLoading();
+    hideSearchResults();
+
+    try {
+      const response = await fetch(LORE_BASE_PATH + filePath);
+      
+      if (!response.ok) {
+        throw new Error('File not found: ' + filePath);
+      }
+      
+      const mdText = await response.text();
+      const html = marked.parse(mdText);
+      const title = extractTitle(filePath);
+      
+      // Render with back to calendar button
+      contentArea.innerHTML = `
+        <div class="content-card">
+          <div class="content-nav">
+            <button class="btn btn-secondary" onclick="showCalendarView()">
+              <i class="fas fa-arrow-left"></i> Back to Calendar
+            </button>
+          </div>
+          <h1><i class="fas fa-calendar-day"></i> ${escapeHtml(title)}</h1>
+          <div class="lore-content">${html}</div>
+        </div>
+      `;
+      
+      updateBreadcrumb(filePath);
+      
+    } catch (error) {
+      console.error('Error loading content:', error);
+      showError('Content not found', 'The requested calendar entry could not be loaded: ' + filePath);
+    }
+
+    hideLoading();
+  }
+
+  // Global calendar navigation functions
+  window.calendarPrev = function(containerId) {
+    calendarState.month--;
+    if (calendarState.month < 0) {
+      calendarState.month = 11;
+      calendarState.year--;
+    }
+    renderCalendar(containerId, calendarState.year, calendarState.month, 1);
+  };
+
+  window.calendarNext = function(containerId) {
+    calendarState.month++;
+    if (calendarState.month > 11) {
+      calendarState.month = 0;
+      calendarState.year++;
+    }
+    renderCalendar(containerId, calendarState.year, calendarState.month, 1);
+  };
+
+  window.showCalendarView = function() {
+    hideSearchResults();
+    document.querySelectorAll('.nav-item.active').forEach(i => i.classList.remove('active'));
+
+    contentArea.innerHTML = `
+      <div class="calendar-card">
+        <h2><i class="fas fa-calendar-alt"></i> Campaign Calendar</h2>
+        <div id="main-calendar"></div>
+        <p class="calendar-hint"><i class="fas fa-info-circle"></i> Click a highlighted date to view that day's session log.</p>
+      </div>
+    `;
+
+    renderCalendar('main-calendar', 1225, 1, 21);
+    updateBreadcrumb('Calendar');
+  };
+
+  // ========================================
+  // GLOBAL EXPORTS
+  // ========================================
+  window.showHome = showHome;
+  window.loadContent = loadContent;
+
+  // ========================================
+  // INTRO VIDEO
+  // ========================================
+  function initIntroVideo() {
+    const overlay = document.getElementById('intro-overlay');
+    const video = document.getElementById('intro-video');
+    const skipBtn = document.getElementById('skip-intro');
+    
+    if (!overlay || !video) {
+      console.log('No intro video elements found');
+      return;
+    }
+
+    // Check if user has seen intro recently (session-based)
+    const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+    if (hasSeenIntro) {
+      overlay.classList.add('hidden');
+      return;
+    }
+
+    function dismissIntro() {
+      overlay.classList.add('fade-out');
+      sessionStorage.setItem('hasSeenIntro', 'true');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+      }, 800);
+    }
+
+    // When video ends, fade out
+    video.addEventListener('ended', dismissIntro);
+
+    // Skip button
+    if (skipBtn) {
+      skipBtn.addEventListener('click', dismissIntro);
+    }
+
+    // Also allow clicking anywhere to skip
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target === video) {
+        dismissIntro();
+      }
+    });
+
+    // Fallback: if video fails to load or errors out
+    video.addEventListener('error', () => {
+      console.log('Intro video failed to load, dismissing overlay');
+      overlay.classList.add('hidden');
+    });
+
+    console.log('🎬 Intro video initialized');
+  }
+
+  // ========================================
+  // INITIALIZATION
+  // ========================================
+  function init() {
+    console.log('🐉 Initializing Dayner Lore Website...');
+    
+    initIntroVideo();
+    initElements();
+    initTheme();
+    initNavigation();
+    initSearch();
+    showHome();
+
+    console.log('✨ Dayner Lore Website ready!');
+  }
+
+  // Start when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

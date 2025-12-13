@@ -1,1666 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Dayner - A comprehensive D&D lore compendium">
+  <meta name="theme-color" content="#1a1a2e">
   <title>Dayner - A World of Kingdoms</title>
-  <!-- Include marked.js from CDN for Markdown conversion -->
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="static/css/variables.css">
+  <link rel="stylesheet" href="static/css/base.css">
+  <link rel="stylesheet" href="static/css/layout.css">
+  <link rel="stylesheet" href="static/css/components.css">
+  <link rel="stylesheet" href="static/css/sidebar.css">
+  <link rel="stylesheet" href="static/css/calendar.css">
+  <link rel="stylesheet" href="static/css/responsive.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Marked.js for Markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- Include Font Awesome for icons -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+  <!-- Intro Video Styles -->
   <style>
-    /* Global Styles with updated color scheme and typography */
-    :root {
-      --primary-color: #2C3E50;
-      --secondary-color: #3498DB;
-      --accent-color: #E74C3C;
-      --background-color: #ECF0F1;
-      --text-color: #333;
-      --sidebar-bg: #2C3E50;
-      --sidebar-text: #ECF0F1;
-      --sidebar-hover: #34495E;
-      --sidebar-active: #1ABC9C;
-      --card-bg: #fff;
-      --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-    }
-
-    .container {
-      display: flex;
-      width: 100%;
-      min-height: 100vh;
-      position: relative;
-    }
-
-    /* Header Bar */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background: var(--primary-color);
-      color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
+    .intro-overlay {
+      position: fixed;
       top: 0;
-      z-index: 100;
-      height: 60px; /* Fixed height for consistency */
-    }
-
-    .header-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .header-title i {
-      margin-right: 10px;
-    }
-
-    .search-container {
-      flex: 1;
-      max-width: 500px;
-      margin: 0 20px;
-      position: relative;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 10px 15px;
-      padding-left: 40px;
-      border-radius: 20px;
-      border: none;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      font-size: 1rem;
-    }
-
-    .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .theme-toggle {
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Sidebar (Navigation)'g' */
-    .sidebar {
-      width: 300px;
-      background: var(--sidebar-bg);
-      color: var(--sidebar-text);
-      overflow-y: auto;
-      transition: transform 0.3s ease;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-
-    .sidebar-header {
-      padding: 20px 15px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .sidebar-header h2 {
-      margin: 0;
-      font-size: 1.4rem;
-    }
-
-    .sidebar ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar ul li {
-      padding: 12px 20px;
-      cursor: pointer;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-      user-select: none;
-    }
-
-    .sidebar ul li:hover {
-      background: var(--sidebar-hover);
-    }
-
-    .sidebar ul li.active {
-      background: var(--sidebar-active);
-      color: white;
-    }
-
-    /* Arrow indicatorr for items with submenu */
-    .has-submenu::after {
-      content: '\f107';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      float: right;
-      margin-top: 2px;
-    }
-
-    .open::after {
-      content: '\f106';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-    }
-
-        /* Make a <li> that contains an <a> look/behave like other sidebar items */
-    .sidebar ul li.as-link { 
-      padding: 0; /* let the anchor own the padding */
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .sidebar ul li.as-link > a.menu-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      color: var(--sidebar-text);
-      text-decoration: none;
-      width: 100%;
-    }
-
-    .sidebar ul li.as-link > a.menu-link:hover {
-      background: var(--sidebar-hover);
-      color: #fff;
-    }
-
-    .sidebar ul li.as-link > a.menu-link.active {
-      background: var(--sidebar-active);
-      color: #fff;
-    }
-
-
-    /* Nested Submenus */
-    .sidebar ul li ul {
-      padding-left: 15px;
-      display: none;
-      background: rgba(0,0,0,0.1);
-    }
-
-    .sidebar ul li ul li {
-      padding: 10px 15px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    /* Breadcrumb navigation */
-    .breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      background: white;
-      border-radius: 4px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .breadcrumb-item {
-      display: flex;
-      align-items: center;
-    }
-
-    .breadcrumb-item:not(:last-child)::after {
-      content: "/";
-      margin: 0 10px;
-      color: #6c757d;
-    }
-
-    .breadcrumb-item a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-
-    .breadcrumb-item.active {
-      color: var(--text-color);
-    }
-    
-    /* Content Area */
-    .content-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    .content {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      background: var(--background-color);
-    }
-
-    .content h1 {
-      font-size: 2.2em;
-      margin-top: 0;
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-
-    .content h2 {
-      font-size: 1.8em;
-      color: var(--secondary-color);
-      margin-top: 30px;
-    }
-
-    .content h3 {
-      font-size: 1.5em;
-      color: var(--secondary-color);
-    }
-
-    /* Map and content styling */
-    .map-container {
-      position: relative;
-      margin-bottom: 30px;
-      box-shadow: var(--card-shadow);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .map-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .map-overlay {
-      position: absolute;
-      bottom: 0;
       left: 0;
-      right: 0;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-    }
-
-    .map-overlay h3 {
-      margin: 0 0 5px 0;
-      color: white;
-    }
-
-    .content-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: var(--card-shadow);
-    }
-
-    /* Character profile styling */
-    .character-profile {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 10000;
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.8s ease-out;
     }
-
-    .character-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary-color);
+    .intro-overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
     }
-
-    .character-info {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .info-item {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 6px;
-      border-left: 3px solid var(--accent-color);
-    }
-
-    .info-item h4 {
-      margin-top: 0;
-      color: var(--primary-color);
-    }
-
-    /* Search results styling */
-    .search-results {
+    .intro-overlay.hidden {
       display: none;
-      background: white;
-      border-radius: 4px;
-      margin-top: 20px;
-      box-shadow: var(--card-shadow);
     }
-
-    .search-results h2 {
-      padding: 15px 20px;
-      margin: 0;
-      border-bottom: 1px solid #eee;
+    .intro-video {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
     }
-
-    .result-item {
-      padding: 15px 20px;
-      border-bottom: 1px solid #eee;
+    .skip-intro {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 14px;
       cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-
-    .result-item:hover {
-      background: #f5f5f5;
-    }
-
-    .result-item h3 {
-      margin: 0 0 5px 0;
-      color: var(--secondary-color);
-    }
-
-    .result-path {
-      font-size: 0.8rem;
-      color: #777;
-    }
-
-    .result-snippet {
-      margin-top: 10px;
-      font-size: 0.9rem;
-    }
-
-    .highlight {
-      background-color: rgba(255, 222, 0, 0.3);
-      padding: 2px 0;
-    }
-
-    /* Calendar Styles */
-    .calendar-card h2 { margin-top:0; }
-    .calendar { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-top:10px; }
-    .cal-dow { font-weight:600; text-align:center; font-size:0.8rem; padding:6px 0; background:var(--primary-color); color:#fff; border-radius:4px; }
-    .cal-day { text-align:center; padding:10px 0; background:var(--card-bg); border:1px solid #ddd; border-radius:4px; font-size:0.85rem; position:relative; }
-    .cal-day.other-month { opacity:0.35; }
-    .cal-day.selected { background:var(--secondary-color); color:#fff; font-weight:700; box-shadow:0 0 0 2px rgba(0,0,0,0.1); }
-    .cal-day.clickable { cursor:pointer; border-color:var(--secondary-color); }
-    .cal-day.clickable:hover { background:var(--secondary-color); color:#fff; }
-    .calendar-meta { font-size:0.85rem; margin-top:8px; color:var(--text-color); }
-    body.dark-theme .cal-day { border-color:#333; }
-    body.dark-theme .cal-day.other-month { opacity:0.25; }
-    .calendar-back { background:var(--primary-color); color:#fff; border:none; padding:8px 14px; border-radius:4px; cursor:pointer; margin-bottom:10px; }
-    .calendar-back:hover { background:var(--secondary-color); }
-
-    /* Responsive styling - Enhanced */
-    @media (max-width: 992px) {
-      .container {
-        flex-direction: column;
-      }
-      
-      .sidebar {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        transform: translateX(-100%);
-        z-index: 99;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        overflow-y: auto;
-        max-height: calc(100vh - 60px);
-      }
-      
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      
-      .content-wrapper {
-        margin-left: 0;
-        width: 100%;
-      }
-      
-      .mobile-menu-toggle {
-        display: block;
-      }
-
-      .search-container {
-        max-width: 50%;
-      }
-      
-      .header {
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-        top: 0;
-      }
-      
-      .content-wrapper {
-        margin-top: 60px;
-        padding-top: 10px;
-      }
-      
-      .map-container {
-        margin-top: 0;
-      }
-    }
-    
-    /* For medium-sized devices */
-    @media (max-width: 768px) {
-      .search-container {
-        max-width: 60%;
-      }
-      
-      .breadcrumb {
-        padding: 10px;
-        margin-bottom: 15px;
-      }
-      
-      .content {
-        padding: 15px;
-      }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .content h1 {
-        font-size: 1.8em;
-      }
-      
-      .map-overlay h3 {
-        font-size: 1.2em;
-      }
-      
-      .map-overlay p {
-        font-size: 0.9em;
-      }
-    }
-
-    /* For small devices */
-    @media (max-width: 600px) {
-      .search-container {
-        max-width: 65%;
-      }
-      
-      .header-title span {
-        display: none;
-      }
-      
-      .character-profile {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      
-      .character-avatar {
-        margin-bottom: 15px;
-      }
-      
-      .content h1 {
-        font-size: 1.6em;
-      }
-      
-      .content h2 {
-        font-size: 1.4em;
-      }
-      
-      .content p, .content li {
-        font-size: 0.95em;
-      }
-      
-      .result-item {
-        padding: 10px 15px;
-      }
-      
-      .footer {
-        padding: 10px;
-        font-size: 0.9em;
-      }
-      
-      .breadcrumb-item {
-        font-size: 0.9em;
-      }
-    }
-    
-    /* For extra small devices */
-    @media (max-width: 400px) {
-      .search-container {
-        max-width: 60%;
-      }
-      
-      .header {
-        padding: 10px;
-      }
-      
-      .search-input {
-        padding: 8px 8px 8px 30px;
-        font-size: 0.9em;
-      }
-      
-      .search-icon {
-        left: 10px;
-      }
-      
-      .content {
-        padding: 10px;
-      }
-      
-      .theme-toggle {
-        font-size: 1rem;
-      }
-      
-      .mobile-menu-toggle {
-        font-size: 1.2rem;
-      }
-    }
-
-    /* PFP styling improved */
-    .pfp {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      margin-right: 10px;
-      object-fit: cover;
-      vertical-align: middle;
-    }
-
-    /* Loading indicator */
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      border-top: 4px solid var(--secondary-color);
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 10px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Footer */
-    footer {
-      background: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-
-    /* Dark theme */
-    body.dark-theme {
-      --background-color: #121212;
-      --text-color: #f1f1f1;
-      --card-bg: #1e1e1e;
-      --card-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-
-    body.dark-theme .breadcrumb {
-      background: #1e1e1e;
-      color: #f1f1f1;
-    }
-
-    body.dark-theme .breadcrumb-item:not(:last-child)::after {
-      color: #aaa;
-    }
-
-    body.dark-theme .info-item {
-      background: #2a2a2a;
-    }
-
-    body.dark-theme .search-results {
-      background: #1e1e1e;
-    }
-
-    body.dark-theme .result-item {
-      border-bottom: 1px solid #333;
-    }
-
-    body.dark-theme .result-item:hover {
-      background: #2a2a2a;
+    .skip-intro:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
     }
   </style>
 </head>
 <body>
-  <!-- Header Bar with Search -->
-  <div class="header">
-    <button class="mobile-menu-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="header-title">
-      <i class="fas fa-dragon"></i>
-      <span>Dayner - A World of Kingdoms</span>
-    </div>
-    <div class="search-container">
-      <i class="fas fa-search search-icon"></i>
-      <input type="text" class="search-input" placeholder="Search lore..." id="search-input">
-    </div>
-    <button class="theme-toggle" id="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </button>
+  <!-- Intro Video Overlay -->
+  <div class="intro-overlay" id="intro-overlay">
+    <video class="intro-video" id="intro-video" autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+    <button class="skip-intro" id="skip-intro">Skip Intro</button>
   </div>
 
-  <div class="container">
-    <!-- Sidebar Navigation -->
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <h2>Lore Navigation</h2>
-      </div>
-      <ul id="menu">
-        <li class="as-link"><a class="menu-link" href="map.html"><i class="fas fa-map"></i> World Map</a></li>
-        <!-- Character Lore -->
-        <li class="has-submenu"><i class="fas fa-users"></i> Character Lore
-          <ul>
-            <li class="has-submenu"><i class="fas fa-scroll"></i> Historic Characters
-              <ul>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\General Arach Tharne.md"><i class="fas fa-user-shield"></i> General Arach Tharne</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\General Yon Garathorn.md"><i class="fas fa-user-shield"></i> General Yon Garathorn</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Grand Inquisitor Pellaro.md"><i class="fas fa-user-tie"></i> Grand Inquisitor Pellaro</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\High Thane Broldir Flameforged.md"><i class="fas fa-hammer"></i> High Thane Broldir Flameforged</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Imperial Warmaster Dravarian.md"><i class="fas fa-chess-king"></i> Imperial Warmaster Dravarian</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Legate Sienna Valtoris.md"><i class="fas fa-user-shield"></i> Legate Sienna Valtoris</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Pirate Queen Aris "Steel-Eye".md"><i class="fas fa-skull-crossbones"></i> Pirate Queen Aris "Steel-Eye"</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Princess Araleth Oakheath.md"><i class="fas fa-crown"></i> Princess Araleth Oakheath</li>
-                <li data-file="Lore\DND\Character Lore\Historic Characters\Sea Lord Helmar Lynth.md"><i class="fas fa-water"></i> Sea Lord Helmar Lynth</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-dragon"></i> Beasts and Creatures
-              <ul>
-                <li data-file="Placeholder.md"><i class="fas fa-plus"></i> [Add Placeholder]</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-user-friends"></i> Modern Characters
-              <ul>
-                <li data-file="Placeholder.md"><i class="fas fa-plus"></i> [Add Placeholder]</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-dice-d20"></i> Player Characters
-              <ul>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Blorf of Clan Beren(Kirk).md">
-                  <img src="Blorf.jpg" alt="Blorf of Clan Beren" class="pfp" />
-                  Blorf of Clan Beren (Dylan Kirk)
-                </li>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Leontius (Ronan).md">
-                  <img src="Leontius.jpg" alt="Leontius" class="pfp" />
-                  Leontius(Ronan)
-                </li>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Amdir Aeristel (Aaron).md">
-                  <img src="Amdir.jpg" alt="Amdir" class="pfp" />
-                  Amdir Aeristel (Aaron)
-                </li>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Tearitus Dropius Pather (Dylan).md">
-                  <img src="TearDropPa.png" alt="Tearitus Dropius Pather" class="pfp" />
-                  Tearitus Dropius Pather (Dylan)
-                </li>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Morjor the Enlightened (Jack).md">
-                  <img src="Morjor.png" alt="Morjor the Enlightened" class="pfp" />
-                  Morjor the Enlightened (Jack)
-                </li>
-                <li data-file="Lore\DND\Character Lore\Player Characters\Varin (Aiden).md">
-                  <img src="Varin.jpg" alt="Varin" class="pfp" />
-                  Varin (Aiden)
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <!-- General 5e Lore -->
-        <li data-file="General5eLore.md"><i class="fas fa-book"></i> General 5e Lore</li>
-        <!-- General Lore of Dayner -->
-        <li class="has-submenu"><i class="fas fa-globe"></i> General Lore of Dayner
-          <ul>
-            <li class="has-submenu"><i class="fas fa-landmark"></i> History
-              <ul>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Ancient History.md"><i class="fas fa-hourglass-start"></i> Ancient History</li>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Historic Battles.md"><i class="fas fa-chess"></i> Historic Battles</li>
-                <li data-file="Lore\DND\General Lore of Dayner\History\Recent History.md"><i class="fas fa-hourglass-end"></i> Modern History</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-balance-scale"></i> Politics
-              <ul>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Factions & Orgs.md"><i class="fas fa-flag"></i> Factions and Orgs</li>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Power & Disputes.md"><i class="fas fa-gavel"></i> Power and Disputes</li>
-                <li data-file="Lore\DND\General Lore of Dayner\Politics\Race.md"><i class="fas fa-users"></i> Race</li>
-              </ul>
-            </li>
-            <li data-file="Lore\DND\General Lore of Dayner\Geography & Climate.md"><i class="fas fa-mountain"></i> Geography and Climate</li>
-            <li data-file="Lore\DND\General Lore of Dayner\Population.md"><i class="fas fa-user-friends"></i> Population</li>
-            <li data-file="Lore\DND\General Lore of Dayner\Wealth Distribution.md"><i class="fas fa-coins"></i> Wealth Distribution</li>
-          </ul>
-        </li>
-        <!-- Kingdoms -->
-        <li class="has-submenu"><i class="fas fa-chess-rook"></i> Kingdoms
-          <ul>
-            <li class="has-submenu"><i class="fas fa-tree"></i> Braewood
-              <ul>
-                <li data-file="Lore\DND\Kingdoms\Braewood\Capital\Braewood City.md"><i class="fas fa-crown"></i> Braewood City (Capital)</li>
-                <li class="has-submenu"><i class="fas fa-city"></i> Large Cities
-                  <ul>
-                    <li data-file="Lore\DND\Kingdoms\Braewood\Large Cities\Eaveton.md">Eaveton</li>
-                    <li data-file="Lore\DND\Kingdoms\Braewood\Large Cities\Mortling Stronghold.md">Mortling Stronghold</li>
-                    <li data-file="Lore\DND\Kingdoms\Braewood\Large Cities\Phine.md">Phine</li>
-                  </ul>
-                </li>
-                <li><i class="fas fa-building"></i> Medium Cities</li>
-                <li><i class="fas fa-home"></i> Towns</li>
-                <li><i class="fas fa-house-user"></i> Villages</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-island-tropical"></i> Islefield
-              <ul>
-                <li data-file="Lore\DND\Kingdoms\Islefield\Capital\Islefield City.md"><i class="fas fa-crown"></i> Islefield City (Capital)</li>
-                <li class="has-submenu"><i class="fas fa-city"></i> Large Cities
-                  <ul>
-                    <li data-file="Lore\DND\Kingdoms\Islefield\Large Cities\Rye.md">Rye</li>
-                  </ul>
-                </li>
-                <li><i class="fas fa-building"></i> Medium Cities</li>
-                <li><i class="fas fa-home"></i> Towns</li>
-                <li><i class="fas fa-house-user"></i> Villages</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-mountain"></i> Kluimont
-              <ul>
-                <li data-file="Lore\DND\Kingdoms\Kluimont\Capital\Kluimont City.md"><i class="fas fa-crown"></i> Kluimont City (Capital)</li>
-                <li class="has-submenu"><i class="fas fa-city"></i> Large Cities
-                  <ul>
-                    <li data-file="Lore\DND\Kingdoms\Kluimont\Large Cities\Eimgend.md">Eimgend</li>
-                  </ul>
-                </li>
-                <li><i class="fas fa-building"></i> Medium Cities</li>
-                <li><i class="fas fa-home"></i> Towns</li>
-                <li><i class="fas fa-house-user"></i> Villages</li>
-              </ul>
-            </li>
-            <li class="has-submenu"><i class="fas fa-fire"></i> Lavalto
-              <ul>
-                <li class="has-submenu"><i class="fas fa-city"></i> Large Cities
-                  <ul>
-                    <li data-file="Lore\DND\Kingdoms\Lavalto\Large Cities\Darewaeton.md">Darewaeton</li>
-                  </ul>
-                </li>
-                <li><i class="fas fa-building"></i> Medium Cities</li>
-                <li><i class="fas fa-home"></i> Towns</li>
-                <li><i class="fas fa-house-user"></i> Villages</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        
-      </ul>
+  <!-- Mobile Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="#" class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <i class="fas fa-dragon"></i>
+        </div>
+        <h2>Dayner</h2>
+      </a>
     </div>
-
-    <!-- Content Wrapper -->
-    <div class="content-wrapper">
-      <!-- Breadcrumb navigation -->
-      <div class="breadcrumb" id="breadcrumb">
-        <div class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Home</a></div>
-        <div class="breadcrumb-item active">Welcome</div>
+    
+    <nav class="nav-menu" id="nav-menu">
+      <!-- World Map Link -->
+      <a href="map.html" class="nav-link">
+        <i class="fas fa-map nav-icon"></i>
+        <span class="menu-text">World Map</span>
+      </a>
+      
+      <div class="nav-separator"></div>
+      
+      <!-- Character Lore -->
+      <div class="nav-item has-submenu">
+        <i class="fas fa-users nav-icon"></i>
+        <span class="menu-text">Character Lore</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
       </div>
-
-      <!-- Search results area -->
+      <div class="submenu">
+        <!-- Historic Characters -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-scroll nav-icon"></i>
+          <span class="menu-text">Historic Characters</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Character Lore/Historic Characters/General Arach Tharne.md">
+            <span class="menu-text">General Arach Tharne</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/General Yon Garathorn.md">
+            <span class="menu-text">General Yon Garathorn</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Grand Inquisitor Pellaro.md">
+            <span class="menu-text">Grand Inquisitor Pellaro</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/High Thane Broldir Flameforged.md">
+            <span class="menu-text">High Thane Broldir Flameforged</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Imperial Warmaster Dravarian.md">
+            <span class="menu-text">Imperial Warmaster Dravarian</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Legate Sienna Valtoris.md">
+            <span class="menu-text">Legate Sienna Valtoris</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Pirate Queen Aris &quot;Steel-Eye&quot;.md">
+            <span class="menu-text">Pirate Queen Aris "Steel-Eye"</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Princess Araleth Oakheath.md">
+            <span class="menu-text">Princess Araleth Oakheath</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Sea Lord Helmar Lynth.md">
+            <span class="menu-text">Sea Lord Helmar Lynth</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Historic Characters/Balthazar The Great Wizard.md">
+            <span class="menu-text">Balthazar The Great Wizard</span>
+          </div>
+        </div>
+        
+        <!-- Modern Characters -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-user-friends nav-icon"></i>
+          <span class="menu-text">Modern Characters</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Braewood Knight Allen.md">
+            <span class="menu-text">Braewood Knight Allen</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Cleric Veyner Drosk.md">
+            <span class="menu-text">Cleric Veyner Drosk</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Commander Seral.md">
+            <span class="menu-text">Commander Seral</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/High Archon Lysanthe Kilmora.md">
+            <span class="menu-text">High Archon Lysanthe Kilmora</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/King Roden II.md">
+            <span class="menu-text">King Roden II</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/King Tarvin Braeden IV.md">
+            <span class="menu-text">King Tarvin Braeden IV</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Lady Envoy Myrelle.md">
+            <span class="menu-text">Lady Envoy Myrelle</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Lady Seraphina Caylester.md">
+            <span class="menu-text">Lady Seraphina Caylester</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Lord Adrian Silwynn.md">
+            <span class="menu-text">Lord Adrian Silwynn</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Prince Ralston.md">
+            <span class="menu-text">Prince Ralston</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Queen Atheliana Aeristel.md">
+            <span class="menu-text">Queen Atheliana Aeristel</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Modern Characters/Queen Maera Braeden.md">
+            <span class="menu-text">Queen Maera Braeden</span>
+          </div>
+        </div>
+        
+        <!-- Player Characters -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-dice-d20 nav-icon"></i>
+          <span class="menu-text">Player Characters</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Character Lore/Player Characters/Blorf of Clan Beren(Kirk).md">
+            <span class="menu-text">Blorf of Clan Beren (Kirk)</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Leontius (Ronan).md">
+            <span class="menu-text">Leontius (Ronan)</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Amdir Aeristel (Aaron).md">
+            <span class="menu-text">Amdir Aeristel (Aaron)</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Tearitus Dropius Pather (Dylan).md">
+            <span class="menu-text">Tearitus Dropius Pather (Dylan)</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Morjor the Enlightened (Jack).md">
+            <span class="menu-text">Morjor the Enlightened (Jack)</span>
+          </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Varin (Aiden).md">
+            <span class="menu-text">Varin (Aiden)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nav-separator"></div>
+      
+      <!-- General Lore of Dayner -->
+      <div class="nav-item has-submenu">
+        <i class="fas fa-globe nav-icon"></i>
+        <span class="menu-text">General Lore of Dayner</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
+      </div>
+      <div class="submenu">
+        <!-- History -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-landmark nav-icon"></i>
+          <span class="menu-text">History</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/History/Ancient History.md">
+            <span class="menu-text">Ancient History</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/History/Historic Battles.md">
+            <span class="menu-text">Historic Battles</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/History/Recent History.md">
+            <span class="menu-text">Recent History</span>
+          </div>
+        </div>
+        
+        <!-- Politics -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-balance-scale nav-icon"></i>
+          <span class="menu-text">Politics</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/Politics/Factions and Orgs.md">
+            <span class="menu-text">Factions and Orgs</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Politics/Power & Disputes.md">
+            <span class="menu-text">Power and Disputes</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Politics/Race.md">
+            <span class="menu-text">Race</span>
+          </div>
+        </div>
+        
+        <div class="nav-item" data-file="General Lore of Dayner/Geography & Climate.md">
+          <span class="menu-text">Geography & Climate</span>
+        </div>
+        <div class="nav-item" data-file="General Lore of Dayner/Population.md">
+          <span class="menu-text">Population</span>
+        </div>
+        <div class="nav-item" data-file="General Lore of Dayner/Wealth Distribution.md">
+          <span class="menu-text">Wealth Distribution</span>
+        </div>
+      </div>
+      
+      <div class="nav-separator"></div>
+      
+      <!-- Kingdoms -->
+      <div class="nav-item has-submenu">
+        <i class="fas fa-chess-rook nav-icon"></i>
+        <span class="menu-text">Kingdoms</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
+      </div>
+      <div class="submenu">
+        <!-- Braewood -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-tree nav-icon"></i>
+          <span class="menu-text">Braewood</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Kingdoms/Braewood/Braewood.md">
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Capital/Braewood City.md">
+            <span class="menu-text">Braewood City (Capital)</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Large Cities/Eaveton.md">
+            <span class="menu-text">Eaveton</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Large Cities/Mortling Stronghold.md">
+            <span class="menu-text">Mortling Stronghold</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Large Cities/Phine.md">
+            <span class="menu-text">Phine</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Bagre.md">
+            <span class="menu-text">Bagre</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Sheyton.md">
+            <span class="menu-text">Sheyton</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Braewood/Town/Cleamond.md">
+            <span class="menu-text">Cleamond</span>
+          </div>
+        </div>
+        
+        <!-- Islefield -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-water nav-icon"></i>
+          <span class="menu-text">Islefield</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Kingdoms/Islefield/Islefield.md">
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Islefield/Capital/Islefield City.md">
+            <span class="menu-text">Islefield City (Capital)</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Islefield/Large Cities/Rye.md">
+            <span class="menu-text">Rye</span>
+          </div>
+        </div>
+        
+        <!-- Kluimont -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-mountain nav-icon"></i>
+          <span class="menu-text">Kluimont</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Kingdoms/Kluimont/Kluimont.md">
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Kluimont/Capital/Kluimont City.md">
+            <span class="menu-text">Kluimont City (Capital)</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Kluimont/Large Cities/Eimgend.md">
+            <span class="menu-text">Eimgend</span>
+          </div>
+        </div>
+        
+        <!-- Lavalto -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-fire nav-icon"></i>
+          <span class="menu-text">Lavalto</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="Kingdoms/Lavalto/Lavalto.md">
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="nav-item" data-file="Kingdoms/Lavalto/Large Cities/Darewaeton.md">
+            <span class="menu-text">Darewaeton</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nav-separator"></div>
+      
+      <!-- Session Notes -->
+      <div class="nav-item has-submenu">
+        <i class="fas fa-book-open nav-icon"></i>
+        <span class="menu-text">Session Notes</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
+      </div>
+      <div class="submenu">
+        <div class="nav-item" data-file="Sessions/Notes/Session 1 Notes.md">
+          <span class="menu-text">Session 1 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 2 Notes.md">
+          <span class="menu-text">Session 2 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 3 Notes.md">
+          <span class="menu-text">Session 3 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 4 Notes.md">
+          <span class="menu-text">Session 4 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 5 Notes.md">
+          <span class="menu-text">Session 5 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 6 Notes.md">
+          <span class="menu-text">Session 6 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 7 Notes.md">
+          <span class="menu-text">Session 7 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 8 Notes.md">
+          <span class="menu-text">Session 8 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 9 Notes.md">
+          <span class="menu-text">Session 9 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 10 Notes.md">
+          <span class="menu-text">Session 10 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 11 Notes.md">
+          <span class="menu-text">Session 11 Notes</span>
+        </div>
+        <div class="nav-item" data-file="Sessions/Notes/Session 12 Notes.md">
+          <span class="menu-text">Session 12 Notes</span>
+        </div>
+      </div>
+      
+      <div class="nav-separator"></div>
+      
+      <!-- Calendar -->
+      <div class="nav-item" id="calendar-nav">
+        <i class="fas fa-calendar-alt nav-icon"></i>
+        <span class="menu-text">Campaign Calendar</span>
+      </div>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <button class="sidebar-collapse-btn" title="Toggle Sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+  </aside>
+  
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="header-title">
+          <i class="fas fa-dragon"></i>
+          <span>Dayner</span>
+        </div>
+      </div>
+      
+      <div class="header-center">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" id="search-input" placeholder="Search lore... (Ctrl+K)" autocomplete="off">
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <button class="header-btn" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" id="breadcrumb">
+        <div class="breadcrumb-item active"><i class="fas fa-home"></i> Home</div>
+      </nav>
+      
+      <!-- Search Results -->
       <div class="search-results" id="search-results">
-        <h2>Search Results</h2>
+        <h2><i class="fas fa-search"></i> Search Results</h2>
         <div class="results-list" id="results-list"></div>
       </div>
-
-      <!-- Loading indicator -->
+      
+      <!-- Loading Indicator -->
       <div class="loading" id="loading">
         <div class="spinner"></div>
         <p>Loading content...</p>
       </div>
-
-      <!-- Content Display Area -->
-      <div class="content" id="content">
-        <div class="map-container">
-          <img src="map.jpg" alt="Map of Dayner" class="map-image" />
-          <div class="map-overlay">
-            <h3>The World of Dayner</h3>
-            <p>A realm of ancient kingdoms, epic battles, and untold adventures waiting to be discovered.</p>
-          </div>
-        </div>
-
-        <div class="content-card">
-          <h1>Welcome to Dayner</h1>
-          <p>Welcome to the comprehensive lore compendium of Dayner, a vast and intricate world filled with rich history, diverse kingdoms, and legendary characters.</p>
-          
-          <h2>Getting Started</h2>
-          <p>Navigate through the various categories using the sidebar on the left. You can explore:</p>
-          <ul>
-            <li><strong>Character Lore</strong> - Learn about historic figures, legendary beasts, and your fellow adventurers</li>
-            <li><strong>General 5e Lore</strong> - Understand how the D&D 5e ruleset applies to this world</li>
-            <li><strong>General Lore of Dayner</strong> - Discover the history, politics, geography, and population of this realm</li>
-            <li><strong>Kingdoms</strong> - Explore the unique realms that make up this world</li>
-          </ul>
-          
-          <h2>Quick Search</h2>
-          <p>Use the search bar at the top to quickly find specific lore entries. The search function will scan all available content and present the most relevant results.</p>
-          
-          <h2>Recent Updates</h2>
-          <div class="info-grid">
-            <div class="info-item">
-              <h4>Calendar & Session Logs</h4>
-              <p>Added interactive campaign calendar with linked session records for Feb 9–14, 1225.</p>
-            </div>
-            <div class="info-item">
-              <h4>Player Characters</h4>
-              <p>Improved player profile image handling and added recent session context.</p>
-            </div>
-            <div class="info-item">
-              <h4>Early Story Arc</h4>
-              <p>Documented pendant mission, first arrest in Sheyton, and Braewood/market events.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- World Calendar -->
-        <div class="content-card calendar-card" id="calendar-card">
-          <h2>World Calendar</h2>
-          <div id="world-calendar"></div>
-          <div id="calendar-meta"></div>
-          <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
-        </div>
+      
+      <!-- Content Area -->
+      <div class="content-area" id="content-area"></div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo"><i class="fas fa-dragon"></i> Dayner</div>
+        <p>A D&D Lore Compendium &copy; 2025</p>
       </div>
-
-      <!-- Footer -->
-      <footer>
-        <p>Dayner - A World of Kingdoms &copy; 2025 | A D&D Lore Compendium</p>
-      </footer>
-    </div>
+    </footer>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // DOM Elements
-      const sidebar = document.getElementById('sidebar');
-      const menuItems = document.querySelectorAll('.sidebar .has-submenu');
-      const fileItems = document.querySelectorAll('.sidebar [data-file]');
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      const resultsList = document.getElementById('results-list');
-      const contentArea = document.getElementById('content');
-      const breadcrumbNav = document.getElementById('breadcrumb');
-      const loadingIndicator = document.getElementById('loading');
-      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-      const themeToggle = document.getElementById('theme-toggle');
-      
-      // Theme Toggling
-      themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        const icon = themeToggle.querySelector('i');
-        
-        if (document.body.classList.contains('dark-theme')) {
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          icon.classList.remove('fa-sun');
-          icon.classList.add('fa-moon');
-          localStorage.setItem('theme', 'light');
-        }
-      });
-      
-      // Check for saved theme preference
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-theme');
-        const icon = themeToggle.querySelector('i');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      }
-      
-      // Mobile Menu Toggle
-      mobileMenuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('open');
-      });
-      
-      // Close sidebar when clicking outside on mobile
-      document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 992 && 
-            !event.target.closest('.sidebar') && 
-            !event.target.closest('.mobile-menu-toggle') &&
-            sidebar.classList.contains('open')) {
-          sidebar.classList.remove('open');
-        }
-      });
-      
-      // Toggle submenu visibility on click
-      menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          e.stopPropagation();
-          
-          // If clicked directly on the submenu icon, toggle only this submenu
-          this.classList.toggle('open');
-          const submenu = this.querySelector(':scope > ul');
-          if (submenu) {
-            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-          }
-        });
-      });
-      
-      // Handle file item clicks
-      fileItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          e.stopPropagation();
-          
-          // Remove active class from all items
-          fileItems.forEach(i => i.classList.remove('active'));
-          
-          // Add active class to clicked item
-          this.classList.add('active');
-          
-          // Hide search results
-          searchResults.style.display = 'none';
-          
-          // Update breadcrumb
-          updateBreadcrumb(this);
-          
-          // Fetch and display content
-          const file = this.getAttribute('data-file');
-          loadContent(file);
-          
-          // Close mobile sidebar after selection
-          if (window.innerWidth <= 992) {
-            sidebar.classList.remove('open');
-          }
-        });
-      });
-      
-      // Search functionality
-      let loreData = [];
-      
-      // Function to fetch and index all content for search
-      function indexAllContent() {
-        fileItems.forEach(item => {
-          const file = item.getAttribute('data-file');
-          if (!file.includes('Placeholder')) {
-            fetchMarkdown(file)
-              .then(content => {
-                if (content) {
-                  loreData.push({
-                    title: item.textContent.trim(),
-                    path: file,
-                    content: content,
-                    element: item
-                  });
-                }
-              });
-          }
-        });
-      }
-      
-      // Call to index content when page loads
-      indexAllContent();
-      
-      // Search input handler
-      searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        
-        if (query.length < 2) {
-          searchResults.style.display = 'none';
-          return;
-        }
-        
-        // Search through indexed content
-        const results = loreData.filter(item => {
-          return item.title.toLowerCase().includes(query) || 
-                 item.content.toLowerCase().includes(query);
-        });
-        
-        // Display results
-        displaySearchResults(results, query);
-      });
-      
-      // Display search results
-      function displaySearchResults(results, query) {
-        resultsList.innerHTML = '';
-        
-        if (results.length === 0) {
-          resultsList.innerHTML = '<div class="result-item">No results found</div>';
-          searchResults.style.display = 'block';
-          return;
-        }
-        
-        results.forEach(result => {
-          const resultItem = document.createElement('div');
-          resultItem.className = 'result-item';
-          
-          // Create title with highlight
-          const title = result.title;
-          const highlightedTitle = highlightText(title, query);
-          
-          // Create content snippet with highlight
-          const contentSnippet = createSnippet(result.content, query);
-          
-          resultItem.innerHTML = `
-            <h3>${highlightedTitle}</h3>
-            <div class="result-path">${result.path}</div>
-            <div class="result-snippet">${contentSnippet}</div>
-          `;
-          
-          // Add click event to load the content
-          resultItem.addEventListener('click', function() {
-            // Load the content
-            loadContent(result.path);
-            
-            // Update breadcrumb
-            updateBreadcrumb(result.element);
-            
-            // Hide search results
-            searchResults.style.display = 'none';
-            
-            // Clear search input
-            searchInput.value = '';
-            
-            // Set active menu item
-            fileItems.forEach(i => i.classList.remove('active'));
-            result.element.classList.add('active');
-            
-            // Expand parent menus to show the active item
-            expandParentMenus(result.element);
-          });
-          
-          resultsList.appendChild(resultItem);
-        });
-        
-        searchResults.style.display = 'block';
-      }
-      
-      // Function to highlight text matches
-      function highlightText(text, query) {
-        const regex = new RegExp(`(${query})`, 'gi');
-        return text.replace(regex, '<span class="highlight">$1</span>');
-      }
-      
-      // Function to create a snippet of content with the search term highlighted
-      function createSnippet(content, query) {
-        const lowerContent = content.toLowerCase();
-        const lowerQuery = query.toLowerCase();
-        
-        // Find position of the first occurrence of the query
-        const pos = lowerContent.indexOf(lowerQuery);
-        
-        if (pos === -1) {
-          // If query not found in content, return the first 100 characters
-          return content.substring(0, 100) + '...';
-        }
-        
-        // Calculate snippet start and end positions
-        const snippetStart = Math.max(0, pos - 50);
-        const snippetEnd = Math.min(content.length, pos + query.length + 50);
-        
-        // Create snippet with ellipsis if needed
-        let snippet = '';
-        if (snippetStart > 0) {
-          snippet += '...';
-        }
-        
-        snippet += content.substring(snippetStart, snippetEnd);
-        
-        if (snippetEnd < content.length) {
-          snippet += '...';
-        }
-        
-        // Highlight the query in the snippet
-        return highlightText(snippet, query);
-      }
-      
-      // Function to expand parent menus when loading from search
-      function expandParentMenus(element) {
-        let parent = element.parentElement;
-        
-        while (parent && parent.classList) {
-          if (parent.classList.contains('has-submenu')) {
-            parent.classList.add('open');
-            const submenu = parent.querySelector(':scope > ul');
-            if (submenu) {
-              submenu.style.display = 'block';
-            }
-          }
-          parent = parent.parentElement;
-        }
-      }
-      
-      // Function to update breadcrumb navigation
-      function updateBreadcrumb(element) {
-        // Clear existing breadcrumb and start with Home
-        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>';
-        
-        // Add home link click event
-        setTimeout(() => {
-          const homeLink = document.getElementById('home-link');
-          if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-              e.preventDefault();
-              showHomePage();
-            });
-          }
-        }, 0);
-        
-        // If no element (for home page), just show Home breadcrumb
-        if (!element) {
-          return;
-        }
-        
-        // Build array of parent menu items
-        const breadcrumbItems = [];
-        let current = element;
-        
-        // Get the text for the final item (without any children text)
-        let finalItemText = current.textContent.trim();
-        const childSpan = current.querySelector('span');
-        if (childSpan) {
-          finalItemText = childSpan.textContent.trim();
-        } else if (current.querySelector('img')) {
-          // If there's an image, get just the text
-          finalItemText = current.textContent.trim();
-        }
-        
-        // Clean up text (remove icons, etc.)
-        finalItemText = finalItemText.replace(/^[\s\uFEFF\xA0\u200B]+|[\s\uFEFF\xA0\u200B]+$/g, ''); // Remove Unicode spaces
-        
-        breadcrumbItems.unshift(finalItemText);
-        
-        // Get parent items
-        let validParentCount = 0;
-        while (current.parentElement && current.parentElement.classList) {
-          current = current.parentElement;
-          
-          if (current.classList.contains('has-submenu')) {
-            // Get the text directly owned by this element, not including children
-            const originalText = current.childNodes[0].textContent.trim();
-            // Remove icons and indicators
-            let itemText = originalText.replace(/[\u25B2\u25BC]|▼|▲/, '').trim(); // Remove arrow indicators
-            
-            // Clean text further to remove icon characters
-            itemText = itemText.replace(/^[\s\uFEFF\xA0\u200B]+|[\s\uFEFF\xA0\u200B]+$/g, '');
-            
-            // Only add if it's a meaningful text (not just spaces or icons)
-            if (itemText && itemText.length > 0) {
-              breadcrumbItems.unshift(itemText);
-              validParentCount++;
-            }
-          }
-          
-          // Stop at the main menu
-          if (current.id === 'menu') {
-            break;
-          }
-        }
-        
-        // Add breadcrumb items - only add if we have valid parents
-        if (validParentCount > 0) {
-          breadcrumbItems.forEach((item, index) => {
-            if (index === breadcrumbItems.length - 1) {
-              breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${item}</div>`;
-            } else {
-              breadcrumbNav.innerHTML += `<div class="breadcrumb-item"><a href="#">${item}</a></div>`;
-            }
-          });
-        } else {
-          // If no valid parents, just add the final item directly
-          breadcrumbNav.innerHTML += `<div class="breadcrumb-item active">${finalItemText}</div>`;
-        }
-      }
-      
-      // Function to load content
-      function loadContent(file) {
-        // Show loading indicator
-        loadingIndicator.style.display = 'block';
-        contentArea.style.opacity = '0.5';
-        
-        // Fetch the file content
-        fetchMarkdown(file)
-          .then(mdText => {
-            if (mdText) {
-              // Convert markdown to HTML
-              const html = marked.parse(mdText);
-              
-              // Create enhanced content structure
-              let fileName = file.split('\\').pop().replace('.md', '');
-              
-              // Determine if this is a character, kingdom, or general lore
-              let contentType = 'lore';
-              if (file.includes('Character Lore')) {
-                contentType = 'character';
-              } else if (file.includes('Kingdoms')) {
-                contentType = 'kingdom';
-              }
-              
-              let enhancedHTML = '';
-              
-              // Apply different templates based on content type
-              if (contentType === 'character') {
-                enhancedHTML = createCharacterTemplate(fileName, html);
-              } else if (contentType === 'kingdom') {
-                enhancedHTML = createKingdomTemplate(fileName, html);
-              } else {
-                enhancedHTML = createLoreTemplate(fileName, html);
-              }
-              
-              // Update content area
-              contentArea.innerHTML = enhancedHTML;
-              
-              // Scroll to top
-              contentArea.scrollTop = 0;
-            } else {
-              contentArea.innerHTML = `<div class="content-card">
-                <h1>Content Unavailable</h1>
-                <p>The requested content could not be loaded. This may be a placeholder page that hasn't been filled yet.</p>
-              </div>`;
-            }
-            
-            // Hide loading indicator
-            loadingIndicator.style.display = 'none';
-            contentArea.style.opacity = '1';
-          });
-      }
-      
-      // Function to fetch markdown content
-      function fetchMarkdown(file) {
-        return fetch(file)
-          .then(response => {
-            if (!response.ok) {
-              console.warn(`Failed to fetch ${file}: ${response.status} ${response.statusText}`);
-              return null;
-            }
-            return response.text();
-          })
-          .catch(error => {
-            console.error(`Error fetching ${file}:`, error);
-            return null;
-          });
-      }
-      
-      // Template generators for different content types
-      function createCharacterTemplate(name, content) {
-        // Check if this is a player character (they have different image handling)
-        const isPlayerCharacter = name.includes('(');
-        let imageName = '';
-        
-        if (isPlayerCharacter) {
-          // For player characters, just use the first part of the name (e.g., "Blorf" from "Blorf of Clan Beren(Kirk)")
-          imageName = name.split(' ')[0];
-        } else {
-          // For other characters, transform the full name
-          imageName = name.toLowerCase().replace(/\s+/g, '').replace(/['"]/g, '');
-        }
-        
-        return `
-          <div class="content-card">
-            <h1>${name}</h1>
-            <div class="character-profile">
-              <img src="${imageName}.jpg" alt="${name}" class="character-avatar" onerror="this.src='profile-placeholder.jpg'">
-              <div class="character-info">
-                ${content}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-      
-      function createKingdomTemplate(name, content) {
-        return `
-          <div class="map-container">
-            <img src="${name.toLowerCase()}-map.jpg" alt="Map of ${name}" class="map-image" onerror="this.src='map.jpg'">
-            <div class="map-overlay">
-              <h3>Kingdom of ${name}</h3>
-            </div>
-          </div>
-          <div class="content-card">
-            <h1>Kingdom of ${name}</h1>
-            ${content}
-          </div>
-        `;
-      }
-      
-      function createLoreTemplate(name, content) {
-        return `
-          <div class="content-card">
-            <h1>${name}</h1>
-            ${content}
-          </div>
-        `;
-      }
-      
-      // Function to show home page
-      function showHomePage(scrollTo) {
-        // Clear active menu items
-        fileItems.forEach(i => i.classList.remove('active'));
-        
-        // Update breadcrumb
-        breadcrumbNav.innerHTML = '<div class="breadcrumb-item active"><i class="fas fa-home"></i> Home</div>';
-        
-        // Show default home content
-        contentArea.innerHTML = `
-          <div class="map-container">
-            <img src="map.jpg" alt="Map of Dayner" class="map-image" />
-            <div class="map-overlay">
-              <h3>The World of Dayner</h3>
-              <p>A realm of ancient kingdoms, epic battles, and untold adventures waiting to be discovered.</p>
-            </div>
-          </div>
-
-          <div class="content-card calendar-card">
-            <h2>World Calendar</h2>
-            <div id="world-calendar"></div>
-            <div id="calendar-meta"></div>
-            <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
-          </div>
-
-          <div class="content-card">
-            <h1>Welcome to Dayner</h1>
-            <p>Welcome to the comprehensive lore compendium of Dayner, a vast and intricate world filled with rich history, diverse kingdoms, and legendary characters.</p>
-            
-            <h2>Getting Started</h2>
-            <p>Navigate through the various categories using the sidebar on the left. You can explore:</p>
-            <ul>
-              <li><strong>Character Lore</strong> - Learn about historic figures, legendary beasts, and your fellow adventurers</li>
-              <li><strong>General 5e Lore</strong> - Understand how the D&D 5e ruleset applies to this world</li>
-              <li><strong>General Lore of Dayner</strong> - Discover the history, politics, geography, and population of this realm</li>
-              <li><strong>Kingdoms</strong> - Explore the unique realms that make up this world</li>
-            </ul>
-            
-            <h2>Quick Search</h2>
-            <p>Use the search bar at the top to quickly find specific lore entries. The search function will scan all available content and present the most relevant results.</p>
-            
-            <h2>Recent Updates</h2>
-            <div class="info-grid">
-              <div class="info-item">
-                <h4>Calendar & Session Logs</h4>
-                <p>Added interactive campaign calendar with linked session records for Feb 9–14, 1225.</p>
-              </div>
-              <div class="info-item">
-                <h4>Player Characters</h4>
-                <p>Improved player profile image handling and added recent session context.</p>
-              </div>
-              <div class="info-item">
-                <h4>Early Story Arc</h4>
-                <p>Documented pendant mission, first arrest in Sheyton, and Braewood/market events.</p>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        // Hide search results
-        searchResults.style.display = 'none';
-        
-        // Render calendar on home
-        if (typeof renderWorldCalendar === 'function') {
-          renderWorldCalendar(currentCalendar.year, currentCalendar.monthIndex, currentCalendar.day);
-        }
-        // If requested, scroll to calendar after render
-        if (scrollTo === 'calendar') {
-          setTimeout(() => {
-            const calEl = document.getElementById('world-calendar');
-            if (calEl) {
-              // contentArea has its own scroll container
-              contentArea.scrollTo({ top: calEl.offsetTop - 10, behavior: 'smooth' });
-            }
-          }, 50);
-        }
-      }
-      
-      // Initialize sidebar state - expand items with active children
-      function initializeSidebar() {
-        const expandActiveParents = () => {
-          const active = document.querySelector('.sidebar .active');
-          if (active) {
-            expandParentMenus(active);
-          }
-        };
-        
-        // Do not auto-expand any submenu on initial load to keep Character Lore collapsed.
-        
-        expandActiveParents();
-        
-        // Add event listener to header title for home
-        const headerTitle = document.querySelector('.header-title');
-        headerTitle.addEventListener('click', function() {
-          showHomePage();
-        });
-        headerTitle.style.cursor = 'pointer';
-      }
-      
-      initializeSidebar();
-      
-      // Mobile specific handlers
-      function setupMobileHandlers() {
-        // Close the sidebar when clicking on a menu item on mobile
-        fileItems.forEach(item => {
-          item.addEventListener('click', function() {
-            if (window.innerWidth <= 992) {
-              sidebar.classList.remove('open');
-            }
-          });
-        });
-        
-        // Handle swipe gestures on mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', e => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        document.addEventListener('touchend', e => {
-          touchEndX = e.changedTouches[0].screenX;
-          handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-          const swipeThreshold = 70; // Minimum distance for swipe
-          
-          // Right swipe (open sidebar)
-          if (touchEndX - touchStartX > swipeThreshold && touchStartX < 50) {
-            sidebar.classList.add('open');
-          }
-          
-          // Left swipe (close sidebar)
-          if (touchStartX - touchEndX > swipeThreshold && sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-          }
-        }
-        
-        // Fix for iOS Safari 100vh issue
-        function fixIOSHeight() {
-          const vh = window.innerHeight * 0.01;
-          document.documentElement.style.setProperty('--vh', `${vh}px`);
-          
-          // Adjust sidebar height
-          sidebar.style.maxHeight = `calc(var(--vh, 1vh) * 100 - 60px)`;
-        }
-        
-        // Run on resize and initial load
-        window.addEventListener('resize', fixIOSHeight);
-        fixIOSHeight();
-        
-        // Improve tap target sizes on mobile
-        if ('ontouchstart' in window || navigator.maxTouchPoints) {
-          document.querySelectorAll('.sidebar ul li').forEach(item => {
-            item.style.padding = '14px 20px'; // Larger tap targets
-          });
-          
-          document.querySelectorAll('.breadcrumb-item a').forEach(item => {
-            item.style.padding = '5px'; // Larger tap targets
-          });
-        }
-      }
-      
-      // Call mobile handlers setup
-      setupMobileHandlers();
-      
-      // Prevent submenu clicks from loading the parent item
-      const submenus = document.querySelectorAll('.sidebar ul');
-      submenus.forEach(submenu => {
-        submenu.addEventListener('click', e => {
-          e.stopPropagation();
-        });
-      });
-      
-      // Calendar rendering script
-      const calendarEvents = { '1225-02-14': 'Lore\\DND\\Calendar\\1225-02-14.md' };
-      // Extend calendar events with previous days
-      Object.assign(calendarEvents, {
-        '1225-02-13': 'Lore\\DND\\Calendar\\1225-02-13.md',
-        '1225-02-12': 'Lore\\DND\\Calendar\\1225-02-12.md',
-        '1225-02-11': 'Lore\\DND\\Calendar\\1225-02-11.md',
-        '1225-02-10': 'Lore\\DND\\Calendar\\1225-02-10.md',
-        '1225-02-09': 'Lore\\DND\\Calendar\\1225-02-09.md'
-      });
-      // Track current calendar selection
-      const currentCalendar = { year:1225, monthIndex:1, day:14 };
-      
-      function showCalendarView() {
-        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>'+
-          '<div class="breadcrumb-item active">Calendar</div>';
-        setTimeout(()=>{ const hl=document.getElementById('home-link'); if(hl){hl.addEventListener('click',e=>{e.preventDefault(); showHomePage();});}},0);
-        contentArea.innerHTML = `
-          <div class="content-card calendar-card">
-            <h2>World Calendar</h2>
-            <div id="world-calendar"></div>
-            <div id="calendar-meta"></div>
-            <p style="font-size:0.8rem;opacity:.7;">Click a highlighted date to view that day's session log.</p>
-          </div>
-        `;
-        renderWorldCalendar(currentCalendar.year, currentCalendar.monthIndex, currentCalendar.day);
-      }
-      
-      function showCalendarDay(year, monthIndex, day, filePath) {
-        currentCalendar.year = year; currentCalendar.monthIndex = monthIndex; currentCalendar.day = day;
-        const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-        breadcrumbNav.innerHTML = '<div class="breadcrumb-item"><a href="#" id="home-link"><i class="fas fa-home"></i> Home</a></div>'+
-          '<div class="breadcrumb-item"><a href="#" id="cal-link">Calendar</a></div>'+
-          '<div class="breadcrumb-item active">'+monthNames[monthIndex]+' '+String(day).padStart(2,'0')+', '+year+'</div>';
-        setTimeout(()=>{
-          const hl=document.getElementById('home-link'); if(hl){hl.addEventListener('click',e=>{e.preventDefault(); showHomePage();});}
-          const cl=document.getElementById('cal-link'); if(cl){cl.addEventListener('click',e=>{e.preventDefault(); showCalendarView();});}
-        },0);
-        fetchMarkdown(filePath).then(mdText => {
-          const html = mdText ? marked.parse(mdText) : '<p>No record.</p>';
-          // Avoid duplicate heading: only add generated H1 if the file does NOT start with an <h1>
-          const needsHeading = !/^\s*<h1/i.test(html);
-          const headingHTML = needsHeading ? '<h1>'+monthNames[monthIndex]+' '+String(day).padStart(2,'0')+', '+year+'</h1>' : '';
-          contentArea.innerHTML = `
-            <div class="content-card">
-              <button class="calendar-back" id="calendar-back">&#8592; Back to Calendar</button>
-              ${headingHTML}
-              ${html}
-            </div>
-          `;
-          const backBtn = document.getElementById('calendar-back');
-          if (backBtn) backBtn.addEventListener('click', () => showHomePage('calendar'));
-        });
-      }
-       function renderWorldCalendar(year, monthIndex, selectedDay) {
-        const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-        const dowNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-        const calContainer = document.getElementById('world-calendar');
-        const metaEl = document.getElementById('calendar-meta');
-        if(!calContainer) return;
-        // Build date objects (using JS Gregorian proleptic calendar)
-        const firstOfMonth = new Date(year, monthIndex, 1);
-        const startDow = firstOfMonth.getDay();
-        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
-        const prevMonthDays = new Date(year, monthIndex, 0).getDate();
-        // Clear
-        calContainer.innerHTML = '';
-        // Header row (day-of-week)
-        const headerFrag = document.createDocumentFragment();
-        dowNames.forEach(d => {
-          const div = document.createElement('div');
-          div.className = 'cal-dow';
-            div.textContent = d;
-          headerFrag.appendChild(div);
-        });
-        // Grid days
-        const gridFrag = document.createDocumentFragment();
-        // Days from previous month to fill
-        for (let i = 0; i < startDow; i++) {
-          const d = document.createElement('div');
-          d.className = 'cal-day other-month';
-          d.textContent = prevMonthDays - startDow + 1 + i;
-          gridFrag.appendChild(d);
-        }
-        // Current month days
-        for (let day = 1; day <= daysInMonth; day++) {
-          const d = document.createElement('div');
-          d.className = 'cal-day';
-          if (day === selectedDay) d.classList.add('selected');
-          d.textContent = day;
-          gridFrag.appendChild(d);
-        }
-        // Append
-        const wrapper = document.createElement('div');
-        wrapper.className = 'calendar';
-        wrapper.appendChild(headerFrag);
-        wrapper.appendChild(gridFrag);
-        calContainer.appendChild(wrapper);
-        // Meta text (using provided weekday override to respect world calendar)
-        const providedWeekday = 'Wednesday';
-        metaEl.textContent = monthNames[monthIndex] + ' ' + selectedDay + ', ' + year + ' (' + providedWeekday + ')';
-        // Attach clickable handlers for dates that have lore entries
-        const dateKeyBase = year + '-' + String(monthIndex+1).padStart(2,'0');
-        const dayEls = wrapper.querySelectorAll('.cal-day:not(.other-month)');
-        dayEls.forEach(el => {
-          const dayNum = el.textContent.trim();
-          const key = dateKeyBase + '-' + dayNum.padStart(2,'0');
-          if (calendarEvents[key]) {
-            el.classList.add('clickable');
-            el.addEventListener('click', () => {
-              showCalendarDay(year, monthIndex, parseInt(dayNum,10), calendarEvents[key]);
-            });
-          }
-        });
-       }
-
-       // Initial world calendar (Feb = 1) Set to Feb 14 1225 Wednesday
-       renderWorldCalendar(1225, 1, 14);
-       // Ensure landing page matches Home button version
-       showHomePage();
-    });
-  </script>
+  
+  <!-- Single JavaScript File -->
+  <script src="static/js/main.js"></script>
 </body>
 </html>
