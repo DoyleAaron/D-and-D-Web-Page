@@ -1,17 +1,15 @@
 # Lady Vera Silke
 
-## Title
-Merchant (Official), Masked Lanterns Representative (Unofficial)
+## Overview
 
-## Age
-Early 40s
+| | |
+|---|---|
+| **Title** | Merchant (Official), Masked Lanterns Representative (Unofficial) |
+| **Age** | Early 40s |
+| **Race** | Human |
+| **Location** | Barge (Medium City), Central-Northern Braewood |
 
-## Race
-Human
-
-## Location
-Barge (Medium City), Central-Northern Braewood
-
+---
 
 ## Appearance
 Elegant in a carefully calculated way. Auburn hair worn in elaborate styles that are fashionable but never impractical. Green eyes that sparkle with warmth that doesn't quite reach their depths. A face that's beautiful in the way that makes you trust her — which should make you suspicious.
@@ -21,7 +19,7 @@ Dresses in expensive silks and fine jewelry, the picture of a successful merchan
 Her smile is her most dangerous weapon.
 
 ## Backstory
-No one knows where Vera Silke came from. She appeared in Barge fifteen years ago with capital, connections, and an import business that was immediately profitable. Within five years, she was one of the city's most respected merchants.
+No one knows where [Vera Silke](../../Character%20Lore/Modern%20Characters/Lady%20Vera%20Silke.md) came from. She appeared in [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) fifteen years ago with capital, connections, and an import business that was immediately profitable. Within five years, she was one of the city's most respected merchants.
 
 Within ten, everyone knew she spoke for the Masked Lanterns.
 
@@ -45,7 +43,7 @@ What matters is that when the Lanterns need to negotiate with the legitimate wor
 
 ## Unofficial Role
 - Voice of the Masked Lanterns in legitimate circles
-- Negotiator with Magistrate Hallas
+- Negotiator with Magistrate [Hallas](../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md)
 - Manager of the guild's "clean" investments
 - Intelligence gatherer (everyone talks to a charming merchant)
 - The person you see when you want to hire the Lanterns

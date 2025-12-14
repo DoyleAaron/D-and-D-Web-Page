@@ -4,7 +4,7 @@
 Adaham
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
@@ -56,15 +56,15 @@ Village
 **Position:**
 Adaham sits on the border river (Vael River), approximately:
 - **35km north of Braewood City** on the left road, then **20km southwest** — making it roughly 40km from the capital by direct line
-- Near the **river split** where the Vael branches toward Mortling and the great Lavalto lake
+- Near the **river split** where the Vael branches toward Mortling and the great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) lake
 - **~25km from Mortling** downriver (not on the safe water route)
-- On the Kluimont border, though the crossing here is not bridged
+- On the [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) border, though the crossing here is not bridged
 
 **The Ghost Docks:**
 Adaham's most distinctive feature is its oversized dock complex — built decades ago when the Crown attempted to establish a major trading port here. The venture failed. The river currents proved treacherous, the position was too exposed to Kluimontian raiders, and merchants preferred Mortling's protected harbor. Now the docks stand half-empty, weathered wood creaking in the river wind. Locals call them the Ghost Docks.
 
 **The River Split:**
-Just downstream from Adaham, the river branches. One channel flows east toward Mortling and eventually the great lake shared with Lavalto. The other flows southwest along the Kluimont border. This strategic position is why the Crown maintains elite sailors here — they can respond quickly to threats from multiple directions.
+Just downstream from Adaham, the river branches. One channel flows east toward Mortling and eventually the great lake shared with [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md). The other flows southwest along the [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) border. This strategic position is why the Crown maintains elite sailors here — they can respond quickly to threats from multiple directions.
 
 **Terrain:**
 Flat riverbank terrain, prone to flooding in spring. The village is built on slightly higher ground, but the docks extend into the floodplain. Mist rises from the river most mornings.
@@ -87,7 +87,7 @@ In 1180 C.C., Crown merchants attempted to establish Adaham as a major trading h
 
 **Trade Networks:**
 - Most trade bypasses Adaham entirely
-- The sailors purchase supplies from Braewood City and Phine
+- The sailors purchase supplies from [Braewood](../../../Kingdoms/Braewood/Braewood.md) City and [Phine](../../../Kingdoms/Braewood/Large%20Cities/Phine.md)
 - Some smuggling occurs — the ghost docks provide cover
 
 ---
@@ -101,7 +101,7 @@ A minor ferry crossing existed here during the Empire. No bridge was ever built 
 Adaham was a fishing village, nothing more. The river split made it strategically interesting but economically marginal.
 
 **The Great Port Project (1180-1195 C.C.):**
-Crown merchants, seeking to establish a trading route to Lavalto that bypassed Mortling's tolls, invested heavily in Adaham. They built docks that could handle fifty vessels, warehouses for thousands of tons of goods, and a customs house. The project was a disaster. Kluimontian raiders struck repeatedly. The currents sank cargo. Merchants refused to use the route. By 1195, the project was abandoned.
+Crown merchants, seeking to establish a trading route to [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) that bypassed Mortling's tolls, invested heavily in Adaham. They built docks that could handle fifty vessels, warehouses for thousands of tons of goods, and a customs house. The project was a disaster. Kluimontian raiders struck repeatedly. The currents sank cargo. Merchants refused to use the route. By 1195, the project was abandoned.
 
 **Modern Era:**
 The Crown, embarrassed by the failed port, repurposed Adaham as a military outpost. The elite sailors stationed here can respond to threats anywhere on the river network within hours. The ghost docks remain — too expensive to demolish, too useless to maintain.
@@ -132,7 +132,7 @@ The Crown, embarrassed by the failed port, repurposed Adaham as a military outpo
 **With Other Settlements:**
 - **Braewood City:** 40km away; the garrison answers directly to Crown naval command
 - **Mortling:** 25km downriver; Adaham exists in Mortling's shadow, its failure highlighting Mortling's success
-- **Phine:** Distant connection; both are river ports, but Phine thrives where Adaham failed
+- **Phine:** Distant connection; both are river ports, but [Phine](../../../Kingdoms/Braewood/Large%20Cities/Phine.md) thrives where Adaham failed
 
 **With the Crown:**
 The garrison is a face-saving measure. The Crown couldn't admit the port project was a total loss, so they stationed elite sailors here and called it strategic. It actually is strategic — the river split position is valuable — but everyone knows the real history.
@@ -143,10 +143,10 @@ The garrison is a face-saving measure. The Crown couldn't admit the port project
 
 - **The Lights in the Warehouse:** Sailors report seeing lights in the abandoned warehouses at night. No one will investigate.
 - **Kluimontian Probing:** Raiders have been spotted upriver more frequently. The garrison is on alert. Is this reconnaissance for a larger attack?
-- **Old Guildmaster's Map:** Tomas Ashwell claims he knows where a fortune in cargo sank during the failed project. He's looking for help retrieving it.
+- **Old Guildmaster's Map:** Tomas [Ashwell](../../../Character%20Lore/Modern%20Characters/Old%20Guildmaster%20Tomas%20Ashwell.md) claims he knows where a fortune in cargo sank during the failed project. He's looking for help retrieving it.
 - **The Fast Response:** A merchant vessel was attacked near Mortling. The Adaham sailors arrived first — faster than anyone thought possible. Some are asking questions about how they knew.
 
 ---
 
 *"They call them ghost docks. But I remember when they were new — when we thought this place would become the next Mortling. Didn't work out that way. Now we've got elite sailors and empty buildings. The Crown calls it strategic. I call it sad. But the sailors... they're good people. And someone has to watch the river split."*
-— Old Guildmaster Tomas Ashwell
+— [Old Guildmaster Tomas Ashwell](../../../Character%20Lore/Modern%20Characters/Old%20Guildmaster%20Tomas%20Ashwell.md)

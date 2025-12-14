@@ -1,17 +1,15 @@
 # Commander Brynn Ashworth
 
-## Title
-Commander of the Iron Gate
+## Overview
 
-## Age
-50s
+| | |
+|---|---|
+| **Title** | Commander of the Iron Gate |
+| **Age** | 50s |
+| **Race** | Human |
+| **Location** | Barge (Medium City), Central-Northern Braewood — The Iron Gate |
 
-## Race
-Human
-
-## Location
-Barge (Medium City), Central-Northern Braewood — The Iron Gate
-
+---
 
 ## Appearance
 Military bearing so ingrained it's become personality. Tall and lean, iron-grey hair cut short enough to never need attention. A face made of hard lines and harder eyes. Pale blue gaze that assesses everything as potential threat or asset.
@@ -21,7 +19,7 @@ Wears Crown military uniform at all times, immaculately maintained. Carries a lo
 Doesn't smile. Doesn't joke. Doesn't waste words.
 
 ## Backstory
-Brynn Ashworth was career military from age sixteen. Rose through the ranks through competence, not politics. Served on the Kluimont border, the Lavaltan frontier, and the capital garrison. Never sought promotion; it came anyway.
+[Brynn Ashworth](../../Character%20Lore/Modern%20Characters/Commander%20Brynn%20Ashworth.md) was career military from age sixteen. Rose through the ranks through competence, not politics. Served on the [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) border, the Lavaltan frontier, and the capital garrison. Never sought promotion; it came anyway.
 
 She was assigned to command the Iron Gate eight years ago. It was meant to be a prestigious semi-retirement posting. Instead, she found a strategic chokepoint controlled by faction politics and Crown bureaucracy.
 
@@ -41,15 +39,15 @@ Until she discovered the Deep Frost.
 - Controls all traffic entering/leaving the northern peninsula
 - Reports directly to Crown military command (bypassing Magistrate)
 - Coordinates with city guard on security matters
-- The one person in Barge no one can bribe, threaten, or manipulate
+- The one person in [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) no one can bribe, threaten, or manipulate
 
 ## The Iron Gate
-What Ashworth commands:
+What [Ashworth](../../Character%20Lore/Modern%20Characters/Commander%20Brynn%20Ashworth.md) commands:
 - Twin towers, heavy gatehouse, fortified walls
 - 50 trained Crown soldiers, rotating shifts
 - Inspection authority over all northern traffic
 - Independent command structure outside Magistrate's authority
-- The only real Crown power that matters in Barge
+- The only real Crown power that matters in [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md)
 
 ## Relationships
 - **Magistrate Hallas:** Respects him; doesn't answer to him

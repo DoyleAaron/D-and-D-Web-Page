@@ -36,20 +36,20 @@
 ## Geography
 
 ### Location
-Yotherdon lies 24km southeast of Buchrior Hollows, in the forested interior of Braewood's northern heel. The town occupies a defensible valley between low hills, with clear sightlines in all directions. No major roads connect to Crown-controlled territory — only forest paths lead to other dwarven settlements.
+Yotherdon lies 24km southeast of [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md), in the forested interior of [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s northern heel. The town occupies a defensible valley between low hills, with clear sightlines in all directions. No major roads connect to Crown-controlled territory — only forest paths lead to other dwarven settlements.
 
 ### Relationship to Other Sites
-- **24km northwest:** Buchrior Hollows (sacred site)
-- **30km northeast:** Slada (more extreme independence settlement)
-- **40km east:** Meriver Mountains (historic stronghold)
-- **75km southwest:** Borugham (moderate dwarven settlement)
-- **No direct road to Barge** — travel requires going through Borugham
+- **24km northwest:** [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md) (sacred site)
+- **30km northeast:** [Slada](../../../Kingdoms/Braewood/Village/Slada.md) (more extreme independence settlement)
+- **40km east:** [Meriver Mountains](../../../Kingdoms/Braewood/POI/Meriver%20Mountains.md) (historic stronghold)
+- **75km southwest:** [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md) (moderate dwarven settlement)
+- **No direct road to Barge** — travel requires going through [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md)
 
 ### Terrain
 - **Central:** The town proper, built in a natural valley
 - **Surrounding hills:** Forested, with watchtowers on high ground
-- **East:** Rising terrain toward the Meriver Mountains
-- **West:** Dense forest toward Buchrior Hollows
+- **East:** Rising terrain toward the [Meriver Mountains](../../../Kingdoms/Braewood/POI/Meriver%20Mountains.md)
+- **West:** Dense forest toward [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md)
 
 ### Climate
 Cold continental with mountain influence. Long winters, cool summers. Snow lasts six months. The valley provides some shelter from the worst winds.
@@ -65,9 +65,9 @@ Cold continental with mountain influence. Long winters, cool summers. Snow lasts
 - **Brewing** — Dwarven ales traded throughout the north
 
 ### Trade Relations
-- **Internal trade** with Slada, Borugham, and other dwarven communities
-- **Limited trade** with Crown-controlled settlements via Borugham
-- **Pilgrimage economy** — visitors to Buchrior Hollows often provision here
+- **Internal trade** with [Slada](../../../Kingdoms/Braewood/Village/Slada.md), [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md), and other dwarven communities
+- **Limited trade** with Crown-controlled settlements via [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md)
+- **Pilgrimage economy** — visitors to [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md) often provision here
 - **No Crown tax collectors** — taxes are "negotiated" (rarely paid in full)
 
 ### Economic Outlook
@@ -88,10 +88,10 @@ The town's founders named it "Yotherdon" — meaning "Free Valley" in archaic Dw
 ### Post-Liberation Era
 After the Tharnic collapse, Yotherdon's population swelled as dwarves who had scattered during the war returned. The town became the political center of the dwarven north, hosting councils that debated the shape of the future.
 
-When Braewood consolidated control over the north, Yotherdon reluctantly accepted nominal Crown authority. The compromise was uneasy: the town paid minimal taxes, ignored inconvenient edicts, and maintained its own militia.
+When [Braewood](../../../Kingdoms/Braewood/Braewood.md) consolidated control over the north, Yotherdon reluctantly accepted nominal Crown authority. The compromise was uneasy: the town paid minimal taxes, ignored inconvenient edicts, and maintained its own militia.
 
 ### Modern Era
-Yotherdon remains the largest dwarven settlement in northern Braewood and the unofficial capital of the independence movement. The town openly defies certain Crown edicts — particularly those affecting dwarven land rights and taxation. Crown officials rarely visit, and when they do, they find a population united in polite obstruction.
+Yotherdon remains the largest dwarven settlement in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md) and the unofficial capital of the independence movement. The town openly defies certain Crown edicts — particularly those affecting dwarven land rights and taxation. Crown officials rarely visit, and when they do, they find a population united in polite obstruction.
 
 ---
 
@@ -104,7 +104,7 @@ Yotherdon is governed by an elected council of twelve elders, each representing 
 The council elects a High Elder to serve as spokesperson and tiebreaker. The current High Elder is **Korrin Steelhand**, a pragmatic leader who balances independence sentiment with the need to avoid open conflict with the Crown.
 
 ### Relationship with the Crown
-Technically, Yotherdon owes allegiance to King Tarvin Braeden IV. In practice:
+Technically, Yotherdon owes allegiance to [King Tarvin Braeden IV](../../../Character%20Lore/Modern%20Characters/King%20Tarvin%20Braeden%20IV.md). In practice:
 - Taxes are "negotiated" — the town pays about 40% of what's owed
 - Crown edicts are "considered" — implemented only if the council agrees
 - Military service is "voluntary" — the town sends no soldiers to Crown armies
@@ -123,7 +123,7 @@ A massive stone building in the town center, built to serve as both meeting plac
 An open plaza where the Covenant of Buchrior is read aloud every year on Liberation Day. A statue of High Thane Broldir Flameforged dominates the square — the largest such monument outside the Hollows.
 
 ### The Steelhand Forge
-The largest smithy in town, run by the Steelhand clan for generations. Produces weapons, armor, and tools known throughout the north for quality. The forge also produces "ceremonial" weapons for the independence movement.
+The largest smithy in town, run by the [Steelhand](../../../Character%20Lore/Modern%20Characters/Master%20Smith%20Durgan%20Steelhand.md) clan for generations. Produces weapons, armor, and tools known throughout the north for quality. The forge also produces "ceremonial" weapons for the independence movement.
 
 ### The Valley Brewery
 A cooperative operation producing ales, meads, and spirits. The Valley Brewery's products are the town's most significant export — even Crown loyalists admit the quality.
@@ -136,16 +136,16 @@ Four stone towers on the surrounding hills, manned day and night. Originally bui
 ## Key Figures
 
 ### High Elder Korrin Steelhand
-**Dwarf, male, 210s.** Head of the Steelhand clan and elected leader of the council. Korrin is a pragmatist who believes independence will come eventually — through patience, not violence. He maintains just enough cooperation with the Crown to avoid military intervention.
+**Dwarf, male, 210s.** Head of the [Steelhand](../../../Character%20Lore/Modern%20Characters/Master%20Smith%20Durgan%20Steelhand.md) clan and elected leader of the council. Korrin is a pragmatist who believes independence will come eventually — through patience, not violence. He maintains just enough cooperation with the Crown to avoid military intervention.
 
 ### Elder Thora Ironvow  
-**Dwarf, female, 190s.** Council member representing the miners' guild. A fierce advocate for complete independence, Thora often clashes with Korrin's moderate approach. She maintains close ties with radicals in Slada.
+**Dwarf, female, 190s.** Council member representing the miners' guild. A fierce advocate for complete independence, Thora often clashes with Korrin's moderate approach. She maintains close ties with radicals in [Slada](../../../Kingdoms/Braewood/Village/Slada.md).
 
 ### Master Smith Durgan Steelhand
-**Dwarf, male, 170s.** Korrin's younger brother and master of the Steelhand Forge. Less political than Korrin, Durgan focuses on craft — but his weapons arm the militia that would resist Crown aggression.
+**Dwarf, male, 170s.** Korrin's younger brother and master of the [Steelhand](../../../Character%20Lore/Modern%20Characters/Master%20Smith%20Durgan%20Steelhand.md) Forge. Less political than Korrin, Durgan focuses on craft — but his weapons arm the militia that would resist Crown aggression.
 
 ### Warden Hella Stonebrow
-**Dwarf, female, 140s.** Commander of the town watch, responsible for the watchtowers and militia training. Hella served in the last border skirmish with Kluimont and has no illusions about the cost of war.
+**Dwarf, female, 140s.** Commander of the town watch, responsible for the watchtowers and militia training. Hella served in the last border skirmish with [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) and has no illusions about the cost of war.
 
 ---
 
@@ -171,4 +171,4 @@ The town hums with quiet industry: smithies ring, looms clatter, breweries steam
 ---
 
 *"We fought a war for freedom. We won. Now they want us to pretend it didn't happen — to bow to some human king's tax collector, to send our children to die in his wars, to forget the chains our grandparents wore. Yotherdon does not forget. Yotherdon does not bow. When the Crown understands that, perhaps we'll have peace. Until then, we wait."*
-— High Elder Korrin Steelhand, addressing the council
+— [High Elder Korrin Steelhand](../../../Character%20Lore/Modern%20Characters/High%20Elder%20Korrin%20Steelhand.md), addressing the council

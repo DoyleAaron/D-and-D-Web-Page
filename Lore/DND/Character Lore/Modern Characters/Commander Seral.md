@@ -1,24 +1,23 @@
 # Commander Seral Veynar
 
-## Title
-Commander of Sheyton Garrison (Oathbreaker)
+## Overview
 
-## Age
-Early 40s
+| | |
+|---|---|
+| **Title** | Commander of Sheyton Garrison (Oathbreaker) |
+| **Age** | Early 40s |
+| **Race** | Human |
+| **Location** | Sheyton, Braewood |
 
-## Race
-Human
-
-## Location
-Sheyton, Braewood
+---
 
 ## Appearance
 A scarred woman in blackened plate armor trimmed with silver. Her face carries the marks of countless battles—a split lip that never healed quite right, a thin scar across her brow, eyes like cold iron. She speaks softly, and everyone moves. Her greatsword is always within reach.
 
 ## Backstory
-Seral was once the pride of Sheyton's military—a paladin of unmatched skill and unwavering devotion. Then came the border war. What happened there, she doesn't discuss. What matters is that she returned changed. Her sacred oath was broken, her faith shattered, but her effectiveness remained.
+[Seral](../../Character%20Lore/Modern%20Characters/Commander%20Seral.md) was once the pride of [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md)'s military—a paladin of unmatched skill and unwavering devotion. Then came the border war. What happened there, she doesn't discuss. What matters is that she returned changed. Her sacred oath was broken, her faith shattered, but her effectiveness remained.
 
-The Crown kept her in command despite the whispers. She gets results. The how of it—the brutal efficiency, the cold executions, the terror she inspires—is overlooked because the alternative is chaos. She serves because service is all she has left. Whether she serves the Queen or herself is a question even Seral may not be able to answer.
+The Crown kept her in command despite the whispers. She gets results. The how of it—the brutal efficiency, the cold executions, the terror she inspires—is overlooked because the alternative is chaos. She serves because service is all she has left. Whether she serves the Queen or herself is a question even [Seral](../../Character%20Lore/Modern%20Characters/Commander%20Seral.md) may not be able to answer.
 
 ## Personality
 - **Absolute:** No half-measures, no mercy, no hesitation.
@@ -27,7 +26,7 @@ The Crown kept her in command despite the whispers. She gets results. The how of
 - **Haunted:** Something broke inside her. What remains is effective but hollow.
 
 ## Role in the Settlement
-Commands Sheyton's garrison with an iron fist. Maintains order through fear as much as discipline. Her presence alone can quell unrest—everyone knows what happens to those who challenge her.
+Commands [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md)'s garrison with an iron fist. Maintains order through fear as much as discipline. Her presence alone can quell unrest—everyone knows what happens to those who challenge her.
 
 ## Relationships
 - **The Crown:** Serves because she was ordered to. Loyalty is uncertain.

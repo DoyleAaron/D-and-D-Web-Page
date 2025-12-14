@@ -1,22 +1,21 @@
 # Sword-Instructor Daven Rowe
 
-## Title
-Senior Sword-Instructor of Ioxyhull
+## Overview
 
-## Age
-Late 30s
+| | |
+|---|---|
+| **Title** | Senior Sword-Instructor of Ioxyhull |
+| **Age** | Late 30s |
+| **Race** | Human |
+| **Location** | Ioxyhull, Braewood |
 
-## Race
-Human
-
-## Location
-Ioxyhull, Braewood
+---
 
 ## Appearance
 A lean, athletic man with close-cropped dark hair and watchful brown eyes. His movements are economical and precise—the mark of a trained fighter. Several scars mark his arms and one crosses his left cheek, souvenirs from the border campaigns. He dresses simply, preferring training clothes even when not actively instructing.
 
 ## Backstory
-Daven earned his reputation in the border skirmishes with Kluimont raiders, where he distinguished himself as both a skilled swordsman and an effective small-unit commander. His talents caught the attention of the Crown, and he was offered a position at Ioxyhull—officially to train elite knights, unofficially to ensure the village's defenders could protect a royal evacuation.
+Daven earned his reputation in the border skirmishes with [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) raiders, where he distinguished himself as both a skilled swordsman and an effective small-unit commander. His talents caught the attention of the Crown, and he was offered a position at [Ioxyhull](../../Kingdoms/Braewood/Village/Ioxyhull.md)—officially to train elite knights, unofficially to ensure the village's defenders could protect a royal evacuation.
 
 He accepted without hesitation. The "knight training facility" cover suits him well—he genuinely loves teaching swordsmanship, and the knights who train here become some of the finest in the kingdom. That they're also prepared for a very specific emergency is knowledge he carries quietly.
 

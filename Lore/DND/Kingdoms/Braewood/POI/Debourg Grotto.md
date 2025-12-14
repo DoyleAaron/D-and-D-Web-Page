@@ -25,7 +25,7 @@ What lives in the Grotto is no longer dwarven.
 ## Geography
 
 ### Location
-Debourg Grotto lies on the coastal road between Ardismouth and Yotherdon, approximately:
+Debourg Grotto lies on the coastal road between [Ardismouth](../../../Kingdoms/Braewood/Town/Ardismouth.md) and [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md), approximately:
 - **40km north of Ardismouth**
 - **40km south of Yotherdon**
 - **~1km from the coastal cliffs**
@@ -37,7 +37,7 @@ The area around Debourg is characterized by dry, hilly terrain — unusual for t
 The main grotto entrance is a massive carved archway in a cliff face, now blackened and crumbling. Dwarven runes are still visible, though many have been defaced or... altered.
 
 ### The Road
-The coastal road from Ardismouth to Yotherdon passes within a few hundred meters of the Grotto entrance. Travelers move quickly through this section. Caravans travel in groups. No one camps nearby. Even in daylight, the area feels wrong — too quiet, too still, too watched.
+The coastal road from [Ardismouth](../../../Kingdoms/Braewood/Town/Ardismouth.md) to [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) passes within a few hundred meters of the Grotto entrance. Travelers move quickly through this section. Caravans travel in groups. No one camps nearby. Even in daylight, the area feels wrong — too quiet, too still, too watched.
 
 ---
 
@@ -45,7 +45,7 @@ The coastal road from Ardismouth to Yotherdon passes within a few hundred meters
 
 ### The Golden Age (750-850 C.C.)
 
-Debourg Grotto was one of the richest mines in northern Braewood. Established by dwarven clans freed during the Tharnic collapse, the mine produced:
+Debourg Grotto was one of the richest mines in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md). Established by dwarven clans freed during the Tharnic collapse, the mine produced:
 - High-quality iron ore
 - Copper and tin
 - Semi-precious gems
@@ -57,7 +57,7 @@ The dwarves who settled here were among the most extreme anti-Tharnic factions �
 
 As the mine deepened, the dwarves of Debourg became increasingly extreme. They:
 - Refused Crown inspectors
-- Stopped trading at Ardismouth
+- Stopped trading at [Ardismouth](../../../Kingdoms/Braewood/Town/Ardismouth.md)
 - Began capturing Tharnic refugees (humans descended from the empire's servant classes)
 - Built a prison complex beneath the mines
 
@@ -80,7 +80,7 @@ Inside — based on later fragmentary evidence — the dwarves faced starvation.
 
 When the tunnel was finally cleared — by internal efforts, not rescue — what emerged was not dwarven.
 
-A Crown patrol approaching the mine entrance encountered creatures that had once been dwarves. Twisted. Pale. Hungry in ways that had nothing to do with food. The patrol was destroyed. One survivor reached Ardismouth before dying of his wounds. His final words were recorded:
+A Crown patrol approaching the mine entrance encountered creatures that had once been dwarves. Twisted. Pale. Hungry in ways that had nothing to do with food. The patrol was destroyed. One survivor reached [Ardismouth](../../../Kingdoms/Braewood/Town/Ardismouth.md) before dying of his wounds. His final words were recorded:
 
 *"They are not dwarves anymore. They are not alive. They are not dead. They made a deal. They paid a price. And now they are... hungry. Always hungry. For something we cannot give."*
 
@@ -158,10 +158,10 @@ Approximately 500 meters from the main entrance, a sinkhole opened in 915 C.C. I
 
 - **The Increasing Activity:** Something has stirred the Debourg creatures. Their scouts have been seen further from the Grotto than ever. What changed?
 - **The Ritual Chamber:** If someone could reach the deepest level, they might learn what god or power the dwarves contacted. That knowledge could be valuable — or catastrophic.
-- **Prisoner 7:** An elderly dwarf in Oyard Prison was extracted from Debourg before the collapse. He saw the early signs of what was happening. He has never spoken of it — but his recent ravings suggest he knows more than he's told.
+- **Prisoner 7:** An elderly dwarf in [Oyard](../../../Kingdoms/Braewood/Village/Oyard.md) Prison was extracted from Debourg before the collapse. He saw the early signs of what was happening. He has never spoken of it — but his recent ravings suggest he knows more than he's told.
 - **The Survivor's Questions:** The woman kept for questioning was asked repeatedly about "the bloodline" and "the children of the empire." What are the creatures looking for?
 
 ---
 
 *"I've walked that road a hundred times. I know where the safe spots are — where you can stop briefly without being seen from the hills. I know the hours when it's safest, the formation that protects the wagons. And I know what happens when you get it wrong. Saw a man wander off to piss once. We heard him scream for three hours. Didn't sound human after the first one. Now I carry a fast-acting poison in my boot. If they take me, I'm not waiting to find out what they want."*
-— Merchant Ulric Harren, supply convoy operator
+— [Merchant Ulric Harren](../../../Character%20Lore/Modern%20Characters/Merchant%20Ulric%20Harren.md), supply convoy operator

@@ -1,17 +1,15 @@
 # Warden Torvald Stormwatch
 
-## Title
-Warden of Slada, Commander of the Village Militia
+## Overview
 
-## Age
-120s
+| | |
+|---|---|
+| **Title** | Warden of Slada, Commander of the Village Militia |
+| **Age** | 120s |
+| **Race** | Dwarf |
+| **Location** | Slada (Village), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Slada (Village), Northern Braewood
-
+---
 
 ## Appearance
 Young by dwarven standards and looks it — dark red hair still vibrant, face not yet fully lined, eyes bright with fervor. Tall and rangy for a dwarf, built for speed rather than raw power. Wears his beard in warrior braids, each bead representing a skill mastered.
@@ -21,9 +19,9 @@ Dresses in practical militia gear: leather armor, good boots, always armed. Move
 Looks like someone who is waiting for a war and isn't sure he wants it as much as he thinks he does.
 
 ## Backstory
-Torvald was born to the Stormwatch clan — watchers of the cliffs for generations. He grew up on the edge of the world, raised on stories of Tharnic cruelty and dwarven resistance. The stories became his religion; the resistance became his calling.
+Torvald was born to the [Stormwatch](../../Character%20Lore/Modern%20Characters/Warden%20Torvald%20Stormwatch.md) clan — watchers of the cliffs for generations. He grew up on the edge of the world, raised on stories of Tharnic cruelty and dwarven resistance. The stories became his religion; the resistance became his calling.
 
-He joined the militia at 50 and rose quickly, driven by passion that older dwarves either admire or worry about. He became Warden at 100 — remarkably young — because no one else wanted the position. In Slada, "Warden" means being prepared to fight a war that may never come. Torvald is more than prepared. He's eager.
+He joined the militia at 50 and rose quickly, driven by passion that older dwarves either admire or worry about. He became Warden at 100 — remarkably young — because no one else wanted the position. In [Slada](../../Kingdoms/Braewood/Village/Slada.md), "Warden" means being prepared to fight a war that may never come. Torvald is more than prepared. He's eager.
 
 ## Personality
 - **Fervent** — believes in the cause with youthful absolutism
@@ -36,8 +34,8 @@ He joined the militia at 50 and rose quickly, driven by passion that older dwarv
 - Commander of the village militia (all adult dwarves)
 - Responsible for the watchtower and coastal defenses
 - Trainer of the next generation of warriors
-- Liaison with Yotherdon's Warden Hella
-- The young firebrand who might lead Slada into the future — or into disaster
+- Liaison with [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md)'s Warden Hella
+- The young firebrand who might lead [Slada](../../Kingdoms/Braewood/Village/Slada.md) into the future — or into disaster
 
 ## Relationships
 - **Elder Grunhild Chainbreaker:** Reveres her; she sees potential and danger in him

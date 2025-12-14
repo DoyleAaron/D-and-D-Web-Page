@@ -4,13 +4,13 @@
 Eimgend
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
 
 ### **Leader:**
-Watch-Keeper Jareth Dunwald — A stern, grey-eyed human in his late forties who reports directly to the Crown. Former river scout who earned his position through decades of loyal service.
+[Watch-Keeper Jareth Dunwald](../../../Character%20Lore/Modern%20Characters/Watch-Keeper%20Jareth%20Dunwald.md) — A stern, grey-eyed human in his late forties who reports directly to the Crown. Former river scout who earned his position through decades of loyal service.
 
 ### **Population:**
 **~950** (small Crown-loyal village with unusually high military presence for its size)
@@ -30,7 +30,7 @@ Watch-Keeper Jareth Dunwald — A stern, grey-eyed human in his late forties who
 ### **Military:**
 ★★★★☆ (4 stars)
 - Unusually high for a village—Crown garrison of 40 trained watchers
-- Signal tower with fire beacons that can reach Sheyton in minutes
+- Signal tower with fire beacons that can reach [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md) in minutes
 - River patrol boats maintained at all times
 - Reports go directly to the Queen, bypassing normal chains of command
 
@@ -41,11 +41,11 @@ Watch-Keeper Jareth Dunwald — A stern, grey-eyed human in his late forties who
 - Strong sense of purpose but limited opportunities
 
 ### **Geography & Climate:**
-- Located 32km from Sheyton (7km south on main road, then 25km down a branch road)
-- 5km from the Lavalto Lake shore to the west
+- Located 32km from [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md) (7km south on main road, then 25km down a branch road)
+- 5km from the [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake shore to the west
 - 108km to the southern border
 - 130km to the east coast
-- 60km south of the Kluimont border (near Mortling)
+- 60km south of the [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) border (near Mortling)
 - Sits on elevated ground with clear sightlines to the lake
 - Warm climate, often misty mornings from lake proximity
 
@@ -53,20 +53,20 @@ Watch-Keeper Jareth Dunwald — A stern, grey-eyed human in his late forties who
 - Primary function is surveillance, not commerce
 - Crown stipends fund most village needs
 - Small fishing operation on the lake shore (carefully monitored)
-- Supplies come from Sheyton via the branch road
+- Supplies come from [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md) via the branch road
 - Signal equipment maintenance provides some skilled work
 
 ### **History:**
-- Founded as a watch post during early conflicts with Lavalto
+- Founded as a watch post during early conflicts with [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md)
 - Elevated to permanent settlement when the Crown recognized the strategic value
 - Has maintained unbroken watch on the lake for over a century
-- The Dunwald family has served as Watch-Keepers for three generations
+- The [Dunwald](../../../Character%20Lore/Modern%20Characters/Watch-Keeper%20Jareth%20Dunwald.md) family has served as Watch-Keepers for three generations
 
 ### **Notable Locations:**
 - **The High Watch:** Stone signal tower on the village's highest point, manned day and night
-- **Keeper's Hall:** Jareth Dunwald's residence and the village's administrative center
+- **Keeper's Hall:** [Jareth Dunwald](../../../Character%20Lore/Modern%20Characters/Watch-Keeper%20Jareth%20Dunwald.md)'s residence and the village's administrative center
 - **The Shore Post:** Small dock and observation point 5km west at the lake's edge
-- **The Relay House:** Where messages are prepared for runners to Sheyton
+- **The Relay House:** Where messages are prepared for runners to [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md)
 
 ### **Key Figures:**
 - **Watch-Keeper Jareth Dunwald:** Village leader, reports directly to the Crown on lake activity

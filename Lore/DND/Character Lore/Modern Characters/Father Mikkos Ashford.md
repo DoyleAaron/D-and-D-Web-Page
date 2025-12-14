@@ -1,17 +1,15 @@
 # Father Mikkos Ashford
 
-## Title
-Priest of the Temple of the Eternal Light
+## Overview
 
-## Age
-Late 60s
+| | |
+|---|---|
+| **Title** | Priest of the Temple of the Eternal Light |
+| **Age** | Late 60s |
+| **Race** | Human |
+| **Location** | Strane (Medium City), Northern Braewood Peninsula |
 
-## Race
-Human
-
-## Location
-Strane (Medium City), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 A gentle-looking man with kind brown eyes and a warm, weathered face. White hair worn in a simple tonsure. Modest in build, neither tall nor short. Wears the simple grey-and-gold robes of his order — unadorned except for the sunburst symbol at his breast.
@@ -21,11 +19,11 @@ His hands are a contradiction: soft from prayer but calloused from the carpentry
 Has a grandfatherly smile that puts people at ease. Also has a way of looking at you that suggests he sees more than he lets on.
 
 ## Backstory
-Mikkos grew up in Braewood City, one of seven children in a laborer's family. He found his calling young — the priesthood offered stability, purpose, and an escape from poverty. He rose through the temple hierarchy quietly, competently, never seeking prominence.
+Mikkos grew up in [Braewood](../../Kingdoms/Braewood/Braewood.md) City, one of seven children in a laborer's family. He found his calling young — the priesthood offered stability, purpose, and an escape from poverty. He rose through the temple hierarchy quietly, competently, never seeking prominence.
 
-He was sent to Strane thirty years ago to lead its modest temple. It was meant to be a retirement posting, a place to see out his years in quiet service. Instead, he found a community that needed him — not just for sermons, but for comfort, counsel, and practical help.
+He was sent to [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md) thirty years ago to lead its modest temple. It was meant to be a retirement posting, a place to see out his years in quiet service. Instead, he found a community that needed him — not just for sermons, but for comfort, counsel, and practical help.
 
-He's baptized generations of Strane's children. Buried their grandparents. Married them to each other. He knows this city's souls better than anyone.
+He's baptized generations of [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md)'s children. Buried their grandparents. Married them to each other. He knows this city's souls better than anyone.
 
 ## Personality
 - **Genuinely kind** — not performed, not conditional; just good
@@ -35,7 +33,7 @@ He's baptized generations of Strane's children. Buried their grandparents. Marri
 - **Struggling lately** — the current events are testing his faith
 
 ## Role in Strane
-- Leads the Temple of the Eternal Light (main temple in Strane)
+- Leads the Temple of the Eternal Light (main temple in [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md))
 - Performs marriages, funerals, blessings, and other religious services
 - Provides counsel to anyone who asks — regardless of faith or station
 - Runs the temple's charitable works (food for poor, shelter for travelers)

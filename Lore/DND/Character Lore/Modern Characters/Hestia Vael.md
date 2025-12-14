@@ -1,16 +1,15 @@
 # Hestia Vael
 
-## Title
-Royal Arcane Advisor
+## Overview
 
-## Age
-Appears mid-40s (likely older due to arcane influence)
+| | |
+|---|---|
+| **Title** | Royal Arcane Advisor |
+| **Age** | Appears mid-40s (likely older due to arcane influence) |
+| **Race** | Half-Elf |
+| **Location** | Braewood City, Braewood |
 
-## Race
-Half-Elf
-
-## Location
-Braewood City, Braewood
+---
 
 ## Appearance
 Tall and willow-thin, with silver-white hair bound in iron rings. Her left eye glows faint violet when she channels power—a mark of her patron's influence. She speaks softly, but every syllable feels weighted, as if the words themselves carry hidden meaning. She dresses in dark purple robes that shimmer like liquid stars when they catch torchlight.

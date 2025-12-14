@@ -1,17 +1,15 @@
 # Keeper Helga Saltblood
 
-## Title
-Keeper of the Longhouse, Guardian of the Chain Relics
+## Overview
 
-## Age
-180s
+| | |
+|---|---|
+| **Title** | Keeper of the Longhouse, Guardian of the Chain Relics |
+| **Age** | 180s |
+| **Race** | Dwarf |
+| **Location** | Slada (Village), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Slada (Village), Northern Braewood
-
+---
 
 ## Appearance
 Weathered by wind and age, with salt-grey hair worn in intricate traditional braids. Her face is deeply lined but kind, eyes carrying the weight of centuries of stories. Short and sturdy, even for a dwarf. Her hands are strong and gentle — the hands of someone who has spent a lifetime touching sacred things with care.
@@ -21,9 +19,9 @@ Dresses in the simple Sladan style but with careful attention: her clothes are a
 Looks like everyone's grandmother — if everyone's grandmother had memorized five hundred years of resistance history.
 
 ## Backstory
-Helga was born in Slada to the Saltblood clan — named for their generations of cliff-fishing. But she was never drawn to the sea; she was drawn to the stories. From childhood, she sat at the feet of the elders, listening to tales of the Tharnic era, the rebellion, the founding.
+Helga was born in [Slada](../../Kingdoms/Braewood/Village/Slada.md) to the [Saltblood](../../Character%20Lore/Modern%20Characters/Keeper%20Helga%20Saltblood.md) clan — named for their generations of cliff-fishing. But she was never drawn to the sea; she was drawn to the stories. From childhood, she sat at the feet of the elders, listening to tales of the Tharnic era, the rebellion, the founding.
 
-She became Keeper at 90, trained by the previous Keeper for thirty years before his death. In the century since, she has been the village's memory — recording names, teaching history, maintaining the relics. Every child in Slada has sat in the Longhouse while Helga told them who they are and why it matters.
+She became Keeper at 90, trained by the previous Keeper for thirty years before his death. In the century since, she has been the village's memory — recording names, teaching history, maintaining the relics. Every child in [Slada](../../Kingdoms/Braewood/Village/Slada.md) has sat in the Longhouse while Helga told them who they are and why it matters.
 
 ## Personality
 - **Gentle** — her strength is quiet, not aggressive
@@ -37,7 +35,7 @@ She became Keeper at 90, trained by the previous Keeper for thirty years before 
 - Guardian of the broken chain relics from the Tharnic era
 - Teacher of village history to every generation
 - Advisor to Elder Grunhild (her oldest friend)
-- The living memory of Slada
+- The living memory of [Slada](../../Kingdoms/Braewood/Village/Slada.md)
 
 ## Relationships
 - **Elder Grunhild Chainbreaker:** Friends for two centuries; they grew up together

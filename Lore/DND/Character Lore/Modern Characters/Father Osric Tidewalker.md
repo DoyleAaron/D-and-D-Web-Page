@@ -1,17 +1,15 @@
 # Osric Tidewalker
 
-## Title
-Father of the Seaward Chapel
+## Overview
 
-## Age
-Early 60s
+| | |
+|---|---|
+| **Title** | Father of the Seaward Chapel |
+| **Age** | Early 60s |
+| **Race** | Human |
+| **Location** | Ardismouth (Town), Seaward Chapel |
 
-## Race
-Human
-
-## Location
-Ardismouth (Town), Seaward Chapel
-
+---
 
 ## Appearance
 A weathered man with salt-and-pepper hair and calm grey eyes. Face lined by sun and wind but softened by an easy smile. Dresses in simple priestly robes of blue and grey — the colors of the sea god he serves. Hands calloused from years of hauling fishing nets before he took holy orders. Walks slowly, deliberately, as if he has nowhere urgent to be.
@@ -19,9 +17,9 @@ A weathered man with salt-and-pepper hair and calm grey eyes. Face lined by sun 
 ## Backstory
 Osric was a fisherman until he was forty. A storm caught his boat, killed his two crew members, and left him clinging to wreckage for three days before rescue. He heard something in those three days — a voice in the waves, or perhaps in his own dying mind. When he recovered, he entered the priesthood.
 
-He came to Ardismouth fifteen years ago, a quiet posting for a quiet priest. He expected to bless boats, comfort the dying, and tend his small chapel. Instead, he found himself in the middle of a political crisis, the only figure both humans and dwarves were willing to trust.
+He came to [Ardismouth](../../Kingdoms/Braewood/Town/Ardismouth.md) fifteen years ago, a quiet posting for a quiet priest. He expected to bless boats, comfort the dying, and tend his small chapel. Instead, he found himself in the middle of a political crisis, the only figure both humans and dwarves were willing to trust.
 
-Osric doesn't want to be a political figure. He wants to pray and serve. But when Portreeve Dunholm needs a mediator, when Captain Blackshore needs someone to calm angry dwarves, when Guildmaster Flamevein needs someone to carry messages — they all come to Father Osric. He's too kind to refuse.
+Osric doesn't want to be a political figure. He wants to pray and serve. But when Portreeve [Dunholm](../../Character%20Lore/Modern%20Characters/Portreeve%20Garrett%20Dunholm.md) needs a mediator, when Captain [Blackshore](../../Character%20Lore/Modern%20Characters/Captain%20Mira%20Blackshore.md) needs someone to calm angry dwarves, when Guildmaster [Flamevein](../../Character%20Lore/Modern%20Characters/Guildmaster%20Brogar%20Flamevein.md) needs someone to carry messages — they all come to Father Osric. He's too kind to refuse.
 
 ## Personality
 - **Genuinely peaceful** — violence offends something deep in him
@@ -35,11 +33,11 @@ Osric doesn't want to be a political figure. He wants to pray and serve. But whe
 - Unofficial mediator between factions
 - Counselor to the grieving and troubled
 - Blesses fishing boats and sailors
-- Currently searching for Elder Mordin Greymantle
+- Currently searching for [Elder Mordin Greymantle](../../Character%20Lore/Modern%20Characters/Elder%20Mordin%20Greymantle.md)
 
 ## Relationships
 - **Portreeve Garrett Dunholm:** Offers spiritual counsel; worries about his mental state
-- **Guildmaster Brogar Flamevein:** Flamevein respects his neutrality; Osric worries about Flamevein's path
+- **Guildmaster Brogar Flamevein:** [Flamevein](../../Character%20Lore/Modern%20Characters/Guildmaster%20Brogar%20Flamevein.md) respects his neutrality; Osric worries about [Flamevein](../../Character%20Lore/Modern%20Characters/Guildmaster%20Brogar%20Flamevein.md)'s path
 - **Captain Mira Blackshore:** She tolerates him; he prays for her soul
 - **Elder Mordin Greymantle:** Close friend; desperately hoping to find him alive
 

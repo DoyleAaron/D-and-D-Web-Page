@@ -4,13 +4,13 @@
 Ioxyhull
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
 
 ### **Leader:**
-Knight-Commander Cedric Hallam — An aging but still formidable knight who oversees both the training facility and the village. His loyalty to the Crown is absolute.
+[Knight-Commander Cedric Hallam](../../../Character%20Lore/Modern%20Characters/Knight-Commander%20Cedric%20Hallam.md) — An aging but still formidable knight who oversees both the training facility and the village. His loyalty to the Crown is absolute.
 
 ### **Population:**
 **~820** (small, isolated coastal village with rotating knight population)
@@ -30,7 +30,7 @@ Knight-Commander Cedric Hallam — An aging but still formidable knight who over
 
 ### **Military:**
 ★★★★★ (5 stars)
-- Highest military rating of any village in Braewood
+- Highest military rating of any village in [Braewood](../../../Kingdoms/Braewood/Braewood.md)
 - 30-50 knights in training at any time, plus 20 permanent instructors
 - Elite protocol training—these knights learn to serve the highest levels of court
 - A Crown warship is always anchored offshore, crewed and ready
@@ -45,18 +45,18 @@ Knight-Commander Cedric Hallam — An aging but still formidable knight who over
 
 ### **Geography & Climate:**
 - Located on the eastern coast, extremely isolated
-- 50km east of the crossroads on the Braewood City-Eaveton military road
+- 50km east of the crossroads on the [Braewood](../../../Kingdoms/Braewood/Braewood.md) City-[Eaveton](../../../Kingdoms/Braewood/Large%20Cities/Eaveton.md) military road
 - 30km to the south coast (the land curves here)
-- 50km north to the estuary where the Braewood river meets the eastern ocean
+- 50km north to the estuary where the [Braewood](../../../Kingdoms/Braewood/Braewood.md) river meets the eastern ocean
 - 200km to the north coast
-- 145km from Lavalto Lake
+- 145km from [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake
 - Mild coastal climate, frequent sea breezes, occasional storms
 
 ### **Economy & Trade:**
 - Crown-funded training facility is the entire economy
 - Ship maintenance and provisioning
 - Small fishing operation for fresh food
-- All major supplies arrive by ship from Eaveton or Phine
+- All major supplies arrive by ship from [Eaveton](../../../Kingdoms/Braewood/Large%20Cities/Eaveton.md) or [Phine](../../../Kingdoms/Braewood/Large%20Cities/Phine.md)
 - No significant exports
 
 ### **History:**
@@ -69,7 +69,7 @@ Knight-Commander Cedric Hallam — An aging but still formidable knight who over
 ### **Notable Locations:**
 - **The Training Hall:** Large stone complex where knights learn advanced protocol and combat
 - **Crown Harbor:** Small but deep natural harbor where the escape vessel is always moored
-- **The Commander's Tower:** Cedric Hallam's residence, with views of both land approaches and sea
+- **The Commander's Tower:** [Cedric Hallam](../../../Character%20Lore/Modern%20Characters/Knight-Commander%20Cedric%20Hallam.md)'s residence, with views of both land approaches and sea
 - **The Ready House:** Provisions and supplies kept perpetually stocked for immediate departure
 
 ### **Key Figures:**
@@ -79,6 +79,6 @@ Knight-Commander Cedric Hallam — An aging but still formidable knight who over
 
 ### **Relationships:**
 - **Eaveton (95km via crossroads):** Nearest large city, supply connection
-- **The Crossroads (50km west):** Junction point connecting to Braewood City, Eaveton, and Ineross
+- **The Crossroads (50km west):** Junction point connecting to [Braewood](../../../Kingdoms/Braewood/Braewood.md) City, [Eaveton](../../../Kingdoms/Braewood/Large%20Cities/Eaveton.md), and [Ineross](../../../Kingdoms/Braewood/Village/Ineross.md)
 - **The Crown:** Direct oversight, funding, and purpose
 - **Foreign Courts:** The Queen maintains diplomatic contacts abroad—escape destinations if ever needed

@@ -1,22 +1,21 @@
 # Gulliver Knot
 
-## Title
-Harbor-Master of Rens
+## Overview
 
-## Age
-Late 40s
+| | |
+|---|---|
+| **Title** | Harbor-Master of Rens |
+| **Age** | Late 40s |
+| **Race** | Halfling |
+| **Location** | Rens, Braewood |
 
-## Race
-Halfling
-
-## Location
-Rens, Braewood
+---
 
 ## Appearance
 A cheerful halfling with curly salt-and-pepper hair, bright brown eyes, and weather-roughened skin. His hands are quick and clever, always tying or untying something. He dresses in practical harbor clothes—canvas pants, a weathered jacket, and a wide-brimmed hat against the sun. A coil of rope hangs at his belt.
 
 ## Backstory
-Gulliver's family has served as harbor-masters in Rens for three generations. Halflings, his grandmother said, make the best harbor-masters—small enough to check every corner of a ship, patient enough for careful record-keeping, social enough to handle difficult captains.
+Gulliver's family has served as harbor-masters in [Rens](../../Kingdoms/Braewood/Village/Rens.md) for three generations. Halflings, his grandmother said, make the best harbor-masters—small enough to check every corner of a ship, patient enough for careful record-keeping, social enough to handle difficult captains.
 
 He learned rope work and record-keeping from his father, ship assessment from visiting sailors, and diplomacy from a lifetime of managing egos. Now he runs the harbor with quiet efficiency, ensuring every vessel has what it needs and every visitor follows the rules.
 

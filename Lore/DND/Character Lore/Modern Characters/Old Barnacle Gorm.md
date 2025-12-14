@@ -1,16 +1,15 @@
 # Old Barnacle Gorm
 
-## Title
-Elder Fisherman of Dalo
+## Overview
 
-## Age
-Late 70s
+| | |
+|---|---|
+| **Title** | Elder Fisherman of Dalo |
+| **Age** | Late 70s |
+| **Race** | Human |
+| **Location** | Dalo, Braewood |
 
-## Race
-Human
-
-## Location
-Dalo, Braewood
+---
 
 ## Appearance
 An ancient, weathered man whose face looks like leather left too long in the sun. His beard is tangled white, his eyes are rheumy grey, and his hands are gnarled with age and old injuries. He walks with a cane carved from driftwood and wears clothes so salt-stained they've turned a permanent grey. Small barnacles cling to his boots—he walks the tidal pools daily.
@@ -18,7 +17,7 @@ An ancient, weathered man whose face looks like leather left too long in the sun
 ## Backstory
 Gorm has fished these waters for over sixty years. He knows every reef, every current, every seasonal pattern. He's survived three great storms, two shipwrecks, and more close calls than he can count. The sea has tried to kill him dozens of times, and he's still here.
 
-He stopped active fishing ten years ago when his joints gave out, but he never left the water. Now he advises younger captains, predicts weather with uncanny accuracy, and tells stories that everyone has heard a hundred times but somehow never gets old. He's the living memory of Dalo.
+He stopped active fishing ten years ago when his joints gave out, but he never left the water. Now he advises younger captains, predicts weather with uncanny accuracy, and tells stories that everyone has heard a hundred times but somehow never gets old. He's the living memory of [Dalo](../../Kingdoms/Braewood/Village/Dalo.md).
 
 ## Personality
 - **Gruff:** Doesn't suffer fools. Has no patience for inexperience or excuses.

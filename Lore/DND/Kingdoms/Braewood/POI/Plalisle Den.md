@@ -15,12 +15,12 @@
 ## Geography
 
 ### Location
-Plalisle Den lies approximately 85km north of Barge, just off the main road to Strane. The area is less densely wooded than the surrounding forest, with exposed rock formations marking the old mine entrance. It sits about 20km from the northern coast.
+Plalisle Den lies approximately 85km north of [Barge](../../../Kingdoms/Braewood/Medium%20City/Barge.md), just off the main road to [Strane](../../../Kingdoms/Braewood/Medium%20City/Strane.md). The area is less densely wooded than the surrounding forest, with exposed rock formations marking the old mine entrance. It sits about 20km from the northern coast.
 
 ### Relationship to Other Sites
-- **40km east:** Wynlants Cavity (another former Tharnic mine)
-- **~70km northwest:** Buchrior Hollows
-- **~85km south:** Barge
+- **40km east:** [Wynlants Cavity](../../../Kingdoms/Braewood/POI/Wynlants%20Cavity.md) (another former Tharnic mine)
+- **~70km northwest:** [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md)
+- **~85km south:** [Barge](../../../Kingdoms/Braewood/Medium%20City/Barge.md)
 
 ### Terrain
 The Den occupies a hillside clearing where ancient excavations exposed bedrock. Scrubby vegetation has reclaimed much of the surface, but the main entrance — a carved stone archway — remains visible to those who know where to look.
@@ -30,7 +30,7 @@ The Den occupies a hillside clearing where ancient excavations exposed bedrock. 
 ## History
 
 ### Tharnic Era (pre-730 C.C.)
-Like many sites in northern Braewood, Plalisle Den began as a Tharnic mining operation. Dwarven slaves extracted iron ore from deep tunnels while human overseers maintained brutal discipline. The mine was abandoned during the War of the Sundered Chains when workers escaped to join the rebellion.
+Like many sites in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md), Plalisle Den began as a Tharnic mining operation. Dwarven slaves extracted iron ore from deep tunnels while human overseers maintained brutal discipline. The mine was abandoned during the War of the Sundered Chains when workers escaped to join the rebellion.
 
 ### Post-Empire Period
 After the Tharnic collapse, the mine sat empty for decades. Local settlements occasionally used the upper tunnels for storage or shelter during harsh winters. Rumors of hauntings kept most away from the deeper levels.
@@ -76,7 +76,7 @@ Where the Chart of the Threefold Way was kept, along with other artifacts Baltha
 ## Current Status
 
 ### The Book Has Been Claimed
-Recent events have seen a group of adventurers successfully navigate the dungeon and retrieve the Chart of the Threefold Way. They were teleported to Sheyton upon completing the trial.
+Recent events have seen a group of adventurers successfully navigate the dungeon and retrieve the Chart of the Threefold Way. They were teleported to [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md) upon completing the trial.
 
 Whether the dungeon remains active — whether new treasures might appear, or whether Balthazar's magic has finally faded — is unknown. Some speculate the Den will collapse without the book's presence. Others believe Balthazar left contingencies.
 
@@ -110,7 +110,7 @@ The dungeon has been completed. The book is gone. But:
 - The deeper Tharnic mine levels were never part of the dungeon — what lies below?
 
 ### Reaching Plalisle Den
-- 85km north of Barge along the Strane road
+- 85km north of [Barge](../../../Kingdoms/Braewood/Medium%20City/Barge.md) along the [Strane](../../../Kingdoms/Braewood/Medium%20City/Strane.md) road
 - The turn-off is unmarked; locals may not know it
 - The area is less wooded, exposed rock visible
 - Wolves and other predators roam the surrounding forest
@@ -118,4 +118,4 @@ The dungeon has been completed. The book is gone. But:
 ---
 
 *"The Den judges you before you judge it. Walk in seeking power, find nothing. Walk in seeking knowledge, find trials. Walk in seeking wisdom, find sacrifice. Balthazar built his vault for the worthy — and he defined worth himself."*
-— Fragment from a wizard's journal, recovered in Sheyton
+— Fragment from a wizard's journal, recovered in [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md)

@@ -1,17 +1,15 @@
 # Thana Ironvow
 
-## Title
-Keeper of Buchrior Hollows
+## Overview
 
-## Age
-240s
+| | |
+|---|---|
+| **Title** | Keeper of Buchrior Hollows |
+| **Age** | 240s |
+| **Race** | Dwarf |
+| **Location** | Buchrior Hollows (POI), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Buchrior Hollows (POI), Northern Braewood
-
+---
 
 ## Appearance
 Ancient and serene, with silver-white hair worn in the elaborate braids of a sacred office. Her face is deeply lined with age but peaceful, eyes reflecting centuries of contemplation. Small and slight for a dwarf, her presence nevertheless fills whatever space she occupies.
@@ -21,7 +19,7 @@ Dresses in simple robes of undyed wool, marked only by a chain-link pendant sign
 Looks like someone who has found exactly where she belongs and has never doubted it.
 
 ## Backstory
-Thana was born in Yotherdon to the Ironvow clan — a family with deep ties to the liberation movement. Her niece Thora would later become an Elder; Thana chose a different path. At 60, she felt called to Buchrior Hollows. At 80, she began training under the previous Keeper. At 180, she took the role herself.
+Thana was born in [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md) to the [Ironvow](../../Character%20Lore/Modern%20Characters/Elder%20Thora%20Ironvow.md) clan — a family with deep ties to the liberation movement. Her niece Thora would later become an Elder; Thana chose a different path. At 60, she felt called to [Buchrior Hollows](../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md). At 80, she began training under the previous Keeper. At 180, she took the role herself.
 
 She has lived at the Hollows for sixty years, alone except for pilgrims and the occasional council meeting. She tends the sacred sites, arbitrates disputes among visitors, and maintains the records of names carved in the Hall of Names. She is, in her quiet way, one of the most important figures in the dwarven north — the guardian of their holiest place.
 
@@ -40,7 +38,7 @@ She has lived at the Hollows for sixty years, alone except for pilgrims and the 
 - Living connection between past and present
 
 ## Relationships
-- **Elder Thora Ironvow (Yotherdon):** Her niece; they share the Ironvow fire, differently expressed
+- **Elder Thora Ironvow (Yotherdon):** Her niece; they share the [Ironvow](../../Character%20Lore/Modern%20Characters/Elder%20Thora%20Ironvow.md) fire, differently expressed
 - **The Council of Elders:** Advises them; never commands
 - **Pilgrims:** Welcomes thousands over the decades; remembers many
 - **The Ancestors:** Communes with them daily; considers them her true companions

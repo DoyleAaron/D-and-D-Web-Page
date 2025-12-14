@@ -1,22 +1,21 @@
 # Ferryman Jorl Vatton
 
-## Title
-Master Ferryman of the River Vael
+## Overview
 
-## Age
-Early 30s
+| | |
+|---|---|
+| **Title** | Master Ferryman of the River Vael |
+| **Age** | Early 30s |
+| **Race** | Human |
+| **Location** | Cleamond, Braewood |
 
-## Race
-Human
-
-## Location
-Cleamond, Braewood
+---
 
 ## Appearance
 A tall, lanky young man with sun-darkened skin and the calloused hands of someone who's spent years working the ferry poles. His brown hair is permanently wind-tousled, and his clothes are practical river-wear—waterproofed leather and linen that can survive being soaked daily. He speaks with the accent of the river folk, dropping consonants and stretching vowels.
 
 ## Backstory
-Jorl inherited the Vatton ferry operation from his father, who inherited it from his father before that. The Vattons have been moving people and goods across the River Vael for four generations. When the southern barony began claiming taxation rights over the ferries, Jorl found himself at the center of a dispute that could determine Cleamond's economic future.
+Jorl inherited the Vatton ferry operation from his father, who inherited it from his father before that. The Vattons have been moving people and goods across the River Vael for four generations. When the southern barony began claiming taxation rights over the ferries, Jorl found himself at the center of a dispute that could determine [Cleamond](../../Kingdoms/Braewood/Town/Cleamond.md)'s economic future.
 
 He's not a politician or a negotiator—he's a ferryman. But circumstances have forced him to become something more.
 

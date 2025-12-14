@@ -1,17 +1,15 @@
 # Maren Tidecaller
 
-## Title
-Village Priestess / Healer / Seer (Informal)
+## Overview
 
-## Age
-Elderly (exact age unknown — halflings live long and Maren doesn't count)
+| | |
+|---|---|
+| **Title** | Village Priestess / Healer / Seer (Informal) |
+| **Age** | Elderly (exact age unknown — halflings live long and Maren doesn't count) |
+| **Race** | Halfling |
+| **Location** | Vorton (Village), Northern Braewood Peninsula |
 
-## Race
-Halfling
-
-## Location
-Vorton (Village), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 A tiny woman, barely three feet tall, with silver-white hair worn in elaborate braids decorated with shells, fish bones, and sea glass. Eyes the color of storm clouds, surprisingly intense for her age. Face weathered like driftwood, mapped with deep wrinkles. Wears layers of patched shawls in blues and greens. Bare feet, always — even in winter.
@@ -19,7 +17,7 @@ A tiny woman, barely three feet tall, with silver-white hair worn in elaborate b
 Smells of salt, dried herbs, and something indefinably *strange* — like the air before lightning.
 
 ## Backstory
-Maren has lived in Vorton longer than anyone can remember. Some elders claim she was old when *they* were children. She came from elsewhere — "the water brought me," she says — and simply never left.
+Maren has lived in [Vorton](../../Kingdoms/Braewood/Village/Vorton.md) longer than anyone can remember. Some elders claim she was old when *they* were children. She came from elsewhere — "the water brought me," she says — and simply never left.
 
 She serves no formal temple or deity. Instead, she tends the Drowner's Shrine on the cliff edge, practices folk healing, and occasionally speaks prophecies that prove uncomfortably accurate. The villagers call her gifts "the Tidecalling" — an ability to sense the moods of the sea, predict storms, and sometimes hear things in the waves.
 
@@ -41,7 +39,7 @@ Most think she's half-mad. All of them seek her blessing before long voyages any
 ## The Gift: Tidecalling
 Maren claims to hear whispers from the deep — the sea speaking to those who listen. Whether this is:
 - Genuine divine connection
-- Latent arcane ability (possibly Kluimont-related?)
+- Latent arcane ability (possibly [Kluimont](../../Kingdoms/Kluimont/Kluimont.md)-related?)
 - Madness that happens to be accurate
 - Something else entirely
 

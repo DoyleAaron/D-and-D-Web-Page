@@ -35,13 +35,13 @@
 ## Geography
 
 ### Location
-Slada occupies a rocky promontory at the northeastern tip of Braewood's northern heel — the very edge of the kingdom, where the coast curves toward the open sea. The village overlooks the ocean to the north and east, with cliffs dropping to churning waters. To the south and west, dense forest separates Slada from the rest of Braewood.
+Slada occupies a rocky promontory at the northeastern tip of [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s northern heel — the very edge of the kingdom, where the coast curves toward the open sea. The village overlooks the ocean to the north and east, with cliffs dropping to churning waters. To the south and west, dense forest separates Slada from the rest of [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 
 ### Relationship to Other Sites
-- **30km southwest:** Buchrior Hollows (sacred site)
-- **30km southwest:** Yotherdon (the "moderate" independence town)
-- **45km southeast:** Meriver Mountains (visible on clear days)
-- **80km south:** Borugham
+- **30km southwest:** [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md) (sacred site)
+- **30km southwest:** [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) (the "moderate" independence town)
+- **45km southeast:** [Meriver Mountains](../../../Kingdoms/Braewood/POI/Meriver%20Mountains.md) (visible on clear days)
+- **80km south:** [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md)
 - **No direct path to Crown territory** — requires days of travel through dwarven lands
 
 ### Terrain
@@ -64,7 +64,7 @@ Harsh maritime. Constant wind. Salt spray coats everything. Winters bring freezi
 - **Crafting** — Self-sufficient production of tools, clothes, and necessities
 
 ### Trade Relations
-- **Internal only** — Slada trades almost exclusively with Yotherdon and Buchrior visitors
+- **Internal only** — Slada trades almost exclusively with [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) and Buchrior visitors
 - **Barter economy** — Coin is rare and viewed with suspicion (Crown currency)
 - **No Crown taxes** — Collectors have been turned away for decades
 - **Self-sufficiency** is a point of pride — needing nothing from the Crown
@@ -82,22 +82,22 @@ Near the war's end, a band of the most radical rebels — those who would accept
 The village's name comes from the archaic Dwarvish word for "defiance."
 
 ### Post-War Era
-When other dwarven communities negotiated with the emerging Braewood kingdom, Slada refused. The village recognized no king, paid no taxes, accepted no officials. Attempts to assert Crown authority were met with warnings, then arrows.
+When other dwarven communities negotiated with the emerging [Braewood](../../../Kingdoms/Braewood/Braewood.md) kingdom, Slada refused. The village recognized no king, paid no taxes, accepted no officials. Attempts to assert Crown authority were met with warnings, then arrows.
 
 The Crown eventually stopped trying. The village was too remote, too poor, too fanatically defended to be worth the cost.
 
 ### The Chainbreaker Line
-The village is led by hereditary Elders from the Chainbreaker clan — descendants of the founders. Each Elder takes the name "Chainbreaker" upon assuming the role, regardless of birth name. The current Elder, Grunhild, is the seventh in the line.
+The village is led by hereditary Elders from the [Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md) clan — descendants of the founders. Each Elder takes the name "[Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md)" upon assuming the role, regardless of birth name. The current Elder, Grunhild, is the seventh in the line.
 
 ### Modern Era
-Slada remains what it has always been: the most extreme expression of dwarven independence in northern Braewood. The village is a living monument to the refusal to submit. Young radicals from Yotherdon visit to learn from the Elders; old dwarves come to spend their final years among the truly free.
+Slada remains what it has always been: the most extreme expression of dwarven independence in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md). The village is a living monument to the refusal to submit. Young radicals from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) visit to learn from the Elders; old dwarves come to spend their final years among the truly free.
 
 ---
 
 ## Government
 
 ### The Elder
-Slada is governed by a single Elder who holds authority for life. The position passes within the Chainbreaker clan — typically to the eldest child, though the clan can choose another if circumstances demand. The Elder's word is law, but custom restrains: decisions affecting the village require consultation with the assembled adults.
+Slada is governed by a single Elder who holds authority for life. The position passes within the [Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md) clan — typically to the eldest child, though the clan can choose another if circumstances demand. The Elder's word is law, but custom restrains: decisions affecting the village require consultation with the assembled adults.
 
 ### The Assembly
 All adult dwarves (age 50+) have voice in the Assembly, which meets in the village's central longhouse. The Assembly approves marriages, settles disputes, declares blood feuds, and decides matters of war. The Elder presides but does not dictate.
@@ -109,7 +109,7 @@ Slada does not recognize Crown authority. Period.
 - No Sladan has served in Crown armies
 - The village maintains its own law, enforced by its own militia
 
-The Crown officially considers Slada part of Braewood. The Crown unofficially pretends the village doesn't exist.
+The Crown officially considers Slada part of [Braewood](../../../Kingdoms/Braewood/Braewood.md). The Crown unofficially pretends the village doesn't exist.
 
 ---
 
@@ -119,13 +119,13 @@ The Crown officially considers Slada part of Braewood. The Crown unofficially pr
 The village's central building — part meeting hall, part shrine, part fortress. Stone walls, timber roof, seating for the entire population. The walls are hung with broken chains from the Tharnic era, preserved as sacred relics.
 
 ### The Chainbreaker Shrine
-A stone altar on the highest point of the promontory, overlooking the sea. Here, the village's founders swore never to submit to any authority. Here, each new Elder takes the Chainbreaker name. Here, radicals come to renew their vows.
+A stone altar on the highest point of the promontory, overlooking the sea. Here, the village's founders swore never to submit to any authority. Here, each new Elder takes the [Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md) name. Here, radicals come to renew their vows.
 
 ### The Cliff Path
 A treacherous trail leading down the cliffs to hidden coves below. During the old wars, supplies came by sea to avoid Crown patrols. The path remains — and rumor says it's still used for smuggling.
 
 ### The Watchtower
-A stone tower on the village's landward side, manned constantly. The tower watches for Crown soldiers, tax collectors, and anyone else who might threaten Sladan freedom. Warning fires can be seen from Yotherdon.
+A stone tower on the village's landward side, manned constantly. The tower watches for Crown soldiers, tax collectors, and anyone else who might threaten Sladan freedom. Warning fires can be seen from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md).
 
 ### The Burial Cliffs
 Sladan dead are not buried in the earth — they are given to the sea. Bodies are wrapped in sailcloth and dropped from designated points along the cliffs. The ocean claims its own.
@@ -135,7 +135,7 @@ Sladan dead are not buried in the earth — they are given to the sea. Bodies ar
 ## Key Figures
 
 ### Elder Grunhild Chainbreaker
-**Dwarf, female, 260s.** The seventh Chainbreaker, Grunhild has led Slada for eighty years. She is ancient, scarred, and unbending. In her youth, she killed a Crown tax collector who attempted to enter the village — the last such attempt. She is venerated throughout the dwarven north as a living symbol of resistance.
+**Dwarf, female, 260s.** The seventh [Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md), Grunhild has led Slada for eighty years. She is ancient, scarred, and unbending. In her youth, she killed a Crown tax collector who attempted to enter the village — the last such attempt. She is venerated throughout the dwarven north as a living symbol of resistance.
 
 ### Warden Torvald Stormwatch
 **Dwarf, male, 120s.** Commander of the village militia, responsible for the watchtower and coastal defenses. Young by Sladan standards, Torvald burns with revolutionary fervor. He dreams of leading an army that will free all dwarves — and knows it's a dream.
@@ -144,7 +144,7 @@ Sladan dead are not buried in the earth — they are given to the sea. Bodies ar
 **Dwarf, female, 180s.** Keeper of the Longhouse and guardian of the chain relics. Helga maintains the village's oral history, teaching children the stories of slavery and liberation. She never lets anyone forget.
 
 ### Trader Korgin Deepdelve
-**Dwarf, male, 90s.** The closest thing Slada has to a diplomat — he maintains trade relations with Yotherdon and occasionally ventures further. Korgin believes independence must eventually mean engagement with the wider world; this view is controversial.
+**Dwarf, male, 90s.** The closest thing Slada has to a diplomat — he maintains trade relations with [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) and occasionally ventures further. Korgin believes independence must eventually mean engagement with the wider world; this view is controversial.
 
 ---
 
@@ -174,5 +174,5 @@ The village exists as a living argument: that dwarves need no kings, owe allegia
 
 ---
 
-*"You ask why we live here, on this wind-blasted rock at the end of everything? Because no one else does. Because no king's soldiers will march this far for a handful of fishers and goatherds. Because when the sun rises over the ocean, we see it before any slave in Braewood sees anything. We are the first to greet each day, free. That is why we are here. That is why we will never leave."*
-— Elder Grunhild Chainbreaker, to a visiting scholar from Yotherdon
+*"You ask why we live here, on this wind-blasted rock at the end of everything? Because no one else does. Because no king's soldiers will march this far for a handful of fishers and goatherds. Because when the sun rises over the ocean, we see it before any slave in [Braewood](../../../Kingdoms/Braewood/Braewood.md) sees anything. We are the first to greet each day, free. That is why we are here. That is why we will never leave."*
+— [Elder Grunhild Chainbreaker](../../../Character%20Lore/Modern%20Characters/Elder%20Grunhild%20Chainbreaker.md), to a visiting scholar from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md)

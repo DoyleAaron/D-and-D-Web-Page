@@ -1,17 +1,15 @@
 # Magistrate Vorn Hallas
 
-## Title
-Magistrate of Barge
+## Overview
 
-## Age
-Late 50s
+| | |
+|---|---|
+| **Title** | Magistrate of Barge |
+| **Age** | Late 50s |
+| **Race** | Human |
+| **Location** | Barge (Medium City), Central-Northern Braewood |
 
-## Race
-Human
-
-## Location
-Barge (Medium City), Central-Northern Braewood
-
+---
 
 ## Appearance
 A compact, solid man who has cultivated an air of unremarkable competence. Brown hair greying at the temples, kept short and practical. Brown eyes that notice everything while appearing to notice nothing. Clean-shaven, modest clothing, no jewelry beyond his signet of office.
@@ -21,9 +19,9 @@ Moves with deliberate calm. Speaks in measured tones. Every gesture calculated t
 Looks like the kind of man you'd forget five minutes after meeting — which is entirely intentional.
 
 ## Backstory
-Vorn Hallas worked his way up through Braewood's bureaucracy for thirty years before being appointed Magistrate of Barge. He was chosen specifically because he had no faction loyalty, no grand ambitions, and no obvious weaknesses.
+[Vorn Hallas](../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md) worked his way up through [Braewood](../../Kingdoms/Braewood/Braewood.md)'s bureaucracy for thirty years before being appointed Magistrate of [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md). He was chosen specifically because he had no faction loyalty, no grand ambitions, and no obvious weaknesses.
 
-He's served in Barge for twelve years. In that time, he's prevented three potential faction wars, navigated two Crown crackdowns, and maintained what he calls "productive tension" between the Hammer Brotherhood and Masked Lanterns.
+He's served in [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) for twelve years. In that time, he's prevented three potential faction wars, navigated two Crown crackdowns, and maintained what he calls "productive tension" between the Hammer Brotherhood and Masked Lanterns.
 
 He doesn't win. He manages. Some days, that's enough.
 
@@ -39,7 +37,7 @@ He doesn't win. He manages. Some days, that's enough.
 - Judge in serious legal matters
 - Mediator between factions (constant, thankless)
 - Tax collector and administrator
-- The man who keeps Barge from exploding
+- The man who keeps [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) from exploding
 
 ## Relationships
 - **Guildmaster Ironhand:** Mutual respect, mutual distrust
@@ -49,14 +47,14 @@ He doesn't win. He manages. Some days, that's enough.
 - **His Wife (in the capital):** They write monthly; he misses her
 
 ## The Balancing Act
-Hallas maintains Barge's peace through a carefully constructed web of compromises:
+[Hallas](../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md) maintains [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md)'s peace through a carefully constructed web of compromises:
 - The Brotherhood pays extra taxes; the Crown ignores their private militia
 - The Lanterns keep violence low; the guard doesn't look too hard
 - The merchants pay protection to both; everyone pretends this is normal
-- The Crown gets its revenue; Hallas gets autonomy to manage
+- The Crown gets its revenue; [Hallas](../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md) gets autonomy to manage
 
 If any thread breaks, everything unravels.
 
 ---
 
-*"People think governance is about power. It isn't. Real power would mean I could actually fix things. What I have is influence — the ability to nudge, suggest, pressure, and occasionally threaten. I can't stop the Brotherhood from amassing weapons. I can make it more expensive. I can't eliminate the Lanterns. I can keep them reasonable. I can't control what's happening in the north. I can make sure Barge survives it. That's the job. Not winning. Surviving."*
+*"People think governance is about power. It isn't. Real power would mean I could actually fix things. What I have is influence — the ability to nudge, suggest, pressure, and occasionally threaten. I can't stop the Brotherhood from amassing weapons. I can make it more expensive. I can't eliminate the Lanterns. I can keep them reasonable. I can't control what's happening in the north. I can make sure [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) survives it. That's the job. Not winning. Surviving."*

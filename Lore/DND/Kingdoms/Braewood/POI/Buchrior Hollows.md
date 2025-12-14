@@ -15,14 +15,14 @@
 ## Geography
 
 ### Location
-Buchrior Hollows sits 42km east of Wynlants Cavity — 25km to the great river that flows from Borugh Lake to the northern ocean, then 15km past the crossing. The site occupies a series of natural hollows and depressions in forested hills, where ancient trees grow from soil enriched by centuries of dwarven presence.
+Buchrior Hollows sits 42km east of [Wynlants Cavity](../../../Kingdoms/Braewood/POI/Wynlants%20Cavity.md) — 25km to the great river that flows from [Borugh](../../../Character%20Lore/Modern%20Characters/Thane%20Aldric%20Borugh.md) Lake to the northern ocean, then 15km past the crossing. The site occupies a series of natural hollows and depressions in forested hills, where ancient trees grow from soil enriched by centuries of dwarven presence.
 
 ### Relationship to Other Sites
-- **42km west:** Wynlants Cavity
-- **24km northwest:** Yotherdon
-- **30km southwest:** Slada
-- **40km east:** Meriver Mountains
-- **75km southwest:** Borugham
+- **42km west:** [Wynlants Cavity](../../../Kingdoms/Braewood/POI/Wynlants%20Cavity.md)
+- **24km northwest:** [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md)
+- **30km southwest:** [Slada](../../../Kingdoms/Braewood/Village/Slada.md)
+- **40km east:** [Meriver Mountains](../../../Kingdoms/Braewood/POI/Meriver%20Mountains.md)
+- **75km southwest:** [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md)
 
 ### Terrain
 The Hollows consist of several interconnected depressions — natural bowls in the landscape where old-growth trees form a canopy overhead. Rocky outcroppings break through the earth, carved with ancient Dwarvish runes. Underground springs feed small pools sacred to the dwarven faith. The entire area feels ancient, quiet, set apart from the world.
@@ -37,13 +37,13 @@ During the War of the Sundered Chains, escaped slaves fleeing Tharnic mines gath
 ### The Covenant of Buchrior
 In the central hollow, Broldir and the leaders of twelve liberated clans swore the Covenant of Buchrior — an oath that no dwarf would ever accept enslavement again, that all dwarves would stand together against tyranny, and that the memory of those who died in chains would never fade.
 
-This covenant is the spiritual foundation of dwarven republican sentiment in northern Braewood.
+This covenant is the spiritual foundation of dwarven republican sentiment in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 
 ### Post-War Sacred Status
 After the Tharnic collapse, the Hollows became a pilgrimage site. Dwarves carved memorials into the stones. Families planted trees for the dead. The springs were blessed. The site became the spiritual heart of the free dwarven north.
 
 ### Modern Era
-Buchrior Hollows remains the most important dwarven sacred site in northern Braewood. While no permanent settlement exists here, the site sees constant visitors:
+Buchrior Hollows remains the most important dwarven sacred site in northern [Braewood](../../../Kingdoms/Braewood/Braewood.md). While no permanent settlement exists here, the site sees constant visitors:
 - Annual gatherings on Liberation Day (anniversary of the Tharnic collapse)
 - Weddings, funerals, and naming ceremonies for traditionalist families
 - Political meetings for independence-minded dwarves
@@ -78,7 +78,7 @@ A stone chair carved into a rocky outcrop where tradition says the High Thane sa
 Buchrior Hollows has no formal government, but a Keeper maintains the site year-round. The current Keeper is **Thana Ironvow**, a dwarven woman in her 240s who has held the position for sixty years. She lives in a small stone cottage at the hollow's edge, tends the sacred sites, and arbitrates disputes among visitors.
 
 ### The Council of Elders
-Major decisions affecting the Hollows — new memorials, ceremony scheduling, responses to external threats — are made by a council of elders from Yotherdon, Slada, and Borugham. The council meets at the Covenant Stone four times yearly.
+Major decisions affecting the Hollows — new memorials, ceremony scheduling, responses to external threats — are made by a council of elders from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md), [Slada](../../../Kingdoms/Braewood/Village/Slada.md), and [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md). The council meets at the Covenant Stone four times yearly.
 
 ### Unwritten Law
 Violence is forbidden at Buchrior Hollows. Even bitter enemies observe peace on sacred ground. Clan feuds, political disputes, and personal grudges are set aside. Violation means permanent exile from all dwarven communities in the north.
@@ -100,19 +100,19 @@ Buchrior Hollows represents everything the dwarven independence movement stands 
 
 ## Relationship with the Crown
 
-The Crown of Braewood officially respects Buchrior Hollows as a heritage site. In practice, Crown officials avoid the area entirely. There are no roads leading here, no tax collectors, no military patrols. The Crown pretends this is benign neglect; everyone knows it's pragmatic recognition that any assertion of authority would trigger unified resistance.
+The Crown of [Braewood](../../../Kingdoms/Braewood/Braewood.md) officially respects Buchrior Hollows as a heritage site. In practice, Crown officials avoid the area entirely. There are no roads leading here, no tax collectors, no military patrols. The Crown pretends this is benign neglect; everyone knows it's pragmatic recognition that any assertion of authority would trigger unified resistance.
 
-King Tarvin Braeden IV's advisors consider this situation stable. The independence movement has a place to gather, which contains it. Cracking down would scatter the movement into unpredictable forms. Better a known gathering point than hidden cells throughout the kingdom.
+[King Tarvin Braeden IV](../../../Character%20Lore/Modern%20Characters/King%20Tarvin%20Braeden%20IV.md)'s advisors consider this situation stable. The independence movement has a place to gather, which contains it. Cracking down would scatter the movement into unpredictable forms. Better a known gathering point than hidden cells throughout the kingdom.
 
 ---
 
 ## Access
 
 ### Getting There
-No maintained roads lead to Buchrior Hollows. Visitors follow forest paths known to local dwarves. The journey from Yotherdon takes half a day; from Borugham, two days through wilderness.
+No maintained roads lead to Buchrior Hollows. Visitors follow forest paths known to local dwarves. The journey from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) takes half a day; from [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md), two days through wilderness.
 
 ### Who Visits
-- Dwarves from across northern Braewood
+- Dwarves from across northern [Braewood](../../../Kingdoms/Braewood/Braewood.md)
 - Occasionally, sympathetic non-dwarves with dwarven guides
 - Scholars with permission from the Keeper
 - Crown officials do not visit
@@ -123,4 +123,4 @@ Visitors are expected to bring offerings (food, drink, crafted goods) and contri
 ---
 
 *"Every dwarf in the north knows the way to Buchrior Hollows, even if they've never walked it. The path is in our blood. Our grandmothers' grandmothers walked it, carrying children born in chains to see the stones of freedom. When the Crown asks why we don't simply accept their rule, we point east and say: ask the stones."*
-— Elder from Yotherdon, explaining dwarven sentiment
+— Elder from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md), explaining dwarven sentiment

@@ -1,22 +1,21 @@
 # Signal-Master Roderick Pale
 
-## Title
-Signal-Master of Eimgend
+## Overview
 
-## Age
-Late 50s
+| | |
+|---|---|
+| **Title** | Signal-Master of Eimgend |
+| **Age** | Late 50s |
+| **Race** | Human |
+| **Location** | Eimgend, Braewood |
 
-## Race
-Human
-
-## Location
-Eimgend, Braewood
+---
 
 ## Appearance
 A tall, gaunt man with a pallid complexion that earned him his surname—his family has been pale for as long as anyone remembers. His wispy grey hair and deep-set dark eyes give him an almost spectral appearance. He moves with deliberate precision, each gesture economical and purposeful.
 
 ## Backstory
-Roderick was born in Eimgend and has never lived anywhere else. His father served as assistant to the previous Signal-Master, and Roderick grew up in the shadow of the beacon tower, learning the intricate code system that allows rapid communication with Sheyton and beyond.
+Roderick was born in [Eimgend](../../Kingdoms/Braewood/Village/Eimgend.md) and has never lived anywhere else. His father served as assistant to the previous Signal-Master, and Roderick grew up in the shadow of the beacon tower, learning the intricate code system that allows rapid communication with [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md) and beyond.
 
 He took over as Signal-Master twenty-three years ago and has maintained an impeccable record. Not a single message has been garbled, delayed, or lost on his watch. He knows every code sequence by heart—standard warnings, emergency protocols, and the secret codes known only to Crown operatives.
 
@@ -27,7 +26,7 @@ He took over as Signal-Master twenty-three years ago and has maintained an impec
 - **Night owl:** The beacon work means he's often up at odd hours. He prefers the night anyway.
 
 ## Role in the Village
-Maintains the beacon system connecting Eimgend to Sheyton and, through relay, to the capital. He trains the signal operators, manages the beacon supplies (oil, wood, colored glasses for coded lights), and personally handles all high-priority communications. In an emergency, his signals can alert the Crown within hours.
+Maintains the beacon system connecting [Eimgend](../../Kingdoms/Braewood/Village/Eimgend.md) to [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md) and, through relay, to the capital. He trains the signal operators, manages the beacon supplies (oil, wood, colored glasses for coded lights), and personally handles all high-priority communications. In an emergency, his signals can alert the Crown within hours.
 
 ## Relationships
 - **Watch-Keeper Jareth Dunwald:** Mutual respect between two professionals. They don't socialize, but they work perfectly together.

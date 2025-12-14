@@ -1,22 +1,21 @@
 # Father Clement Varro
 
-## Title
-Senior Priest of the Three Shrines
+## Overview
 
-## Age
-Early 70s
+| | |
+|---|---|
+| **Title** | Senior Priest of the Three Shrines |
+| **Age** | Early 70s |
+| **Race** | Human |
+| **Location** | Sheyton, Braewood |
 
-## Race
-Human
-
-## Location
-Sheyton, Braewood
+---
 
 ## Appearance
 An elderly man with a kindly face and worried eyes. His white hair is thin, his hands tremble slightly, and he walks with the careful steps of someone whose body is beginning to fail. He wears the robes of a senior priest—simple but dignified—and carries a worn prayer book that never leaves his side.
 
 ## Backstory
-Clement has served the Three Shrines of Sheyton for over forty years, ministering to the faithful of three different denominations who share the temple district. He's overseen births, marriages, deaths, and every human drama between. He thought he'd seen everything.
+Clement has served the Three Shrines of [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md) for over forty years, ministering to the faithful of three different denominations who share the temple district. He's overseen births, marriages, deaths, and every human drama between. He thought he'd seen everything.
 
 Then the Red Scarves arrived, and Clement watched his congregations shrink. Not dramatically—just steadily. Families who had attended services for generations now wear red shawls and gather at the Scarlet Hall instead. When he speaks to them, they're polite. But their eyes are different now.
 
@@ -27,7 +26,7 @@ Then the Red Scarves arrived, and Clement watched his congregations shrink. Not 
 - **Quietly desperate:** Looking for anyone who will help.
 
 ## Role in the Settlement
-Senior religious authority in Sheyton (officially). Represents the traditional faiths against the rising Red Scarves movement.
+Senior religious authority in [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md) (officially). Represents the traditional faiths against the rising Red Scarves movement.
 
 ## Relationships
 - **Mother Selyse:** She terrifies him. He's not sure why.

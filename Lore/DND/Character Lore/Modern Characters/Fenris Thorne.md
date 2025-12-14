@@ -1,17 +1,15 @@
 # Fenris Thorne
 
-## Title
-Master Logger, Overseer of the Timberworks
+## Overview
 
-## Age
-120s
+| | |
+|---|---|
+| **Title** | Master Logger, Overseer of the Timberworks |
+| **Age** | 120s |
+| **Race** | Dwarf |
+| **Location** | Borugham (Town), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Borugham (Town), Northern Braewood
-
+---
 
 ## Appearance
 Built like a tree stump — short even for a dwarf, immensely broad, and almost impossible to knock over. Arms like oak branches from a century of axe work. Weathered face with deep-set brown eyes that miss nothing. Grey-streaked auburn hair worn short and practical, beard kept neat but not elaborate.
@@ -21,9 +19,9 @@ Wears heavy work clothes year-round. Hands permanently calloused, with small sca
 Smells of pine sap, woodsmoke, and honest labor.
 
 ## Backstory
-Fenris Thorne is a distant cousin of the Borugh clan — his grandmother was Aldric's great-aunt. He grew up in Borugham, worked the forests from adolescence, and rose through the Timberworks hierarchy on pure competence. He became Master Logger sixty years ago and has held the position ever since.
+Fenris [Thorne](../../Character%20Lore/Modern%20Characters/Warden-Mayor%20Lysa%20Thorne.md) is a distant cousin of the [Borugh](../../Character%20Lore/Modern%20Characters/Thane%20Aldric%20Borugh.md) clan — his grandmother was Aldric's great-aunt. He grew up in [Borugham](../../Kingdoms/Braewood/Town/Borugham.md), worked the forests from adolescence, and rose through the Timberworks hierarchy on pure competence. He became Master Logger sixty years ago and has held the position ever since.
 
-Unlike some Borugham dwarves, Fenris cares little for politics. The republican cause, the Crown's demands, the tension with Yotherdon — all of it matters less to him than the trees, the seasons, and the work. He judges people by what they do, not what they believe.
+Unlike some [Borugham](../../Kingdoms/Braewood/Town/Borugham.md) dwarves, Fenris cares little for politics. The republican cause, the Crown's demands, the tension with [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md) — all of it matters less to him than the trees, the seasons, and the work. He judges people by what they do, not what they believe.
 
 His wife Mira died ten years ago. He still visits her grave near the Timberworks every morning before the crews assemble.
 
@@ -39,7 +37,7 @@ His wife Mira died ten years ago. He still visits her grave near the Timberworks
 - Oversees the Timberworks (sawmills, storage, transport)
 - Commands respect from the logging crews (dwarf and human alike)
 - Knows the surrounding forests better than anyone alive
-- Unofficial scout for anything strange near the Kluimont border
+- Unofficial scout for anything strange near the [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) border
 
 ## Skills & Knowledge
 - Master woodsman — can read a forest like a book

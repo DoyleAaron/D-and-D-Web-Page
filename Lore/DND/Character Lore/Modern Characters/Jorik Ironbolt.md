@@ -1,17 +1,15 @@
 # Jorik Ironbolt
 
-## Title
-Master Stonemason
+## Overview
 
-## Age
-80s (middle-aged for a dwarf)
+| | |
+|---|---|
+| **Title** | Master Stonemason |
+| **Age** | 80s (middle-aged for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Vorton (Village), Northern Braewood Peninsula |
 
-## Race
-Dwarf
-
-## Location
-Vorton (Village), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 Stocky even by dwarven standards, with arms like tree trunks from decades of cutting and hauling stone. Iron-grey beard worn in two practical braids, tucked into his belt when working. Deep brown eyes behind perpetually dust-covered spectacles. Weathered hands that know stone the way a musician knows their instrument.
@@ -19,18 +17,18 @@ Stocky even by dwarven standards, with arms like tree trunks from decades of cut
 Wears simple worker's clothes stained with rock dust and mortar. Carries his tools everywhere — they're worth more than most villagers' homes.
 
 ## Backstory
-Jorik came to Vorton forty years ago, fleeing clan politics in eastern Braewood. He never speaks of specifics, but it involved a succession dispute, a broken betrothal, and "words said that couldn't be unsaid."
+Jorik came to [Vorton](../../Kingdoms/Braewood/Village/Vorton.md) forty years ago, fleeing clan politics in eastern [Braewood](../../Kingdoms/Braewood/Braewood.md). He never speaks of specifics, but it involved a succession dispute, a broken betrothal, and "words said that couldn't be unsaid."
 
-He found Vorton's ancient Tharnic walls fascinating — construction techniques lost to modern builders. He stayed to study them. Then he stayed to repair them. Then he just... stayed. Four decades later, he's one of the last people alive who understands how the Tharnic Empire built.
+He found [Vorton](../../Kingdoms/Braewood/Village/Vorton.md)'s ancient Tharnic walls fascinating — construction techniques lost to modern builders. He stayed to study them. Then he stayed to repair them. Then he just... stayed. Four decades later, he's one of the last people alive who understands how the Tharnic Empire built.
 
-He's had opportunities to leave — Barge would pay handsomely for his skills, Braewood City even more. He refuses. "These walls stood for empires. They'll outlast me. The least I can do is help."
+He's had opportunities to leave — [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) would pay handsomely for his skills, [Braewood](../../Kingdoms/Braewood/Braewood.md) City even more. He refuses. "These walls stood for empires. They'll outlast me. The least I can do is help."
 
 ## Personality
 - **Stubborn as granite** — once he makes a decision, nothing moves him
 - **Quietly proud** — his work speaks for itself; he doesn't need to boast
 - **Practical** — approaches problems like engineering challenges
 - **Apolitical** — left clan business behind and won't be drawn back in
-- **Loyal to place** — loves Vorton specifically, not Braewood abstractly
+- **Loyal to place** — loves [Vorton](../../Kingdoms/Braewood/Village/Vorton.md) specifically, not [Braewood](../../Kingdoms/Braewood/Braewood.md) abstractly
 
 ## Role in Vorton
 - Maintains the Tharnic walls (a losing battle against time)
@@ -40,7 +38,7 @@ He's had opportunities to leave — Barge would pay handsomely for his skills, B
 - Living repository of knowledge about Tharnic construction
 
 ## Skills & Knowledge
-- **Master stonemason** — could find work anywhere but chooses Vorton
+- **Master stonemason** — could find work anywhere but chooses [Vorton](../../Kingdoms/Braewood/Village/Vorton.md)
 - **Tharnic architecture expert** — one of very few who understand the old techniques
 - **Rune recognition** — has learned to identify (not activate) Tharnic magical construction marks
 - **Structural assessment** — can tell if a building will stand another century or collapse next winter

@@ -1,31 +1,29 @@
 # Trader Korgin Deepdelve
 
-## Title
-Trader of Slada
+## Overview
 
-## Age
-90s
+| | |
+|---|---|
+| **Title** | Trader of Slada |
+| **Age** | 90s |
+| **Race** | Dwarf |
+| **Location** | Slada (Village), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Slada (Village), Northern Braewood
-
+---
 
 ## Appearance
 Young and comparatively worldly by Sladan standards. Auburn hair worn shorter than tradition, beard neatly trimmed for travel. Quick dark eyes that assess value — of goods, of people, of opportunities. Medium build for a dwarf, nimble rather than powerful.
 
-Dresses practically for travel: good boots, sturdy clothes, weatherproof cloak. Carries a merchant's pack when working. Unlike most Sladans, he sometimes wears subtle signs of outside contact — a Yotherdon-made clasp, boots from Borugham.
+Dresses practically for travel: good boots, sturdy clothes, weatherproof cloak. Carries a merchant's pack when working. Unlike most Sladans, he sometimes wears subtle signs of outside contact — a [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md)-made clasp, boots from [Borugham](../../Kingdoms/Braewood/Town/Borugham.md).
 
 Looks like someone who has seen more of the world than his village and isn't entirely sure how to feel about it.
 
 ## Backstory
-Korgin was born in Slada to the Deepdelve clan — miners in the old days, though there's nothing to mine on the cliffs. He showed no aptitude for fishing, fighting, or faith, which left trading as the only remaining path.
+Korgin was born in [Slada](../../Kingdoms/Braewood/Village/Slada.md) to the [Deepdelve](../../Character%20Lore/Modern%20Characters/Trader%20Korgin%20Deepdelve.md) clan — miners in the old days, though there's nothing to mine on the cliffs. He showed no aptitude for fishing, fighting, or faith, which left trading as the only remaining path.
 
-He made his first trip to Yotherdon at 50 and discovered something forbidden: he liked the outside. He liked meeting new people, seeing new places, learning how other communities worked. For forty years, he's walked the path between Slada and Yotherdon, occasionally venturing as far as Borugham, carrying goods and gossip both ways.
+He made his first trip to [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md) at 50 and discovered something forbidden: he liked the outside. He liked meeting new people, seeing new places, learning how other communities worked. For forty years, he's walked the path between [Slada](../../Kingdoms/Braewood/Village/Slada.md) and [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md), occasionally venturing as far as [Borugham](../../Kingdoms/Braewood/Town/Borugham.md), carrying goods and gossip both ways.
 
-His position is controversial. Slada prizes isolation; Korgin represents connection. Some call him necessary; others call him dangerous.
+His position is controversial. [Slada](../../Kingdoms/Braewood/Village/Slada.md) prizes isolation; Korgin represents connection. Some call him necessary; others call him dangerous.
 
 ## Personality
 - **Curious** — genuinely interested in the world beyond the cliffs
@@ -35,10 +33,10 @@ His position is controversial. Slada prizes isolation; Korgin represents connect
 - **Careful** — knows his position is precarious; one wrong step and he's exiled
 
 ## Role in Slada
-- Primary trader with Yotherdon and Borugham
+- Primary trader with [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md) and [Borugham](../../Kingdoms/Braewood/Town/Borugham.md)
 - Carrier of news and information from outside
 - Closest thing to a diplomat the village has
-- Provider of goods Slada can't produce
+- Provider of goods [Slada](../../Kingdoms/Braewood/Village/Slada.md) can't produce
 - The controversial bridge to the outside world
 
 ## Relationships
@@ -50,4 +48,4 @@ His position is controversial. Slada prizes isolation; Korgin represents connect
 
 ---
 
-*"I know what they say about me. That I've been corrupted by the outside. That I've forgotten what we stand for. That I should never have been allowed to leave. Maybe they're right. But someone has to make the trips. Someone has to get the things we can't make — medicine, metal, news of the world. I do it because it needs doing, and because... yes, because I like it. I like seeing how other dwarves live. I like learning that the world is bigger than our cliff. Is that betrayal? I don't think so. Slada survives because we adapt. I'm just adapting in a different way."*
+*"I know what they say about me. That I've been corrupted by the outside. That I've forgotten what we stand for. That I should never have been allowed to leave. Maybe they're right. But someone has to make the trips. Someone has to get the things we can't make — medicine, metal, news of the world. I do it because it needs doing, and because... yes, because I like it. I like seeing how other dwarves live. I like learning that the world is bigger than our cliff. Is that betrayal? I don't think so. [Slada](../../Kingdoms/Braewood/Village/Slada.md) survives because we adapt. I'm just adapting in a different way."*

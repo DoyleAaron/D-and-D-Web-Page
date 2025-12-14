@@ -4,13 +4,13 @@
 Frore
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
 
 ### **Leader:**
-**Root-Mother Yseult Greenbough** — An elderly human woman in her seventies, stooped but sharp-eyed. A master herbalist whose knowledge of plants, remedies, and poisons is unmatched in southern Braewood. She leads by expertise rather than authority—her advice is simply too valuable to ignore.
+**Root-Mother Yseult Greenbough** — An elderly human woman in her seventies, stooped but sharp-eyed. A master herbalist whose knowledge of plants, remedies, and poisons is unmatched in southern [Braewood](../../../Kingdoms/Braewood/Braewood.md). She leads by expertise rather than authority—her advice is simply too valuable to ignore.
 
 ### **Population:**
 **~850** permanent residents. The population increases slightly during harvest seasons when gatherers range far into the surrounding wilderness.
@@ -27,17 +27,17 @@ Village
 ### **Geography & Climate:**
 
 **Position:**
-- Located in southeastern Braewood, one of the four villages saved by Osegas during the Tharnic collapse.
-- 25 km down a branch road from the eastern road (turning off at the 37km mark from Osegas).
+- Located in southeastern [Braewood](../../../Kingdoms/Braewood/Braewood.md), one of the four villages saved by [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) during the Tharnic collapse.
+- 25 km down a branch road from the eastern road (turning off at the 37km mark from [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)).
 - Near the eastern coast, surrounded by coastal scrubland and marshes.
 
 **Road Network:**
-- **To Eastern Road (25km W):** Branch road through scrubland to the Osegas-Rens route.
-- **Via Osegas (62km total):** 25km to junction, then 37km north to Osegas.
-- **Via Rens (57km total):** 25km to junction, then 32km south to Rens.
+- **To Eastern Road (25km W):** Branch road through scrubland to the [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)-[Rens](../../../Kingdoms/Braewood/Village/Rens.md) route.
+- **Via Osegas (62km total):** 25km to junction, then 37km north to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
+- **Via Rens (57km total):** 25km to junction, then 32km south to [Rens](../../../Kingdoms/Braewood/Village/Rens.md).
 
 **Distances (Straight Line):**
-- North: 290 km to the northern coast (130 km to Braewood City)
+- North: 290 km to the northern coast (130 km to [Braewood](../../../Kingdoms/Braewood/Braewood.md) City)
 - South: 30 km to the southern coast
 - East: 30 km to the eastern coast
 - West: 120 km to the western coast
@@ -58,7 +58,7 @@ Village
 ### **Wealth:**
 ★★★☆☆ (3 stars)
 
-- Frore's herbs, remedies, and medicines command premium prices across Braewood.
+- Frore's herbs, remedies, and medicines command premium prices across [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 - The village is modest in appearance but surprisingly prosperous.
 - Healers and herbalists from larger cities send orders regularly.
 - Most families share in the gathering work and the resulting income.
@@ -70,7 +70,7 @@ Village
 
 - Almost no military presence. A handful of village guards.
 - The terrain itself provides defense—few know the paths through the marshes.
-- Relies on distance from threats and Osegas's protection network.
+- Relies on distance from threats and [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s protection network.
 - In true emergency, the villagers would vanish into the wetlands.
 
 ---
@@ -80,7 +80,7 @@ Village
 
 - Strong sense of purpose and unique identity. Frore is special, and residents know it.
 - Deep respect for Root-Mother Yseult and the healing traditions.
-- The Osegas tradition of mutual aid is practiced faithfully.
+- The [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) tradition of mutual aid is practiced faithfully.
 - Young people sometimes leave to study, but many return with new knowledge.
 - Life is quiet and meaningful; those who love it never leave.
 
@@ -91,7 +91,7 @@ Village
 **Primary Industries:**
 - **Herbalism:** The village's primary occupation. Gathering, drying, and preparing medicinal plants.
 - **Remedy-Making:** Processed medicines fetch higher prices than raw herbs.
-- **Healing Arts:** Frore trains healers who serve across Braewood.
+- **Healing Arts:** Frore trains healers who serve across [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 - **Subsistence Farming:** Small gardens supplement gathered foods; the village isn't fully self-sufficient.
 
 **Trade Relationships:**
@@ -111,8 +111,8 @@ Village
 
 **The Osegas Salvation:**
 - When the Empire collapsed, Frore's isolation made supply impossible.
-- Osegas's relief caravans brought grain that kept the village alive.
-- In return, Frore's healers traveled to Osegas and the other villages, treating the sick.
+- [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s relief caravans brought grain that kept the village alive.
+- In return, Frore's healers traveled to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) and the other villages, treating the sick.
 - This exchange established a lasting bond—medicine for grain, healing for protection.
 
 **Post-Tharnic Era:**
@@ -123,7 +123,7 @@ Village
 **Recent History:**
 - Root-Mother Yseult has led for thirty years.
 - Demand for Frore remedies has increased as cities grow.
-- A guild of healers in Braewood City has proposed formalizing the trade—Frore remains skeptical.
+- A guild of healers in [Braewood](../../../Kingdoms/Braewood/Braewood.md) City has proposed formalizing the trade—Frore remains skeptical.
 
 ---
 
@@ -137,7 +137,7 @@ Village
 
 - **The Old Grove:** A remnant of ancient forest, considered sacred. Certain rare plants only grow here. Harvesting is strictly regulated.
 
-- **The Healing House:** Where the sick come for treatment. Visitors from across Braewood seek cures here.
+- **The Healing House:** Where the sick come for treatment. Visitors from across [Braewood](../../../Kingdoms/Braewood/Braewood.md) seek cures here.
 
 ---
 
@@ -155,8 +155,8 @@ Village
 
 ### **Relationships:**
 
-- **Osegas (via road):** Savior and partner. Frore sends healers; Osegas provides protection and markets.
-- **Rens (via eastern road):** Closest neighbor by road. Cooperative relationship; occasional patients sent from Rens.
+- **Osegas (via road):** Savior and partner. Frore sends healers; [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) provides protection and markets.
+- **Rens (via eastern road):** Closest neighbor by road. Cooperative relationship; occasional patients sent from [Rens](../../../Kingdoms/Braewood/Village/Rens.md).
 - **Dalo (via roads):** Fellow saved village. Fish-for-medicine trade benefits both.
 - **Trares (via Osegas):** Occasional contact at festivals; wool for healing salves.
 - **Braewood City:** Distant but important customer. Guild interest is viewed with suspicion.
@@ -175,4 +175,4 @@ Spring and autumn bring intensive gathering work. The entire village participate
 All Frore healers swear an oath: help those in need, poison no one, share knowledge freely with fellow healers. This oath is taken seriously—violators are exiled.
 
 **The Osegas Bond:**
-Like all saved villages, Frore sends delegates to Osegas and participates in joint festivals. The villages see themselves as siblings—different but connected.
+Like all saved villages, Frore sends delegates to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) and participates in joint festivals. The villages see themselves as siblings—different but connected.

@@ -1,17 +1,15 @@
 # Elder Thora Ironvow
 
-## Title
-Elder of Yotherdon, Representative of the Miners' Guild
+## Overview
 
-## Age
-190s
+| | |
+|---|---|
+| **Title** | Elder of Yotherdon, Representative of the Miners' Guild |
+| **Age** | 190s |
+| **Race** | Dwarf |
+| **Location** | Yotherdon (Town), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Yotherdon (Town), Northern Braewood
-
+---
 
 ## Appearance
 Compact and powerful, built for the tunnels she spent her youth working. Silver-white hair worn short and practical — a rarity among traditionalist dwarven women. Her face is lined with age but her eyes burn with undiminished fire. Missing two fingers on her left hand from a mining accident decades ago.
@@ -21,7 +19,7 @@ Dresses simply in miners' practical clothing even at council meetings — a poin
 Looks like someone who has been angry for a very long time and has learned to use it.
 
 ## Backstory
-Thora was born in Yotherdon to a mining family with roots stretching back to the liberation. Her great-grandmother died in Tharnic chains. Her grandmother was among the first free generation. Thora grew up on stories of slavery and freedom, and the fire those stories lit never went out.
+Thora was born in [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md) to a mining family with roots stretching back to the liberation. Her great-grandmother died in Tharnic chains. Her grandmother was among the first free generation. Thora grew up on stories of slavery and freedom, and the fire those stories lit never went out.
 
 She worked the mines from adolescence, rose to foremistress, then guild representative. When the council seat opened, she won election on a platform of "no more compromise." She's served for forty years, the loudest voice for complete independence, the conscience that won't let the moderates forget what they're fighting for.
 
@@ -30,19 +28,19 @@ She worked the mines from adolescence, rose to foremistress, then guild represen
 - **Impatient** — tired of waiting for "someday"
 - **Principled** — won't compromise on core values
 - **Blunt** — says what she thinks; diplomacy is not her gift
-- **Loyal** — to the cause, to her miners, to Yotherdon
+- **Loyal** — to the cause, to her miners, to [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md)
 
 ## Role in Yotherdon
 - Council member representing the miners' guild
 - Leader of the radical faction on the council
-- Liaison with independence movements in Slada
+- Liaison with independence movements in [Slada](../../Kingdoms/Braewood/Village/Slada.md)
 - Voice that pushes the council toward bolder action
 - The fire that keeps the movement alive
 
 ## Relationships
 - **High Elder Korrin:** Respects his intelligence; frustrated by his caution
-- **Elder Grunhild Chainbreaker:** Admires her absolutely; visits Slada often
-- **Thana Ironvow:** Her aunt, Keeper of Buchrior Hollows
+- **Elder Grunhild Chainbreaker:** Admires her absolutely; visits [Slada](../../Kingdoms/Braewood/Village/Slada.md) often
+- **Thana Ironvow:** Her aunt, Keeper of [Buchrior Hollows](../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md)
 - **The Miners:** Her people; she fights for them daily
 - **The Crown:** An enemy wearing a pleasant mask
 

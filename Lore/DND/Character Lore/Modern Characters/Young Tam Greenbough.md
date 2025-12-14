@@ -1,16 +1,15 @@
 # Young Tam Greenbough
 
-## Title
-Apprentice Herbalist of Frore
+## Overview
 
-## Age
-Early 20s
+| | |
+|---|---|
+| **Title** | Apprentice Herbalist of Frore |
+| **Age** | Early 20s |
+| **Race** | Human |
+| **Location** | Frore, Braewood |
 
-## Race
-Human
-
-## Location
-Frore, Braewood
+---
 
 ## Appearance
 A young man with unruly brown hair, earnest green eyes, and hands already showing the stains of herb work. His face is open and eager, still unmarked by the patience that characterizes his grandmother. He dresses in practical apprentice robes and always carries a gathering bag and notebook for sketching plants.
@@ -33,7 +32,7 @@ Serves as Root-Mother Yseult's primary apprentice, learning the healing arts. He
 - **Root-Mother Yseult Greenbough:** His grandmother and mentor. He loves her but also fears disappointing her.
 - **Aelindra Mistwalker:** The elven healer has offered to teach him. He's not sure he's worthy.
 - **Gareth Thornroot:** The village elder who handles practical matters. Takes some pressure off Tam.
-- **Other Young People:** Few remain in Frore. He's lonely sometimes.
+- **Other Young People:** Few remain in [Frore](../../Kingdoms/Braewood/Village/Frore.md). He's lonely sometimes.
 
 ## Notable Quote
 > "Grandmother says patience is the first medicine. She's right, I know she's right. But when someone's hurting, I want to help now. Learning to wait is the hardest lesson."

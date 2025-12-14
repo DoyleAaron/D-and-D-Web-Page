@@ -1,27 +1,25 @@
 # Halvard Grimstone
 
-## Title
-Warden-Captain of Oyard Prison
+## Overview
 
-## Age
-~90 (Dwarf, mature adult)
+| | |
+|---|---|
+| **Title** | Warden-Captain of Oyard Prison |
+| **Age** | ~90 (Dwarf, mature adult) |
+| **Race** | Dwarf |
+| **Location** | Oyard (Village), The Warden's Tower |
 
-## Race
-Dwarf
-
-## Location
-Oyard (Village), The Warden's Tower
-
+---
 
 ## Appearance
 A stocky, stone-faced dwarf whose expression never softens. Iron-grey hair cropped short, beard trimmed to military regulation. Eyes like chips of flint, pale and cold. Wears a warden's uniform that somehow looks like armor — immaculate, severe, functional. Moves with economical precision. Every gesture deliberate. Every word measured.
 
 ## Backstory
-Halvard Grimstone was a Crown soldier for sixty years. Not a decorated hero — a reliable enforcer. The dwarf who did what needed to be done without complaint or question. When prisoners needed transferring, Grimstone transferred them. When riots needed quelling, Grimstone quelled them. When examples needed making, Grimstone made them.
+[Halvard Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) was a Crown soldier for sixty years. Not a decorated hero — a reliable enforcer. The dwarf who did what needed to be done without complaint or question. When prisoners needed transferring, [Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) transferred them. When riots needed quelling, [Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) quelled them. When examples needed making, [Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) made them.
 
-When the Crown needed someone to run Oyard Prison — the place where the kingdom sends the people it wants to forget — Grimstone was the obvious choice. He has held the position for thirty years. The prison runs like a machine. No escapes. No riots. No problems that can't be solved with order and discipline.
+When the Crown needed someone to run [Oyard](../../Kingdoms/Braewood/Village/Oyard.md) Prison — the place where the kingdom sends the people it wants to forget — [Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) was the obvious choice. He has held the position for thirty years. The prison runs like a machine. No escapes. No riots. No problems that can't be solved with order and discipline.
 
-He believes absolutely in what he does. The prisoners in Oyard are monsters — Tharnics who slaughtered families, dwarves who betrayed their people, nobles who sold children. They deserve to be here. They deserve to be forgotten. And Halvard Grimstone will ensure they are.
+He believes absolutely in what he does. The prisoners in [Oyard](../../Kingdoms/Braewood/Village/Oyard.md) are monsters — Tharnics who slaughtered families, dwarves who betrayed their people, nobles who sold children. They deserve to be here. They deserve to be forgotten. And [Halvard Grimstone](../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) will ensure they are.
 
 ## Personality
 - **Utterly humorless** — joy is for other people

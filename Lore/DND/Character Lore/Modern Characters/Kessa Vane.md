@@ -1,17 +1,15 @@
 # Kessa Vane
 
-## Title
-None (Fisher)
+## Overview
 
-## Age
-Early 20s
+| | |
+|---|---|
+| **Title** | None (Fisher) |
+| **Age** | Early 20s |
+| **Race** | Human |
+| **Location** | Vorton (Village), Northern Braewood Peninsula |
 
-## Race
-Human
-
-## Location
-Vorton (Village), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 Lean and sun-bronzed, with the wiry strength that comes from hauling nets since childhood. Dark hair usually pulled back in a practical tail, often escaping in wind-blown strands. Sharp green eyes that are always looking *past* things, toward the horizon. Calloused hands, salt-stained clothes, and a restless energy that doesn't fit the slow rhythm of village life.
@@ -19,11 +17,11 @@ Lean and sun-bronzed, with the wiry strength that comes from hauling nets since 
 Has a small scar above her left eyebrow — caught by a hook when she was twelve. Considers it a badge of honor.
 
 ## Backstory
-Born in Vorton to a fishing family. Her father died at sea when she was seven; her mother remarried a Strane merchant and left when Kessa was fourteen. Kessa stayed — not out of love for Vorton, but out of spite. She'd prove she could make it on her own.
+Born in [Vorton](../../Kingdoms/Braewood/Village/Vorton.md) to a fishing family. Her father died at sea when she was seven; her mother remarried a [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md) merchant and left when Kessa was fourteen. Kessa stayed — not out of love for [Vorton](../../Kingdoms/Braewood/Village/Vorton.md), but out of spite. She'd prove she could make it on her own.
 
 She did. By nineteen, she was the best fisher in the village, able to read the waters better than sailors twice her age. She knows every rock, current, and fishing ground within twenty miles. 
 
-But skill isn't fulfillment. Kessa has been staring at that western horizon her whole life, watching ships sail past, wondering what's out there. Strane isn't enough — that's just a bigger version of the same trap. She wants *out*. A real ship. Real horizons. A life that matters beyond the day's catch.
+But skill isn't fulfillment. Kessa has been staring at that western horizon her whole life, watching ships sail past, wondering what's out there. [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md) isn't enough — that's just a bigger version of the same trap. She wants *out*. A real ship. Real horizons. A life that matters beyond the day's catch.
 
 ## Personality
 - **Restless** — hates routine, craves novelty

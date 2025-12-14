@@ -4,20 +4,20 @@
 Kadena
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Medium City
 
 ### **Leader:**
-**Bridge-Warden Elara Thornguard** — A stern human woman in her late forties, appointed jointly by the crowns of Braewood and Islefield. She commands both the city garrison and the bridge security forces. Her authority is unusual—she answers to two monarchs and neither fully controls her. This suits her just fine.
+**Bridge-Warden Elara Thornguard** — A stern human woman in her late forties, appointed jointly by the crowns of [Braewood](../../../Kingdoms/Braewood/Braewood.md) and [Islefield](../../../Kingdoms/Islefield/Islefield.md). She commands both the city garrison and the bridge security forces. Her authority is unusual—she answers to two monarchs and neither fully controls her. This suits her just fine.
 
 ### **Population:**
-**~18,000** within the city walls; **~28,000** including the bridge towns and surrounding settlements. The largest medium city in Braewood—larger even than Mortling Stronghold's 80,000—but classified as "medium" due to its specialized function rather than its size.
+**~18,000** within the city walls; **~28,000** including the bridge towns and surrounding settlements. The largest medium city in [Braewood](../../../Kingdoms/Braewood/Braewood.md)—larger even than [Mortling Stronghold](../../../Kingdoms/Braewood/Large%20Cities/Mortling%20Stronghold.md)'s 80,000—but classified as "medium" due to its specialized function rather than its size.
 
 ### **Racial Demographics:**
 - **Human (65%):** Merchants, guards, administrators, and craftsmen from both kingdoms.
-- **Elf (12%):** Traders and officials from Islefield. More elves here than anywhere else in Braewood.
+- **Elf (12%):** Traders and officials from [Islefield](../../../Kingdoms/Islefield/Islefield.md). More elves here than anywhere else in [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 - **Dwarf (10%):** Engineers, smiths, and bridge maintenance specialists. Critical to infrastructure.
 - **Halfling (8%):** Run many of the inns, taverns, and shops along the bridge.
 - **Other (5%):** A mix of half-elves, gnomes, and travelers from across the continent.
@@ -27,26 +27,26 @@ Medium City
 ### **Geography & Climate:**
 
 **Position:**
-- Located on Braewood's western border, Kadena guards the eastern approach to the Grand Span.
+- Located on [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s western border, Kadena guards the eastern approach to [the Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md).
 - The city sits where the river narrows enough for the ancient bridge to cross.
-- 14 km south of the Great Lavalto Lake.
+- 14 km south of the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake.
 
 **The Grand Span (Pontem inter Mundos):**
-- Originally known as the **Tharnic Bridge**, Queen Atheliana Aeristel of Islefield formally renamed it **"Pontem inter Mundos"** ("Bridge between Worlds") to symbolize the peaceful connection between kingdoms. The name never fully caught on—most common folk still call it the Tharnic Bridge or simply "the Span."
-- The bridge itself is **20 km long**, crossing the river that divides Braewood and Islefield.
+- Originally known as the **Tharnic Bridge**, [Queen Atheliana Aeristel](../../../Character%20Lore/Modern%20Characters/Queen%20Atheliana%20Aeristel.md) of [Islefield](../../../Kingdoms/Islefield/Islefield.md) formally renamed it **"Pontem inter Mundos"** ("Bridge between Worlds") to symbolize the peaceful connection between kingdoms. The name never fully caught on—most common folk still call it the [Tharnic Bridge](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) or simply "the Span."
+- The bridge itself is **20 km long**, crossing the river that divides [Braewood](../../../Kingdoms/Braewood/Braewood.md) and [Islefield](../../../Kingdoms/Islefield/Islefield.md).
 - Wide enough for two full wagon lanes plus pedestrian walkways on either side.
 - Contains shops, taverns, inns, and even small shrines along its length.
 - Considered the greatest surviving achievement of the Tharnic Empire.
-- Braewood controls the eastern half; Islefield controls the western half. A neutral zone exists at the center.
+- [Braewood](../../../Kingdoms/Braewood/Braewood.md) controls the eastern half; [Islefield](../../../Kingdoms/Islefield/Islefield.md) controls the western half. A neutral zone exists at the center.
 
 **Road Network:**
-- **To Gitstin (50km ENE):** Main road to the interior. At 35km (Gitstin side), a branch leads 10km south to Olkgend.
+- **To Gitstin (50km ENE):** Main road to the interior. At 35km ([Gitstin](../../../Kingdoms/Braewood/Town/Gitstin.md) side), a branch leads 10km south to [Olkgend](../../../Kingdoms/Braewood/Village/Olkgend.md).
 - **To Trares (SE):** Road heading southeast through farmland.
-- **To Islefield (W):** The Grand Span crosses to Rye, Islefield's corresponding bridge city.
+- **To Islefield (W):** [The Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) crosses to Rye, [Islefield](../../../Kingdoms/Islefield/Islefield.md)'s corresponding bridge city.
 
 **Distances (Straight Line):**
-- West: Sits on the Islefield border (the bridge)
-- North: 14 km to the Great Lavalto Lake
+- West: Sits on the [Islefield](../../../Kingdoms/Islefield/Islefield.md) border (the bridge)
+- North: 14 km to the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake
 - South: 18 km to the southern coast
 - East: 170 km to the eastern coast
 
@@ -65,18 +65,18 @@ Medium City
 ### **Wealth:**
 ★★★★★ (5 stars)
 
-- Every merchant crossing between Islefield and Braewood passes through Kadena.
+- Every merchant crossing between [Islefield](../../../Kingdoms/Islefield/Islefield.md) and [Braewood](../../../Kingdoms/Braewood/Braewood.md) passes through Kadena.
 - Bridge tolls alone generate enormous revenue, shared between the two kingdoms.
 - The bridge towns—shops and inns built along the span—are fantastically profitable.
 - Banking houses maintain branches here to facilitate international trade.
-- Kadena is the wealthiest medium city in Braewood by a significant margin.
+- Kadena is the wealthiest medium city in [Braewood](../../../Kingdoms/Braewood/Braewood.md) by a significant margin.
 
 ---
 
 ### **Military:**
 ★★★★★ (5 stars)
 
-- The most sophisticated security apparatus in Braewood, possibly on the continent.
+- The most sophisticated security apparatus in [Braewood](../../../Kingdoms/Braewood/Braewood.md), possibly on the continent.
 - All weapons must be surrendered at the eastern gatehouse and retrieved at the western end (or vice versa).
 - Wagons are thoroughly inspected before crossing.
 - A specialized corps of bridge guards—the **Span Wardens**—patrol the crossing.
@@ -107,7 +107,7 @@ Medium City
 - **Luxury Goods:** Traders from both kingdoms sell wares here before crossing.
 
 **Trade Relationships:**
-- **Rye (Islefield):** Sister city on the western end of the Grand Span. Complex relationship of cooperation and competition.
+- **Rye (Islefield):** Sister city on the western end of [the Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md). Complex relationship of cooperation and competition.
 - **Gitstin (50km E):** Handles traffic heading to the interior.
 - **Eaveton (90km E via Gitstin):** Ultimate destination for much bridge traffic.
 - **Olkgend (35km E, then 10km S):** Military training village that supplies bridge guards.
@@ -117,7 +117,7 @@ Medium City
 ### **History:**
 
 **Tharnic Era:**
-- The Grand Span was the Tharnic Empire's greatest engineering achievement.
+- [The Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) was the Tharnic Empire's greatest engineering achievement.
 - The bridge allowed rapid troop movement across the continent, enabling conquest.
 - Kadena was founded as the eastern fortress guarding this vital crossing.
 - When the Empire held both ends, no army could oppose them.
@@ -125,7 +125,7 @@ Medium City
 **The Collapse:**
 - As the Tharnic Empire crumbled, control of the bridge became contested.
 - Multiple warlords fought to control the crossing—for years, the bridge was impassable.
-- Eventually, the nascent kingdoms of Braewood and Islefield negotiated joint control.
+- Eventually, the nascent kingdoms of [Braewood](../../../Kingdoms/Braewood/Braewood.md) and [Islefield](../../../Kingdoms/Islefield/Islefield.md) negotiated joint control.
 
 **Post-Tharnic Era:**
 - The current system of joint administration was established roughly 400 years ago.
@@ -134,8 +134,8 @@ Medium City
 - The Span Wardens emerged as an elite force loyal to the bridge itself.
 
 **Recent History:**
-- Relations between Braewood and Islefield have been stable for generations.
-- Bridge-Warden Elara Thornguard is the third woman to hold the position.
+- Relations between [Braewood](../../../Kingdoms/Braewood/Braewood.md) and [Islefield](../../../Kingdoms/Islefield/Islefield.md) have been stable for generations.
+- [Bridge-Warden Elara Thornguard](../../../Character%20Lore/Modern%20Characters/Bridge-Warden%20Elara%20Thornguard.md) is the third woman to hold the position.
 - Trade volume has increased steadily, straining the inspection infrastructure.
 - Proposals to build a second bridge have been debated for decades but never approved.
 
@@ -143,17 +143,17 @@ Medium City
 
 ### **Notable Locations:**
 
-- **The Eastern Gatehouse:** A massive fortification controlling access to the Grand Span. All travelers are processed here—weapons secured, papers checked, tolls collected.
+- **The Eastern Gatehouse:** A massive fortification controlling access to [the Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md). All travelers are processed here—weapons secured, papers checked, tolls collected.
 
 - **The Grand Span:** The 20 km bridge itself, containing two tavern districts, a merchant quarter, a shrine row, and the Central Neutral Zone where the kingdoms meet.
 
-- **The Warden's Citadel:** Bridge-Warden Elara Thornguard's headquarters, strategically positioned to overlook both the gatehouse and the bridge approach.
+- **The Warden's Citadel:** [Bridge-Warden Elara Thornguard](../../../Character%20Lore/Modern%20Characters/Bridge-Warden%20Elara%20Thornguard.md)'s headquarters, strategically positioned to overlook both the gatehouse and the bridge approach.
 
 - **The Weapons Hall:** Secure storage where travelers' weapons are held during crossing. An engineering marvel with thousands of individual lockboxes.
 
 - **The Exchange Quarter:** Banking houses, currency changers, and trade factors. Where deals are made before goods ever cross.
 
-- **The Training Grounds:** Where Span Wardens drill. Soldiers from Olkgend often complete their training here.
+- **The Training Grounds:** Where Span Wardens drill. Soldiers from [Olkgend](../../../Kingdoms/Braewood/Village/Olkgend.md) often complete their training here.
 
 ---
 
@@ -171,7 +171,7 @@ Medium City
 
 ### **Relationships:**
 
-- **Rye (Islefield):** Sister city. Bridge-Warden Thornguard coordinates daily with her counterpart, Shield-Captain Celia Verdant.
+- **Rye (Islefield):** Sister city. Bridge-Warden [Thornguard](../../../Character%20Lore/Modern%20Characters/Bridge-Warden%20Elara%20Thornguard.md) coordinates daily with her counterpart, Shield-Captain Celia Verdant.
 - **Gitstin (50km E):** Trade partner. Handles interior traffic.
 - **Olkgend (45km E via road):** Supplies trained soldiers for bridge duty.
 - **Osegas (80km E):** Occasional pilgrims from the religious hub.
@@ -181,18 +181,18 @@ Medium City
 ---
 
 ### **The Grand Span — Point of Interest**
-*Also known as: Pontem inter Mundos (official), Tharnic Bridge (common)*
+*Also known as: [Pontem inter Mundos](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) (official), [Tharnic Bridge](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) (common)*
 
 > *The greatest bridge in the known world, and the Tharnic Empire's lasting legacy.*
 
 **Names & History:**
 - Built by the Tharnic Empire and originally known as the **Tharnic Bridge**.
-- Queen Atheliana Aeristel of Islefield renamed it **"Pontem inter Mundos"** ("Bridge between Worlds") as a gesture of peace and unity between the two kingdoms.
-- The formal name appears on official documents and is used at court ceremonies, but common folk, merchants, and even most guards still call it the Tharnic Bridge or "the Span."
+- [Queen Atheliana Aeristel](../../../Character%20Lore/Modern%20Characters/Queen%20Atheliana%20Aeristel.md) of [Islefield](../../../Kingdoms/Islefield/Islefield.md) renamed it **"Pontem inter Mundos"** ("Bridge between Worlds") as a gesture of peace and unity between the two kingdoms.
+- The formal name appears on official documents and is used at court ceremonies, but common folk, merchants, and even most guards still call it the [Tharnic Bridge](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) or "the Span."
 - Some scholars argue the old name should be retired entirely; others believe it honors the bridge's origins.
 
 **Physical Description:**
-- 20 km long, spanning the river between Braewood and Islefield.
+- 20 km long, spanning the river between [Braewood](../../../Kingdoms/Braewood/Braewood.md) and [Islefield](../../../Kingdoms/Islefield/Islefield.md).
 - 40 meters wide at its narrowest point; wider at the merchant sections.
 - Stone construction with metal reinforcement, maintained by dwarven engineers.
 - Tall enough for river ships to pass underneath at the main channel.
@@ -203,7 +203,7 @@ Medium City
 3. **Merchant Mile:** Shops selling goods from both kingdoms.
 4. **Shrine Row:** Small temples to major faiths; neutral ground for prayer.
 5. **Central Neutral Zone:** The exact midpoint, administered jointly. Official meetings occur here.
-6. **Western Merchant Quarter:** Mirror of the eastern; Islefield goods predominate.
+6. **Western Merchant Quarter:** Mirror of the eastern; [Islefield](../../../Kingdoms/Islefield/Islefield.md) goods predominate.
 7. **Western Tavern Quarter:** Inns for eastbound travelers.
 8. **Western Approach (Islefield):** Rye's gatehouse and inspection facilities.
 

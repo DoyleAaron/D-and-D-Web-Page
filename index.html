@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="static/css/components.css">
   <link rel="stylesheet" href="static/css/sidebar.css">
   <link rel="stylesheet" href="static/css/calendar.css">
+  <link rel="stylesheet" href="static/css/auth.css">
   <link rel="stylesheet" href="static/css/responsive.css">
   
   <!-- Font Awesome -->
@@ -240,9 +241,6 @@
             <i class="fas fa-chevron-down submenu-arrow"></i>
           </div>
           <div class="submenu">
-            <div class="nav-item" data-file="Character Lore/Modern Characters/Braewood Knight Allen.md">
-              <span class="menu-text">Braewood Knight Allen</span>
-            </div>
             <div class="nav-item" data-file="Character Lore/Modern Characters/Cadet Alren.md">
               <span class="menu-text">Cadet Alren</span>
             </div>
@@ -1034,6 +1032,25 @@
       </div>
       
       <div class="header-right">
+        <!-- Login Button (shown when logged out) -->
+        <button class="header-btn" id="login-btn" aria-label="Login">
+          <i class="fas fa-user"></i>
+        </button>
+        
+        <!-- User Menu (shown when logged in) -->
+        <div class="user-menu" id="user-menu">
+          <div class="user-info">
+            <div class="user-avatar"><i class="fas fa-user"></i></div>
+            <span class="user-name" id="user-name">Player</span>
+          </div>
+          <button class="header-btn" id="journal-btn" aria-label="Journal">
+            <i class="fas fa-book"></i>
+          </button>
+          <button class="header-btn" id="logout-btn" aria-label="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+        
         <button class="header-btn" id="theme-toggle" aria-label="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
@@ -1074,5 +1091,83 @@
   
   <!-- Single JavaScript File -->
   <script src="static/js/main.js"></script>
+  
+  <!-- Firebase SDK (v9 Compat for easier setup) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
+  <!-- Firebase Config & Auth -->
+  <script src="static/js/firebase-config.js"></script>
+  <script src="static/js/auth.js"></script>
+  <script src="static/js/journal.js"></script>
+  
+  <!-- Login Modal -->
+  <div class="login-modal" id="login-modal">
+    <div class="login-card">
+      <div class="login-header">
+        <h2><i class="fas fa-dragon"></i> Welcome, Adventurer</h2>
+        <p>Select your name to access your journal</p>
+      </div>
+      <div class="login-form">
+        <div class="form-group">
+          <label for="player-select">Who are you?</label>
+          <select id="player-select" class="player-select">
+            <option value="">-- Select your name --</option>
+            <!-- Players added dynamically by auth.js -->
+          </select>
+        </div>
+        <button type="button" id="login-confirm" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Enter
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Journal Panel -->
+  <div class="journal-panel" id="journal-panel">
+    <div class="journal-header">
+      <h2><i class="fas fa-book"></i> My Journal</h2>
+      <button class="journal-close" id="journal-close" aria-label="Close journal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <!-- Journal List View -->
+    <div class="journal-list" id="journal-list">
+      <div class="journal-toolbar">
+        <button id="journal-new" class="primary">
+          <i class="fas fa-plus"></i> New Entry
+        </button>
+      </div>
+      <div class="journal-content">
+        <div class="journal-entries" id="journal-entries">
+          <!-- Entries will be loaded here -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Journal Editor View -->
+    <div class="journal-editor" id="journal-editor">
+      <div class="journal-toolbar">
+        <button id="journal-back">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button id="journal-save" class="primary">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button id="journal-delete" class="danger">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+      <div class="journal-content">
+        <div class="journal-editor-header">
+          <div class="journal-date" id="journal-date">New entry</div>
+          <input type="text" class="journal-title-input" id="journal-title" placeholder="Entry Title...">
+        </div>
+        <textarea class="journal-content-input" id="journal-content" placeholder="Write your adventure notes here..."></textarea>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

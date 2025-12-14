@@ -1,22 +1,21 @@
 # Father Selwyn Oathkeeper
 
-## Title
-Chaplain of Shrine Row
+## Overview
 
-## Age
-Mid-50s
+| | |
+|---|---|
+| **Title** | Chaplain of Shrine Row |
+| **Age** | Mid-50s |
+| **Race** | Human |
+| **Location** | Kadena, Braewood (stationed on the Grand Span) |
 
-## Race
-Human
-
-## Location
-Kadena, Braewood (stationed on the Grand Span)
+---
 
 ## Appearance
 A serene man with a neatly trimmed grey beard and calm brown eyes. His face shows the weathering of years spent outdoors on the bridge in all conditions. He wears simple clerical robes that bear no single god's symbol—instead, he carries a pendant showing an open hand, representing welcome to all faiths.
 
 ## Backstory
-Selwyn was ordained as a priest of the Harvest Lord but found his calling in the unusual environment of Shrine Row—the section of the Grand Span where small temples to multiple gods stand side by side. Travelers of every faith pass through, and they all need spiritual comfort at times.
+Selwyn was ordained as a priest of the Harvest Lord but found his calling in the unusual environment of Shrine Row—the section of [the Grand Span](../../Kingdoms/Braewood/POI/The%20Grand%20Span.md) where small temples to multiple gods stand side by side. Travelers of every faith pass through, and they all need spiritual comfort at times.
 
 He was appointed Chaplain of Shrine Row fifteen years ago, tasked with maintaining harmony between the various shrines and providing pastoral care to all who cross the bridge. The position requires diplomacy, tolerance, and a genuine belief that the divine can be found in many forms—qualities Selwyn possesses in abundance.
 
@@ -27,7 +26,7 @@ He was appointed Chaplain of Shrine Row fifteen years ago, tasked with maintaini
 - **Dedicated:** Lives on the bridge itself, in quarters behind the shrines. This is his entire world.
 
 ## Role in the City
-Oversees Shrine Row, the multi-faith religious district on the Grand Span. He coordinates between the priests of various temples, provides pastoral care to travelers and bridge workers, and ensures that religious differences don't disrupt the peace. He also officiates at neutral ceremonies when needed.
+Oversees Shrine Row, the multi-faith religious district on [the Grand Span](../../Kingdoms/Braewood/POI/The%20Grand%20Span.md). He coordinates between the priests of various temples, provides pastoral care to travelers and bridge workers, and ensures that religious differences don't disrupt the peace. He also officiates at neutral ceremonies when needed.
 
 ## Relationships
 - **Bridge-Warden Elara Thornguard:** Reports to her on matters affecting bridge security. She respects his calming influence.

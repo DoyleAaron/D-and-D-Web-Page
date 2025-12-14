@@ -4,7 +4,7 @@
 Dalo
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
@@ -26,17 +26,17 @@ Village
 ### **Geography & Climate:**
 
 **Position:**
-- Located near the southern coast of Braewood, one of the four villages saved by Osegas.
-- Accessible via two routes: 4km from the Trares-Osegas road (at the 10km mark from Trares), or 12km from the eastern road (at the 42km mark from Osegas).
+- Located near the southern coast of [Braewood](../../../Kingdoms/Braewood/Braewood.md), one of the four villages saved by [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
+- Accessible via two routes: 4km from the [Trares](../../../Kingdoms/Braewood/Village/Trares.md)-[Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) road (at the 10km mark from [Trares](../../../Kingdoms/Braewood/Village/Trares.md)), or 12km from the eastern road (at the 42km mark from [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)).
 
 **Road Network:**
 - **To Trares-Osegas Road (4km N):** Short branch road connecting to the main route.
-- **To Eastern Road (12km E):** Branch road to the Osegas-Rens route.
-- **Via Trares (14km total):** 4km to junction, then 10km to Trares.
-- **Via Osegas (46km total):** Either through Trares or via the eastern road.
+- **To Eastern Road (12km E):** Branch road to the [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)-[Rens](../../../Kingdoms/Braewood/Village/Rens.md) route.
+- **Via Trares (14km total):** 4km to junction, then 10km to [Trares](../../../Kingdoms/Braewood/Village/Trares.md).
+- **Via Osegas (46km total):** Either through [Trares](../../../Kingdoms/Braewood/Village/Trares.md) or via the eastern road.
 
 **Distances (Straight Line):**
-- North: 310 km to the northern coast (142 km to Cleamond)
+- North: 310 km to the northern coast (142 km to [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md))
 - South: 20 km to the southern coast
 - East: 50 km to the eastern coast
 - West: 64 km to the western coast
@@ -58,8 +58,8 @@ Village
 
 - Dalo survives rather than thrives. Fishing provides sustenance but limited surplus.
 - Good seasons bring modest prosperity; bad seasons bring hardship.
-- The village trades fish for grain from Trares and goods from Osegas.
-- No one is wealthy, but the Osegas tradition ensures no one starves.
+- The village trades fish for grain from [Trares](../../../Kingdoms/Braewood/Village/Trares.md) and goods from [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
+- No one is wealthy, but the [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) tradition ensures no one starves.
 
 ---
 
@@ -68,7 +68,7 @@ Village
 
 - Minimal defense capability. A handful of village guards.
 - Fishermen are tough but not trained soldiers.
-- In emergency, the village would flee to Osegas or the interior.
+- In emergency, the village would flee to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) or the interior.
 - The main threats are storms and sea, not raiders.
 
 ---
@@ -78,7 +78,7 @@ Village
 
 - Life is hard but meaningful. The sea provides purpose.
 - Strong community bonds forged by shared hardship.
-- The Osegas tradition of mutual aid is practiced faithfully.
+- The [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) tradition of mutual aid is practiced faithfully.
 - Young people often leave for better opportunities, but the sea calls some back.
 - The annual Fish Festival brings joy even in lean years.
 
@@ -108,20 +108,20 @@ Village
 - When the Empire collapsed, the village nearly starved without grain imports.
 
 **The Osegas Salvation:**
-- Osegas's relief effort brought seed grain when the fish ran scarce.
+- [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s relief effort brought seed grain when the fish ran scarce.
 - The religious leaders also sent healers when disease struck.
 - This dual salvation created a permanent bond.
-- Dalo sends its finest catch to Osegas festivals in gratitude.
+- Dalo sends its finest catch to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) festivals in gratitude.
 
 **Post-Tharnic Era:**
-- Gradual stabilization under Braewood rule.
+- Gradual stabilization under [Braewood](../../../Kingdoms/Braewood/Braewood.md) rule.
 - Developed the salt marshes for additional income.
 - Remained small but sustainable.
 
 **Recent History:**
-- Headman Cotter Marsh has led for fifteen years.
+- [Headman Cotter Marsh](../../../Character%20Lore/Modern%20Characters/Headman%20Cotter%20Marsh.md) has led for fifteen years.
 - A storm five years ago destroyed a third of the fleet; recovery is ongoing.
-- Some young villagers have found work on the Grand Span, sending coin home.
+- Some young villagers have found work on [the Grand Span](../../../Kingdoms/Braewood/POI/The%20Grand%20Span.md), sending coin home.
 
 ---
 
@@ -153,10 +153,10 @@ Village
 
 ### **Relationships:**
 
-- **Osegas (via road):** Savior and advocate. Dalo sends delegates; Osegas represents them to the Crown.
+- **Osegas (via road):** Savior and advocate. Dalo sends delegates; [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) represents them to the Crown.
 - **Trares (14km):** Closest neighbor. Fish-for-wool trade is essential to both.
 - **Frore (via eastern road):** Fellow saved village. Cooperative but rarely visited.
-- **Rens (southernmost):** Complicated. Shared fishing waters cause occasional disputes, mediated by Osegas.
+- **Rens (southernmost):** Complicated. Shared fishing waters cause occasional disputes, mediated by [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
 - **The Sea:** The village's provider and greatest threat. Respect is mandatory.
 
 ---
@@ -164,7 +164,7 @@ Village
 ### **Cultural Notes:**
 
 **The Fish Festival:**
-An annual celebration after the spring spawning run. The best catches are displayed, and the finest fish goes to Osegas. Music, dancing, and drinking last three days.
+An annual celebration after the spring spawning run. The best catches are displayed, and the finest fish goes to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md). Music, dancing, and drinking last three days.
 
 **The Remembrance Rocks:**
 Before every voyage, fishermen touch the rocks bearing their ancestors' names. It's both superstition and respect—a reminder that the sea takes as well as gives.
@@ -173,4 +173,4 @@ Before every voyage, fishermen touch the rocks bearing their ancestors' names. I
 During storm season, volunteers maintain a night watch at the harbor. When the warning bell rings, the entire village turns out to secure boats and evacuate the low-lying areas.
 
 **The Marsh Tradition:**
-Like all Osegas-saved villages, Dalo practices mutual aid. No family faces hardship alone. This tradition has kept the village alive through centuries of lean years.
+Like all [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)-saved villages, Dalo practices mutual aid. No family faces hardship alone. This tradition has kept the village alive through centuries of lean years.

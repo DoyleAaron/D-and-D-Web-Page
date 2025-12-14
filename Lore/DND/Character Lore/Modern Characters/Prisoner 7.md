@@ -1,34 +1,30 @@
 # Prisoner 7
 
-## Title
-None (Prisoner designation only)
+## Overview
 
-## True Name
-Unknown — Possibly "Durgoth" based on fragmented records
+| | |
+|---|---|
+| **Title** | None (Prisoner designation only) |
+| **True Name** | Unknown — Possibly "Durgoth" based on fragmented records |
+| **Age** | Ancient (~300+ years, exact age uncertain) |
+| **Race** | Dwarf |
+| **Location** | Oyard Prison, Isolation Block |
 
-## Age
-Ancient (~300+ years, exact age uncertain)
-
-## Race
-Dwarf
-
-## Location
-Oyard Prison, Isolation Block
-
+---
 
 ## Appearance
 A shriveled, ancient dwarf whose body seems barely alive. Skin like yellowed parchment stretched over bones. Eyes milky white, possibly blind, but they track movement with unsettling accuracy. What remains of his beard is grey-white and tangled. Hands twisted into claws by age or injury. Wears the same simple prisoner's garb as everyone, but it hangs on him like a shroud. Smells faintly of stone and something older.
 
 ## Backstory
-Prisoner 7 was extracted from Debourg Grotto in 891 C.C. — one year before the mine reopened and revealed what the isolated dwarves had become. He was found wandering the hills near the grotto entrance, babbling incoherently and clawing at his own face.
+Prisoner 7 was extracted from [Debourg Grotto](../../Kingdoms/Braewood/POI/Debourg%20Grotto.md) in 891 C.C. — one year before the mine reopened and revealed what the isolated dwarves had become. He was found wandering the hills near the grotto entrance, babbling incoherently and clawing at his own face.
 
-The Crown considered executing him. Instead, they sent him to Oyard, hoping he might eventually provide useful intelligence about what happened in Debourg. He never did. For over three hundred years (his age is estimated at 300+ though dwarven lifespans vary), he has sat in isolation, eating when fed, staring at walls, saying nothing.
+The Crown considered executing him. Instead, they sent him to [Oyard](../../Kingdoms/Braewood/Village/Oyard.md), hoping he might eventually provide useful intelligence about what happened in Debourg. He never did. For over three hundred years (his age is estimated at 300+ though dwarven lifespans vary), he has sat in isolation, eating when fed, staring at walls, saying nothing.
 
 Until ten days ago.
 
-Now he screams. Three nights in a row, hours of screaming about "the door" and "the children of hunger" and "He remembers us." The Warden has doubled his guard. The other prisoners have been moved away from his cell. No one sleeps well in Oyard anymore.
+Now he screams. Three nights in a row, hours of screaming about "the door" and "the children of hunger" and "He remembers us." The Warden has doubled his guard. The other prisoners have been moved away from his cell. No one sleeps well in [Oyard](../../Kingdoms/Braewood/Village/Oyard.md) anymore.
 
-Whatever Prisoner 7 knows about Debourg Grotto, whatever he saw before he escaped, whatever broke his mind — it seems to be waking up.
+Whatever Prisoner 7 knows about [Debourg Grotto](../../Kingdoms/Braewood/POI/Debourg%20Grotto.md), whatever he saw before he escaped, whatever broke his mind — it seems to be waking up.
 
 ## Personality
 - **Shattered** — whatever he was died in Debourg

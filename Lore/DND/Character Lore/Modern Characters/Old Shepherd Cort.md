@@ -1,16 +1,15 @@
 # Old Shepherd Cort
 
-## Title
-Village Elder (Unofficial)
+## Overview
 
-## Age
-Mid-70s
+| | |
+|---|---|
+| **Title** | Village Elder (Unofficial) |
+| **Age** | Mid-70s |
+| **Race** | Human |
+| **Location** | Ineross, Braewood (status unknown) |
 
-## Race
-Human
-
-## Location
-Ineross, Braewood (status unknown)
+---
 
 ## Appearance
 **Before:** A weathered old man, bent from decades of walking the hills with his flock. White hair, sun-darkened skin, and hands that still knew how to shear a sheep faster than men half his age. He always carried a shepherd's crook worn smooth by generations of use.
@@ -18,7 +17,7 @@ Ineross, Braewood (status unknown)
 **Now:** His cottage sits dark. The door stands open. His flock wanders the hills untended—those that remain.
 
 ## Backstory
-Cort was born in Ineross, worked the hills all his life, and planned to die there. He knew the land better than anyone—every stone, every stream, every old story. He especially knew the stories about the standing stones.
+Cort was born in [Ineross](../../Kingdoms/Braewood/Village/Ineross.md), worked the hills all his life, and planned to die there. He knew the land better than anyone—every stone, every stream, every old story. He especially knew the stories about the standing stones.
 
 "Don't go to the stones at night," he would say. "Don't listen if you hear singing from the hill. And never, ever drink from the Sunken Well."
 

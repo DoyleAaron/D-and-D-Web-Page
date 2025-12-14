@@ -1,24 +1,23 @@
 # Lord Adrian Silwynn
 
-## Title
-Vampiric Patriarch of Darewaeton
+## Overview
 
-## Age
-Unknown (Immortal Vampire; active since 1191 C.C.)
+| | |
+|---|---|
+| **Title** | Vampiric Patriarch of Darewaeton |
+| **Age** | Unknown (Immortal Vampire; active since 1191 C.C.) |
+| **Race** | Vampire (Human origin) |
+| **Location** | Darewaeton, Lavalto Isle |
 
-## Race
-Vampire (Human origin)
-
-## Location
-Darewaeton, Lavalto Isle
+---
 
 ## Appearance
 Tall and elegant with silver hair swept back neatly and piercing violet eyes that glow faintly in dim light. He dresses always in formal dark robes or tailored coats with silver trim, carrying himself with the aristocratic grace of old nobility. A cane topped with a small onyx orb accompanies him everywhere—more symbol of prestige than necessity.
 
 ## Backstory
-Lord Adrian orchestrated Darewaeton's recovery after the Night of Red Embers in 1191 C.C., spending lavishly on rebuilding efforts and establishing himself as one of Lavalto's power brokers. His lavish generosity hides darker purposes—the rituals conducted in hidden lava caverns beneath his estate, the blood debts owed by grateful citizens, the slow accumulation of influence.
+Lord Adrian orchestrated Darewaeton's recovery after the Night of Red Embers in 1191 C.C., spending lavishly on rebuilding efforts and establishing himself as one of [Lavalto](../../Kingdoms/Lavalto/Lavalto.md)'s power brokers. His lavish generosity hides darker purposes—the rituals conducted in hidden lava caverns beneath his estate, the blood debts owed by grateful citizens, the slow accumulation of influence.
 
-He represents the diplomatic face of vampiric Lavalto, the voice that speaks with outsiders and negotiates trade deals. Where Lady Seraphina is feared, Lord Adrian is respected—and that makes him far more dangerous.
+He represents the diplomatic face of vampiric [Lavalto](../../Kingdoms/Lavalto/Lavalto.md), the voice that speaks with outsiders and negotiates trade deals. Where Lady Seraphina is feared, Lord Adrian is respected—and that makes him far more dangerous.
 
 ## Personality
 - **Calm and aristocratic:** Never raises his voice. Doesn't need to.
@@ -32,7 +31,7 @@ One of the island's primary power brokers. Shapes diplomatic relations with othe
 ## Relationships
 - **Lady Seraphina Caylester:** The head of purebloods. They work together, though tensions exist.
 - **Serath Valen:** His enforcer. Useful when diplomacy fails.
-- **The Other Kingdoms:** He trades with them, manipulates them, and ensures they never look too closely at Lavalto.
+- **The Other Kingdoms:** He trades with them, manipulates them, and ensures they never look too closely at [Lavalto](../../Kingdoms/Lavalto/Lavalto.md).
 - **His Blood Debts:** Hundreds owe him favors. He remembers every one.
 
 ## Notable Quote

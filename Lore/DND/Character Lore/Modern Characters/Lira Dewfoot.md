@@ -1,24 +1,23 @@
 # Lira Dewfoot
 
-## Title
-Lead Gatherer of Frore
+## Overview
 
-## Age
-Mid-30s
+| | |
+|---|---|
+| **Title** | Lead Gatherer of Frore |
+| **Age** | Mid-30s |
+| **Race** | Halfling |
+| **Location** | Frore, Braewood |
 
-## Race
-Halfling
-
-## Location
-Frore, Braewood
+---
 
 ## Appearance
 A small, sturdy halfling woman with curly auburn hair usually tied back with a practical cloth and bright green eyes that miss nothing in the undergrowth. Her bare feet are tough as leather—she rarely wears shoes in the marshes—and her clothes are practical earth tones that blend with the landscape. She carries a gathering basket woven from local reeds.
 
 ## Backstory
-Lira's family came to Frore three generations ago, halflings from Osegas who recognized that their natural talents—keen senses, small size for navigating undergrowth, patience for careful work—made them ideal gatherers. The Dewfoot family has been leading gathering expeditions ever since.
+Lira's family came to [Frore](../../Kingdoms/Braewood/Village/Frore.md) three generations ago, halflings from [Osegas](../../Kingdoms/Braewood/Town/Osegas.md) who recognized that their natural talents—keen senses, small size for navigating undergrowth, patience for careful work—made them ideal gatherers. The Dewfoot family has been leading gathering expeditions ever since.
 
-Lira knows the marshes and scrublands around Frore better than anyone alive. She can find rare herbs that others walk right past, navigate treacherous terrain without getting lost, and sense when weather is turning dangerous. The gathering parties depend on her expertise.
+Lira knows the marshes and scrublands around [Frore](../../Kingdoms/Braewood/Village/Frore.md) better than anyone alive. She can find rare herbs that others walk right past, navigate treacherous terrain without getting lost, and sense when weather is turning dangerous. The gathering parties depend on her expertise.
 
 ## Personality
 - **Perceptive:** Notices details others miss—a subtle color variation, a faint scent, bent grass.

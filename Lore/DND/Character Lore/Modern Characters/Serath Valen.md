@@ -1,16 +1,15 @@
 # Serath Valen
 
-## Title
-Enforcer of the Pureblood Council
+## Overview
 
-## Age
-Unknown (Immortal Vampire)
+| | |
+|---|---|
+| **Title** | Enforcer of the Pureblood Council |
+| **Age** | Unknown (Immortal Vampire) |
+| **Race** | Vampire (Human origin) |
+| **Location** | Darewaeton, Lavalto Isle |
 
-## Race
-Vampire (Human origin)
-
-## Location
-Darewaeton, Lavalto Isle
+---
 
 ## Appearance
 A predator in noble's clothing. Serath has the build of a warrior—lean, powerful, coiled for violence. His dark hair is swept back, his features sharp and aristocratic, but his eyes hold none of the diplomatic patience of Lord Adrian. They hold hunger and barely restrained aggression. He dresses in black and crimson, and always carries a blade.

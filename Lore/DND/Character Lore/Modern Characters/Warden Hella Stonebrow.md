@@ -1,34 +1,32 @@
 # Warden Hella Stonebrow
 
-## Title
-Warden of Yotherdon, Commander of the Town Watch
+## Overview
 
-## Age
-140s
+| | |
+|---|---|
+| **Title** | Warden of Yotherdon, Commander of the Town Watch |
+| **Age** | 140s |
+| **Race** | Dwarf |
+| **Location** | Yotherdon (Town), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Yotherdon (Town), Northern Braewood
-
+---
 
 ## Appearance
-Tall for a dwarf and built like a fortress wall — broad, solid, unmovable. Dark hair shot through with grey, worn in tight military braids. A prominent scar runs from her left temple to her jaw, souvenir of a border skirmish with Kluimont. Her eyes are hard and assessing; she's always calculating threat levels.
+Tall for a dwarf and built like a fortress wall — broad, solid, unmovable. Dark hair shot through with grey, worn in tight military braids. A prominent scar runs from her left temple to her jaw, souvenir of a border skirmish with [Kluimont](../../Kingdoms/Kluimont/Kluimont.md). Her eyes are hard and assessing; she's always calculating threat levels.
 
 Wears practical armor even in peacetime — leather and chain, well-maintained. Carries an axe at her belt that she's used more than once. Moves like a soldier: efficient, aware, ready.
 
 Looks like someone who has seen violence and learned from it rather than being broken by it.
 
 ## Backstory
-Hella was born to a military family — her father served in the watch, his father before him. She joined at the minimum age and never looked back. She served on border patrols, fought in the Kluimont skirmish of 1195 C.C., and rose through the ranks on pure competence.
+Hella was born to a military family — her father served in the watch, his father before him. She joined at the minimum age and never looked back. She served on border patrols, fought in the [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) skirmish of 1195 C.C., and rose through the ranks on pure competence.
 
-She became Warden fifteen years ago, the youngest in Yotherdon's history. She's transformed the watch from a ceremonial force into a genuine defensive military — trained, equipped, and ready. If the Crown ever marches on Yotherdon, they'll find more resistance than they expect.
+She became Warden fifteen years ago, the youngest in [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md)'s history. She's transformed the watch from a ceremonial force into a genuine defensive military — trained, equipped, and ready. If the Crown ever marches on [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md), they'll find more resistance than they expect.
 
 ## Personality
 - **Professional** — treats military matters with complete seriousness
 - **Realistic** — knows exactly what her forces can and cannot do
-- **Protective** — her duty is to defend Yotherdon; everything else is secondary
+- **Protective** — her duty is to defend [Yotherdon](../../Kingdoms/Braewood/Town/Yotherdon.md); everything else is secondary
 - **Reserved** — not cold, but doesn't share easily
 - **Prepared** — always planning for the worst; hopes she's wrong
 

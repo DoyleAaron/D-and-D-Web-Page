@@ -1,27 +1,25 @@
 # Elder Bram Copperkettle
 
-## Title
-Elder of the Dwarven Quarter
+## Overview
 
-## Age
-180s (elderly for a dwarf)
+| | |
+|---|---|
+| **Title** | Elder of the Dwarven Quarter |
+| **Age** | 180s (elderly for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Strane (Medium City), Northern Braewood Peninsula |
 
-## Race
-Dwarf
-
-## Location
-Strane (Medium City), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 Small for a dwarf, stooped with age, with a magnificent white beard that reaches nearly to his knees. Deeply wrinkled face that crinkles easily into smiles. Rheumy brown eyes that are sharper than they appear. Gnarled hands from a lifetime of metalwork.
 
-Wears the traditional garb of the northern dwarven clans — practical wools and leathers in earth tones. Always has a copper kettle-shaped pendant (his family symbol) around his neck. Walks with a cane carved from Plalisle Den oak — a gift from an elven contact.
+Wears the traditional garb of the northern dwarven clans — practical wools and leathers in earth tones. Always has a copper kettle-shaped pendant (his family symbol) around his neck. Walks with a cane carved from [Plalisle Den](../../Kingdoms/Braewood/POI/Plalisle%20Den.md) oak — a gift from an elven contact.
 
 Smells of pipe smoke, metal polish, and strong tea.
 
 ## Backstory
-Bram was born in the northern peninsula when it was even more isolated than today. He watched the dwarven clans here develop their unique character — neither fully part of the western clans nor the Braewood establishment. He helped shape that neutrality.
+Bram was born in the northern peninsula when it was even more isolated than today. He watched the dwarven clans here develop their unique character — neither fully part of the western clans nor the [Braewood](../../Kingdoms/Braewood/Braewood.md) establishment. He helped shape that neutrality.
 
 He was a metalsmith by trade, making his living crafting the fine copperware that gave his family its name. But his real work was diplomacy — keeping the peninsula dwarves out of wars, feuds, and political entanglements that didn't concern them.
 

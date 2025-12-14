@@ -4,7 +4,7 @@
 Osegas
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Town
@@ -16,11 +16,11 @@ Town
 **~2,500** within the town proper; **~4,000** including surrounding hamlets and the faithful who travel for festivals. The smallest of the three towns in the deep south, but considered the most important by its neighbors.
 
 ### **Racial Demographics:**
-- **Human (55%):** The majority, but notably less dominant than in other Braewood settlements.
+- **Human (55%):** The majority, but notably less dominant than in other [Braewood](../../../Kingdoms/Braewood/Braewood.md) settlements.
 - **Halfling (18%):** Farmers, bakers, and beloved community members. Well-integrated.
 - **Dwarf (10%):** Craftsmen and miners from the eastern hills. Respected for their work ethic.
 - **Half-Elf (8%):** Many in administrative and diplomatic roles. Merylla's leadership has normalized their presence.
-- **Elf (4%):** Rare in Braewood, but Osegas's reputation draws those seeking acceptance.
+- **Elf (4%):** Rare in [Braewood](../../../Kingdoms/Braewood/Braewood.md), but Osegas's reputation draws those seeking acceptance.
 - **Other (5%):** Gnomes, half-orcs, tieflings—Osegas accepts all who come in peace.
 
 ---
@@ -28,20 +28,20 @@ Town
 ### **Geography & Climate:**
 
 **Position:**
-- Located in southern Braewood, Osegas serves as the hub for the four surviving Tharnic-era villages.
-- 80 km south of Sheyton (straight line), 27 km north of Gitstin.
-- Roads connect to Trares (30km NE), Gitstin (27km N), and the eastern road that reaches Frore, Dalo, and Rens.
+- Located in southern [Braewood](../../../Kingdoms/Braewood/Braewood.md), Osegas serves as the hub for the four surviving Tharnic-era villages.
+- 80 km south of [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md) (straight line), 27 km north of [Gitstin](../../../Kingdoms/Braewood/Town/Gitstin.md).
+- Roads connect to [Trares](../../../Kingdoms/Braewood/Village/Trares.md) (30km NE), [Gitstin](../../../Kingdoms/Braewood/Town/Gitstin.md) (27km N), and the eastern road that reaches [Frore](../../../Kingdoms/Braewood/Village/Frore.md), [Dalo](../../../Kingdoms/Braewood/Village/Dalo.md), and [Rens](../../../Kingdoms/Braewood/Village/Rens.md).
 
 **Road Network:**
 - **To Gitstin (27km N):** Well-maintained road through farmland.
-- **To Trares (30km SW):** The road heading southwest. At 20km, a turnoff leads 4km to Dalo village.
-- **To the Eastern Road:** Heads east then curves south. At 37km, a turnoff leads 25km east to Frore. At 42km, a turnoff leads 12km west to Dalo. Continuing straight reaches Rens in 69km.
+- **To Trares (30km SW):** The road heading southwest. At 20km, a turnoff leads 4km to [Dalo](../../../Kingdoms/Braewood/Village/Dalo.md) village.
+- **To the Eastern Road:** Heads east then curves south. At 37km, a turnoff leads 25km east to [Frore](../../../Kingdoms/Braewood/Village/Frore.md). At 42km, a turnoff leads 12km west to [Dalo](../../../Kingdoms/Braewood/Village/Dalo.md). Continuing straight reaches [Rens](../../../Kingdoms/Braewood/Village/Rens.md) in 69km.
 
 **Distances (Straight Line):**
-- 175 km to northern coast (80 km north is Sheyton)
+- 175 km to northern coast (80 km north is [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md))
 - 45 km to southern coast
 - 100 km to eastern coast
-- 80 km west to Kadena
+- 80 km west to [Kadena](../../../Kingdoms/Braewood/Medium%20City/Kadena.md)
 
 **Terrain:**
 - Gentle rolling farmland, well-watered by seasonal streams.
@@ -78,7 +78,7 @@ Town
 ### **Happiness:**
 ★★★★★ (5 stars)
 
-- The happiest settlement in Braewood, bar none. Residents genuinely love their home.
+- The happiest settlement in [Braewood](../../../Kingdoms/Braewood/Braewood.md), bar none. Residents genuinely love their home.
 - Strong sense of community purpose and belonging.
 - All faiths, races, and backgrounds are welcomed and celebrated.
 - Regular festivals, communal meals, and shared traditions bind the population together.
@@ -90,16 +90,16 @@ Town
 ### **Economy & Trade:**
 
 **Primary Industries:**
-- **Pilgrimage Services:** The Temple Mount draws faithful from across southern Braewood.
+- **Pilgrimage Services:** The Temple Mount draws faithful from across southern [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 - **Administration:** Crown delegations and village representatives conduct business here.
 - **Agriculture:** Vegetables, fruits, and grains for local consumption and modest export.
 - **Crafts:** Pottery, textiles, and religious items for pilgrims.
 
 **Trade Relationships:**
-- **Gitstin (27km N):** Trade partner; Gitstin handles the commercial traffic, Osegas handles the diplomacy.
+- **Gitstin (27km N):** Trade partner; [Gitstin](../../../Kingdoms/Braewood/Town/Gitstin.md) handles the commercial traffic, Osegas handles the diplomacy.
 - **Trares, Dalo, Frore, Rens:** The four villages Osegas saved during the Tharnic collapse. All delegations go through Osegas.
-- **Sheyton (80km N):** Crown administrative connection; supplies reach Osegas through Sheyton.
-- **Kadena (80km W):** Bridge traffic occasionally brings pilgrims from Islefield.
+- **Sheyton (80km N):** Crown administrative connection; supplies reach Osegas through [Sheyton](../../../Kingdoms/Braewood/Medium%20City/Sheyton.md).
+- **Kadena (80km W):** Bridge traffic occasionally brings pilgrims from [Islefield](../../../Kingdoms/Islefield/Islefield.md).
 
 ---
 
@@ -113,16 +113,16 @@ Town
 **The Collapse:**
 - When the Tharnic Empire overextended and collapsed, settlements across the south faced starvation.
 - Osegas's religious leadership organized a relief effort, sharing stored grain and seeds with neighboring villages.
-- Four villages—Trares, Dalo, Frore, and Rens—survived specifically because of Osegas's aid.
+- Four villages—[Trares](../../../Kingdoms/Braewood/Village/Trares.md), [Dalo](../../../Kingdoms/Braewood/Village/Dalo.md), [Frore](../../../Kingdoms/Braewood/Village/Frore.md), and [Rens](../../../Kingdoms/Braewood/Village/Rens.md)—survived specifically because of Osegas's aid.
 - This act of charity became the foundation of Osegas's identity and reputation.
 
 **Post-Tharnic Era:**
-- As Braewood consolidated power, Osegas negotiated a unique position as a diplomatic hub.
+- As [Braewood](../../../Kingdoms/Braewood/Braewood.md) consolidated power, Osegas negotiated a unique position as a diplomatic hub.
 - The Crown recognized the town's influence over the southern villages and formalized its role.
 - High Stewards have served as intermediaries between the Crown and the deep south ever since.
 
 **Recent History:**
-- High Steward Merylla Davross has led for thirty years, the longest tenure in memory.
+- [High Steward Merylla Davross](../../../Character%20Lore/Modern%20Characters/High%20Steward%20Merylla%20Davross.md) has led for thirty years, the longest tenure in memory.
 - Increasing diversity as Osegas's reputation for tolerance spreads.
 - Some Crown officials quietly express concern about the town's "unusual customs."
 
@@ -156,7 +156,7 @@ Town
 
 ### **Relationships:**
 
-- **Gitstin (27km N):** Commercial partner. Gitstin handles trade; Osegas handles hearts and minds.
+- **Gitstin (27km N):** Commercial partner. [Gitstin](../../../Kingdoms/Braewood/Town/Gitstin.md) handles trade; Osegas handles hearts and minds.
 - **Trares, Dalo, Frore, Rens (various):** The four villages Osegas saved. They send delegates here and consider Osegas their protector.
 - **Sheyton (80km N):** Crown connection. Some tension over Osegas's independence.
 - **Kadena (80km W):** Occasional pilgrims cross the bridge. Respectful but distant relations.
@@ -176,4 +176,4 @@ Osegas celebrates festivals from every faith represented on the Temple Mount. Vi
 Osegas has no walls and has never closed its gates. The symbolism is intentional—the town welcomes all who come in peace.
 
 **Diversity as Strength:**
-Where other Braewood settlements merely tolerate non-human residents, Osegas actively celebrates them. Half-orcs, tieflings, and other "unusual" folk find acceptance here that exists nowhere else in the kingdom.
+Where other [Braewood](../../../Kingdoms/Braewood/Braewood.md) settlements merely tolerate non-human residents, Osegas actively celebrates them. Half-orcs, tieflings, and other "unusual" folk find acceptance here that exists nowhere else in the kingdom.

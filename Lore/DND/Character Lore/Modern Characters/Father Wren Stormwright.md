@@ -1,17 +1,15 @@
 # Father Wren Stormwright
 
-## Title
-High Priest, Temple of Steel
+## Overview
 
-## Age
-190s (elderly for a dwarf)
+| | |
+|---|---|
+| **Title** | High Priest, Temple of Steel |
+| **Age** | 190s (elderly for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Barge (Medium City), Central-Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Barge (Medium City), Central-Northern Braewood
-
+---
 
 ## Appearance
 A study in dignified age. White beard worn in three elaborate braids, each decorated with small steel rings representing decades of service. Deep-set brown eyes that radiate warmth and patience. Face weathered like well-cared-for leather.
@@ -21,11 +19,11 @@ Wears the formal robes of his order — grey and silver, simple but well-made. A
 Moves slowly, with the careful steps of someone conserving strength. Speaks softly, with the certainty of someone who has nothing left to prove.
 
 ## Backstory
-Wren Stormwright was a smith before he was a priest. He worked the forges for fifty years before hearing his god's call. The Maker wanted more than metal from him — he wanted someone who could shape communities the way a smith shapes steel.
+[Wren Stormwright](../../Character%20Lore/Modern%20Characters/Father%20Wren%20Stormwright.md) was a smith before he was a priest. He worked the forges for fifty years before hearing his god's call. The Maker wanted more than metal from him — he wanted someone who could shape communities the way a smith shapes steel.
 
-Wren came to Barge 120 years ago. He's served as High Priest for eighty of those years. He's outlasted four Magistrates, three Guildmasters, and countless other leaders. He's buried friends, married their grandchildren, and blessed their great-grandchildren.
+Wren came to [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) 120 years ago. He's served as High Priest for eighty of those years. He's outlasted four Magistrates, three Guildmasters, and countless other leaders. He's buried friends, married their grandchildren, and blessed their great-grandchildren.
 
-He is Barge's institutional memory. He is its conscience.
+He is [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md)'s institutional memory. He is its conscience.
 
 ## Personality
 - **Wise** — has seen too much to be fooled by surface appearances
@@ -49,7 +47,7 @@ A faith centered on:
 - The importance of community and mutual support
 - The belief that work is prayer made physical
 
-The temple serves all workers, not just smiths. It's the spiritual home of Barge's working class.
+The temple serves all workers, not just smiths. It's the spiritual home of [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md)'s working class.
 
 ## Relationships
 - **Guildmaster Ironhand:** Old friend; they've known each other for decades
@@ -60,7 +58,7 @@ The temple serves all workers, not just smiths. It's the spiritual home of Barge
 
 ## What He Can Offer
 For those who seek him:
-- Historical knowledge about Barge, the region, and the Tharnic era
+- Historical knowledge about [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md), the region, and the Tharnic era
 - Neutral ground for negotiations between hostile parties
 - Spiritual guidance and genuine wisdom
 - The truth about the Deep Frost, if the asker proves trustworthy

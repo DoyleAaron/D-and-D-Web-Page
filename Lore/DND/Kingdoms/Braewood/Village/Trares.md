@@ -4,7 +4,7 @@
 Trares
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
@@ -26,12 +26,12 @@ Village
 ### **Geography & Climate:**
 
 **Position:**
-- Located in southwestern Braewood, one of the four villages saved by Osegas during the Tharnic collapse.
-- 30 km directly south of Olkgend (no direct road—must travel via Kadena or Osegas).
-- 30 km northeast of Osegas by road.
+- Located in southwestern [Braewood](../../../Kingdoms/Braewood/Braewood.md), one of the four villages saved by [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) during the Tharnic collapse.
+- 30 km directly south of [Olkgend](../../../Kingdoms/Braewood/Village/Olkgend.md) (no direct road—must travel via [Kadena](../../../Kingdoms/Braewood/Medium%20City/Kadena.md) or [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)).
+- 30 km northeast of [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) by road.
 
 **Road Network:**
-- **To Osegas (30km NE):** Main road through rolling grassland. At 10km up from Trares, a turnoff leads 4km to Dalo village.
+- **To Osegas (30km NE):** Main road through rolling grassland. At 10km up from Trares, a turnoff leads 4km to [Dalo](../../../Kingdoms/Braewood/Village/Dalo.md) village.
 - **To Kadena (SE via road):** Road heading southeast through farmland to the bridge city.
 - **No direct road to Olkgend (30km N):** Terrain too rough for maintained road.
 
@@ -39,7 +39,7 @@ Village
 - West: 30 km to the western coast
 - East: 100 km to the eastern coast
 - South: 18 km to the southern coast
-- North: 50 km to the Great Lavalto Lake
+- North: 50 km to the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake
 
 **Terrain:**
 - Rolling grasslands ideal for sheep grazing.
@@ -57,7 +57,7 @@ Village
 ### **Wealth:**
 ★★★☆☆ (3 stars)
 
-- Trares wool is considered the finest in southern Braewood.
+- Trares wool is considered the finest in southern [Braewood](../../../Kingdoms/Braewood/Braewood.md).
 - The village prospers during shearing season when buyers arrive from across the kingdom.
 - Most families own their flocks—wealth is distributed relatively evenly.
 - Not rich, but comfortable; no one goes hungry.
@@ -68,9 +68,9 @@ Village
 ★☆☆☆☆ (1 star)
 
 - Minimal military presence. A small village watch of about a dozen.
-- Relies on distance from threats and Osegas's informal protection network.
+- Relies on distance from threats and [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s informal protection network.
 - Shepherds carry staffs and slings—effective against wolves, less so against raiders.
-- In true emergency, the village would evacuate to Osegas.
+- In true emergency, the village would evacuate to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
 
 ---
 
@@ -78,10 +78,10 @@ Village
 ★★★★☆ (4 stars)
 
 - Strong sense of community and shared purpose.
-- The Osegas tradition of mutual aid is practiced here.
+- The [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) tradition of mutual aid is practiced here.
 - Life is simple but fulfilling—good work, good neighbors, good wool.
 - Young people occasionally leave for the cities, but many return.
-- Festival days are celebrated with Osegas and the other saved villages.
+- Festival days are celebrated with [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) and the other saved villages.
 
 ---
 
@@ -95,7 +95,7 @@ Village
 
 **Trade Relationships:**
 - **Osegas (30km NE):** Cultural and economic center. Wool goes here for distribution.
-- **Kadena (SE):** Bridge merchants buy fine wool for Islefield export.
+- **Kadena (SE):** Bridge merchants buy fine wool for [Islefield](../../../Kingdoms/Islefield/Islefield.md) export.
 - **Gitstin (via Osegas):** Secondary market for textiles.
 - **Dalo (14km via road):** Neighboring village; occasional trade and cooperation.
 
@@ -109,18 +109,18 @@ Village
 - When the Empire collapsed, supply lines failed and famine threatened.
 
 **The Osegas Salvation:**
-- As starvation spread, Osegas's religious leaders organized relief.
+- As starvation spread, [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s religious leaders organized relief.
 - Trares received seed grain and breeding stock, allowing recovery.
 - This debt created a permanent bond between the villages.
-- Every year, Trares sends its finest fleece to Osegas as tribute and thanks.
+- Every year, Trares sends its finest fleece to [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) as tribute and thanks.
 
 **Post-Tharnic Era:**
-- Gradual recovery under Braewood rule.
+- Gradual recovery under [Braewood](../../../Kingdoms/Braewood/Braewood.md) rule.
 - Developed reputation for quality wool.
-- Maintained close ties with Osegas and the other saved villages.
+- Maintained close ties with [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) and the other saved villages.
 
 **Recent History:**
-- Elder Maeven Shawl has led for two decades.
+- [Elder Maeven Shawl](../../../Character%20Lore/Modern%20Characters/Elder%20Maeven%20Shawl.md) has led for two decades.
 - Wool prices have risen, bringing modest prosperity.
 - Some young shepherds have begun experimenting with new breeds.
 
@@ -130,13 +130,13 @@ Village
 
 - **The Shearing Hall:** Large covered area where the annual shearing takes place. Becomes a festival ground during the Great Clip.
 
-- **Elder's Cottage:** Maeven Shawl's modest home, also serving as the village meeting place. Disputes are settled at her table.
+- **Elder's Cottage:** [Maeven Shawl](../../../Character%20Lore/Modern%20Characters/Elder%20Maeven%20Shawl.md)'s modest home, also serving as the village meeting place. Disputes are settled at her table.
 
 - **The Spinner's Row:** A lane of workshops where wool is processed into yarn and fabric. Mostly halfling-run operations.
 
 - **The Shepherd's Rest:** The village inn, catering to travelers and seasonal workers. Known for its sheep's cheese platters.
 
-- **The Gratitude Stone:** A standing stone commemorating Osegas's salvation of the village. Fresh flowers are placed here daily.
+- **The Gratitude Stone:** A standing stone commemorating [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md)'s salvation of the village. Fresh flowers are placed here daily.
 
 ---
 
@@ -154,9 +154,9 @@ Village
 
 ### **Relationships:**
 
-- **Osegas (30km NE):** Savior and protector. Trares sends delegates and tribute; Osegas provides advocacy with the Crown.
+- **Osegas (30km NE):** Savior and protector. Trares sends delegates and tribute; [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) provides advocacy with the Crown.
 - **Dalo (14km via road):** Neighboring saved village. Cooperative relationship; shared festivals.
-- **Frore, Rens (more distant):** Fellow saved villages. See each other at Osegas festivals.
+- **Frore, Rens (more distant):** Fellow saved villages. See each other at [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) festivals.
 - **Kadena (SE):** Commercial partner; bridge merchants value Trares wool.
 - **Olkgend (30km N, no road):** Occasional contact; some young men go there to train.
 
@@ -165,10 +165,10 @@ Village
 ### **Cultural Notes:**
 
 **The Great Clip:**
-The annual shearing festival, held in late spring. Buyers arrive from across Braewood, and the village celebrates with music, food, and competitions. The finest fleece is reserved for Osegas.
+The annual shearing festival, held in late spring. Buyers arrive from across [Braewood](../../../Kingdoms/Braewood/Braewood.md), and the village celebrates with music, food, and competitions. The finest fleece is reserved for [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md).
 
 **The Shepherd's Code:**
 An informal set of ethics governing flock management, grazing rights, and neighbor relations. Disputes are brought to Elder Maeven, whose decisions are final.
 
 **The Gratitude Tradition:**
-Fresh flowers at the Gratitude Stone, daily. Every child learns the story of how Osegas saved the village. This memory shapes Trares's generous, community-minded culture.
+Fresh flowers at the Gratitude Stone, daily. Every child learns the story of how [Osegas](../../../Kingdoms/Braewood/Town/Osegas.md) saved the village. This memory shapes Trares's generous, community-minded culture.

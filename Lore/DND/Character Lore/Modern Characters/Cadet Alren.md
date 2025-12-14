@@ -1,22 +1,21 @@
 # Cadet Alren
 
-## Title
-Young Soldier, Braewood Infantry
+## Overview
 
-## Age
-Late teens
+| | |
+|---|---|
+| **Title** | Young Soldier, Braewood Infantry |
+| **Age** | Late teens |
+| **Race** | Human |
+| **Location** | Braewood (various postings) |
 
-## Race
-Human
-
-## Location
-Braewood (various postings)
+---
 
 ## Appearance
 A young man whose armor is slightly too big for him, betraying his recent conscription. His face still holds the softness of youth, not yet hardened by years of service. He keeps glancing around with worried eyes, especially when orders seem harsh. His hands fidget with his spear when he's nervous—which is often.
 
 ## Backstory
-Alren is a baker's son from a small village who joined the army because he believed in oaths, honor, and protecting the innocent. He is learning—painfully—that military service is messier than the heroic tales suggested.
+[Alren](../../Character%20Lore/Modern%20Characters/Cadet%20Alren.md) is a baker's son from a small village who joined the army because he believed in oaths, honor, and protecting the innocent. He is learning—painfully—that military service is messier than the heroic tales suggested.
 
 He wants to do right. He wants to believe his commanders are just. Every day, that belief is tested. He's seen prisoners treated harshly, civilians caught in the gears of military necessity, good people forced to do questionable things. He hasn't broken yet, but he's bending.
 

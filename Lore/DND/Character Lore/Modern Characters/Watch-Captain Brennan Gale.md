@@ -1,22 +1,21 @@
 # Watch-Captain Brennan Gale
 
-## Title
-Watch-Captain of Sheyton
+## Overview
 
-## Age
-Early 40s
+| | |
+|---|---|
+| **Title** | Watch-Captain of Sheyton |
+| **Age** | Early 40s |
+| **Race** | Human |
+| **Location** | Sheyton, Braewood |
 
-## Race
-Human
-
-## Location
-Sheyton, Braewood
+---
 
 ## Appearance
 A broad-shouldered man with a fighter's build gone slightly soft around the middle. His close-cropped black hair is shot through with gray, and his face carries the tired look of someone who's been working double shifts for months. He wears the standard Watch uniform—dark blue tunic, chain mail, short sword—but his is more worn than most. The hilt of his sword is polished smooth from use.
 
 ## Backstory
-Brennan grew up in Sheyton, joined the Watch at eighteen, and worked his way up through competence and stubbornness. He became Watch-Captain five years ago, when Sheyton was still a peaceful trade town with manageable problems.
+Brennan grew up in [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md), joined the Watch at eighteen, and worked his way up through competence and stubbornness. He became Watch-Captain five years ago, when [Sheyton](../../Kingdoms/Braewood/Medium%20City/Sheyton.md) was still a peaceful trade town with manageable problems.
 
 Now his town is being torn apart by crime he can't track and a religious movement he can't understand. His men are stretched thin, the Lord-Mayor gives him orders without resources, and Crown investigators are coming to judge his failures. He hasn't slept properly in weeks.
 

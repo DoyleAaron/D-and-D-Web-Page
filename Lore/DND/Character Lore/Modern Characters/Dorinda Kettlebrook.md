@@ -1,22 +1,21 @@
 # Dorinda Kettlebrook
 
-## Title
-Consortium Head of the Seven Bells Inn
+## Overview
 
-## Age
-Late 40s
+| | |
+|---|---|
+| **Title** | Consortium Head of the Seven Bells Inn |
+| **Age** | Late 40s |
+| **Race** | Halfling |
+| **Location** | Gitstin, Braewood |
 
-## Race
-Halfling
-
-## Location
-Gitstin, Braewood
+---
 
 ## Appearance
 A plump, cheerful halfling woman with curly chestnut hair shot through with grey and twinkling dark eyes. She wears practical dresses in bright colors—her favorites are yellow and green—and always has a pristine white apron tied at her waist. Her laugh is infectious, and she moves through crowded rooms with practiced ease.
 
 ## Backstory
-Dorinda's family has run inns in Gitstin for four generations. She inherited management of the Seven Bells—the largest inn in town—from her mother, and immediately set about expanding its influence. Rather than competing with the other six major inns, she organized them into a consortium, arguing that cooperation would benefit everyone more than rivalry.
+Dorinda's family has run inns in [Gitstin](../../Kingdoms/Braewood/Town/Gitstin.md) for four generations. She inherited management of the Seven Bells—the largest inn in town—from her mother, and immediately set about expanding its influence. Rather than competing with the other six major inns, she organized them into a consortium, arguing that cooperation would benefit everyone more than rivalry.
 
 Her proposal was radical, but it worked. The consortium coordinates pricing, shares staff during busy seasons, and presents a unified front to merchants negotiating group rates. Dorinda chairs the consortium and, through it, has become the unofficial social coordinator of the entire town.
 
@@ -27,7 +26,7 @@ Her proposal was radical, but it worked. The consortium coordinates pricing, sha
 - **Shrewd:** Behind the warm smile is a sharp mind for business. Don't try to cheat her.
 
 ## Role in the Town
-Runs the Seven Bells Inn and chairs the Inn Consortium. Beyond hospitality, she serves as an informal information broker—travelers share news over drinks, and Dorinda listens. She also organizes Gitstin's social calendar, coordinating festivals and community events.
+Runs the Seven Bells Inn and chairs the Inn Consortium. Beyond hospitality, she serves as an informal information broker—travelers share news over drinks, and Dorinda listens. She also organizes [Gitstin](../../Kingdoms/Braewood/Town/Gitstin.md)'s social calendar, coordinating festivals and community events.
 
 ## Relationships
 - **Reeve Arton Fellmark:** Close allies. She keeps him informed about merchant gossip and traveler rumors.

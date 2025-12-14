@@ -1,0 +1,12 @@
+rules_version='2'
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Journals - anyone can read/write (simple player selection, no auth)
+    // Since we're using player names without passwords, we allow open access
+    // The playerId field identifies who owns each entry
+    match /journals/{journalId} {
+      allow read, write: if true;
+    }
+  }
+}

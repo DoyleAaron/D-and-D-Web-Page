@@ -1,26 +1,25 @@
 # Master Smith Grondar Anvilborn
 
-## Title
-Head Weaponsmith of Olkgend
+## Overview
 
-## Age
-180s (old but hale for a dwarf)
+| | |
+|---|---|
+| **Title** | Head Weaponsmith of Olkgend |
+| **Age** | 180s (old but hale for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Olkgend, Braewood |
 
-## Race
-Dwarf
-
-## Location
-Olkgend, Braewood
+---
 
 ## Appearance
 A broad, powerful dwarf with a magnificent grey beard that reaches his belt, despite being singed at the edges from forge work. His arms are thick with muscle, his hands scarred from decades of smithing. He wears a leather apron over practical clothes, and his face is permanently darkened by soot around his eyes where his protective glasses sit.
 
 ## Backstory
-Grondar learned smithing in the dwarven enclaves of northern Braewood, apprenticing under his grandfather for forty years. When his clan fractured over political disputes, he left rather than take sides. He wandered for years before finding Olkgend.
+Grondar learned smithing in the dwarven enclaves of northern [Braewood](../../Kingdoms/Braewood/Braewood.md), apprenticing under his grandfather for forty years. When his clan fractured over political disputes, he left rather than take sides. He wandered for years before finding [Olkgend](../../Kingdoms/Braewood/Village/Olkgend.md).
 
 The training village needed a smith who could maintain and produce military-grade equipment. Grondar found purpose in the work. For sixty years, he's forged the weapons and armor that Span Wardens carry onto the bridge. His blades are legendary—light, balanced, and virtually unbreakable.
 
-He's trained three generations of apprentices and outlived most of the officers he's served under. Drill-Master Korrath is the fourth commander he's worked with. He expects to outlive him too.
+He's trained three generations of apprentices and outlived most of the officers he's served under. Drill-Master [Korrath](../../Character%20Lore/Modern%20Characters/Drill-Master%20Vance%20Korrath.md) is the fourth commander he's worked with. He expects to outlive him too.
 
 ## Personality
 - **Perfectionist:** Every weapon must be flawless. Lives depend on his work.

@@ -1,30 +1,28 @@
 # Colm Ravencroft
 
-## Title
-Harbor-Warden of Adaham
+## Overview
 
-## Age
-Mid-50s
+| | |
+|---|---|
+| **Title** | Harbor-Warden of Adaham |
+| **Age** | Mid-50s |
+| **Race** | Human |
+| **Location** | Adaham (Village), The Customs House |
 
-## Race
-Human
-
-## Location
-Adaham (Village), The Customs House
-
+---
 
 ## Appearance
 A tall man with a military bearing he can't quite shake despite years away from active command. Steel-grey hair cropped close, clean-shaven face weathered by sun and salt. Eyes the color of a stormy sea. Wears practical clothing suitable for both administrative work and unexpected physical demands. A naval officer's coat hangs in his quarters, unworn but carefully maintained.
 
 ## Backstory
-Colm Ravencroft served thirty years in the Crown's river navy, rising from deckhand to captain to fleet commander. His career was distinguished: engagements against Kluimontian raiders, successful smuggling interdictions, the rescue of a Crown diplomat whose ship was caught in a storm. He was respected, decorated, and—when he finally made one too many enemies among the admiralty—quietly retired to Adaham.
+[Colm Ravencroft](../../Character%20Lore/Modern%20Characters/Harbor-Warden%20Colm%20Ravencroft.md) served thirty years in the Crown's river navy, rising from deckhand to captain to fleet commander. His career was distinguished: engagements against Kluimontian raiders, successful smuggling interdictions, the rescue of a Crown diplomat whose ship was caught in a storm. He was respected, decorated, and—when he finally made one too many enemies among the admiralty—quietly retired to [Adaham](../../Kingdoms/Braewood/Village/Adaham.md).
 
-The posting was supposed to be a comfortable conclusion to a long career. Instead, Colm found himself managing ghost docks, restless elite sailors, and the lingering shame of Adaham's failed ambitions. He has turned his organizational skills to making the best of the situation.
+The posting was supposed to be a comfortable conclusion to a long career. Instead, Colm found himself managing ghost docks, restless elite sailors, and the lingering shame of [Adaham](../../Kingdoms/Braewood/Village/Adaham.md)'s failed ambitions. He has turned his organizational skills to making the best of the situation.
 
 He never married. The sea was his spouse, his fleet was his family. Now, the sailors stationed here are his responsibility.
 
 ## Personality
-- **Disciplined and orderly** — runs Adaham like a ship
+- **Disciplined and orderly** — runs [Adaham](../../Kingdoms/Braewood/Village/Adaham.md) like a ship
 - **Quietly bitter** — knows his exile for what it was
 - **Protective of his sailors** — they're his people now
 - **Pragmatic about the ghost docks** — can't change the past
@@ -45,4 +43,4 @@ He never married. The sea was his spouse, his fleet was his family. Now, the sai
 
 ---
 
-*"They sent me here because I spoke truth to admirals who preferred lies. Fine. I've served the Crown for thirty years and I'll serve it for thirty more if that's what's needed. Adaham may be a backwater, but these sailors are the best in Braewood. If something happens on the river, we'll be the first to respond. That's not exile. That's duty."*
+*"They sent me here because I spoke truth to admirals who preferred lies. Fine. I've served the Crown for thirty years and I'll serve it for thirty more if that's what's needed. [Adaham](../../Kingdoms/Braewood/Village/Adaham.md) may be a backwater, but these sailors are the best in [Braewood](../../Kingdoms/Braewood/Braewood.md). If something happens on the river, we'll be the first to respond. That's not exile. That's duty."*

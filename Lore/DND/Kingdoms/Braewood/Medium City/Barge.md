@@ -37,17 +37,17 @@
 ## Geography
 
 ### Location
-Barge sits at the critical junction where the Great Northern Road meets the east-west routes connecting the coast to the Kluimont border. Positioned 75km north of Braewood City and roughly equidistant between the eastern coast (72km) and the western Kluimontian border (61km), it controls access to the entire northern peninsula.
+Barge sits at the critical junction where the Great Northern Road meets the east-west routes connecting the coast to the [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) border. Positioned 75km north of [Braewood](../../../Kingdoms/Braewood/Braewood.md) City and roughly equidistant between the eastern coast (72km) and the western Kluimontian border (61km), it controls access to the entire northern peninsula.
 
 ### Key Distances
 - **To Braewood City:** 75km south (main road)
-- **To Strane turnoff:** 17km north (then 170km to Strane)
+- **To Strane turnoff:** 17km north (then 170km to [Strane](../../../Kingdoms/Braewood/Medium%20City/Strane.md))
 - **To Borugham turnoff:** 25km north (17km + 8km more)
 - **To Eastern Coast:** ~72km
 - **To Kluimont Border (River):** ~61km
 
 ### Terrain
-The city occupies a crossroads on relatively flat terrain, with the ground rising slightly to the north as it approaches the peninsula. The western woods thicken toward Kluimont. The eastern lands are farming country.
+The city occupies a crossroads on relatively flat terrain, with the ground rising slightly to the north as it approaches the peninsula. The western woods thicken toward [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md). The eastern lands are farming country.
 
 ### The Iron Gate
 Barge's most distinctive feature is the Iron Gate — a massive fortified checkpoint straddling the northern road. All traffic heading to or from the peninsula passes through here. The Gate is a revenue source, security checkpoint, and symbol of Crown authority all in one.
@@ -66,7 +66,7 @@ Barge's most distinctive feature is the Iron Gate — a massive fortified checkp
 ### Trade Networks
 - **North:** Supplies and finished goods to peninsula settlements
 - **South:** Timber, furs, fish, and specialty goods to the capital
-- **West:** Limited — Kluimont trade is restricted and taxed
+- **West:** Limited — [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) trade is restricted and taxed
 - **East:** Coastal fishing villages, farming communities
 
 ### The Hammer Brotherhood
@@ -86,7 +86,7 @@ Barge began as a Tharnic supply depot serving imperial expeditions into the nort
 Barge served as a military staging ground during the war, its strategic location making it essential for troop movements. The Iron Gate was constructed during this period to control access to the relatively undefended north.
 
 ### Modern Era
-Since the war, Barge has grown into Braewood's second-most important city (after the capital). Its control of northern trade makes it wealthy. Its strategic position makes it militarily significant. Its factions make it politically volatile.
+Since the war, Barge has grown into [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s second-most important city (after the capital). Its control of northern trade makes it wealthy. Its strategic position makes it militarily significant. Its factions make it politically volatile.
 
 ---
 
@@ -96,10 +96,10 @@ Since the war, Barge has grown into Braewood's second-most important city (after
 A fortified checkpoint spanning the northern road. Twin towers connected by a heavy gatehouse, staffed by Crown soldiers. All northern traffic is inspected and taxed here. The Gate Commander reports directly to the capital.
 
 ### The Hammerhall
-Headquarters of the Hammer Brotherhood guild. A grand stone building in the Market Quarter, equal parts guild hall, treasury, and statement of power. The finest metalwork in Braewood emerges from their forges.
+Headquarters of the Hammer Brotherhood guild. A grand stone building in the Market Quarter, equal parts guild hall, treasury, and statement of power. The finest metalwork in [Braewood](../../../Kingdoms/Braewood/Braewood.md) emerges from their forges.
 
 ### The Magistrate's Court
-Seat of Magistrate Hallas's authority. A severe stone building housing courts, administrative offices, and the city jail. Justice here is efficient, if not always popular.
+Seat of Magistrate [Hallas](../../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md)'s authority. A severe stone building housing courts, administrative offices, and the city jail. Justice here is efficient, if not always popular.
 
 ### The Twelve Bells Inn
 The city's premier establishment, catering to wealthy merchants and minor nobles. Named for its distinctive bell tower. The common room is where deals are made and information traded.
@@ -137,10 +137,10 @@ A mysterious underground vault discovered during construction fifty years ago. S
 A guild of smiths controlling metalwork and, increasingly, trade. Primarily dwarven membership. Wealthy enough to rival minor nobles. Their Guildmaster essentially runs a parallel power structure. The Crown tolerates them because they pay taxes and produce excellent weapons.
 
 ### The Masked Lanterns
-Barge's thieves guild. They control smuggling, protection rackets, and "flexible procurement." Officially, they don't exist. Practically, Magistrate Hallas has an understanding with them: keep violence minimal, don't embarrass the Crown, pay your informal taxes. It works, mostly.
+Barge's thieves guild. They control smuggling, protection rackets, and "flexible procurement." Officially, they don't exist. Practically, Magistrate [Hallas](../../../Character%20Lore/Modern%20Characters/Magistrate%20Vorn%20Hallas.md) has an understanding with them: keep violence minimal, don't embarrass the Crown, pay your informal taxes. It works, mostly.
 
 ### The Crown Administration
-The Magistrate, the Iron Gate, and the various officials who represent Braewood's central government. They have legal authority but often lack practical power. The garrison is strong but can't be everywhere.
+The Magistrate, the Iron Gate, and the various officials who represent [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s central government. They have legal authority but often lack practical power. The garrison is strong but can't be everywhere.
 
 ### The Merchant Consortium
 Independent traders and shopkeepers caught between the Brotherhood's economic power and the Lanterns' shadows. They pay dues to both and wish they didn't have to pay either.
@@ -156,7 +156,7 @@ Independent traders and shopkeepers caught between the Brotherhood's economic po
 - **Kluimont:** Border proximity means smuggling and tension; officially hostile
 
 ### With the Crown
-Barge is Braewood's second city and knows it. Crown officials here are more important than anywhere except the capital. The relationship is complex — dependency, resentment, and pride all mixed together.
+Barge is [Braewood](../../../Kingdoms/Braewood/Braewood.md)'s second city and knows it. Crown officials here are more important than anywhere except the capital. The relationship is complex — dependency, resentment, and pride all mixed together.
 
 ---
 
@@ -171,4 +171,4 @@ And beneath it all, something is frozen in the dark. Something that was locked a
 ---
 
 *"Everything flows through Barge. Goods, gold, secrets, lies. We're the gate between the capital and everything north. The Crown thinks they control us. The Brotherhood thinks they own us. The Lanterns think they run us. They're all wrong. Barge belongs to whoever understands that in this city, the only real currency is information."*
-— Lady Vera Silke
+— [Lady Vera Silke](../../../Character%20Lore/Modern%20Characters/Lady%20Vera%20Silke.md)

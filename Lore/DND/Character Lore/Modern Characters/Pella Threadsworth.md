@@ -1,24 +1,23 @@
 # Pella Threadsworth
 
-## Title
-Spinner Guildmistress of Trares
+## Overview
 
-## Age
-Mid-50s
+| | |
+|---|---|
+| **Title** | Spinner Guildmistress of Trares |
+| **Age** | Mid-50s |
+| **Race** | Halfling |
+| **Location** | Trares, Braewood |
 
-## Race
-Halfling
-
-## Location
-Trares, Braewood
+---
 
 ## Appearance
 A plump, cheerful halfling with curly grey-streaked auburn hair and nimble fingers that never seem to stop moving—even when she's talking, she's often spinning yarn or mending something. Her eyes are bright brown, and her face is soft and rounded. She wears practical dresses in muted colors, often with an apron covered in stray threads and wool fibers.
 
 ## Backstory
-Pella's family has been processing wool in Trares for five generations. She learned to spin before she learned to read, and by the time she was twenty, she was the finest spinner in the village. When the informal guild of wool-workers needed leadership, she was the obvious choice.
+Pella's family has been processing wool in [Trares](../../Kingdoms/Braewood/Village/Trares.md) for five generations. She learned to spin before she learned to read, and by the time she was twenty, she was the finest spinner in the village. When the informal guild of wool-workers needed leadership, she was the obvious choice.
 
-She's served as Guildmistress for thirty years, organizing the workshops on Spinner's Row and ensuring that Trares wool is processed to the highest standards. Under her leadership, the village has expanded from selling raw wool to exporting finished yarn and even woven textiles—products that command much higher prices.
+She's served as Guildmistress for thirty years, organizing the workshops on Spinner's Row and ensuring that [Trares](../../Kingdoms/Braewood/Village/Trares.md) wool is processed to the highest standards. Under her leadership, the village has expanded from selling raw wool to exporting finished yarn and even woven textiles—products that command much higher prices.
 
 ## Personality
 - **Industrious:** Her hands are never idle. There's always work to be done.
@@ -27,7 +26,7 @@ She's served as Guildmistress for thirty years, organizing the workshops on Spin
 - **Cheerful:** Finds joy in work well done. Her workshop is always filled with chatter and laughter.
 
 ## Role in the Village
-Leads the Spinner's Row workshops where raw wool is processed into yarn, thread, and textiles. She coordinates the women (mostly halflings) who do this work, maintains quality standards, and negotiates with traders. Her products are known throughout southern Braewood.
+Leads the Spinner's Row workshops where raw wool is processed into yarn, thread, and textiles. She coordinates the women (mostly halflings) who do this work, maintains quality standards, and negotiates with traders. Her products are known throughout southern [Braewood](../../Kingdoms/Braewood/Braewood.md).
 
 ## Relationships
 - **Elder Maeven Shawl:** Works closely with her on village economic matters. Old friends as well as colleagues.

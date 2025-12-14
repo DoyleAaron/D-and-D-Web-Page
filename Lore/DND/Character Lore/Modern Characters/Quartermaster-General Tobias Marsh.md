@@ -1,22 +1,21 @@
 # Quartermaster-General Tobias Marsh
 
-## Title
-Quartermaster-General of Mortling Stronghold
+## Overview
 
-## Age
-Early 50s
+| | |
+|---|---|
+| **Title** | Quartermaster-General of Mortling Stronghold |
+| **Age** | Early 50s |
+| **Race** | Human |
+| **Location** | Mortling Stronghold, Braewood |
 
-## Race
-Human
-
-## Location
-Mortling Stronghold, Braewood
+---
 
 ## Appearance
 A thin, precise man who always seems to be counting something. His gray hair is thinning, his spectacles are perpetually smudged, and his fingers are stained with ink from the endless ledgers he maintains. He dresses in practical wool rather than military uniform—he's never been a soldier, and he doesn't pretend to be. But everyone knows he's the reason the soldiers eat.
 
 ## Backstory
-Tobias was a merchant's son from Braewood City who discovered his talent for logistics during a particularly complex grain shipment that went wrong. While others panicked, he calmly rerouted supplies, negotiated emergency contracts, and ensured no one starved. Crown officials noticed. He's served Mortling for twenty-two years, rising from assistant clerk to the man who controls everything that enters or leaves the city.
+Tobias was a merchant's son from [Braewood](../../Kingdoms/Braewood/Braewood.md) City who discovered his talent for logistics during a particularly complex grain shipment that went wrong. While others panicked, he calmly rerouted supplies, negotiated emergency contracts, and ensured no one starved. Crown officials noticed. He's served Mortling for twenty-two years, rising from assistant clerk to the man who controls everything that enters or leaves the city.
 
 Nothing moves without his signature. Nothing.
 
@@ -30,7 +29,7 @@ Nothing moves without his signature. Nothing.
 Controls all logistics: food, weapons, medical supplies, construction materials, and personnel assignments. He doesn't command soldiers, but he determines what they fight with.
 
 ## Relationships
-- **Lord-Marshal Ironward:** Respectful working relationship. Ironward understands that Tobias is not a warrior but is equally essential.
+- **Lord-Marshal Ironward:** Respectful working relationship. [Ironward](../../Character%20Lore/Modern%20Characters/Lord-Marshal%20Caelric%20Ironward.md) understands that Tobias is not a warrior but is equally essential.
 - **Cleamond merchants:** His primary supply contacts. He negotiates hard but pays on time.
 - **Smugglers:** Has quietly authorized some... unofficial supply channels during emergencies. He doesn't talk about it.
 

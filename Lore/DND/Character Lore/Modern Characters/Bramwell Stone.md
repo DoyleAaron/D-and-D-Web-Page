@@ -1,24 +1,23 @@
 # Bramwell Stone
 
-## Title
-Village Smith of Trares
+## Overview
 
-## Age
-150s (middle-aged for a dwarf)
+| | |
+|---|---|
+| **Title** | Village Smith of Trares |
+| **Age** | 150s (middle-aged for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Trares, Braewood |
 
-## Race
-Dwarf
-
-## Location
-Trares, Braewood
+---
 
 ## Appearance
 A stocky, muscular dwarf with a thick black beard shot through with grey and deep-set brown eyes. His hands are permanently darkened from forge work, and his arms bear the small scars of decades of smithing. He wears a leather apron over simple clothes and moves with the solid deliberation of someone who never rushes.
 
 ## Backstory
-Bramwell came to Trares forty years ago, seeking a quiet life away from the political tensions of the dwarven enclaves. He'd trained as a smith in Borugham but found the nationalism there suffocating. A shepherding village with no smith seemed like the perfect opportunity.
+Bramwell came to [Trares](../../Kingdoms/Braewood/Village/Trares.md) forty years ago, seeking a quiet life away from the political tensions of the dwarven enclaves. He'd trained as a smith in [Borugham](../../Kingdoms/Braewood/Town/Borugham.md) but found the nationalism there suffocating. A shepherding village with no smith seemed like the perfect opportunity.
 
-He's been Trares's only smith ever since. He shoes horses, repairs farm tools, maintains the shearing equipment, and handles any metalwork the village needs. It's not grand work—nothing like forging weapons or crafting jewelry—but it's honest, necessary, and appreciated.
+He's been [Trares](../../Kingdoms/Braewood/Village/Trares.md)'s only smith ever since. He shoes horses, repairs farm tools, maintains the shearing equipment, and handles any metalwork the village needs. It's not grand work—nothing like forging weapons or crafting jewelry—but it's honest, necessary, and appreciated.
 
 ## Personality
 - **Reliable:** When Bramwell says something will be fixed, it gets fixed. His word is absolute.
@@ -27,7 +26,7 @@ He's been Trares's only smith ever since. He shoes horses, repairs farm tools, m
 - **Stubborn:** Once he's made a decision, changing his mind is nearly impossible.
 
 ## Role in the Village
-Serves as Trares's only blacksmith, handling all metalwork needs. He maintains farm equipment, shoes horses for the rare travelers, and repairs anything made of metal. During shearing season, keeping the equipment in working order is critical—and he's essential.
+Serves as [Trares](../../Kingdoms/Braewood/Village/Trares.md)'s only blacksmith, handling all metalwork needs. He maintains farm equipment, shoes horses for the rare travelers, and repairs anything made of metal. During shearing season, keeping the equipment in working order is critical—and he's essential.
 
 ## Relationships
 - **Elder Maeven Shawl:** Respects her leadership. She's one of the few people who can convince him to rush a job.

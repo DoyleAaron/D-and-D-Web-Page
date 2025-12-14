@@ -1,0 +1,498 @@
+/**
+ * Auth & Journal Styles
+ * Dayner D&D Lore Website
+ */
+
+/* ========================================
+   LOGIN MODAL
+   ======================================== */
+
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  backdrop-filter: blur(5px);
+}
+
+.login-modal.active {
+  display: flex;
+}
+
+.login-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.login-header h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-2xl);
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.login-header p {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.login-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.login-form input {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.login-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.login-form select,
+.player-select {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.login-form select:focus,
+.player-select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.login-form select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: var(--spacing-sm);
+}
+
+.login-error {
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
+  display: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   USER MENU (Header)
+   ======================================== */
+
+.user-menu {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-accent);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.user-name {
+  color: var(--color-gold);
+}
+
+/* ========================================
+   JOURNAL PANEL
+   ======================================== */
+
+.journal-panel {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 450px;
+  max-width: 100%;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  z-index: 8000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+}
+
+.journal-panel.active {
+  right: 0;
+}
+
+.journal-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.journal-header h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: 0;
+}
+
+.journal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  transition: color var(--transition-fast);
+}
+
+.journal-close:hover {
+  color: var(--color-accent);
+}
+
+.journal-toolbar {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.journal-toolbar button {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.journal-toolbar button:hover {
+  background: var(--bg-card);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.journal-toolbar button.primary {
+  background: var(--gradient-accent);
+  border-color: transparent;
+  color: white;
+}
+
+.journal-toolbar button.primary:hover {
+  transform: translateY(-1px);
+}
+
+.journal-toolbar button.danger {
+  color: var(--color-accent);
+}
+
+.journal-toolbar button.danger:hover {
+  background: rgba(233, 69, 96, 0.1);
+  border-color: var(--color-accent);
+}
+
+.journal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+}
+
+/* Journal List */
+.journal-entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.journal-entry-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.journal-entry-item:hover {
+  border-color: var(--color-gold);
+  transform: translateX(5px);
+}
+
+.journal-entry-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.journal-entry-preview {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.journal-entry-date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.journal-empty {
+  text-align: center;
+  padding: var(--spacing-xxl);
+  color: var(--text-muted);
+}
+
+.journal-empty i {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.journal-empty p {
+  margin: var(--spacing-xs) 0;
+}
+
+/* Journal Editor */
+.journal-editor {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+
+.journal-editor-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.journal-date {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.journal-title-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.journal-title-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.journal-content-input {
+  flex: 1;
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  resize: none;
+  min-height: 300px;
+}
+
+.journal-content-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+/* ========================================
+   NOTIFICATIONS
+   ======================================== */
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.notification-success {
+  border-left: 3px solid #4caf50;
+}
+
+.notification-success i {
+  color: #4caf50;
+}
+
+.notification-error {
+  border-left: 3px solid var(--color-accent);
+}
+
+.notification-error i {
+  color: var(--color-accent);
+}
+
+.notification-warning {
+  border-left: 3px solid #ff9800;
+}
+
+.notification-warning i {
+  color: #ff9800;
+}
+
+.notification-info {
+  border-left: 3px solid var(--color-gold);
+}
+
+.notification-info i {
+  color: var(--color-gold);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .journal-panel {
+    width: 100%;
+  }
+  
+  .login-card {
+    margin: var(--spacing-md);
+  }
+  
+  .user-name {
+    display: none;
+  }
+}

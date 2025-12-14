@@ -280,6 +280,58 @@
     `;
     
     contentArea.scrollTop = 0;
+    
+    // Set up click handlers for cross-reference links
+    setupContentLinks(filePath);
+  }
+
+  // Handle clicks on markdown links within content
+  function setupContentLinks(currentFilePath) {
+    const contentLinks = contentArea.querySelectorAll('.lore-content a');
+    
+    contentLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      
+      // Only handle internal .md links
+      if (href && href.endsWith('.md')) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Convert relative path to path relative to LORE_BASE_PATH
+          const resolvedPath = resolveRelativePath(currentFilePath, href);
+          loadContent(resolvedPath);
+        });
+        
+        // Add visual styling for internal links
+        link.classList.add('internal-link');
+      }
+    });
+  }
+
+  // Resolve a relative path from the current file's location
+  function resolveRelativePath(currentFilePath, relativePath) {
+    // Decode URL-encoded characters (spaces, etc.)
+    relativePath = decodeURIComponent(relativePath);
+    
+    // Get the directory of the current file
+    const currentDir = currentFilePath.substring(0, currentFilePath.lastIndexOf('/') + 1);
+    
+    // Split both paths
+    let baseParts = currentDir.split('/').filter(p => p);
+    const relativeParts = relativePath.split('/');
+    
+    // Process each part of the relative path
+    for (const part of relativeParts) {
+      if (part === '..') {
+        // Go up one directory
+        baseParts.pop();
+      } else if (part !== '.' && part !== '') {
+        // Add the part to the path
+        baseParts.push(part);
+      }
+    }
+    
+    return baseParts.join('/');
   }
 
   function getIconForPath(path) {

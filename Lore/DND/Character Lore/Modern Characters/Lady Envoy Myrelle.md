@@ -1,26 +1,25 @@
 # Lady Envoy Myrelle
 
-## Title
-Crown Envoy (Secret Traitor)
+## Overview
 
-## Age
-Mid-30s
+| | |
+|---|---|
+| **Title** | Crown Envoy (Secret Traitor) |
+| **Age** | Mid-30s |
+| **Race** | Human |
+| **Location** | Braewood City (travels frequently) |
 
-## Race
-Human
-
-## Location
-Braewood City (travels frequently)
+---
 
 ## Appearance
 Velvet-dark silks over traveling leathers, a subtle amethyst ring, and a pleasant, precise smile that never reaches her eyes. She is beautiful in a calculated way—every element of her appearance designed to disarm and charm. She moves with the grace of someone who knows exactly how much space she occupies and uses every inch of it.
 
 ## Backstory
-Myrelle serves the Crown as an envoy who "recovers" magical artifacts before anyone else can claim them. She is efficient, charming, and completely trusted by the court.
+[Myrelle](../../Character%20Lore/Modern%20Characters/Lady%20Envoy%20Myrelle.md) serves the Crown as an envoy who "recovers" magical artifacts before anyone else can claim them. She is efficient, charming, and completely trusted by the court.
 
 She is also a traitor.
 
-Myrelle belongs to a hidden order that hoards magical items for purposes unknown. She diverts relics from Crown custody, frames Kluimont for the thefts, and manipulates events to serve her true masters. Her druidic magic—hidden beneath her courtly facade—makes her far more dangerous than she appears.
+[Myrelle](../../Character%20Lore/Modern%20Characters/Lady%20Envoy%20Myrelle.md) belongs to a hidden order that hoards magical items for purposes unknown. She diverts relics from Crown custody, frames [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) for the thefts, and manipulates events to serve her true masters. Her druidic magic—hidden beneath her courtly facade—makes her far more dangerous than she appears.
 
 ## Personality
 - **Poised and surgical:** Every word chosen, every gesture deliberate.

@@ -1,16 +1,15 @@
 # Headman Cotter Marsh
 
-## Title
-Headman of Dalo
+## Overview
 
-## Age
-Mid-50s
+| | |
+|---|---|
+| **Title** | Headman of Dalo |
+| **Age** | Mid-50s |
+| **Race** | Human |
+| **Location** | Dalo, Braewood |
 
-## Race
-Human
-
-## Location
-Dalo, Braewood
+---
 
 ## Appearance
 A stocky, sun-darkened man with salt-stained clothes and the rolling gait of a lifelong sailor. His hair is grey and thinning, his face deeply lined from decades of squinting against sea glare. His hands are rough and scarred from fishing nets and ropes. He dresses simply in practical seafarer's clothes, even for official business.
@@ -27,13 +26,13 @@ Rather than despair, he rebuilt. Not another boat—his body was too broken for 
 - **Protective:** The storm took his boat. He won't let it take his village.
 
 ## Role in the Village
-Leads Dalo as headman, coordinating fishing schedules, maintaining relations with Osegas, and managing the ongoing recovery from the storm. He mediates disputes, organizes work crews, and represents the village in external matters.
+Leads [Dalo](../../Kingdoms/Braewood/Village/Dalo.md) as headman, coordinating fishing schedules, maintaining relations with [Osegas](../../Kingdoms/Braewood/Town/Osegas.md), and managing the ongoing recovery from the storm. He mediates disputes, organizes work crews, and represents the village in external matters.
 
 ## Relationships
 - **Wenna Marsh:** His daughter, who manages the harbor. He's training her to eventually take over.
 - **Widow Selna Brine:** The salt mistress. They work together on the village's two main industries.
-- **High Steward Merylla Davross:** Represents Dalo in Osegas. Grateful for the support the larger town provides.
-- **Kira Stoneheart:** The coordinator in Osegas. She was born in Dalo; they know each other well.
+- **High Steward Merylla Davross:** Represents [Dalo](../../Kingdoms/Braewood/Village/Dalo.md) in [Osegas](../../Kingdoms/Braewood/Town/Osegas.md). Grateful for the support the larger town provides.
+- **Kira Stoneheart:** The coordinator in [Osegas](../../Kingdoms/Braewood/Town/Osegas.md). She was born in [Dalo](../../Kingdoms/Braewood/Village/Dalo.md); they know each other well.
 
 ## Notable Quote
 > "The sea took my boat, my livelihood, my father's legacy. So I found new work. The sea doesn't stop, and neither do we."

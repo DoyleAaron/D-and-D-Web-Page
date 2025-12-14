@@ -4,16 +4,16 @@
 Sheyton
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Medium City
 
 ### **Leader:**
-**Lord-Mayor Vellan Harcrow** — Crown-appointed, stern, and numbers-first. A former tax collector who rose through bureaucratic ranks, Harcrow runs Sheyton like a ledger: everything must balance, and every copper must be accounted for. His efficiency is undeniable; his popularity is not.
+**Lord-Mayor Vellan Harcrow** — Crown-appointed, stern, and numbers-first. A former tax collector who rose through bureaucratic ranks, [Harcrow](../../../Character%20Lore/Modern%20Characters/Lord-Mayor%20Vellan%20Harcrow.md) runs Sheyton like a ledger: everything must balance, and every copper must be accounted for. His efficiency is undeniable; his popularity is not.
 
 ### **Population:**
-**~14,000** within the walls; **~22,000** including surrounding hamlets and roadside estates. It's the second-largest **medium-sized** settlement in Braewood, after Barge.
+**~14,000** within the walls; **~22,000** including surrounding hamlets and roadside estates. It's the second-largest **medium-sized** settlement in [Braewood](../../../Kingdoms/Braewood/Braewood.md), after [Barge](../../../Kingdoms/Braewood/Medium%20City/Barge.md).
 
 ### **Racial Demographics:**
 - **Human (78%):** Merchants, farmers, craftsmen, and the bulk of the Red Scarves movement. Traditional families dominate local politics.
@@ -27,27 +27,27 @@ Medium City
 ### **Geography & Climate:**
 
 **Position:**
-- Located 28 km south of Cleamond along the Sheyton Trade Road.
+- Located 28 km south of [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md) along the Sheyton Trade Road.
 - Sheyton serves as the primary market town for the southwestern farmlands.
-- A branch road splits off 14 km north of Sheyton, leading 20 km west to Ineross village.
+- A branch road splits off 14 km north of Sheyton, leading 20 km west to [Ineross](../../../Kingdoms/Braewood/Village/Ineross.md) village.
 
 **Distances:**
-- 20 km to the Great Lavalto Lake (the massive lake surrounding Lavalto Island)
+- 20 km to the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake (the massive lake surrounding [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Island)
 - 120 km to eastern coast
 - 188 km to northern coast
 - 130 km to southern coast
-- 28 km north to Cleamond
-- 63 km northeast to Braewood City (via Cleamond)
-- 34 km to Ineross (14 km north to turnoff, then 20 km west)
+- 28 km north to [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md)
+- 63 km northeast to [Braewood](../../../Kingdoms/Braewood/Braewood.md) City (via [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md))
+- 34 km to [Ineross](../../../Kingdoms/Braewood/Village/Ineross.md) (14 km north to turnoff, then 20 km west)
 
 **Terrain:**
 - Rolling farmland and pastureland surround the city.
-- The western horizon shows the glint of the Great Lavalto Lake on clear days.
-- Well-maintained roads connect to Cleamond and Braewood City; the Ineross branch road is rougher.
+- The western horizon shows the glint of the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake on clear days.
+- Well-maintained roads connect to [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md) and [Braewood](../../../Kingdoms/Braewood/Braewood.md) City; the [Ineross](../../../Kingdoms/Braewood/Village/Ineross.md) branch road is rougher.
 
 **Climate:**
 - Warm and dry in summer; mild winters with little snow.
-- Proximity to the Great Lavalto Lake moderates temperatures but brings occasional fog.
+- Proximity to the Great [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) Lake moderates temperatures but brings occasional fog.
 - The southwestern winds sometimes carry an odd sulfurous smell from the volcanic island.
 
 ---
@@ -85,7 +85,7 @@ Medium City
 
 ### **History:**
 
-- **Founded (~650 C.C.):** Began as a farming hamlet serving the growing Braewood heartland.
+- **Founded (~650 C.C.):** Began as a farming hamlet serving the growing [Braewood](../../../Kingdoms/Braewood/Braewood.md) heartland.
 - **Market Charter (780 C.C.):** Crown granted official market rights, spurring rapid growth.
 - **Guild Wars (890-910 C.C.):** Violent competition between carter and chandler guilds; resolved with the Guild Compact still in force today.
 - **The Great Fire (1102 C.C.):** Half the old town burned; rebuilt with wider streets and stone foundations.
@@ -100,7 +100,7 @@ Medium City
 - **The Three Shrines:** Temple district with shrines to three competing faiths—keeps religious diversity but also religious tension.
 - **The Carterhouse:** Guild headquarters for the Caravan Guild. All transport contracts are negotiated here.
 - **The Stone Vaults:** Underground storage chambers beneath the market, used for preserving goods. Rumored to have deeper, older tunnels.
-- **Lord-Mayor's Hall:** Administrative center where Harcrow conducts city business with cold efficiency.
+- **Lord-Mayor's Hall:** Administrative center where [Harcrow](../../../Character%20Lore/Modern%20Characters/Lord-Mayor%20Vellan%20Harcrow.md) conducts city business with cold efficiency.
 - **The Waystone Inn:** Largest inn in Sheyton, popular with traveling merchants. The innkeeper, Marta Lowell, knows everyone's business.
 
 ---
@@ -127,14 +127,14 @@ Medium City
 
 - **A Town on Edge:** The streets look normal—markets bustle, shrines are busy—but behind polite smiles, there's tension. Are the Red Scarves a benevolent faith, a mask for something darker, or simply a convenient scapegoat for Sheyton's troubles?
 
-- **The Ineross Road:** Travelers from Ineross have stopped coming. The village was never large, but its wool trade was steady. Now the branch road sits empty, and no one wants to investigate.
+- **The Ineross Road:** Travelers from [Ineross](../../../Kingdoms/Braewood/Village/Ineross.md) have stopped coming. The village was never large, but its wool trade was steady. Now the branch road sits empty, and no one wants to investigate.
 
 ---
 
 ### **Relationships:**
 
 - **Cleamond:** Northern partner (28 km). Trade flows both ways; there's friendly competition over which town is more prosperous.
-- **Braewood City:** Political master (63 km northeast via Cleamond). Crown authority is increasingly present through inspectors and envoys.
+- **Braewood City:** Political master (63 km northeast via [Cleamond](../../../Kingdoms/Braewood/Town/Cleamond.md)). Crown authority is increasingly present through inspectors and envoys.
 - **Ineross:** Dependent village (34 km via branch road). Sheyton provided goods and received wool. Communication has recently ceased.
 - **Mortling Stronghold:** Distant but important. Military supplies sometimes route through Sheyton.
-- **Great Lavalto Lake:** Only 20 km west. Sheyton occasionally receives strange visitors from boats crossing the lake—traders from Lavalto who pay well and ask few questions.
+- **Great Lavalto Lake:** Only 20 km west. Sheyton occasionally receives strange visitors from boats crossing the lake—traders from [Lavalto](../../../Kingdoms/Lavalto/Lavalto.md) who pay well and ask few questions.

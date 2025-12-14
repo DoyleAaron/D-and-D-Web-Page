@@ -1,17 +1,15 @@
 # Guildmaster Dorvan Ironhand
 
-## Title
-Guildmaster of the Hammer Brotherhood
+## Overview
 
-## Age
-240s (elderly for a dwarf)
+| | |
+|---|---|
+| **Title** | Guildmaster of the Hammer Brotherhood |
+| **Age** | 240s (elderly for a dwarf) |
+| **Race** | Dwarf |
+| **Location** | Barge (Medium City), Central-Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Barge (Medium City), Central-Northern Braewood
-
+---
 
 ## Appearance
 Ancient and powerful. A dwarf who has lived through eras. Pure white beard reaching to his belt, braided with silver rings marking decades of service. Hands gnarled and scarred from two centuries of smithwork, still strong enough to crush stone. Eyes like molten iron — bright, hot, assessing.
@@ -21,9 +19,9 @@ Dresses in the formal robes of his guild, deep red and gold, trimmed with hammer
 When he speaks, the room listens.
 
 ## Backstory
-Dorvan came to Barge 180 years ago as a journeyman smith from the western clans. He rose through the Hammer Brotherhood ranks by being better at the craft than anyone else. When the old Guildmaster died, there was no question of succession.
+Dorvan came to [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) 180 years ago as a journeyman smith from the western clans. He rose through the Hammer Brotherhood ranks by being better at the craft than anyone else. When the old Guildmaster died, there was no question of succession.
 
-He's led the Brotherhood for sixty years. In that time, he's made it the most powerful guild in Braewood outside the capital. He's accumulated wealth that rivals minor nobles. He's built a private army called "journeymen guards." He's become the power behind Barge's economy.
+He's led the Brotherhood for sixty years. In that time, he's made it the most powerful guild in [Braewood](../../Kingdoms/Braewood/Braewood.md) outside the capital. He's accumulated wealth that rivals minor nobles. He's built a private army called "journeymen guards." He's become the power behind [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md)'s economy.
 
 And he's grown tired of pretending the Crown still matters here.
 
@@ -37,9 +35,9 @@ And he's grown tired of pretending the Crown still matters here.
 ## Role in Barge
 - Controls the Hammer Brotherhood (200+ smiths, armorsmiths, weaponsmiths)
 - Commands the "journeymen guards" (~100 armed dwarves)
-- Sets prices for metalwork throughout northern Braewood
+- Sets prices for metalwork throughout northern [Braewood](../../Kingdoms/Braewood/Braewood.md)
 - Negotiates directly with Crown officials
-- The most powerful person in Barge who isn't officially in charge
+- The most powerful person in [Barge](../../Kingdoms/Braewood/Medium%20City/Barge.md) who isn't officially in charge
 
 ## The Hammer Brotherhood
 What Dorvan has built:

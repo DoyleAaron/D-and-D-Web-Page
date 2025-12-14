@@ -1,22 +1,21 @@
 # Queen Maera Braeden
 
-## Title
-Queen Consort of Braewood
+## Overview
 
-## Age
-Early 50s
+| | |
+|---|---|
+| **Title** | Queen Consort of Braewood |
+| **Age** | Early 50s |
+| **Race** | Human |
+| **Location** | Braewood City, Braewood |
 
-## Race
-Human
-
-## Location
-Braewood City, Braewood
+---
 
 ## Appearance
 A regal woman who carries herself with the poise of a born diplomat. Her silver-streaked auburn hair is usually arranged in elaborate court styles, and she favors rich but understated colors—deep blues and silvers that complement rather than overwhelm. Her eyes are sharp and assessing, missing nothing in a room full of nobles. She wears a breastplate beneath her formal attire—a concession to practicality that few know about.
 
 ## Backstory
-Maera was not born to royalty but to a minor noble house known for producing skilled negotiators. Her marriage to King Tarvin Braeden IV was political—a union to secure support from the western provinces. What began as duty became genuine partnership. She has spent decades learning the rhythms of court, the hidden loyalties, and the subtle arts of manipulation.
+Maera was not born to royalty but to a minor noble house known for producing skilled negotiators. Her marriage to [King Tarvin Braeden IV](../../Character%20Lore/Modern%20Characters/King%20Tarvin%20Braeden%20IV.md) was political—a union to secure support from the western provinces. What began as duty became genuine partnership. She has spent decades learning the rhythms of court, the hidden loyalties, and the subtle arts of manipulation.
 
 She is a trained bard of the College of Lore, though few realize the extent of her magical abilities. Her talents lie in reading people, shaping conversations, and—when necessary—ensuring that certain truths remain hidden.
 

@@ -1,24 +1,23 @@
 # Widow Selna Brine
 
-## Title
-Salt Mistress of Dalo
+## Overview
 
-## Age
-Early 60s
+| | |
+|---|---|
+| **Title** | Salt Mistress of Dalo |
+| **Age** | Early 60s |
+| **Race** | Human |
+| **Location** | Dalo, Braewood |
 
-## Race
-Human
-
-## Location
-Dalo, Braewood
+---
 
 ## Appearance
 A lean, weathered woman with iron-grey hair pulled back tightly and sun-darkened skin marked by salt-crusted wrinkles. Her eyes are a pale sea-grey, and her hands are permanently reddened from years of work in the salt pans. She wears practical clothes that show salt stains no amount of washing will remove.
 
 ## Backstory
-Selna married a fisherman at eighteen and was widowed at thirty when the sea claimed him. Rather than remarry or leave, she turned to the salt pans—the less glamorous but more reliable industry that kept Dalo fed when fishing failed.
+Selna married a fisherman at eighteen and was widowed at thirty when the sea claimed him. Rather than remarry or leave, she turned to the salt pans—the less glamorous but more reliable industry that kept [Dalo](../../Kingdoms/Braewood/Village/Dalo.md) fed when fishing failed.
 
-She learned the work from her mother-in-law, mastered it within a decade, and eventually took over management of all the village's salt operations. Now she oversees the pans, coordinates the workers, and ensures that Dalo's salt—essential for preserving fish—is produced in sufficient quantities.
+She learned the work from her mother-in-law, mastered it within a decade, and eventually took over management of all the village's salt operations. Now she oversees the pans, coordinates the workers, and ensures that [Dalo](../../Kingdoms/Braewood/Village/Dalo.md)'s salt—essential for preserving fish—is produced in sufficient quantities.
 
 ## Personality
 - **Independent:** Made her own way after losing her husband. Answers to no one.
@@ -27,7 +26,7 @@ She learned the work from her mother-in-law, mastered it within a decade, and ev
 - **Generous:** Employs widows and others who struggle. Knows what it's like.
 
 ## Role in the Village
-Manages Dalo's salt pans, the shallow pools where seawater evaporates to leave valuable salt. She coordinates the workers, maintains quality, and negotiates sales. Without her salt, the fishing industry couldn't preserve its catches for trade.
+Manages [Dalo](../../Kingdoms/Braewood/Village/Dalo.md)'s salt pans, the shallow pools where seawater evaporates to leave valuable salt. She coordinates the workers, maintains quality, and negotiates sales. Without her salt, the fishing industry couldn't preserve its catches for trade.
 
 ## Relationships
 - **Headman Cotter Marsh:** Works closely with him on village economics. Mutual respect.

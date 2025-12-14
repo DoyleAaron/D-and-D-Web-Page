@@ -473,3 +473,22 @@
 .empty-state p {
   font-size: var(--font-size-sm);
 }
+
+/* Internal Cross-Reference Links */
+.lore-content a.internal-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-gold);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.lore-content a.internal-link:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  border-bottom-style: solid;
+}
+
+.lore-content a.internal-link:active {
+  transform: translateY(1px);
+}

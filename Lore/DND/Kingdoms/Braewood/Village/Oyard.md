@@ -4,7 +4,7 @@
 Oyard
 
 ### **Kingdom:**
-Braewood
+[Braewood](../../../Kingdoms/Braewood/Braewood.md)
 
 ### **Settlement Type:**
 Village
@@ -76,7 +76,7 @@ The side road to Oyard is maintained just enough to be passable. It winds throug
 Rocky, dry hills. Little grows here. The soil is thin over stone. In summer it's dusty; in winter it's wind-scoured. The surrounding area is almost uninhabited — a few goatherds, nothing more.
 
 **Climate:**
-Harsh by Braewood standards. The hills block maritime moisture; rain is rare. Cold winters, hot summers. The wind never stops.
+Harsh by [Braewood](../../../Kingdoms/Braewood/Braewood.md) standards. The hills block maritime moisture; rain is rare. Cold winters, hot summers. The wind never stops.
 
 ---
 
@@ -104,10 +104,10 @@ Nothing. This land was considered worthless even by the Empire's road-builders.
 A few herders used the hills. No permanent settlement existed.
 
 **Founding (~820 C.C.):**
-When the Braewood kingdom needed somewhere to put prisoners too dangerous for regular jails — Tharnic loyalists, dwarven extremists, nobles who'd committed unforgivable crimes — they chose the most isolated place they could find. Oyard was built specifically as a prison.
+When the [Braewood](../../../Kingdoms/Braewood/Braewood.md) kingdom needed somewhere to put prisoners too dangerous for regular jails — Tharnic loyalists, dwarven extremists, nobles who'd committed unforgivable crimes — they chose the most isolated place they could find. Oyard was built specifically as a prison.
 
 **The Debourg Connection:**
-Some of the original prisoners were dwarves captured from Debourg Grotto after that settlement's... transformation. They were the lucky ones — removed before whatever happened to the others. Most have since died. The few survivors are ancient, mad, and never speak of what they saw.
+Some of the original prisoners were dwarves captured from [Debourg Grotto](../../../Kingdoms/Braewood/POI/Debourg%20Grotto.md) after that settlement's... transformation. They were the lucky ones — removed before whatever happened to the others. Most have since died. The few survivors are ancient, mad, and never speak of what they saw.
 
 **Modern Era:**
 Oyard continues its grim purpose. The Crown sends its embarrassments here. Guards are assigned as punishment. Prisoners are forgotten. The village survives because the Crown pays for it to survive, nothing more.
@@ -118,7 +118,7 @@ Oyard continues its grim purpose. The Crown sends its embarrassments here. Guard
 
 - **Grimstone Prison:** The fortress-prison built into the cliff, capable of holding 500, currently at 400
 - **The Quarry:** Where prisoners break rock; overlooked by armed guards on platforms
-- **The Warden's Tower:** Halvard Grimstone's residence, the highest point in the complex, with views of the entire valley
+- **The Warden's Tower:** [Halvard Grimstone](../../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md)'s residence, the highest point in the complex, with views of the entire valley
 - **The Bitter Cup:** The only tavern, serving guards and merchants; cheerless but functional
 - **The Chapel of the Forgotten:** A small shrine where guards pray and prisoners are rarely allowed
 
@@ -127,10 +127,10 @@ Oyard continues its grim purpose. The Crown sends its embarrassments here. Guard
 ### **Key Figures:**
 
 - **Warden-Captain Halvard Grimstone:** Severe dwarf administrator, believes absolutely in order and punishment
-- **Lieutenant Seren Valk:** Human, second-in-command, rumored to be the only person Grimstone trusts
-- **Prisoner 7:** An elderly dwarf from Debourg Grotto, real name unknown, kept in isolation, sometimes screams in the night
+- **Lieutenant Seren Valk:** Human, second-in-command, rumored to be the only person [Grimstone](../../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) trusts
+- **Prisoner 7:** An elderly dwarf from [Debourg Grotto](../../../Kingdoms/Braewood/POI/Debourg%20Grotto.md), real name unknown, kept in isolation, sometimes screams in the night
 - **Father Aldric Mourning:** The prison chaplain, a kind man destroyed by years of trying to save the unsaveable
-- **Merchant Ulric Harren:** Runs the supply wagon from Braewood City, the only regular visitor, knows more than he should
+- **Merchant Ulric Harren:** Runs the supply wagon from [Braewood](../../../Kingdoms/Braewood/Braewood.md) City, the only regular visitor, knows more than he should
 
 ---
 
@@ -138,7 +138,7 @@ Oyard continues its grim purpose. The Crown sends its embarrassments here. Guard
 
 **With Other Settlements:**
 - **Braewood City:** The Crown controls the prison directly; local nobles prefer not to acknowledge it exists
-- **Ardismouth:** Some guards are dwarves who were "reassigned" after the Ardismouth tensions — a warning to nationalists
+- **Ardismouth:** Some guards are dwarves who were "reassigned" after the [Ardismouth](../../../Kingdoms/Braewood/Town/Ardismouth.md) tensions — a warning to nationalists
 - **Debourg Grotto:** Prisoners from there are kept here; the connection is not discussed
 
 **With the Crown:**
@@ -148,12 +148,12 @@ Oyard is an embarrassment the Crown needs. It holds the people too dangerous to 
 
 ### **Current Events & Hooks:**
 
-- **Prisoner 7's Ravings:** The Debourg survivor has been screaming about "the door opening" for three nights straight. Grimstone has doubled his guard. No one knows what it means.
+- **Prisoner 7's Ravings:** The Debourg survivor has been screaming about "the door opening" for three nights straight. [Grimstone](../../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) has doubled his guard. No one knows what it means.
 - **The Noble's Visitors:** A noble prisoner recently received authorized visitors for the first time in years. The meeting was private. Guards report hearing laughter.
 - **Escape Tunnel:** Lieutenant Valk discovered evidence of tunneling. The dig site leads toward... the cliff face? The quarry? The search continues.
-- **New Arrivals:** A convoy is bringing a high-profile prisoner — identity classified. Grimstone has been told to prepare maximum security accommodations.
+- **New Arrivals:** A convoy is bringing a high-profile prisoner — identity classified. [Grimstone](../../../Character%20Lore/Modern%20Characters/Warden-Captain%20Halvard%20Grimstone.md) has been told to prepare maximum security accommodations.
 
 ---
 
-*"You want to know what kind of people end up here? The kind everyone else wants to forget. Tharnics who still think the Empire will rise. Dwarves who carved up human families because they thought the land was stolen. Lords who sold children to the Kluimontians. And one old dwarf who saw something in Debourg Grotto that broke his mind. Don't ask me what. I've worked here twenty years and I've never asked. Some things you don't want to know."*
-— Lieutenant Seren Valk
+*"You want to know what kind of people end up here? The kind everyone else wants to forget. Tharnics who still think the Empire will rise. Dwarves who carved up human families because they thought the land was stolen. Lords who sold children to the Kluimontians. And one old dwarf who saw something in [Debourg Grotto](../../../Kingdoms/Braewood/POI/Debourg%20Grotto.md) that broke his mind. Don't ask me what. I've worked here twenty years and I've never asked. Some things you don't want to know."*
+— [Lieutenant Seren Valk](../../../Character%20Lore/Modern%20Characters/Lieutenant%20Seren%20Valk.md)

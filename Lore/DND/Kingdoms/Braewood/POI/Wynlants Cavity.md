@@ -15,12 +15,12 @@
 ## Geography
 
 ### Location
-Wynlants Cavity lies 40km east of Plalisle Den, a few kilometers south of the main road. Unlike Plalisle, there is no path leading to the Cavity — reaching it requires wilderness travel through dense forest. The site sits approximately 42km west of Buchrior Hollows.
+Wynlants Cavity lies 40km east of [Plalisle Den](../../../Kingdoms/Braewood/POI/Plalisle%20Den.md), a few kilometers south of the main road. Unlike Plalisle, there is no path leading to the Cavity — reaching it requires wilderness travel through dense forest. The site sits approximately 42km west of [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md).
 
 ### Relationship to Other Sites
-- **40km west:** Plalisle Den
-- **42km east:** Buchrior Hollows (25km to the river, 15km past it)
-- **30km northeast:** Borugham
+- **40km west:** [Plalisle Den](../../../Kingdoms/Braewood/POI/Plalisle%20Den.md)
+- **42km east:** [Buchrior Hollows](../../../Kingdoms/Braewood/POI/Buchrior%20Hollows.md) (25km to the river, 15km past it)
+- **30km northeast:** [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md)
 - No direct path to any settlement
 
 ### Terrain
@@ -47,7 +47,7 @@ After the Tharnic collapse, Wynlants Cavity served various purposes:
 
 ### Modern Era
 The Cavity is officially abandoned. The Crown considers it a curiosity, not a concern. In practice, the site sees occasional use:
-- Dwarven pilgrims from Borugham and Yotherdon pay respects to the dead
+- Dwarven pilgrims from [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md) and [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md) pay respects to the dead
 - Smugglers cache goods in the deeper tunnels
 - Young rebels meet in secret to discuss independence
 - Scholars occasionally explore, seeking Tharnic artifacts
@@ -85,10 +85,10 @@ A chamber deep within where rebels gathered before the final assault on the garr
 ## Current Uses
 
 ### Dwarven Pilgrimage
-Families from Borugham, Yotherdon, and Slada visit Wynlants Cavity to honor ancestors. The Shrine of Chains is a sacred site. Pilgrims bring offerings — food, drink, tools, weapons — and recite names of the dead.
+Families from [Borugham](../../../Kingdoms/Braewood/Town/Borugham.md), [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md), and [Slada](../../../Kingdoms/Braewood/Village/Slada.md) visit Wynlants Cavity to honor ancestors. The Shrine of Chains is a sacred site. Pilgrims bring offerings — food, drink, tools, weapons — and recite names of the dead.
 
 ### Smuggler's Cache
-The remote location and maze-like tunnels make the Cavity ideal for hidden storage. Goods moving between Kluimont and Braewood sometimes pass through here, avoiding Crown inspectors at Barge.
+The remote location and maze-like tunnels make the Cavity ideal for hidden storage. Goods moving between [Kluimont](../../../Kingdoms/Kluimont/Kluimont.md) and [Braewood](../../../Kingdoms/Braewood/Braewood.md) sometimes pass through here, avoiding Crown inspectors at [Barge](../../../Kingdoms/Braewood/Medium%20City/Barge.md).
 
 ### Rebel Meetings
 Young dwarves from moderate settlements sometimes gather in the Cavity to discuss independence, away from Crown observation. These meetings rarely produce action — mostly talk, drinking, and singing old liberation songs.
@@ -127,4 +127,4 @@ Most maps don't mark it. Finding the Cavity requires local guidance or determine
 ---
 
 *"My grandmother told me her grandmother died in those tunnels. A slave, worked to death before she was forty. When the chains broke, they buried her in the deepest chamber and swore no dwarf would ever be enslaved again. I go there when I need to remember why we fight."*
-— Young dwarf from Yotherdon, speaking at the Shrine of Chains
+— Young dwarf from [Yotherdon](../../../Kingdoms/Braewood/Town/Yotherdon.md), speaking at the Shrine of Chains

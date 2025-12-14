@@ -1,17 +1,15 @@
 # Captain Hilda Stonebreaker
 
-## Title
-Captain of the Strane City Guard
+## Overview
 
-## Age
-50s
+| | |
+|---|---|
+| **Title** | Captain of the Strane City Guard |
+| **Age** | 50s |
+| **Race** | Dwarf |
+| **Location** | Strane (Medium City), Northern Braewood Peninsula |
 
-## Race
-Dwarf
-
-## Location
-Strane (Medium City), Northern Braewood Peninsula
-
+---
 
 ## Appearance
 Broad-shouldered and formidable, with the kind of presence that makes crowds part without a word. Iron-grey hair worn short and practical. A face that looks carved from weathered stone — not unkind, but not soft either. Pale grey eyes that have seen too much and forgotten none of it.
@@ -21,9 +19,9 @@ Wears her guard captain's insignia with obvious pride. Her armor is well-maintai
 Walks with absolute confidence. Speaks the same way.
 
 ## Backstory
-Born to one of the northern dwarven clans, Hilda left home young to join the Braewood military. She served twenty years in various posts — border patrols, city watches, even a stint in the capital — before being offered the Strane captaincy.
+Born to one of the northern dwarven clans, Hilda left home young to join the [Braewood](../../Kingdoms/Braewood/Braewood.md) military. She served twenty years in various posts — border patrols, city watches, even a stint in the capital — before being offered the [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md) captaincy.
 
-She took it because Strane needed someone who wouldn't be corrupted by merchant bribes or scared of smugglers. That was twenty-three years ago. Three Lord-Wardens have come and gone; Hilda remains.
+She took it because [Strane](../../Kingdoms/Braewood/Medium%20City/Strane.md) needed someone who wouldn't be corrupted by merchant bribes or scared of smugglers. That was twenty-three years ago. Three Lord-Wardens have come and gone; Hilda remains.
 
 She's buried twelve guards in that time. She remembers every name.
 
@@ -37,8 +35,8 @@ She's buried twelve guards in that time. She remembers every name.
 ## Role in Strane
 - Commands the city guard (approximately 120 soldiers)
 - Responsible for law enforcement and defense
-- Answers to Lord-Warden Velthorpe (but has significant autonomy)
-- Coordinates with Elder Copperkettle on dwarven matters
+- Answers to Lord-Warden [Velthorpe](../../Character%20Lore/Modern%20Characters/Lord-Warden%20Cassian%20Velthorpe.md) (but has significant autonomy)
+- Coordinates with Elder [Copperkettle](../../Character%20Lore/Modern%20Characters/Elder%20Bram%20Copperkettle.md) on dwarven matters
 - De facto peacekeeper between factions
 
 ## The Guard Under Her Command

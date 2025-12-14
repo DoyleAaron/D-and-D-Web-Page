@@ -1,31 +1,29 @@
 # Thane Aldric Borugh
 
-## Title
-Thane of Borugham
+## Overview
 
-## Age
-180s
+| | |
+|---|---|
+| **Title** | Thane of Borugham |
+| **Age** | 180s |
+| **Race** | Dwarf |
+| **Location** | Borugham (Town), Northern Braewood |
 
-## Race
-Dwarf
-
-## Location
-Borugham (Town), Northern Braewood
-
+---
 
 ## Appearance
 Broad and solid with the weathered look of a dwarf who has spent nearly two centuries in cold climates. Iron-grey hair worn in traditional dwarven braids, beard reaching to his chest and bound with silver rings. A face like carved granite — all hard lines and sharp angles, seamed with age but showing no weakness. Pale blue eyes that assess everyone as a potential threat.
 
-Wears practical clothing of excellent quality — furs, wool, leather, all in dark colors. The Borugh family sigil (a crossed axe and pine above broken chains) is always visible on his breast.
+Wears practical clothing of excellent quality — furs, wool, leather, all in dark colors. The [Borugh](../../Character%20Lore/Modern%20Characters/Thane%20Aldric%20Borugh.md) family sigil (a crossed axe and pine above broken chains) is always visible on his breast.
 
 Carries himself like someone who has never had to explain himself to anyone, and whose ancestors bled for the right to stand on this ground.
 
 ## Backstory
-Aldric Borugh was born to rule Borugham. His father, grandfather, and every ancestor back to the town's liberation from Tharnic slavery held this position. The Borugh clan took their name from the lake where they threw their overseers' bodies during the War of the Sundered Chains. Aldric was raised to believe that Borugham's independence is its greatest treasure — and that human authority can never be fully trusted.
+[Aldric Borugh](../../Character%20Lore/Modern%20Characters/Thane%20Aldric%20Borugh.md) was born to rule [Borugham](../../Kingdoms/Braewood/Town/Borugham.md). His father, grandfather, and every ancestor back to the town's liberation from Tharnic slavery held this position. The [Borugh](../../Character%20Lore/Modern%20Characters/Thane%20Aldric%20Borugh.md) clan took their name from the lake where they threw their overseers' bodies during the War of the Sundered Chains. Aldric was raised to believe that [Borugham](../../Kingdoms/Braewood/Town/Borugham.md)'s independence is its greatest treasure — and that human authority can never be fully trusted.
 
 He inherited the thane's seat at 85 when his father died. In the century since, he has maintained every tradition, paid the Crown's taxes while resenting each coin, and kept outsiders — especially human officials — at exactly the distance he believes is safe.
 
-He represents the moderate position among dwarven republicans: pay the taxes, avoid the conflict, preserve autonomy through quiet resistance. He looks toward Slada's extremism with concern, but he understands it.
+He represents the moderate position among dwarven republicans: pay the taxes, avoid the conflict, preserve autonomy through quiet resistance. He looks toward [Slada](../../Kingdoms/Braewood/Village/Slada.md)'s extremism with concern, but he understands it.
 
 ## Personality
 - **Utterly certain** — has never questioned that dwarven independence must be preserved
