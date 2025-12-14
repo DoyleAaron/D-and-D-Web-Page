@@ -2,11 +2,14 @@ rules_version='2'
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Journals - anyone can read/write (simple player selection, no auth)
-    // Since we're using player names without passwords, we allow open access
-    // The playerId field identifies who owns each entry
+    // Journals - only authenticated users can access their own entries
     match /journals/{journalId} {
-      allow read, write: if true;
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+    // Users can read their own profile
+    match /users/{odui} {
+      allow read: if request.auth != null && request.auth.uid == odui;
     }
   }
 }

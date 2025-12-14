@@ -1,7 +1,7 @@
 /**
  * Journal Module
  * Dayner D&D Lore Website
- * Player journals stored in Firestore, rendered as markdown
+ * Player journals stored in Firestore with Firebase Auth
  */
 
 const JournalModule = (function() {
@@ -87,13 +87,13 @@ const JournalModule = (function() {
   }
 
   async function loadEntries() {
-    const player = AuthModule.getCurrentPlayer();
-    if (!player) return;
+    const user = AuthModule.getCurrentUser();
+    if (!user) return;
 
     try {
       const snapshot = await window.firebaseDb
         .collection('journals')
-        .where('playerId', '==', player.id)
+        .where('userId', '==', user.uid)
         .orderBy('updatedAt', 'desc')
         .get();
 
@@ -113,14 +113,14 @@ const JournalModule = (function() {
     const listContainer = document.getElementById('journal-entries');
     if (!listContainer) return;
 
-    const player = AuthModule.getCurrentPlayer();
+    const profile = AuthModule.getUserProfile();
 
     if (entries.length === 0) {
       listContainer.innerHTML = `
         <div class="journal-empty">
           <i class="fas fa-book-open"></i>
           <p>No journal entries yet</p>
-          <p class="text-muted">Click "New Entry" to start writing, ${player ? player.firstName : 'Adventurer'}!</p>
+          <p class="text-muted">Click "New Entry" to start writing, ${profile ? profile.firstName : 'Adventurer'}!</p>
         </div>
       `;
       return;
@@ -148,8 +148,9 @@ const JournalModule = (function() {
   }
 
   async function saveEntry() {
-    const player = AuthModule.getCurrentPlayer();
-    if (!player) return;
+    const user = AuthModule.getCurrentUser();
+    const profile = AuthModule.getUserProfile();
+    if (!user) return;
 
     const titleInput = document.getElementById('journal-title');
     const contentInput = document.getElementById('journal-content');
@@ -170,8 +171,8 @@ const JournalModule = (function() {
 
     try {
       const entryData = {
-        playerId: player.id,
-        playerName: player.firstName + (player.lastName ? ' ' + player.lastName : ''),
+        userId: user.uid,
+        playerName: profile ? profile.firstName : 'Unknown',
         title: title,
         content: content,
         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
