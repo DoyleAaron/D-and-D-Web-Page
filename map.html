@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Interactive Map of Dayner - Explore the Kingdoms">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>World Map - Dayner</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="static/css/variables.css">
+  <link rel="stylesheet" href="static/css/base.css">
+  <link rel="stylesheet" href="static/css/components.css">
+  <link rel="stylesheet" href="static/css/map.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #0a0a15;
+    }
+    
+    .map-page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .map-view {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+    
+    .back-to-site {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 200;
+      padding: 10px 20px;
+      background: rgba(26, 26, 46, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .back-to-site:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: white;
+    }
+    
+    /* Ensure map fills space */
+    .map-container {
+      flex: 1;
+      position: relative;
+    }
+    
+    /* Mobile settlement list toggle */
+    .mobile-list-toggle {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #b8962d 100%);
+      border: none;
+      border-radius: 25px;
+      color: #1a1a2e;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 150;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-list-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .settlement-list-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-radius: 16px 16px 0 0;
+        max-height: 50vh;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 160;
+        overflow: hidden;
+      }
+      
+      .settlement-list-container.open {
+        transform: translateY(0);
+      }
+      
+      .settlement-list-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .settlement-list-close {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+      .settlement-list {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="map-page">
+    <!-- Back to main site link -->
+    <a href="index.html" class="back-to-site">
+      <i class="fas fa-arrow-left"></i>
+      Back to Lore
+    </a>
+
+    <!-- Main Map View -->
+    <div class="map-view active">
+      <!-- Map Header with Region Tabs -->
+      <div class="map-header">
+        <h1 class="map-title"><i class="fas fa-map-marked-alt"></i> World of Dayner</h1>
+        <div class="region-tabs">
+          <button class="region-tab active" data-kingdom="braewood">
+            <i class="fas fa-shield-alt"></i> Braewood
+          </button>
+          <button class="region-tab" data-kingdom="islefield">
+            <i class="fas fa-leaf"></i> Islefield
+          </button>
+          <button class="region-tab" data-kingdom="kluimont">
+            <i class="fas fa-hat-wizard"></i> Kluimont
+          </button>
+          <button class="region-tab" data-kingdom="lavalto">
+            <i class="fas fa-fire"></i> Lavalto
+          </button>
+        </div>
+      </div>
+
+      <!-- Map Controls -->
+      <div class="map-controls">
+        <button class="map-control-btn" id="map-zoom-in" title="Zoom In">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button class="map-control-btn" id="map-zoom-out" title="Zoom Out">
+          <i class="fas fa-minus"></i>
+        </button>
+        <div class="zoom-level" id="zoom-level">100%</div>
+        <button class="map-control-btn" id="map-zoom-reset" title="Reset View">
+          <i class="fas fa-compress-arrows-alt"></i>
+        </button>
+      </div>
+
+      <!-- Map Container -->
+      <div class="map-container" id="map-container">
+        <div class="map-wrapper" id="map-wrapper">
+          <img src="map.jpg" alt="Map of Dayner" class="map-image" id="map-image" draggable="false">
+          <!-- Settlement markers will be rendered here by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="map-legend">
+        <div class="legend-title">Settlement Types</div>
+        <div class="legend-item">
+          <div class="legend-dot capital"></div>
+          <span>Capital</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot large-city"></div>
+          <span>Large City</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot medium-city"></div>
+          <span>Medium City</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot town"></div>
+          <span>Town</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot village"></div>
+          <span>Village</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot poi"></div>
+          <span>Point of Interest</span>
+        </div>
+      </div>
+
+      <!-- Settlement Info Panel -->
+      <div class="settlement-panel" id="settlement-panel">
+        <div class="panel-header">
+          <button class="panel-close" onclick="MapModule.closePanel()">
+            <i class="fas fa-times"></i>
+          </button>
+          <h2 class="panel-title">Settlement Name</h2>
+          <div class="panel-subtitle">
+            <span class="panel-type-badge">Type</span>
+            <span>Kingdom</span>
+          </div>
+        </div>
+        <div class="panel-content">
+          <!-- Content populated by JavaScript -->
+        </div>
+        <div class="panel-footer">
+          <button class="panel-link">
+            <i class="fas fa-book-open"></i>
+            View Full Details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Settlement List Toggle -->
+    <button class="mobile-list-toggle" id="mobile-list-toggle">
+      <i class="fas fa-list"></i>
+      View Settlements
+    </button>
+
+    <!-- Mobile Settlement List -->
+    <div class="settlement-list-container" id="settlement-list-container">
+      <div class="settlement-list-header">
+        <span style="font-weight: 600; color: var(--accent-gold);">Settlements</span>
+        <button class="settlement-list-close" id="settlement-list-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="settlement-list" id="settlement-list">
+        <!-- List populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Map JavaScript -->
+  <script src="static/js/map.js"></script>
+  
+  <!-- Mobile List Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('mobile-list-toggle');
+      const container = document.getElementById('settlement-list-container');
+      const closeBtn = document.getElementById('settlement-list-close');
+      
+      if (toggle && container) {
+        toggle.addEventListener('click', () => {
+          container.classList.add('open');
+        });
+      }
+      
+      if (closeBtn && container) {
+        closeBtn.addEventListener('click', () => {
+          container.classList.remove('open');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

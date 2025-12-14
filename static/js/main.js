@@ -803,7 +803,17 @@
     initTheme();
     initNavigation();
     initSearch();
-    showHome();
+    
+    // Check for file parameter in URL (from map navigation)
+    const urlParams = new URLSearchParams(window.location.search);
+    const fileParam = urlParams.get('file');
+    if (fileParam) {
+      loadContent(fileParam);
+      // Clean up URL without reload
+      window.history.replaceState({}, '', window.location.pathname);
+    } else {
+      showHome();
+    }
 
     console.log('✨ Dayner Lore Website ready!');
   }
