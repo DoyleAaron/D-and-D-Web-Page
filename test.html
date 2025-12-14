@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dayner Tests</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #d4af37;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 10px;
+    }
+    .test-controls {
+      margin: 20px 0;
+    }
+    button {
+      background: linear-gradient(135deg, #e94560 0%, #a73349 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    }
+    #test-output {
+      background: #0f0f1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .pass { color: #4caf50; }
+    .fail { color: #e94560; }
+    .info { color: #64b5f6; }
+    .section { color: #d4af37; font-weight: bold; }
+    #summary {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 18px;
+      text-align: center;
+    }
+    #summary.success {
+      background: rgba(76, 175, 80, 0.2);
+      border: 1px solid #4caf50;
+      color: #4caf50;
+    }
+    #summary.failure {
+      background: rgba(233, 69, 96, 0.2);
+      border: 1px solid #e94560;
+      color: #e94560;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Minimal DOM elements needed for tests -->
+  <div id="login-modal" class="login-modal" style="display:none;">
+    <div class="login-card">
+      <select id="player-select">
+        <option value="">-- Select your name --</option>
+      </select>
+      <input type="password" id="login-password">
+      <button id="login-confirm">Enter</button>
+      <div id="login-error"></div>
+    </div>
+  </div>
+  
+  <button id="login-btn" style="display:none;"></button>
+  <div id="user-menu" style="display:none;">
+    <span id="user-name"></span>
+    <button id="journal-btn"></button>
+    <button id="logout-btn"></button>
+  </div>
+  
+  <div id="journal-panel" style="display:none;">
+    <button id="journal-close"></button>
+    <div id="journal-list">
+      <button id="journal-new"></button>
+      <div id="journal-entries"></div>
+    </div>
+    <div id="journal-editor" style="display:none;">
+      <button id="journal-back"></button>
+      <button id="journal-save"></button>
+      <button id="journal-delete"></button>
+      <div id="journal-date"></div>
+      <input id="journal-title">
+      <textarea id="journal-content"></textarea>
+    </div>
+  </div>
+
+  <!-- Test UI -->
+  <h1>🧪 Dayner D&D Website Tests</h1>
+  
+  <div class="test-controls">
+    <button onclick="runTests()">Run All Tests</button>
+    <button onclick="clearOutput()">Clear</button>
+    <a href="index.html" class="back-link">← Back to Website</a>
+  </div>
+  
+  <div id="test-output">Click "Run All Tests" to begin...</div>
+  <div id="summary"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="static/js/firebase-config.js"></script>
+  <script src="static/js/auth.js"></script>
+  <script src="static/js/journal.js"></script>
+  <script src="static/js/tests.js"></script>
+  
+  <script>
+    const output = document.getElementById('test-output');
+    const summary = document.getElementById('summary');
+    
+    // Override console.log for test output
+    const originalLog = console.log;
+    const originalError = console.error;
+    
+    function formatLine(text) {
+      if (text.includes('✅ PASS')) return `<span class="pass">${escapeHtml(text)}</span>`;
+      if (text.includes('❌ FAIL')) return `<span class="fail">${escapeHtml(text)}</span>`;
+      if (text.includes('TESTS') || text.includes('===')) return `<span class="section">${escapeHtml(text)}</span>`;
+      if (text.includes('📁') || text.includes('🔐') || text.includes('📓') || text.includes('🏗️') || text.includes('🔥') || text.includes('🔗') || text.includes('🛡️')) {
+        return `<span class="info">${escapeHtml(text)}</span>`;
+      }
+      return escapeHtml(text);
+    }
+    
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = String(text);
+      return div.innerHTML;
+    }
+    
+    function runTests() {
+      output.innerHTML = '';
+      summary.className = '';
+      summary.textContent = '';
+      
+      console.log = function(...args) {
+        const text = args.join(' ');
+        output.innerHTML += formatLine(text) + '\n';
+        originalLog.apply(console, args);
+      };
+      
+      console.error = function(...args) {
+        const text = args.join(' ');
+        output.innerHTML += `<span class="fail">${escapeHtml(text)}</span>\n`;
+        originalError.apply(console, args);
+      };
+      
+      // Wait a moment for scripts to initialize
+      setTimeout(() => {
+        try {
+          const results = DaynerTests.runAll();
+          
+          if (results.failed === 0) {
+            summary.className = 'success';
+            summary.textContent = `✅ All ${results.passed} tests passed!`;
+          } else {
+            summary.className = 'failure';
+            summary.textContent = `⚠️ ${results.failed} of ${results.passed + results.failed} tests failed`;
+          }
+        } catch (error) {
+          output.innerHTML += `<span class="fail">Error: ${escapeHtml(error.message)}</span>\n`;
+          summary.className = 'failure';
+          summary.textContent = '❌ Test suite crashed';
+        }
+        
+        // Restore console
+        console.log = originalLog;
+        console.error = originalError;
+      }, 500);
+    }
+    
+    function clearOutput() {
+      output.innerHTML = 'Click "Run All Tests" to begin...';
+      summary.className = '';
+      summary.textContent = '';
+    }
+  </script>
+</body>
+</html>
