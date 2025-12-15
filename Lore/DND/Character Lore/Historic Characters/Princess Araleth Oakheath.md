@@ -7,7 +7,7 @@
 | **Title** | Princess of the Southern Elven Houses |
 | **Age** | Deceased (lived approx. 690–770 C.C.) |
 | **Race** | Elf |
-| **Location** | Southern Forests, precursor to [Islefield](../../Kingdoms/Islefield/Islefield.md) (Historical) |
+| **Location** | Southern Forests, precursor to Islefield (Historical) |
 
 ---
 

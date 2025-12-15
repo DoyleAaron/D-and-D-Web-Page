@@ -7,7 +7,7 @@
 | **Title** | Meudec's Ocular Familiar |
 | **Age** | ~15 years (constructed) |
 | **Race** | Construct (Familiar) |
-| **Location** | Wherever [Chris Meudec](../../Character%20Lore/Modern%20Characters/Chris%20Meudec.md) goes |
+| **Location** | Wherever Chris Meudec goes |
 
 ---
 

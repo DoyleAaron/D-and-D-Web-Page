@@ -7,7 +7,7 @@
 | **Title** | 3rd Seat, Council of Ten (Arcane Synod) |
 | **Age** | Mid-40s |
 | **Race** | Human |
-| **Location** | [Kluimont City](../../Kingdoms/Kluimont/Kluimont.md) |
+| **Location** | Kluimont City, Kluimont |
 
 ---
 

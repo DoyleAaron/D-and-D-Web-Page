@@ -7,7 +7,7 @@
 | **Title** | Sea Lord, Founder of Kluimont's Naval Tradition |
 | **Age** | Deceased (lived ~770–830 C.C.) |
 | **Race** | Human (proto-Kluimont) |
-| **Location** | Western Seas, early [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) (Historical) |
+| **Location** | Western Seas, early Kluimont (Historical) |
 
 ---
 

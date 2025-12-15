@@ -7,7 +7,7 @@
 | **Title** | The Brass Tempest, Guardian of the Western Seas |
 | **Age** | ~1,200 years (Ancient) |
 | **Race** | Brass Dragon (Gargantuan) |
-| **Location** | Western Old-Growth Forest, [Kluimont](../../Kingdoms/Kluimont/Kluimont.md) (Bound) |
+| **Location** | Western Old-Growth Forest, Kluimont (Bound) |
 
 ---
 
