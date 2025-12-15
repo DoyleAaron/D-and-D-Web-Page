@@ -2,6 +2,8 @@
  * Interactive Map Module
  * Dayner D&D Website
  */
+console.log('MAP.JS LOADED – VERSION WITH HOME BUTTON');
+
 
 const MapModule = (function() {
   'use strict';
