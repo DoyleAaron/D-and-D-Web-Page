@@ -1267,10 +1267,30 @@ const MapModule = (function() {
     const zoomIn = document.getElementById('map-zoom-in');
     const zoomOut = document.getElementById('map-zoom-out');
     const zoomReset = document.getElementById('map-zoom-reset');
+    
+    // Create Home button if it isn't in the HTML
+    let homeBtn = document.getElementById('map-home');
+    if (!homeBtn) {
+      homeBtn = document.createElement('button');
+      homeBtn.className = 'map-control-btn';
+      homeBtn.id = 'map-home';
+      homeBtn.title = 'Home';
+      homeBtn.innerHTML = '<i class="fa-solid fa-house"></i>';
+
+      // Add it to the controls (append at the end)
+      document.querySelector('.map-controls')?.appendChild(homeBtn);
+    }
+
+    // Go back to site base when clicked
+    homeBtn?.addEventListener('click', () => {
+      window.location.href = '/';
+    });
+
 
     if (zoomIn) zoomIn.addEventListener('click', () => zoom(0.2));
     if (zoomOut) zoomOut.addEventListener('click', () => zoom(-0.2));
     if (zoomReset) zoomReset.addEventListener('click', resetView);
+    
 
     // Mouse wheel zoom
     if (mapContainer) {
