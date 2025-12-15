@@ -120,22 +120,36 @@ const DaynerTests = (function() {
     assert(typeof AuthModule.showLoginModal === 'function', 'AuthModule.showLoginModal exists');
     assert(typeof AuthModule.hideLoginModal === 'function', 'AuthModule.hideLoginModal exists');
     assert(typeof AuthModule.logout === 'function', 'AuthModule.logout exists');
-    assert(typeof AuthModule.getPlayers === 'function', 'AuthModule.getPlayers exists');
+    assert(typeof AuthModule.getCharacters === 'function', 'AuthModule.getCharacters exists');
+    assert(typeof AuthModule.isAdmin === 'function', 'AuthModule.isAdmin exists');
 
-    // Test 3: Players list
-    const players = AuthModule.getPlayers();
-    assert(Array.isArray(players), 'getPlayers returns an array');
-    assert(players.length === 6, 'Six players configured');
+    // Test 3: Characters list
+    const characters = AuthModule.getCharacters();
+    assert(Array.isArray(characters), 'getCharacters returns an array');
+    assert(characters.length === 7, 'Seven characters configured (6 players + admin)');
 
-    // Test 4: Player data structure
-    const player = players[0];
-    assert(player.id !== undefined, 'Player has id');
-    assert(player.firstName !== undefined, 'Player has firstName');
-    assert(player.email !== undefined, 'Player has email');
-    assert(player.character !== undefined, 'Player has character');
+    // Test 4: Character data structure
+    const char = characters[0];
+    assert(char.id !== undefined, 'Character has id');
+    assert(char.name !== undefined, 'Character has name');
+    assert(char.player !== undefined, 'Character has player');
+    assert(char.file !== undefined || char.file === null, 'Character has file or null');
 
-    // Test 5: Initial state (not logged in)
+    // Test 5: Admin character exists and has isAdmin flag
+    const admin = characters.find(c => c.id === 'admin');
+    assert(admin !== undefined, 'Admin character exists');
+    assert(admin.isAdmin === true, 'Admin has isAdmin flag');
+    assert(admin.name === 'Dungeon Master (Admin)', 'Admin has correct name');
+
+    // Test 6: Verify all player characters
+    const expectedChars = ['amdir', 'blorf', 'leontius', 'morjor', 'tearitus', 'varin'];
+    expectedChars.forEach(id => {
+      assert(characters.find(c => c.id === id) !== undefined, `Character ${id} exists`);
+    });
+
+    // Test 7: Initial state (not logged in)
     assert(AuthModule.isLoggedIn() === false || AuthModule.isLoggedIn() === true, 'isLoggedIn returns boolean');
+    assert(AuthModule.isAdmin() === false || AuthModule.isAdmin() === true, 'isAdmin returns boolean');
   }
 
   // ========================================

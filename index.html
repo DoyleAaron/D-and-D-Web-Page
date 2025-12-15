@@ -1043,10 +1043,13 @@
             <div class="user-avatar"><i class="fas fa-user"></i></div>
             <span class="user-name" id="user-name">Player</span>
           </div>
-          <button class="header-btn" id="journal-btn" aria-label="Journal">
+          <button class="header-btn" id="checklist-btn" aria-label="Checklist" title="Checklist">
+            <i class="fas fa-tasks"></i>
+          </button>
+          <button class="header-btn" id="journal-btn" aria-label="Journal" title="Journal">
             <i class="fas fa-book"></i>
           </button>
-          <button class="header-btn" id="logout-btn" aria-label="Logout">
+          <button class="header-btn" id="logout-btn" aria-label="Logout" title="Logout">
             <i class="fas fa-sign-out-alt"></i>
           </button>
         </div>
@@ -1101,29 +1104,57 @@
   <script src="static/js/firebase-config.js"></script>
   <script src="static/js/auth.js"></script>
   <script src="static/js/journal.js"></script>
+  <script src="static/js/checklist.js"></script>
   
   <!-- Login Modal -->
   <div class="login-modal" id="login-modal">
     <div class="login-card">
       <div class="login-header">
         <h2><i class="fas fa-dragon"></i> Welcome, Adventurer</h2>
-        <p>Sign in to access your journal</p>
+        <p>Select your character to continue</p>
       </div>
+      
       <div class="login-form">
         <div id="login-error" class="login-error"></div>
+        
+        <!-- Character Selection -->
         <div class="form-group">
-          <label for="player-select">Who are you?</label>
-          <select id="player-select" class="player-select">
-            <option value="">-- Select your name --</option>
-            <!-- Players added dynamically by auth.js -->
+          <label for="character-select">Choose Your Character</label>
+          <select id="character-select" class="character-select">
+            <option value="">-- Select your character --</option>
+            <!-- Characters added dynamically by auth.js -->
           </select>
         </div>
-        <div class="form-group">
-          <label for="login-password">Password</label>
-          <input type="password" id="login-password" placeholder="Enter your password" required>
+        
+        <!-- Mode Indicator -->
+        <div id="auth-mode-indicator" class="auth-mode-indicator"></div>
+        
+        <!-- Login Fields (shown for returning users) -->
+        <div id="login-fields" style="display: none;">
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+          </div>
         </div>
-        <button type="button" id="login-confirm" class="login-btn">
-          <i class="fas fa-sign-in-alt"></i> Enter
+        
+        <!-- Signup Fields (shown for new users) -->
+        <div id="signup-fields" style="display: none;">
+          <div class="form-group">
+            <label for="signup-password">Create Password</label>
+            <input type="password" id="signup-password" placeholder="At least 6 characters" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password-confirm">Confirm Password</label>
+            <input type="password" id="signup-password-confirm" placeholder="Confirm your password" required>
+          </div>
+        </div>
+        
+        <button type="button" id="login-confirm" class="login-btn" style="display: none;">
+          <i class="fas fa-sign-in-alt"></i> Enter the Realm
+        </button>
+        
+        <button type="button" id="auth-mode-toggle" class="auth-mode-toggle" style="display: none;">
+          I have an account
         </button>
       </div>
     </div>
@@ -1143,6 +1174,9 @@
       <div class="journal-toolbar">
         <button id="journal-new" class="primary">
           <i class="fas fa-plus"></i> New Entry
+        </button>
+        <button id="journal-admin-toggle" class="admin-toggle" style="display: none;">
+          <i class="fas fa-users"></i> All Journals
         </button>
       </div>
       <div class="journal-content">
@@ -1168,9 +1202,46 @@
       <div class="journal-content">
         <div class="journal-editor-header">
           <div class="journal-date" id="journal-date">New entry</div>
+          <div class="journal-owner" id="journal-owner" style="display: none;"></div>
           <input type="text" class="journal-title-input" id="journal-title" placeholder="Entry Title...">
         </div>
         <textarea class="journal-content-input" id="journal-content" placeholder="Write your adventure notes here..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checklist Panel -->
+  <div class="checklist-panel" id="checklist-panel">
+    <div class="checklist-header">
+      <h2><i class="fas fa-tasks"></i> My Checklist</h2>
+      <button class="checklist-close" id="checklist-close" aria-label="Close checklist">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="checklist-content">
+      <div class="checklist-input-container">
+        <input type="text" id="checklist-new-item" placeholder="Add a new task..." class="checklist-input">
+        <button id="checklist-add" class="checklist-add-btn" aria-label="Add task">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      
+      <div class="checklist-filters">
+        <button class="checklist-filter active" data-filter="all">All</button>
+        <button class="checklist-filter" data-filter="active">Active</button>
+        <button class="checklist-filter" data-filter="completed">Completed</button>
+      </div>
+      
+      <div class="checklist-items" id="checklist-items">
+        <!-- Checklist items will be loaded here -->
+      </div>
+      
+      <div class="checklist-footer">
+        <span id="checklist-count">0 tasks</span>
+        <button id="checklist-clear-completed" class="checklist-clear">
+          Clear Completed
+        </button>
       </div>
     </div>
   </div>

@@ -567,6 +567,39 @@
   flex-shrink: 0;
 }
 
+/* Legend dot colors */
+.legend-dot.capital {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.legend-dot.large-city {
+  background: linear-gradient(135deg, #e94560 0%, #a73349 100%);
+}
+
+.legend-dot.medium-city {
+  background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%);
+}
+
+.legend-dot.town {
+  background: linear-gradient(135deg, #81c784 0%, #388e3c 100%);
+}
+
+.legend-dot.village {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #a1887f 0%, #6d4c41 100%);
+}
+
+.legend-dot.poi {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #ce93d8 0%, #7b1fa2 100%);
+  border-style: dashed;
+}
+
 /* ========================================
    SETTLEMENT LIST (Mobile/Fallback)
    ======================================== */

@@ -272,10 +272,13 @@
   function renderContent(html, title, filePath) {
     const icon = getIconForPath(filePath);
     
+    // Auto-link known terms (characters, places) in the content
+    const linkedHtml = autoLinkTerms(html, filePath);
+    
     contentArea.innerHTML = `
       <div class="content-card">
         <h1><i class="fas ${icon}"></i> ${escapeHtml(title)}</h1>
-        <div class="lore-content">${html}</div>
+        <div class="lore-content">${linkedHtml}</div>
       </div>
     `;
     
@@ -285,12 +288,115 @@
     setupContentLinks(filePath);
   }
 
+  // Build a dictionary of linkable terms from the search index
+  function getLinkableTerms() {
+    const terms = {};
+    
+    // Use the search index which has all file paths
+    searchIndex.forEach(item => {
+      if (item.type === 'file' && item.path) {
+        // Extract the filename without extension as a term
+        const filename = item.path.split('/').pop().replace('.md', '');
+        // Skip very short names or generic files
+        if (filename.length > 2 && !['DND', 'README', 'index'].includes(filename)) {
+          terms[filename.toLowerCase()] = {
+            name: filename,
+            path: item.path,
+            title: item.title
+          };
+        }
+      }
+    });
+    
+    return terms;
+  }
+
+  // Auto-link known terms in HTML content
+  function autoLinkTerms(html, currentFilePath) {
+    const terms = getLinkableTerms();
+    const termKeys = Object.keys(terms).sort((a, b) => b.length - a.length); // Longer terms first
+    
+    if (termKeys.length === 0) return html;
+    
+    // Don't process if we're still loading the index
+    const currentFileName = currentFilePath.split('/').pop().replace('.md', '').toLowerCase();
+    
+    // Create a temporary element to work with
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    
+    // Process text nodes only (not inside links, headings, or code)
+    const walker = document.createTreeWalker(temp, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node) {
+        const parent = node.parentNode;
+        const parentTag = parent.tagName?.toLowerCase();
+        // Skip if inside a link, heading, code, or script
+        if (['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code', 'pre', 'script', 'style'].includes(parentTag)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        // Skip if already inside an auto-link
+        if (parent.classList?.contains('auto-link')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    
+    const textNodes = [];
+    while (walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+    
+    // Process each text node
+    textNodes.forEach(textNode => {
+      let text = textNode.nodeValue;
+      let hasMatch = false;
+      
+      // Check each term
+      for (const termKey of termKeys) {
+        const term = terms[termKey];
+        // Don't link to the current page
+        if (termKey === currentFileName) continue;
+        
+        // Create regex that matches whole words only (case insensitive)
+        const regex = new RegExp(`\\b(${escapeRegExp(term.name)})\\b`, 'gi');
+        
+        if (regex.test(text)) {
+          hasMatch = true;
+          text = text.replace(regex, `<a href="#" class="auto-link" data-path="${term.path}" title="${term.title}">$1</a>`);
+        }
+      }
+      
+      if (hasMatch) {
+        const span = document.createElement('span');
+        span.innerHTML = text;
+        textNode.parentNode.replaceChild(span, textNode);
+      }
+    });
+    
+    return temp.innerHTML;
+  }
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
   // Handle clicks on markdown links within content
   function setupContentLinks(currentFilePath) {
     const contentLinks = contentArea.querySelectorAll('.lore-content a');
     
     contentLinks.forEach(link => {
       const href = link.getAttribute('href');
+      const dataPath = link.dataset.path;
+      
+      // Handle auto-linked terms
+      if (link.classList.contains('auto-link') && dataPath) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          loadContent(dataPath);
+        });
+        return;
+      }
       
       // Only handle internal .md links
       if (href && href.endsWith('.md')) {
@@ -504,15 +610,20 @@
   }
 
   // ========================================
-  // SEARCH
+  // SEARCH (Full-text)
   // ========================================
   let searchIndex = [];
+  let searchIndexBuilt = false;
+  let searchIndexBuilding = false;
 
   function initSearch() {
     if (!searchInput) return;
 
-    // Build index from DOM
-    buildSearchIndex();
+    // Build basic index from DOM first (fast)
+    buildBasicSearchIndex();
+    
+    // Build full-text index in background
+    buildFullTextSearchIndex();
 
     // Search on input
     searchInput.addEventListener('input', debounce(function() {
@@ -532,13 +643,70 @@
     });
   }
 
-  function buildSearchIndex() {
+  function buildBasicSearchIndex() {
     const navItems = document.querySelectorAll('.nav-item[data-file]');
     navItems.forEach(item => {
       const file = item.dataset.file;
       const title = item.querySelector('.menu-text')?.textContent || item.textContent.trim();
-      searchIndex.push({ title, path: file });
+      searchIndex.push({ 
+        title, 
+        path: file, 
+        content: '', 
+        type: 'file',
+        settlement: null 
+      });
     });
+  }
+
+  async function buildFullTextSearchIndex() {
+    if (searchIndexBuilding || searchIndexBuilt) return;
+    searchIndexBuilding = true;
+    
+    // Fetch content for each indexed file
+    for (let i = 0; i < searchIndex.length; i++) {
+      const item = searchIndex[i];
+      try {
+        const response = await fetch(LORE_BASE_PATH + item.path);
+        if (response.ok) {
+          const text = await response.text();
+          // Store plain text content (strip markdown syntax for better search)
+          searchIndex[i].content = stripMarkdown(text).toLowerCase();
+        }
+      } catch (e) {
+        // Silently continue on fetch errors
+      }
+    }
+    
+    // Also index map settlements for "search navigates to map" feature
+    if (window.MapModule && typeof MapModule.getAllSettlements === 'function') {
+      const settlements = MapModule.getAllSettlements();
+      settlements.forEach(s => {
+        searchIndex.push({
+          title: s.name,
+          path: s.file || '',
+          content: `${s.name} ${s.type} ${s.kingdom} ${s.description || ''}`.toLowerCase(),
+          type: 'settlement',
+          settlement: s
+        });
+      });
+    }
+    
+    searchIndexBuilt = true;
+    searchIndexBuilding = false;
+    console.log('Full-text search index built with', searchIndex.length, 'items');
+  }
+
+  function stripMarkdown(text) {
+    return text
+      .replace(/#+\s*/g, '') // Headers
+      .replace(/\*\*|__/g, '') // Bold
+      .replace(/\*|_/g, '') // Italic
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Links
+      .replace(/`[^`]+`/g, '') // Inline code
+      .replace(/```[\s\S]*?```/g, '') // Code blocks
+      .replace(/>\s*/g, '') // Blockquotes
+      .replace(/[-*+]\s+/g, '') // List items
+      .replace(/\d+\.\s+/g, ''); // Numbered lists
   }
 
   function performSearch(query) {
@@ -548,9 +716,44 @@
     }
 
     const queryLower = query.toLowerCase();
+    const queryWords = queryLower.split(/\s+/).filter(w => w.length > 1);
+    
     const results = searchIndex
-      .filter(item => item.title.toLowerCase().includes(queryLower) || item.path.toLowerCase().includes(queryLower))
-      .slice(0, 15);
+      .map(item => {
+        let score = 0;
+        const titleLower = item.title.toLowerCase();
+        const pathLower = item.path.toLowerCase();
+        
+        // Title exact match (highest priority)
+        if (titleLower === queryLower) score += 100;
+        // Title contains query
+        else if (titleLower.includes(queryLower)) score += 50;
+        // Title contains query words
+        else {
+          queryWords.forEach(word => {
+            if (titleLower.includes(word)) score += 20;
+          });
+        }
+        
+        // Path match
+        if (pathLower.includes(queryLower)) score += 10;
+        
+        // Content match (full-text search)
+        if (item.content) {
+          if (item.content.includes(queryLower)) {
+            score += 30;
+          } else {
+            queryWords.forEach(word => {
+              if (item.content.includes(word)) score += 5;
+            });
+          }
+        }
+        
+        return { ...item, score };
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20);
 
     displaySearchResults(results, query);
   }
@@ -562,17 +765,39 @@
     if (results.length === 0) {
       resultsList.innerHTML = `<div class="result-item"><p class="text-muted">No results found for "${escapeHtml(query)}"</p></div>`;
     } else {
-      resultsList.innerHTML = results.map(r => `
-        <div class="result-item" data-path="${escapeHtml(r.path)}">
-          <h3>${escapeHtml(r.title)}</h3>
-          <div class="result-path">${escapeHtml(r.path)}</div>
-        </div>
-      `).join('');
+      resultsList.innerHTML = results.map(r => {
+        const typeIcon = r.type === 'settlement' 
+          ? '<i class="fas fa-map-marker-alt" style="color: var(--color-gold);"></i>' 
+          : '<i class="fas fa-file-alt"></i>';
+        const typeLabel = r.type === 'settlement' ? 'Map Location' : r.path;
+        const snippet = r.content ? getSearchSnippet(r.content, query) : '';
+        
+        return `
+          <div class="result-item" data-path="${escapeHtml(r.path)}" data-type="${r.type}" ${r.type === 'settlement' ? `data-settlement="${escapeHtml(r.title)}"` : ''}>
+            <div class="result-header">
+              ${typeIcon}
+              <h3>${highlightQuery(r.title, query)}</h3>
+            </div>
+            <div class="result-path">${typeLabel}</div>
+            ${snippet ? `<div class="result-snippet">${snippet}</div>` : ''}
+          </div>
+        `;
+      }).join('');
 
       // Bind clicks
       resultsList.querySelectorAll('.result-item').forEach(item => {
         item.addEventListener('click', () => {
-          loadContent(item.dataset.path);
+          const type = item.dataset.type;
+          const path = item.dataset.path;
+          const settlementName = item.dataset.settlement;
+          
+          if (type === 'settlement' && settlementName) {
+            // Navigate to map and focus on settlement
+            navigateToMapSettlement(settlementName);
+          } else if (path) {
+            loadContent(path);
+          }
+          
           hideSearchResults();
           searchInput.value = '';
         });
@@ -580,6 +805,31 @@
     }
 
     searchResults.classList.add('visible');
+  }
+
+  function getSearchSnippet(content, query) {
+    const queryLower = query.toLowerCase();
+    const index = content.indexOf(queryLower);
+    if (index === -1) return '';
+    
+    const start = Math.max(0, index - 40);
+    const end = Math.min(content.length, index + query.length + 60);
+    let snippet = content.substring(start, end);
+    
+    if (start > 0) snippet = '...' + snippet;
+    if (end < content.length) snippet = snippet + '...';
+    
+    return highlightQuery(snippet, query);
+  }
+
+  function highlightQuery(text, query) {
+    const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+    return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+  }
+
+  function navigateToMapSettlement(settlementName) {
+    // Navigate to map page
+    window.location.href = 'map.html?settlement=' + encodeURIComponent(settlementName);
   }
 
   function hideSearchResults() {

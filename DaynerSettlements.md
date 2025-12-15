@@ -115,6 +115,7 @@
 #### Erymont
 #### The Flat Den
 #### Gray Toad Woods
+#### The Graveyard Arcana
 
   
 
@@ -134,3 +135,4 @@
 ## Villages:
 ## POI
 #### Lavalto Volcano
+#### Darford cavity

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Marker Positioning Tool</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    .header {
+      background: #0f0f1a;
+      padding: 15px 20px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    h1 {
+      font-size: 1.2rem;
+      color: #d4af37;
+    }
+    .instructions {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    button {
+      background: #e94560;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #c73a52; }
+    button.secondary {
+      background: #333;
+    }
+    button.secondary:hover { background: #444; }
+    
+    .main {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+    
+    .map-area {
+      flex: 1;
+      overflow: auto;
+      position: relative;
+      background: #0a0a15;
+    }
+    
+    .map-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .map-container img {
+      display: block;
+      max-width: none;
+    }
+    
+    .placed-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #e94560;
+      border: 2px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .placed-marker:hover {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+    .placed-marker.selected {
+      background: #ffd700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    }
+    
+    .marker-label {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      margin-top: 4px;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    
+    .sidebar {
+      width: 400px;
+      background: #16162a;
+      border-left: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .sidebar-header {
+      padding: 15px;
+      border-bottom: 1px solid #333;
+      background: #0f0f1a;
+    }
+    
+    .sidebar-header h2 {
+      font-size: 1rem;
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+    
+    .coord-display {
+      font-family: monospace;
+      font-size: 14px;
+      background: #0a0a15;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    
+    .coord-display span {
+      color: #4caf50;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    
+    input, select {
+      flex: 1;
+      padding: 8px 12px;
+      background: #0a0a15;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-size: 14px;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+    
+    .marker-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    
+    .marker-item {
+      background: #0f0f1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .marker-item:hover {
+      border-color: #d4af37;
+    }
+    
+    .marker-item.selected {
+      border-color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+    }
+    
+    .marker-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    
+    .marker-item-name {
+      font-weight: 600;
+      color: #e0e0e0;
+    }
+    
+    .marker-item-type {
+      font-size: 11px;
+      padding: 2px 6px;
+      background: #333;
+      border-radius: 4px;
+      color: #aaa;
+    }
+    
+    .marker-item-coords {
+      font-family: monospace;
+      font-size: 12px;
+      color: #4caf50;
+    }
+    
+    .marker-item-delete {
+      background: #c0392b;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    
+    .output-section {
+      padding: 15px;
+      border-top: 1px solid #333;
+      background: #0f0f1a;
+    }
+    
+    .output-section h3 {
+      font-size: 0.9rem;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+    
+    #output-code {
+      width: 100%;
+      height: 150px;
+      background: #0a0a15;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #4caf50;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 10px;
+      resize: vertical;
+    }
+    
+    .zoom-info {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.8);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>🗺️ Map Marker Positioning Tool</h1>
+      <p class="instructions">Click on the map to place markers. Enter a name and click Add Marker.</p>
+    </div>
+    <div class="controls">
+      <button class="secondary" onclick="clearAll()">Clear All</button>
+      <button onclick="generateCode()">Generate Code</button>
+      <button onclick="copyCode()">Copy to Clipboard</button>
+    </div>
+  </div>
+  
+  <div class="main">
+    <div class="map-area" id="map-area">
+      <div class="map-container" id="map-container">
+        <img src="map.jpg" id="map-image" alt="Map">
+      </div>
+    </div>
+    
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Current Position</h2>
+        <div class="coord-display">
+          X: <span id="current-x">--</span>% &nbsp; Y: <span id="current-y">--</span>%
+        </div>
+        <div class="input-group">
+          <input type="text" id="marker-name" placeholder="Settlement name...">
+          <select id="marker-type">
+            <option value="capital">Capital</option>
+            <option value="large-city">Large City</option>
+            <option value="medium-city">Medium City</option>
+            <option value="town" selected>Town</option>
+            <option value="village">Village</option>
+            <option value="poi">POI</option>
+          </select>
+        </div>
+        <button onclick="addMarker()" style="width: 100%;">Add Marker at Last Click</button>
+      </div>
+      
+      <div class="marker-list" id="marker-list">
+        <p style="color: #666; text-align: center; padding: 20px;">
+          No markers placed yet.<br>Click on the map to start.
+        </p>
+      </div>
+      
+      <div class="output-section">
+        <h3>Generated Coordinates</h3>
+        <textarea id="output-code" readonly placeholder="Click 'Generate Code' to see the coordinates..."></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div class="zoom-info">
+    Scroll to zoom • Tip: Place markers at 100% zoom for accuracy
+  </div>
+
+  <script>
+    const markers = [];
+    let lastClickX = null;
+    let lastClickY = null;
+    let selectedMarkerIndex = null;
+    
+    const mapContainer = document.getElementById('map-container');
+    const mapImage = document.getElementById('map-image');
+    const currentXEl = document.getElementById('current-x');
+    const currentYEl = document.getElementById('current-y');
+    const markerNameInput = document.getElementById('marker-name');
+    const markerTypeSelect = document.getElementById('marker-type');
+    const markerListEl = document.getElementById('marker-list');
+    const outputCode = document.getElementById('output-code');
+    
+    // Handle map clicks
+    mapContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('placed-marker')) return;
+      
+      const rect = mapImage.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      
+      lastClickX = parseFloat(x);
+      lastClickY = parseFloat(y);
+      
+      currentXEl.textContent = x;
+      currentYEl.textContent = y;
+    });
+    
+    // Add marker
+    function addMarker() {
+      if (lastClickX === null || lastClickY === null) {
+        alert('Click on the map first to set position');
+        return;
+      }
+      
+      const name = markerNameInput.value.trim() || `Marker ${markers.length + 1}`;
+      const type = markerTypeSelect.value;
+      
+      const marker = {
+        name,
+        type,
+        x: lastClickX,
+        y: lastClickY
+      };
+      
+      markers.push(marker);
+      markerNameInput.value = '';
+      
+      renderMarkers();
+      renderMarkerList();
+    }
+    
+    // Render markers on map
+    function renderMarkers() {
+      // Remove existing
+      document.querySelectorAll('.placed-marker').forEach(m => m.remove());
+      
+      markers.forEach((marker, index) => {
+        const el = document.createElement('div');
+        el.className = 'placed-marker' + (index === selectedMarkerIndex ? ' selected' : '');
+        el.style.left = marker.x + '%';
+        el.style.top = marker.y + '%';
+        el.dataset.index = index;
+        
+        const label = document.createElement('div');
+        label.className = 'marker-label';
+        label.textContent = marker.name;
+        el.appendChild(label);
+        
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectMarker(index);
+        });
+        
+        mapContainer.appendChild(el);
+      });
+    }
+    
+    // Render marker list in sidebar
+    function renderMarkerList() {
+      if (markers.length === 0) {
+        markerListEl.innerHTML = `
+          <p style="color: #666; text-align: center; padding: 20px;">
+            No markers placed yet.<br>Click on the map to start.
+          </p>
+        `;
+        return;
+      }
+      
+      markerListEl.innerHTML = markers.map((marker, index) => `
+        <div class="marker-item ${index === selectedMarkerIndex ? 'selected' : ''}" 
+             onclick="selectMarker(${index})">
+          <div class="marker-item-header">
+            <span class="marker-item-name">${marker.name}</span>
+            <span class="marker-item-type">${formatType(marker.type)}</span>
+          </div>
+          <div class="marker-item-coords">
+            x: ${marker.x}, y: ${marker.y}
+            <button class="marker-item-delete" onclick="event.stopPropagation(); deleteMarker(${index})">
+              Delete
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function formatType(type) {
+      const types = {
+        'capital': 'Capital',
+        'large-city': 'Large City',
+        'medium-city': 'Medium City',
+        'town': 'Town',
+        'village': 'Village',
+        'poi': 'POI'
+      };
+      return types[type] || type;
+    }
+    
+    function selectMarker(index) {
+      selectedMarkerIndex = index === selectedMarkerIndex ? null : index;
+      renderMarkers();
+      renderMarkerList();
+    }
+    
+    function deleteMarker(index) {
+      markers.splice(index, 1);
+      if (selectedMarkerIndex === index) selectedMarkerIndex = null;
+      else if (selectedMarkerIndex > index) selectedMarkerIndex--;
+      renderMarkers();
+      renderMarkerList();
+    }
+    
+    function clearAll() {
+      if (markers.length === 0) return;
+      if (!confirm('Clear all markers?')) return;
+      markers.length = 0;
+      selectedMarkerIndex = null;
+      renderMarkers();
+      renderMarkerList();
+      outputCode.value = '';
+    }
+    
+    function generateCode() {
+      if (markers.length === 0) {
+        outputCode.value = '// No markers to export';
+        return;
+      }
+      
+      // Group by type
+      const grouped = {};
+      markers.forEach(m => {
+        if (!grouped[m.type]) grouped[m.type] = [];
+        grouped[m.type].push(m);
+      });
+      
+      let code = '// Marker coordinates - copy these into map.js\n\n';
+      
+      for (const type in grouped) {
+        code += `// ${formatType(type)}s\n`;
+        grouped[type].forEach(m => {
+          const id = m.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          code += `{ id: '${id}', name: '${m.name}', x: ${m.x}, y: ${m.y} },\n`;
+        });
+        code += '\n';
+      }
+      
+      outputCode.value = code;
+    }
+    
+    function copyCode() {
+      generateCode();
+      outputCode.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && document.activeElement === markerNameInput) {
+        addMarker();
+      }
+      if (e.key === 'Delete' && selectedMarkerIndex !== null) {
+        deleteMarker(selectedMarkerIndex);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -37,30 +37,6 @@
       position: relative;
     }
     
-    .back-to-site {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 200;
-      padding: 10px 20px;
-      background: rgba(26, 26, 46, 0.95);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    
-    .back-to-site:hover {
-      background: var(--accent-primary);
-      border-color: var(--accent-primary);
-      color: white;
-    }
-    
     /* Ensure map fills space */
     .map-container {
       flex: 1;
@@ -135,19 +111,16 @@
 </head>
 <body>
   <div class="map-page">
-    <!-- Back to main site link -->
-    <a href="index.html" class="back-to-site">
-      <i class="fas fa-arrow-left"></i>
-      Back to Lore
-    </a>
-
     <!-- Main Map View -->
     <div class="map-view active">
       <!-- Map Header with Region Tabs -->
       <div class="map-header">
         <h1 class="map-title"><i class="fas fa-map-marked-alt"></i> World of Dayner</h1>
         <div class="region-tabs">
-          <button class="region-tab active" data-kingdom="braewood">
+          <button class="region-tab active" data-kingdom="all">
+            <i class="fas fa-globe"></i> All Kingdoms
+          </button>
+          <button class="region-tab" data-kingdom="braewood">
             <i class="fas fa-shield-alt"></i> Braewood
           </button>
           <button class="region-tab" data-kingdom="islefield">

@@ -166,6 +166,25 @@
   transform: none;
 }
 
+/* Auth Mode Toggle Button */
+.auth-mode-toggle {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: var(--spacing-sm);
+}
+
+.auth-mode-toggle:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
 /* ========================================
    USER MENU (Header)
    ======================================== */
@@ -210,7 +229,7 @@
   right: -450px;
   width: 450px;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
   background: var(--bg-secondary);
   border-left: 1px solid var(--border-color);
   z-index: 8000;
@@ -218,6 +237,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-xl);
+  overflow: hidden;
 }
 
 .journal-panel.active {
@@ -305,10 +325,29 @@
   border-color: var(--color-accent);
 }
 
+/* Journal List View - needs flex layout for scrolling */
+.journal-list {
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Journal Editor View - same flex layout */
+.journal-editor {
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .journal-content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--spacing-md);
+  min-height: 0;
+  max-height: 100%;
 }
 
 /* Journal List */
@@ -350,6 +389,61 @@
 .journal-entry-date {
   font-size: var(--font-size-xs);
   color: var(--text-muted);
+}
+
+.journal-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.journal-owner-badge {
+  font-size: var(--font-size-xs);
+  background: var(--color-gold);
+  color: var(--bg-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+.journal-entry-item.other-player {
+  border-left: 3px solid var(--color-gold);
+}
+
+.journal-owner {
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.admin-toggle {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.admin-toggle:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.admin-toggle.active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--bg-primary);
 }
 
 .journal-empty {
@@ -488,6 +582,10 @@
     width: 100%;
   }
   
+  .checklist-panel {
+    width: 100%;
+  }
+  
   .login-card {
     margin: var(--spacing-md);
   }
@@ -495,4 +593,377 @@
   .user-name {
     display: none;
   }
+}
+
+/* ========================================
+   AUTH TABS
+   ======================================== */
+
+.auth-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: none;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.auth-tab.active {
+  background: var(--bg-card);
+  color: var(--color-gold);
+  box-shadow: inset 0 -2px 0 var(--color-gold);
+}
+
+/* ========================================
+   AUTH MODE INDICATOR
+   ======================================== */
+
+.auth-mode-indicator {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.auth-mode-indicator.login-mode {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}
+
+.auth-mode-indicator.signup-mode {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--color-gold);
+}
+
+.character-select {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.character-select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* ========================================
+   CHECKLIST PANEL
+   ======================================== */
+
+.checklist-panel {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 450px;
+  max-width: 100%;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  z-index: 8000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+}
+
+.checklist-panel.active {
+  right: 0;
+}
+
+.checklist-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.checklist-header h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: 0;
+}
+
+.checklist-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  transition: color var(--transition-fast);
+}
+
+.checklist-close:hover {
+  color: var(--color-accent);
+}
+
+.checklist-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  overflow: hidden;
+}
+
+.checklist-input-container {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.checklist-input {
+  flex: 1;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+}
+
+.checklist-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.checklist-add-btn {
+  padding: var(--spacing-md);
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.checklist-add-btn:hover {
+  transform: scale(1.05);
+}
+
+.checklist-filters {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.checklist-filter {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.checklist-filter:hover {
+  border-color: var(--color-gold);
+  color: var(--text-primary);
+}
+
+.checklist-filter.active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--bg-primary);
+}
+
+.checklist-items {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.checklist-item:hover {
+  border-color: var(--color-gold);
+}
+
+.checklist-item.completed {
+  opacity: 0.6;
+}
+
+.checklist-item.completed .checklist-item-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.checklist-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checklist-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checklist-checkbox .checkmark {
+  width: 22px;
+  height: 22px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.checklist-checkbox .checkmark i {
+  color: transparent;
+  font-size: 12px;
+  transition: all var(--transition-fast);
+}
+
+.checklist-checkbox input:checked + .checkmark {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.checklist-checkbox input:checked + .checkmark i {
+  color: var(--bg-primary);
+}
+
+.checklist-item-text {
+  flex: 1;
+  color: var(--text-primary);
+}
+
+.checklist-item-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.checklist-item:hover .checklist-item-delete {
+  opacity: 1;
+}
+
+.checklist-item-delete:hover {
+  color: var(--color-accent);
+}
+
+.checklist-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  margin-top: var(--spacing-md);
+}
+
+#checklist-count {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.checklist-clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.checklist-clear:hover {
+  color: var(--color-accent);
+}
+
+.checklist-empty {
+  text-align: center;
+  padding: var(--spacing-xxl);
+  color: var(--text-muted);
+}
+
+.checklist-empty i {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+  color: var(--color-gold);
+}
+
+/* =========================================
+   Journal Content Styling (Markdown-like)
+   ========================================= */
+
+/* Make the journal content textarea use a nice font */
+.journal-content-input {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.6;
+}
+
+/* Fancy journal title in list view */
+.journal-entry-item .journal-entry-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+}
+
+/* Default journal badge */
+.journal-entry-item.default-journal {
+  border-left: 3px solid var(--color-gold);
+}
+
+.journal-entry-item.default-journal::before {
+  content: '📖';
+  margin-right: 0.5rem;
 }
