@@ -361,9 +361,15 @@
         // Create regex that matches whole words only (case insensitive)
         const regex = new RegExp(`\\b(${escapeRegExp(term.name)})\\b`, 'gi');
         
-        if (regex.test(text)) {
+        // Properly escape path and title for HTML attributes
+        const escapedPath = term.path.replace(/"/g, '&quot;');
+        const escapedTitle = (term.title || term.name).replace(/"/g, '&quot;');
+        const replacement = `<a href="#" class="auto-link" data-path="${escapedPath}" title="${escapedTitle}">$1</a>`;
+        
+        const newText = text.replace(regex, replacement);
+        if (newText !== text) {
           hasMatch = true;
-          text = text.replace(regex, `<a href="#" class="auto-link" data-path="${term.path}" title="${term.title}">$1</a>`);
+          text = newText;
         }
       }
       
@@ -1038,6 +1044,20 @@
       console.log('Intro video failed to load, dismissing overlay');
       overlay.classList.add('hidden');
     });
+
+    // Fallback: if video can't autoplay (browser policy), dismiss after timeout
+    video.play().catch(() => {
+      console.log('Video autoplay blocked, dismissing overlay after timeout');
+      setTimeout(dismissIntro, 2000);
+    });
+
+    // Ultimate fallback: dismiss after 15 seconds regardless
+    setTimeout(() => {
+      if (!overlay.classList.contains('hidden') && !overlay.classList.contains('fade-out')) {
+        console.log('Intro video timeout, dismissing overlay');
+        dismissIntro();
+      }
+    }, 15000);
 
     console.log('🎬 Intro video initialized');
   }

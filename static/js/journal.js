@@ -140,7 +140,14 @@ const JournalModule = (function() {
       if (titleInput) titleInput.value = entry.title || '';
       if (contentInput) contentInput.value = entry.content || '';
       if (dateDisplay) {
-        const date = entry.updatedAt ? entry.updatedAt.toDate() : new Date();
+        let date = new Date();
+        try {
+          if (entry.updatedAt && typeof entry.updatedAt.toDate === 'function') {
+            date = entry.updatedAt.toDate();
+          }
+        } catch (e) {
+          console.warn('Could not parse entry date:', e);
+        }
         dateDisplay.textContent = 'Last updated: ' + formatDate(date);
       }
       if (deleteBtn) deleteBtn.style.display = 'block';
