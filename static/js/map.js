@@ -1,6 +1,6 @@
 /**
  * Interactive Map Module
- * Dayner D&D Websitee
+ * Dayner D&D Websiteee
  */
 console.log('MAP.JS LOADED – VERSION WITH HOME BUTTON');
 
