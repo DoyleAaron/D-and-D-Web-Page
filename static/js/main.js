@@ -56,11 +56,10 @@
   // ========================================
   // DOM ELEMENTS
   // ========================================
-  let sidebar, overlay, contentArea, breadcrumb, loading, searchInput, searchResults;
+  let sidebar, contentArea, breadcrumb, loading, searchInput, searchResults;
 
   function initElements() {
     sidebar = document.getElementById('sidebar');
-    overlay = document.getElementById('sidebar-overlay');
     contentArea = document.getElementById('content-area');
     breadcrumb = document.getElementById('breadcrumb');
     loading = document.getElementById('loading');
@@ -103,17 +102,6 @@
   let sidebarOpen = false;
 
   function initNavigation() {
-    // Mobile menu toggle
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', toggleSidebar);
-    }
-
-    // Overlay click closes sidebar
-    if (overlay) {
-      overlay.addEventListener('click', closeSidebar);
-    }
-
     // Escape key closes sidebar
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && sidebarOpen) closeSidebar();
@@ -123,6 +111,12 @@
     const collapseBtn = document.querySelector('.sidebar-collapse-btn');
     if (collapseBtn) {
       collapseBtn.addEventListener('click', toggleCollapse);
+    }
+
+    // Floating sidebar expand button (for reopening when collapsed)
+    const sidebarExpandBtn = document.getElementById('sidebar-expand-btn');
+    if (sidebarExpandBtn) {
+      sidebarExpandBtn.addEventListener('click', toggleCollapse);
     }
 
     // Logo/title clicks go home
@@ -224,15 +218,11 @@
   function openSidebar() {
     sidebarOpen = true;
     if (sidebar) sidebar.classList.add('open');
-    if (overlay) overlay.classList.add('visible');
-    document.body.style.overflow = 'hidden';
   }
 
   function closeSidebar() {
     sidebarOpen = false;
     if (sidebar) sidebar.classList.remove('open');
-    if (overlay) overlay.classList.remove('visible');
-    document.body.style.overflow = '';
   }
 
   function toggleCollapse() {
@@ -1124,6 +1114,123 @@
       minimizeBtn.querySelector('i').classList.toggle('fa-chevron-right', !isMinimized);
       minimizeBtn.querySelector('i').classList.toggle('fa-chevron-left', isMinimized);
       localStorage.setItem('musicMinimized', isMinimized);
+    });
+
+    // ========================================
+    // DRAG FUNCTIONALITY
+    // ========================================
+    let isDragging = false;
+    let dragStartX, dragStartY;
+    let playerStartX, playerStartY;
+
+    // Load saved position
+    const savedPos = localStorage.getItem('musicPlayerPosition');
+    if (savedPos) {
+      const pos = JSON.parse(savedPos);
+      musicPlayer.style.right = 'auto';
+      musicPlayer.style.bottom = 'auto';
+      musicPlayer.style.left = pos.left + 'px';
+      musicPlayer.style.top = pos.top + 'px';
+    }
+
+    musicPlayer.addEventListener('mousedown', (e) => {
+      // Don't start drag if clicking a button or input
+      if (e.target.closest('button') || e.target.closest('input')) return;
+      
+      isDragging = true;
+      musicPlayer.classList.add('dragging');
+      
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      
+      const rect = musicPlayer.getBoundingClientRect();
+      playerStartX = rect.left;
+      playerStartY = rect.top;
+      
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - dragStartX;
+      const deltaY = e.clientY - dragStartY;
+      
+      let newLeft = playerStartX + deltaX;
+      let newTop = playerStartY + deltaY;
+      
+      // Keep within viewport bounds
+      const rect = musicPlayer.getBoundingClientRect();
+      newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - rect.width));
+      newTop = Math.max(0, Math.min(newTop, window.innerHeight - rect.height));
+      
+      musicPlayer.style.right = 'auto';
+      musicPlayer.style.bottom = 'auto';
+      musicPlayer.style.left = newLeft + 'px';
+      musicPlayer.style.top = newTop + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        musicPlayer.classList.remove('dragging');
+        
+        // Save position
+        const rect = musicPlayer.getBoundingClientRect();
+        localStorage.setItem('musicPlayerPosition', JSON.stringify({
+          left: rect.left,
+          top: rect.top
+        }));
+      }
+    });
+
+    // Touch support for mobile
+    musicPlayer.addEventListener('touchstart', (e) => {
+      if (e.target.closest('button') || e.target.closest('input')) return;
+      
+      isDragging = true;
+      musicPlayer.classList.add('dragging');
+      
+      const touch = e.touches[0];
+      dragStartX = touch.clientX;
+      dragStartY = touch.clientY;
+      
+      const rect = musicPlayer.getBoundingClientRect();
+      playerStartX = rect.left;
+      playerStartY = rect.top;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      
+      const touch = e.touches[0];
+      const deltaX = touch.clientX - dragStartX;
+      const deltaY = touch.clientY - dragStartY;
+      
+      let newLeft = playerStartX + deltaX;
+      let newTop = playerStartY + deltaY;
+      
+      const rect = musicPlayer.getBoundingClientRect();
+      newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - rect.width));
+      newTop = Math.max(0, Math.min(newTop, window.innerHeight - rect.height));
+      
+      musicPlayer.style.right = 'auto';
+      musicPlayer.style.bottom = 'auto';
+      musicPlayer.style.left = newLeft + 'px';
+      musicPlayer.style.top = newTop + 'px';
+    }, { passive: true });
+
+    document.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        musicPlayer.classList.remove('dragging');
+        
+        const rect = musicPlayer.getBoundingClientRect();
+        localStorage.setItem('musicPlayerPosition', JSON.stringify({
+          left: rect.left,
+          top: rect.top
+        }));
+      }
     });
 
     // Auto-play next track when current ends

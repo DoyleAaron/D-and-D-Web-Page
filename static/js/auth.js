@@ -87,6 +87,18 @@ const AuthModule = (function() {
       });
     }
 
+    const inventoryBtn = document.getElementById('inventory-btn');
+    if (inventoryBtn) {
+      inventoryBtn.addEventListener('click', () => {
+        console.log('Inventory button clicked');
+        if (typeof InventoryModule !== 'undefined') {
+          InventoryModule.show();
+        } else {
+          console.error('InventoryModule not found');
+        }
+      });
+    }
+
     const loginConfirmBtn = document.getElementById('login-confirm');
     if (loginConfirmBtn) {
       loginConfirmBtn.addEventListener('click', handleAuth);
@@ -508,7 +520,7 @@ const AuthModule = (function() {
   }
 
   function isAdmin() {
-    return userProfile && userProfile.isAdmin === true;
+    return !!(userProfile && userProfile.isAdmin === true);
   }
 
   function getCharacters() {

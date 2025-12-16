@@ -115,6 +115,78 @@
     </div>
   </div>
 
+  <!-- Checklist elements -->
+  <div id="checklist-panel" style="display:none;">
+    <button id="checklist-close"></button>
+    <input id="checklist-new-item">
+    <button id="checklist-add"></button>
+    <div id="checklist-items"></div>
+    <button id="checklist-clear-completed"></button>
+    <span id="checklist-count"></span>
+  </div>
+
+  <!-- Inventory elements -->
+  <div id="inventory-panel" style="display:none;">
+    <button id="inventory-close"></button>
+    <button id="inventory-personal-tab"></button>
+    <button id="inventory-party-tab"></button>
+    <div class="inventory-content" style="overflow-y:auto;">
+      <button id="inventory-add-item"></button>
+      <input id="currency-cp" type="number">
+      <input id="currency-sp" type="number">
+      <input id="currency-ep" type="number">
+      <input id="currency-gp" type="number">
+      <input id="currency-pp" type="number">
+      <span id="currency-total"></span>
+      <button id="save-currency"></button>
+      <input id="carry-strength" type="number">
+      <div id="carry-capacity-display"></div>
+      <div id="attunement-slots"></div>
+      <table><tbody id="inventory-table-body"></tbody></table>
+      <div id="spells-attacks-section">
+        <button id="add-spell-attack"></button>
+        <table><tbody id="spells-attacks-table-body"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Item Modal -->
+  <div id="item-modal" class="item-modal" style="display:none;">
+    <div class="item-modal-content">
+      <button id="item-modal-close"></button>
+      <form class="item-form">
+        <input id="item-name">
+        <select id="item-category"></select>
+        <select id="item-rarity"></select>
+        <input id="item-weight" type="number">
+        <input id="item-quantity" type="number">
+      </form>
+    </div>
+  </div>
+
+  <!-- Spell Modal -->
+  <div id="spell-attack-modal" class="item-modal" style="display:none;">
+    <div class="item-modal-content">
+      <button id="spell-attack-modal-close"></button>
+      <form class="item-form">
+        <input id="spell-attack-name">
+        <select id="spell-attack-type"></select>
+        <input id="spell-attack-range">
+        <input id="spell-attack-damage">
+      </form>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <audio id="bg-music"></audio>
+  <div id="music-player" style="position:fixed;cursor:grab;">
+    <button id="music-toggle"></button>
+    <button id="music-next"></button>
+    <input id="music-volume" type="range" min="0" max="100">
+    <button id="music-minimize"></button>
+    <span id="music-track-name"></span>
+  </div>
+
   <!-- Test UI -->
   <h1>🧪 Dayner D&D Website Tests</h1>
   
@@ -136,6 +208,8 @@
   <script src="static/js/firebase-config.js"></script>
   <script src="static/js/auth.js"></script>
   <script src="static/js/journal.js"></script>
+  <script src="static/js/checklist.js"></script>
+  <script src="static/js/inventory.js"></script>
   <script src="static/js/tests.js"></script>
   
   <script>
@@ -150,7 +224,7 @@
       if (text.includes('✅ PASS')) return `<span class="pass">${escapeHtml(text)}</span>`;
       if (text.includes('❌ FAIL')) return `<span class="fail">${escapeHtml(text)}</span>`;
       if (text.includes('TESTS') || text.includes('===')) return `<span class="section">${escapeHtml(text)}</span>`;
-      if (text.includes('📁') || text.includes('🔐') || text.includes('📓') || text.includes('🏗️') || text.includes('🔥') || text.includes('🔗') || text.includes('🛡️')) {
+      if (text.includes('📁') || text.includes('🔐') || text.includes('📓') || text.includes('🏗️') || text.includes('🔥') || text.includes('🔗') || text.includes('🛡️') || text.includes('📦') || text.includes('✅') || text.includes('🎵') || text.includes('🪟') || text.includes('📜') || text.includes('💰') || text.includes('⚖️')) {
         return `<span class="info">${escapeHtml(text)}</span>`;
       }
       return escapeHtml(text);

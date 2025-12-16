@@ -15,38 +15,50 @@
   overflow-y: auto;
   overflow-x: hidden;
   z-index: var(--z-sticky);
-  transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
 }
 
-/* Sidebar collapsed state */
+/* Sidebar collapsed state - completely hidden */
 .sidebar-collapsed .sidebar {
-  width: var(--sidebar-width-collapsed);
-}
-
-.sidebar-collapsed .sidebar .sidebar-header h2,
-.sidebar-collapsed .sidebar .menu-text,
-.sidebar-collapsed .sidebar .submenu-arrow {
-  opacity: 0;
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border-right: none;
   visibility: hidden;
+  pointer-events: none;
 }
 
-.sidebar-collapsed .sidebar .submenu {
-  display: none !important;
-}
-
-.sidebar-collapsed .sidebar .nav-item,
-.sidebar-collapsed .sidebar .nav-link {
-  justify-content: center;
-}
-
-.sidebar-collapsed .sidebar .nav-icon {
-  margin-right: 0;
-}
-
-.sidebar-collapsed .sidebar .nav-link .menu-text {
+/* Floating expand button - outside sidebar */
+.sidebar-expand-btn {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(45, 45, 80, 0.95));
+  border: 1px solid var(--color-gold);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--color-gold);
+  cursor: pointer;
+  z-index: var(--z-sticky);
   display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-expand-btn:hover {
+  width: 32px;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.5), rgba(212, 175, 55, 0.3));
+  box-shadow: 2px 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.sidebar-collapsed .sidebar-expand-btn {
+  display: flex;
 }
 
 /* Sidebar Header */
@@ -320,24 +332,4 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-}
-
-/* Mobile Overlay */
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: calc(var(--z-sticky) - 1);
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-normal);
-}
-
-.sidebar-overlay.visible {
-  opacity: 1;
-  visibility: visible;
 }

@@ -7,16 +7,16 @@
   <meta name="theme-color" content="#1a1a2e">
   <title>Dayner - A World of Kingdoms</title>
   
-  <!-- CSS Filesss -->
-  <link rel="stylesheet" href="static/css/variables.css">
-  <link rel="stylesheet" href="static/css/base.css">
-  <link rel="stylesheet" href="static/css/layout.css">
-  <link rel="stylesheet" href="static/css/components.css">
-  <link rel="stylesheet" href="static/css/sidebar.css">
-  <link rel="stylesheet" href="static/css/calendar.css">
-  <link rel="stylesheet" href="static/css/auth.css">
-  <link rel="stylesheet" href="static/css/quiz.css">
-  <link rel="stylesheet" href="static/css/responsive.css">
+  <!-- CSS Filesss - v3 cache bust -->
+  <link rel="stylesheet" href="static/css/variables.css?v=3">
+  <link rel="stylesheet" href="static/css/base.css?v=3">
+  <link rel="stylesheet" href="static/css/layout.css?v=3">
+  <link rel="stylesheet" href="static/css/components.css?v=3">
+  <link rel="stylesheet" href="static/css/sidebar.css?v=3">
+  <link rel="stylesheet" href="static/css/calendar.css?v=3">
+  <link rel="stylesheet" href="static/css/auth.css?v=3">
+  <link rel="stylesheet" href="static/css/quiz.css?v=3">
+  <link rel="stylesheet" href="static/css/responsive.css?v=3">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,11 +90,16 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease, transform 0.1s ease;
+      cursor: grab;
+      user-select: none;
     }
-    .music-player:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    .music-player:active {
+      cursor: grabbing;
+    }
+    .music-player.dragging {
+      transition: none;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     }
     .music-player.minimized {
       padding: 8px;
@@ -199,9 +204,6 @@
     </video>
     <button class="skip-intro" id="skip-intro">Skip Intro</button>
   </div>
-
-  <!-- Mobile Sidebar Overlay -->
-  <div class="sidebar-overlay" id="sidebar-overlay"></div>
   
   <!-- Sidebar Navigation -->
   <aside class="sidebar" id="sidebar">
@@ -1288,14 +1290,16 @@
     </div>
   </aside>
   
+  <!-- Floating expand button (outside sidebar, only visible when collapsed) -->
+  <button class="sidebar-expand-btn" id="sidebar-expand-btn" title="Open Sidebar">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  
   <!-- Content Wrapper -->
   <div class="content-wrapper">
     <!-- Header -->
     <header class="header">
       <div class="header-left">
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
         <div class="header-title">
           <i class="fas fa-dragon"></i>
           <span>Dayner</span>
@@ -1326,6 +1330,9 @@
           </button>
           <button class="header-btn" id="checklist-btn" aria-label="Checklist" title="Checklist">
             <i class="fas fa-tasks"></i>
+          </button>
+          <button class="header-btn" id="inventory-btn" aria-label="Inventory" title="Inventory">
+            <i class="fas fa-box-open"></i>
           </button>
           <button class="header-btn" id="journal-btn" aria-label="Journal" title="Journal">
             <i class="fas fa-book"></i>
@@ -1374,7 +1381,7 @@
   </div>
   
   <!-- Single JavaScript File -->
-  <script src="static/js/main.js"></script>
+  <script src="static/js/main.js?v=3"></script>
   
   <!-- Firebase SDK (v9 Compat for easier setup) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -1385,6 +1392,7 @@
   <script src="static/js/firebase-config.js"></script>
   <script src="static/js/auth.js"></script>
   <script src="static/js/journal.js"></script>
+  <script src="static/js/inventory.js"></script>
   <script src="static/js/checklist.js"></script>
   <script src="static/js/quiz.js"></script>
   
@@ -1438,6 +1446,299 @@
         <button type="button" id="auth-mode-toggle" class="auth-mode-toggle" style="display: none;">
           I have an account
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inventory Panel -->
+  <div class="inventory-panel" id="inventory-panel">
+    <div class="inventory-header">
+      <h2><i class="fas fa-box-open"></i> My Inventory</h2>
+      <button class="inventory-close" id="inventory-close" aria-label="Close inventory">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Inventory Tabs -->
+    <div class="inventory-tabs">
+      <button class="inventory-tab active" id="inventory-personal-tab">
+        <i class="fas fa-user"></i> Personal
+      </button>
+      <button class="inventory-tab" id="inventory-party-tab">
+        <i class="fas fa-users"></i> Party
+      </button>
+    </div>
+
+    <!-- Scrollable Inventory Content -->
+    <div class="inventory-content">
+
+    <!-- Admin Controls -->
+    <div class="inventory-admin-controls" id="inventory-admin-controls" style="display: none;">
+      <select id="inventory-player-select">
+        <option value="">-- View Player --</option>
+      </select>
+    </div>
+
+    <!-- Party Selector (shown when party tab is active) -->
+    <div class="party-selector-container" id="party-selector-container" style="display: none;">
+      <select id="inventory-party-select">
+        <!-- Parties will be populated by JS -->
+      </select>
+    </div>
+
+    <!-- Party Members Display (shown when party tab is active) -->
+    <div class="party-members-display" id="party-members-display" style="display: none;">
+      <h4><i class="fas fa-users"></i> Party Members</h4>
+      <div class="party-members-list" id="party-members-list">
+        <!-- Members will be populated by JS -->
+      </div>
+    </div>
+
+    <!-- Currency Section -->
+    <div class="inventory-currency">
+      <h4><i class="fas fa-coins"></i> Currency</h4>
+      <div class="currency-grid">
+        <div class="currency-item">
+          <label>CP</label>
+          <input type="number" id="currency-cp" value="0" min="0">
+        </div>
+        <div class="currency-item">
+          <label>SP</label>
+          <input type="number" id="currency-sp" value="0" min="0">
+        </div>
+        <div class="currency-item">
+          <label>EP</label>
+          <input type="number" id="currency-ep" value="0" min="0">
+        </div>
+        <div class="currency-item">
+          <label>GP</label>
+          <input type="number" id="currency-gp" value="0" min="0">
+        </div>
+        <div class="currency-item">
+          <label>PP</label>
+          <input type="number" id="currency-pp" value="0" min="0">
+        </div>
+        <div class="currency-total">
+          <label>Total</label>
+          <span id="currency-total">0 GP</span>
+        </div>
+      </div>
+      <button class="save-currency-btn" id="save-currency">
+        <i class="fas fa-save"></i> Save Currency
+      </button>
+    </div>
+
+    <!-- Carry Capacity -->
+    <div class="inventory-capacity">
+      <div class="capacity-header">
+        <h4><i class="fas fa-weight-hanging"></i> Carry Capacity</h4>
+        <div class="strength-input">
+          <label>STR:</label>
+          <input type="number" id="carry-strength" value="15" min="1" max="30">
+        </div>
+      </div>
+      <div id="carry-capacity-display"></div>
+    </div>
+
+    <!-- Attunement Slots -->
+    <div class="inventory-attunement">
+      <h4><i class="fas fa-link"></i> Attunement Slots (3 max)</h4>
+      <div class="attunement-slots" id="attunement-slots"></div>
+    </div>
+
+    <!-- Inventory Toolbar -->
+    <div class="inventory-toolbar">
+      <button id="inventory-add-item" class="primary">
+        <i class="fas fa-plus"></i> Add Item
+      </button>
+    </div>
+
+    <!-- Inventory Table -->
+    <div class="inventory-table-container">
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Damage/Roll</th>
+            <th>Properties</th>
+            <th>Weight</th>
+            <th>Total</th>
+            <th>Qty</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="inventory-table-body">
+          <!-- Items will be loaded here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Spells & Attacks Section -->
+    <div class="spells-attacks-section" id="spells-attacks-section">
+      <div class="section-header">
+        <h4><i class="fas fa-magic"></i> Spells & Attacks</h4>
+        <button id="add-spell-attack" class="add-spell-btn">
+          <i class="fas fa-plus"></i> Add
+        </button>
+      </div>
+      <div class="spells-attacks-table-container">
+        <table class="spells-attacks-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Range</th>
+              <th>Hit/DC</th>
+              <th>Damage/Effect</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="spells-attacks-table-body">
+            <!-- Spells and attacks will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div><!-- End inventory-content -->
+  </div>
+
+  <!-- Item Add/Edit Modal -->
+  <div class="item-modal" id="item-modal">
+    <div class="item-modal-content">
+      <div class="item-modal-header">
+        <h3>Add New Item</h3>
+        <button class="item-modal-close" id="item-modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="item-form" class="item-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-name">Item Name *</label>
+            <input type="text" id="item-name" required placeholder="Longsword +1">
+          </div>
+          <div class="form-group">
+            <label for="item-category">Category</label>
+            <select id="item-category"></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-rarity">Rarity</label>
+            <select id="item-rarity"></select>
+          </div>
+          <div class="form-group">
+            <label for="item-value">Value (GP)</label>
+            <input type="text" id="item-value" placeholder="50 gp">
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="item-description">Description</label>
+          <textarea id="item-description" rows="2" placeholder="A finely crafted blade..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-damage-roll">Damage/Roll</label>
+            <input type="text" id="item-damage-roll" placeholder="1d8+1 slashing">
+          </div>
+          <div class="form-group">
+            <label for="item-properties">Properties</label>
+            <input type="text" id="item-properties" placeholder="Versatile (1d10), Magical">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-weight">Weight (lbs)</label>
+            <input type="number" id="item-weight" value="0" min="0" step="0.1">
+          </div>
+          <div class="form-group">
+            <label for="item-quantity">Quantity</label>
+            <input type="number" id="item-quantity" value="1" min="1">
+          </div>
+        </div>
+        <div class="form-row checkboxes">
+          <label class="checkbox-label">
+            <input type="checkbox" id="item-attunement">
+            <span>Requires Attunement</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="item-equipped">
+            <span>Equipped</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="item-private">
+            <span><i class="fas fa-eye-slash"></i> Private (won't sync to party)</span>
+          </label>
+        </div>
+        <div class="form-group full-width">
+          <label for="item-notes">Notes</label>
+          <textarea id="item-notes" rows="2" placeholder="Additional notes..."></textarea>
+        </div>
+      </form>
+      <div class="item-modal-footer">
+        <button class="btn-secondary" id="item-modal-cancel">Cancel</button>
+        <button class="btn-primary" id="item-modal-save">Save Item</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spell/Attack Add/Edit Modal -->
+  <div class="item-modal" id="spell-attack-modal">
+    <div class="item-modal-content">
+      <div class="item-modal-header">
+        <h3>Add Spell/Attack</h3>
+        <button class="item-modal-close" id="spell-attack-modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="spell-attack-form" class="item-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spell-attack-name">Name *</label>
+            <input type="text" id="spell-attack-name" required placeholder="Fireball, Longsword Attack...">
+          </div>
+          <div class="form-group">
+            <label for="spell-attack-type">Type</label>
+            <select id="spell-attack-type">
+              <option value="spell">Spell</option>
+              <option value="cantrip">Cantrip</option>
+              <option value="melee">Melee Attack</option>
+              <option value="ranged">Ranged Attack</option>
+              <option value="ability">Special Ability</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spell-attack-range">Range</label>
+            <input type="text" id="spell-attack-range" placeholder="120 ft, Touch, Self...">
+          </div>
+          <div class="form-group">
+            <label for="spell-attack-hit-dc">Hit Bonus / Save DC</label>
+            <input type="text" id="spell-attack-hit-dc" placeholder="+7 to hit, DC 15 DEX...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spell-attack-damage">Damage/Effect</label>
+            <input type="text" id="spell-attack-damage" placeholder="8d6 fire, 2d6+4 slashing...">
+          </div>
+          <div class="form-group">
+            <label for="spell-attack-level">Level/Slot</label>
+            <input type="text" id="spell-attack-level" placeholder="3rd level, At-will...">
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="spell-attack-notes">Notes/Description</label>
+          <textarea id="spell-attack-notes" rows="2" placeholder="Components, additional effects..."></textarea>
+        </div>
+      </form>
+      <div class="item-modal-footer">
+        <button class="btn-secondary" id="spell-attack-modal-cancel">Cancel</button>
+        <button class="btn-primary" id="spell-attack-modal-save">Save</button>
       </div>
     </div>
   </div>
