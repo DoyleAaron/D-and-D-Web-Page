@@ -1,5 +1,7 @@
 **Name:** Mordor the Enlightened
 
+![Morjor](/static/images/Morjor.jpg)
+
 **Age:**  
 33
 

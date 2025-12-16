@@ -1,6 +1,8 @@
 
 **Name:** Blorf of Clan Beren
 
+![Blorf](/static/images/Blorf.jpg)
+
 **Age:**  
 75 (young adult for a rock gnome, whose lifespan is typically 300–350 years)
 

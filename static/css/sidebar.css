@@ -32,12 +32,21 @@
   visibility: hidden;
 }
 
-.sidebar-collapsed .sidebar .nav-item {
+.sidebar-collapsed .sidebar .submenu {
+  display: none !important;
+}
+
+.sidebar-collapsed .sidebar .nav-item,
+.sidebar-collapsed .sidebar .nav-link {
   justify-content: center;
 }
 
 .sidebar-collapsed .sidebar .nav-icon {
   margin-right: 0;
+}
+
+.sidebar-collapsed .sidebar .nav-link .menu-text {
+  display: none;
 }
 
 /* Sidebar Header */

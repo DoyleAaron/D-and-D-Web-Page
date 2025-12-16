@@ -6,8 +6,8 @@
 |---|---|
 | **Type** | International Adventurer's Guild |
 | **Founded** | Over 200 years ago |
-| **Headquarters** | Adaham (neutral trade city) |
-| **Reach** | All major kingdoms |
+| **Headquarters** | Decentralized (chapters in all major cities) |
+| **Reach** | Continent-wide (all kingdoms and beyond) |
 
 ---
 
@@ -19,9 +19,9 @@ Guild halls are recognizable by their **golden compass sigil**—a reminder that
 
 ## History
 
-The Accord was founded in **Adaham** over two centuries ago, when a group of veteran adventurers grew tired of being cheated by clients and blamed for problems they didn't cause. They established a system of contracts, rankings, and mutual protection that has since spread across the continent.
+The Accord was founded over two centuries ago, when a group of veteran adventurers grew tired of being cheated by clients and blamed for problems they didn't cause. They established a system of contracts, rankings, and mutual protection that has since spread across the entire continent and beyond.
 
-Today, the Accord operates chapters in every major city and most towns. While individual chapters maintain some independence, all follow the same core rules and honor each other's credentials.
+Today, the Accord operates chapters in every major city and most towns. While individual chapters maintain some independence, all follow the same core rules and honor each other's credentials. There is no single headquarters—the guild's strength lies in its distributed network.
 
 ## Motto
 

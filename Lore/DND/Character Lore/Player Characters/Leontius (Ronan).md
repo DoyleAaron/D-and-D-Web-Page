@@ -1,5 +1,7 @@
 **Name:** Leontius of Osegas
 
+![Leontius](/static/images/Leontius.jpg)
+
 **Age:** 26 (mid-twenties)
 
 **Class:** Cleric (Peace Domain)

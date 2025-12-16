@@ -1,5 +1,7 @@
 # Commander Seral Veynar
 
+![Commander Seral](/static/images/seral.png)
+
 ## Overview
 
 | | |

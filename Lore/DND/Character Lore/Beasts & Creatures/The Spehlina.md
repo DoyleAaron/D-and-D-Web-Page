@@ -1,6 +1,6 @@
 # The Spehlina
 
-![The Spehlina](../../Spehlina.png)
+![The Spehlina](/static/images/Spehlina.png)
 
 ## Overview
 

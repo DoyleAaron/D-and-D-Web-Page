@@ -1,5 +1,7 @@
 # Cleric Veyner Drosk
 
+![Cleric Veyner Drosk](/static/images/Cleric%20Veyner.png)
+
 ## Overview
 
 | | |

@@ -74,6 +74,121 @@
       background: rgba(255, 255, 255, 0.25);
       border-color: rgba(255, 255, 255, 0.5);
     }
+
+    /* Background Music Player */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 26, 46, 0.95);
+      padding: 10px 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .music-player:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    }
+    .music-player.minimized {
+      padding: 8px;
+      gap: 4px;
+    }
+    .music-player.minimized .music-info,
+    .music-player.minimized .music-volume,
+    .music-player.minimized #music-next {
+      display: none;
+    }
+    .music-player.minimized #music-minimize {
+      width: 28px;
+      height: 28px;
+      font-size: 0.9rem;
+    }
+    .music-btn {
+      background: none;
+      border: none;
+      color: #e0e0e0;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 5px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+    }
+    .music-btn:hover {
+      background: rgba(139, 69, 19, 0.3);
+      color: #d4af37;
+    }
+    .music-btn.playing {
+      color: #d4af37;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      max-width: 150px;
+      overflow: hidden;
+    }
+    .music-track-name {
+      font-size: 0.75rem;
+      color: #aaa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .music-volume {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .music-volume input[type="range"] {
+      width: 60px;
+      height: 4px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .music-volume input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      background: #d4af37;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .music-volume input[type="range"]::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      background: #d4af37;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+    @media (max-width: 600px) {
+      .music-player {
+        bottom: 70px;
+        right: 10px;
+        padding: 8px 12px;
+      }
+      .music-info {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -171,9 +286,6 @@
             <i class="fas fa-chevron-down submenu-arrow"></i>
           </div>
           <div class="submenu">
-            <div class="nav-item" data-file="Character Lore/Historic Characters/Bagi the Brass Tempest.md">
-              <span class="menu-text">Bagi the Brass Tempest</span>
-            </div>
             <div class="nav-item" data-file="Character Lore/Historic Characters/Balthazar The Great Wizard.md">
               <span class="menu-text">Balthazar The Great Wizard</span>
             </div>
@@ -190,6 +302,9 @@
           <i class="fas fa-chevron-down submenu-arrow"></i>
         </div>
         <div class="submenu">
+          <div class="nav-item" data-file="Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md">
+            <span class="menu-text">Bagi the Brass Tempest</span>
+          </div>
           <div class="nav-item" data-file="Character Lore/Beasts & Creatures/The Spehlina.md">
             <span class="menu-text">The Spehlina</span>
           </div>
@@ -349,6 +464,63 @@
             </div>
             <div class="nav-item" data-file="Character Lore/Modern Characters/Sword-Instructor Daven Rowe.md">
               <span class="menu-text">Sword-Instructor Daven Rowe</span>
+            </div>
+          </div>
+          
+          <!-- Dawerton Escort Team -->
+          <div class="nav-item has-submenu">
+            <i class="fas fa-horse nav-icon"></i>
+            <span class="menu-text">Dawerton Escort Team</span>
+            <i class="fas fa-chevron-down submenu-arrow"></i>
+          </div>
+          <div class="submenu">
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Envoy Pasan.md">
+              <span class="menu-text">Envoy Pasan</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Maera of Silverhill.md">
+              <span class="menu-text">Maera of Silverhill</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Sergeant Elira Thorn.md">
+              <span class="menu-text">Sergeant Elira Thorn</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Corporal Bram Stone.md">
+              <span class="menu-text">Corporal Bram Stone</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Sister Calene Dusk.md">
+              <span class="menu-text">Sister Calene Dusk</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Aric Ash Vell.md">
+              <span class="menu-text">Aric "Ash" Vell</span>
+            </div>
+          </div>
+          
+          <!-- Dawerton Council -->
+          <div class="nav-item has-submenu">
+            <i class="fas fa-landmark nav-icon"></i>
+            <span class="menu-text">Dawerton Council</span>
+            <i class="fas fa-chevron-down submenu-arrow"></i>
+          </div>
+          <div class="submenu">
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Mayor Adrian of Dawerton.md">
+              <span class="menu-text">Mayor Adrian</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Liora.md">
+              <span class="menu-text">Liora</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Councilor Elara.md">
+              <span class="menu-text">Councilor Elara</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Councilor Fenric.md">
+              <span class="menu-text">Councilor Fenric</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Councilor Jorath.md">
+              <span class="menu-text">Councilor Jorath</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Councilor Miriam.md">
+              <span class="menu-text">Councilor Miriam</span>
+            </div>
+            <div class="nav-item" data-file="Character Lore/Modern Characters/Councilor Varis.md">
+              <span class="menu-text">Councilor Varis</span>
             </div>
           </div>
           
@@ -699,6 +871,9 @@
           <div class="nav-item" data-file="Character Lore/Player Characters/Varin (Aiden).md">
             <span class="menu-text">Varin (Aiden)</span>
           </div>
+          <div class="nav-item" data-file="Character Lore/Player Characters/Panyr Wulkor.md">
+            <span class="menu-text">Panyr Wulkor</span>
+          </div>
         </div>
       </div>
       
@@ -754,19 +929,60 @@
           <i class="fas fa-chevron-down submenu-arrow"></i>
         </div>
         <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/Organizations/The Arcane Synod.md">
+            <span class="menu-text">The Arcane Synod</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Organizations/The Dawerton Council.md">
+            <span class="menu-text">The Dawerton Council</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Organizations/The Red Scarves.md">
+            <span class="menu-text">The Red Scarves</span>
+          </div>
           <div class="nav-item" data-file="General Lore of Dayner/Organizations/The Wayfarers Accord.md">
             <span class="menu-text">The Wayfarers' Accord</span>
           </div>
         </div>
         
-        <div class="nav-item" data-file="General Lore of Dayner/Geography & Climate.md">
+        <!-- Religion -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-pray nav-icon"></i>
+          <span class="menu-text">Religion</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/Religion/Gods of Dayner.md">
+            <span class="menu-text">Gods of Dayner</span>
+          </div>
+        </div>
+        
+        <!-- Geography & Climate -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-mountain nav-icon"></i>
           <span class="menu-text">Geography & Climate</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
         </div>
-        <div class="nav-item" data-file="General Lore of Dayner/Population.md">
-          <span class="menu-text">Population</span>
+        <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/Geography & Climate/Overview.md">
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Geography & Climate/Braewood Geography Reference.md">
+            <span class="menu-text">Braewood Geography</span>
+          </div>
         </div>
-        <div class="nav-item" data-file="General Lore of Dayner/Wealth Distribution.md">
-          <span class="menu-text">Wealth Distribution</span>
+        
+        <!-- Demographics -->
+        <div class="nav-item has-submenu">
+          <i class="fas fa-users nav-icon"></i>
+          <span class="menu-text">Demographics</span>
+          <i class="fas fa-chevron-down submenu-arrow"></i>
+        </div>
+        <div class="submenu">
+          <div class="nav-item" data-file="General Lore of Dayner/Demographics/Population.md">
+            <span class="menu-text">Population</span>
+          </div>
+          <div class="nav-item" data-file="General Lore of Dayner/Demographics/Wealth Distribution.md">
+            <span class="menu-text">Wealth Distribution</span>
+          </div>
         </div>
       </div>
       
@@ -833,9 +1049,22 @@
             <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Kadena.md">
               <span class="menu-text">Kadena</span>
             </div>
-            <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Sheyton.md">
+            
+            <!-- Sheyton with submenu -->
+            <div class="nav-item has-submenu">
+              <i class="fas fa-city nav-icon"></i>
               <span class="menu-text">Sheyton</span>
+              <i class="fas fa-chevron-down submenu-arrow"></i>
             </div>
+            <div class="submenu">
+              <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Sheyton.md">
+                <span class="menu-text">Overview</span>
+              </div>
+              <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Sheyton/The Mogged Pigeon.md">
+                <span class="menu-text">The Mogged Pigeon</span>
+              </div>
+            </div>
+            
             <div class="nav-item" data-file="Kingdoms/Braewood/Medium City/Strane.md">
               <span class="menu-text">Strane</span>
             </div>
@@ -1297,6 +1526,27 @@
         </button>
       </div>
     </div>
+  </div>
+
+  <!-- Background Music Player -->
+  <audio id="bg-music" preload="auto"></audio>
+  <div class="music-player" id="music-player">
+    <button class="music-btn" id="music-toggle" title="Play/Pause Music">
+      <i class="fas fa-play"></i>
+    </button>
+    <button class="music-btn" id="music-next" title="Next Track">
+      <i class="fas fa-forward"></i>
+    </button>
+    <div class="music-info">
+      <span class="music-track-name" id="music-track-name">Click to play</span>
+    </div>
+    <div class="music-volume">
+      <i class="fas fa-volume-up" style="font-size: 0.8rem; color: var(--text-secondary);"></i>
+      <input type="range" id="music-volume" min="0" max="100" value="30" title="Volume">
+    </div>
+    <button class="music-btn" id="music-minimize" title="Minimize">
+      <i class="fas fa-chevron-right"></i>
+    </button>
   </div>
 </body>
 </html>

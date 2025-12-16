@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Content Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: #eee; }
+    .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+    .pass { background: #1e4620; }
+    .fail { background: #6b1a1a; }
+    .content-preview { background: #2a2a4e; padding: 15px; margin: 10px 0; border-radius: 5px; max-height: 300px; overflow: auto; }
+    img { max-width: 300px; border: 2px solid #444; }
+    h2 { color: #ffd700; margin-top: 30px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Content Rendering Test</h1>
+  
+  <h2>Image Tests</h2>
+  <div id="image-tests"></div>
+  
+  <h2>File Loading Tests</h2>
+  <div id="file-tests"></div>
+  
+  <h2>Content Preview</h2>
+  <div>
+    <button onclick="loadAndPreview('Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md')">Load Bagi</button>
+    <button onclick="loadAndPreview('Character Lore/Modern Characters/Queen Maera Braeden.md')">Load Queen</button>
+    <button onclick="loadAndPreview('Character Lore/Modern Characters/King Tarvin Braeden IV.md')">Load King</button>
+    <button onclick="loadAndPreview('Character Lore/Modern Characters/Lord-Governor Callum Westmarch.md')">Load Lord-Governor</button>
+  </div>
+  <div id="content-preview" class="content-preview"></div>
+
+  <script>
+    const LORE_BASE_PATH = 'Lore/DND/';
+    
+    // Image tests
+    const imagesToTest = [
+      { name: 'bagi.png', path: '/static/images/bagi.png' },
+      { name: 'queene_braewood.png', path: '/static/images/queene_braewood.png' },
+      { name: 'scrit.png', path: '/static/images/scrit.png' },
+      { name: 'Spehlina.png', path: '/static/images/Spehlina.png' }
+    ];
+    
+    const filesToTest = [
+      'Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md',
+      'Character Lore/Modern Characters/Queen Maera Braeden.md',
+      'Character Lore/Modern Characters/King Tarvin Braeden IV.md',
+      'Character Lore/Modern Characters/Lord-Governor Callum Westmarch.md'
+    ];
+    
+    async function runTests() {
+      const imageTestDiv = document.getElementById('image-tests');
+      const fileTestDiv = document.getElementById('file-tests');
+      
+      // Test images
+      for (const img of imagesToTest) {
+        const result = document.createElement('div');
+        result.className = 'test-result';
+        
+        try {
+          const response = await fetch(img.path);
+          if (response.ok) {
+            result.className += ' pass';
+            result.innerHTML = `✓ ${img.name} - OK (${response.status})<br><img src="${img.path}" alt="${img.name}">`;
+          } else {
+            result.className += ' fail';
+            result.innerHTML = `✗ ${img.name} - FAILED (${response.status})`;
+          }
+        } catch (e) {
+          result.className += ' fail';
+          result.innerHTML = `✗ ${img.name} - ERROR: ${e.message}`;
+        }
+        
+        imageTestDiv.appendChild(result);
+      }
+      
+      // Test file loading
+      for (const file of filesToTest) {
+        const result = document.createElement('div');
+        result.className = 'test-result';
+        
+        try {
+          const response = await fetch(LORE_BASE_PATH + file);
+          if (response.ok) {
+            const content = await response.text();
+            const hasImage = content.includes('![');
+            const hasTable = content.includes('|---|');
+            result.className += ' pass';
+            result.innerHTML = `✓ ${file.split('/').pop()}<br>
+              - Size: ${content.length} chars<br>
+              - Has image: ${hasImage}<br>
+              - Has table: ${hasTable}<br>
+              - First 100 chars: <code>${content.substring(0, 100).replace(/</g, '&lt;')}</code>`;
+          } else {
+            result.className += ' fail';
+            result.innerHTML = `✗ ${file} - FAILED (${response.status})`;
+          }
+        } catch (e) {
+          result.className += ' fail';
+          result.innerHTML = `✗ ${file} - ERROR: ${e.message}`;
+        }
+        
+        fileTestDiv.appendChild(result);
+      }
+    }
+    
+    async function loadAndPreview(filePath) {
+      const preview = document.getElementById('content-preview');
+      try {
+        const response = await fetch(LORE_BASE_PATH + filePath);
+        const mdText = await response.text();
+        
+        // Show raw markdown first
+        preview.innerHTML = `<h3>Raw Markdown:</h3><pre>${mdText.replace(/</g, '&lt;')}</pre>
+          <h3>Rendered HTML:</h3>`;
+        
+        // Parse and render
+        const html = marked.parse(mdText);
+        const renderedDiv = document.createElement('div');
+        renderedDiv.innerHTML = html;
+        preview.appendChild(renderedDiv);
+        
+      } catch (e) {
+        preview.innerHTML = `<div class="fail">Error: ${e.message}</div>`;
+      }
+    }
+    
+    runTests();
+  </script>
+</body>
+</html>

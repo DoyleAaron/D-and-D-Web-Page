@@ -255,7 +255,25 @@
       }
       
       const mdText = await response.text();
+      
+      // DEBUG: Check if markdown contains image
+      const hasImageMd = mdText.includes('![');
+      console.log('DEBUG: Markdown has image syntax:', hasImageMd);
+      if (hasImageMd) {
+        const imgMatch = mdText.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+        console.log('DEBUG: Image match:', imgMatch);
+      }
+      
       const html = marked.parse(mdText);
+      
+      // DEBUG: Check if HTML contains img tag
+      const hasImgTag = html.includes('<img');
+      console.log('DEBUG: HTML has img tag:', hasImgTag);
+      if (hasImgTag) {
+        const imgTagMatch = html.match(/<img[^>]+>/);
+        console.log('DEBUG: Img tag:', imgTagMatch);
+      }
+      
       const title = extractTitle(filePath);
       
       renderContent(html, title, filePath);
@@ -997,6 +1015,130 @@
   window.loadContent = loadContent;
 
   // ========================================
+  // BACKGROUND MUSIC PLAYER
+  // ========================================
+  function initBackgroundMusic() {
+    const audio = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    const nextBtn = document.getElementById('music-next');
+    const volumeSlider = document.getElementById('music-volume');
+    const trackName = document.getElementById('music-track-name');
+    const minimizeBtn = document.getElementById('music-minimize');
+    const musicPlayer = document.getElementById('music-player');
+
+    if (!audio || !toggleBtn) {
+      console.log('Music player elements not found');
+      return;
+    }
+
+    // Track list - update these paths to match your files
+    const tracks = [
+      'static/audio/Lorien Testard - Clair Obscur- Expedition 33 (Original Soundtrack) - 129 Lettre à Maelle.mp3',
+      'static/audio/Lorien Testard - Clair Obscur- Expedition 33 (Original Soundtrack) - 140 Lumière\'s Opera - Nuit sur Lumière.mp3',
+      'static/audio/Lorien Testard - Clair Obscur- Expedition 33 (Original Soundtrack) - 92 World Map - Gustave\'s Legacy.mp3',
+      'static/audio/Lorien Testard and Alice Duport-Percier - Clair Obscur- Expedition 33 (Original Soundtrack) - 47 Sciel.mp3',
+      'static/audio/Lorien Testard and Alice Duport-Percier - Clair Obscur- Expedition 33 (Original Soundtrack) - 68 Lost Voice.mp3'
+    ];
+
+    let currentTrack = parseInt(localStorage.getItem('musicTrack')) || 0;
+    let isPlaying = false;
+
+    // Load saved preferences
+    const savedVolume = localStorage.getItem('musicVolume');
+    const savedMinimized = localStorage.getItem('musicMinimized');
+    
+    if (savedVolume !== null) {
+      audio.volume = parseFloat(savedVolume);
+      volumeSlider.value = parseFloat(savedVolume) * 100;
+    } else {
+      audio.volume = 0.3;
+    }
+
+    if (savedMinimized === 'true') {
+      musicPlayer.classList.add('minimized');
+      minimizeBtn.querySelector('i').classList.replace('fa-chevron-right', 'fa-chevron-left');
+    }
+
+    // Extract short track name for display
+    function getShortName(path) {
+      const filename = path.split('/').pop();
+      // Extract the descriptive part after the number
+      const match = filename.match(/- \d+ (.+)\.mp3$/i);
+      if (match) return match[1];
+      return filename.replace('.mp3', '').substring(0, 25) + '...';
+    }
+
+    function loadTrack(index) {
+      currentTrack = index % tracks.length;
+      audio.src = tracks[currentTrack];
+      trackName.textContent = getShortName(tracks[currentTrack]);
+      localStorage.setItem('musicTrack', currentTrack);
+    }
+
+    function play() {
+      audio.play().then(() => {
+        isPlaying = true;
+        toggleBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
+        toggleBtn.classList.add('playing');
+      }).catch(err => {
+        console.log('Playback failed:', err);
+        trackName.textContent = 'Click to play';
+      });
+    }
+
+    function pause() {
+      audio.pause();
+      isPlaying = false;
+      toggleBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+      toggleBtn.classList.remove('playing');
+    }
+
+    function nextTrack() {
+      loadTrack(currentTrack + 1);
+      if (isPlaying) play();
+    }
+
+    // Event listeners
+    toggleBtn.addEventListener('click', () => {
+      if (!audio.src || audio.src === '') {
+        loadTrack(currentTrack);
+      }
+      if (isPlaying) {
+        pause();
+      } else {
+        play();
+      }
+    });
+
+    nextBtn.addEventListener('click', nextTrack);
+
+    volumeSlider.addEventListener('input', (e) => {
+      const volume = e.target.value / 100;
+      audio.volume = volume;
+      localStorage.setItem('musicVolume', volume);
+    });
+
+    minimizeBtn.addEventListener('click', () => {
+      musicPlayer.classList.toggle('minimized');
+      const isMinimized = musicPlayer.classList.contains('minimized');
+      minimizeBtn.querySelector('i').classList.toggle('fa-chevron-right', !isMinimized);
+      minimizeBtn.querySelector('i').classList.toggle('fa-chevron-left', isMinimized);
+      localStorage.setItem('musicMinimized', isMinimized);
+    });
+
+    // Auto-play next track when current ends
+    audio.addEventListener('ended', () => {
+      nextTrack();
+      play();
+    });
+
+    // Load initial track (but don't auto-play due to browser restrictions)
+    loadTrack(currentTrack);
+
+    console.log('🎵 Background music player initialized');
+  }
+
+  // ========================================
   // INTRO VIDEO
   // ========================================
   function initIntroVideo() {
@@ -1069,6 +1211,7 @@
     console.log('🐉 Initializing Dayner Lore Website...');
     
     initIntroVideo();
+    initBackgroundMusic();
     initElements();
     initTheme();
     initNavigation();

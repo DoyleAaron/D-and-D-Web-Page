@@ -1,6 +1,8 @@
 
 **Name:** Amdir Aeristel
 
+![Amdir](/static/images/Amdir.jpg)
+
 **Age:**  
 124 (Roughly age 28 for a human male)
 

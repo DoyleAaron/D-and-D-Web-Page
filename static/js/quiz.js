@@ -39,11 +39,17 @@ const QuizModule = (function() {
     historicCharacters: {
       basePath: 'Character Lore/Historic Characters/',
       files: [
-        'Bagi the Brass Tempest.md', 'Balthazar The Great Wizard.md',
+        'Balthazar The Great Wizard.md',
         'General Arach Tharne.md', 'General Yon Garathorn.md', 'Grand Inquisitor Pellaro.md',
         'High Thane Broldir Flameforged.md', 'Imperial Warmaster Dravarian.md',
         'Legate Sienna Valtoris.md', 'Pirate Queen Aris Steel-Eye.md',
         'Princess Araleth Oakheath.md', 'Sea Lord Helmar Lynth.md'
+      ]
+    },
+    beastsCreatures: {
+      basePath: 'Character Lore/Beasts & Creatures/',
+      files: [
+        'Bagi the Brass Tempest.md', 'The Spehlina.md'
       ]
     },
     kingdoms: {
@@ -91,7 +97,7 @@ const QuizModule = (function() {
 
   // Historic characters
   const HISTORIC_CHARACTERS = [
-    { name: 'Bagi the Brass Tempest', race: 'Brass Dragon', faction: 'Kluimont (Bound)', role: 'Ancient guardian', era: '~1200 years old', path: 'Character Lore/Historic Characters/Bagi the Brass Tempest.md' },
+    { name: 'Bagi the Brass Tempest', race: 'Brass Dragon', faction: 'Kluimont (Bound)', role: 'Ancient guardian', era: '~1200 years old', path: 'Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md' },
     { name: 'Balthazar the Great Wizard', race: 'Human (Transcended)', faction: 'Islefield', role: 'Ancient wizard', era: 'Over 1000 years old', path: 'Character Lore/Historic Characters/Balthazar The Great Wizard.md' },
     { name: 'General Arach Tharne', race: 'Human', faction: 'Tharnic Empire', role: 'Brutal commander', era: '650 C.C.', path: 'Character Lore/Historic Characters/General Arach Tharne.md' },
     { name: 'General Yon Garathorn', race: 'Human', faction: 'Braewood', role: 'Defensive strategist', era: '1080-1160 C.C.', path: 'Character Lore/Historic Characters/General Yon Garathorn.md' },
@@ -102,6 +108,12 @@ const QuizModule = (function() {
     { name: 'Princess Araleth Oakheath', race: 'Elf', faction: 'Allied Coalition', role: 'Elven envoy', era: '690-770 C.C.', path: 'Character Lore/Historic Characters/Princess Araleth Oakheath.md' },
     { name: 'Sea Lord Helmar Lynth', race: 'Human', faction: 'Kluimont', role: 'Naval commander', era: '770-830 C.C.', path: 'Character Lore/Historic Characters/Sea Lord Helmar Lynth.md' },
     { name: 'Pirate Queen Aris Steel-Eye', race: 'Human', faction: 'Reef Confederacy', role: 'Pirate leader', era: '~802 C.C.', path: 'Character Lore/Historic Characters/Pirate Queen Aris Steel-Eye.md' }
+  ];
+
+  // Beasts and Creatures
+  const BEASTS_CREATURES = [
+    { name: 'Bagi the Brass Tempest', race: 'Brass Dragon', faction: 'Kluimont (Bound)', role: 'Ancient Guardian', era: '~1200 years old', path: 'Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md' },
+    { name: 'The Spehlina', race: 'Corrupted Elemental', faction: 'Lavalto Lake', role: 'Lake Monster', era: 'Ancient (corrupted ~40 years ago)', path: 'Character Lore/Beasts & Creatures/The Spehlina.md' }
   ];
 
   async function init() {
@@ -117,6 +129,7 @@ const QuizModule = (function() {
     loreData = {
       characters: [],
       historicCharacters: HISTORIC_CHARACTERS,
+      beastsCreatures: BEASTS_CREATURES,
       settlements: [],
       kingdoms: [],
       battles: HISTORIC_BATTLES,

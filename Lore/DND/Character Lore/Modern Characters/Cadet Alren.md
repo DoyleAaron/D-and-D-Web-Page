@@ -1,5 +1,7 @@
 # Cadet Alren
 
+![Cadet Alren](/static/images/alren(cadet).png)
+
 ## Overview
 
 | | |

@@ -1,5 +1,7 @@
 **Name:** Varin
 
+![Varin](/static/images/Varin.jpg)
+
 **Age:**  
 
 

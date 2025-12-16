@@ -1,5 +1,7 @@
 **Name:** Tearitus Dropius Pather
 
+![Tearitus](/static/images/Tearitus.jpg)
+
 **Age:**  
 29
 

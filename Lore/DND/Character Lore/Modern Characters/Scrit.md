@@ -1,5 +1,7 @@
 # Scrit
 
+![Scrit](/static/images/scrit.png)
+
 ## Overview
 
 | | |
