@@ -493,6 +493,7 @@ const ROAD_NETWORK = {
     if (startIsPort && endIsPort) {
       return this.findPathDirect(startId, endId, options);
     }
+    // AARON INVESTIGATE: This needs to change as this isnt correct, shouldnt go land only if both are ports
     
     // Find nearest ports for landlocked settlements
     const startPort = startIsPort ? 
