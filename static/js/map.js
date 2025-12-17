@@ -1,12 +1,17 @@
 /**
  * Interactive Map Module
- * Dayner D&D Websitee
+ * Dayner D&D Website
  */
-console.log('MAP.JS LOADED – VERSION WITH HOME BUTTON');
+console.log('MAP.JS LOADED – VERSION WITH TRAVEL CALCULATOR');
 
 
 const MapModule = (function() {
   'use strict';
+
+  // ========================================
+  // SCALE & CONSTANTS
+  // ========================================
+  const KM_PER_PERCENT = 8.92; // 1% of map = 8.92km (doubled for accurate travel times)
 
   // ========================================
   // SETTLEMENT DATA
@@ -707,6 +712,20 @@ const MapModule = (function() {
           x: 16.8, y: 63
         },
         {
+          id: 'agosgas',
+          name: 'Agosgas',
+          type: 'village',
+          population: 450,
+          leader: 'Elder Mira Coastwatch',
+          leaderTitle: 'Elder',
+          wealth: 1.5,
+          military: 1,
+          happiness: 3.5,
+          description: 'Remote fishing village on the western coast of Islefield. Known for its hardy folk and coastal traditions.',
+          file: 'Kingdoms/Islefield/Village/Agosgas.md',
+          x: 6.6, y: 65
+        },
+        {
           id: 'okcaster',
           name: 'Okcaster',
           type: 'village',
@@ -1167,8 +1186,682 @@ const MapModule = (function() {
     setupRegionTabs();
     setupMapControls();
     setupMapInteraction();
+    setupTravelCalculator();
     renderSettlements();
     updateSettlementList();
+    populateTravelDropdowns();
+  }
+  
+  // ========================================
+  // TRAVEL CALCULATOR
+  // ========================================
+  
+  // Store all settlements for the travel calculator
+  let travelSettlements = [];
+  let stopCounter = 2; // Start at 2 (from=0, to=1)
+  
+  function setupTravelCalculator() {
+    const calcHeader = document.querySelector('.calc-header');
+    const calcToggle = document.getElementById('calc-toggle');
+    const calcBody = document.getElementById('calc-body');
+    const calculateBtn = document.getElementById('calculate-travel');
+    const addStopBtn = document.getElementById('add-stop-btn');
+    
+    // Toggle calculator
+    if (calcHeader && calcBody && calcToggle) {
+      calcHeader.addEventListener('click', () => {
+        calcBody.classList.toggle('collapsed');
+        calcToggle.classList.toggle('collapsed');
+      });
+    }
+    
+    // Travel mode button selection
+    const modeBtns = document.querySelectorAll('.mode-btn');
+    // Dropdown change handlers
+    const travelModeSelect = document.getElementById('travel-mode');
+    const roadPaceSelect = document.getElementById('road-pace');
+    const shipPaceSelect = document.getElementById('ship-pace');
+    
+    if (travelModeSelect) {
+      travelModeSelect.addEventListener('change', calculateTravel);
+    }
+    if (roadPaceSelect) {
+      roadPaceSelect.addEventListener('change', calculateTravel);
+    }
+    if (shipPaceSelect) {
+      shipPaceSelect.addEventListener('change', calculateTravel);
+    }
+    
+    // Calculate button
+    if (calculateBtn) {
+      calculateBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        calculateTravel();
+      });
+    }
+    
+    // Add stop button
+    if (addStopBtn) {
+      addStopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        addNewStop();
+      });
+    }
+    
+    // Setup initial searchable dropdowns
+    setupSearchableDropdown('from');
+    setupSearchableDropdown('to');
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.searchable-select')) {
+        document.querySelectorAll('.searchable-dropdown').forEach(dd => {
+          dd.classList.remove('show');
+        });
+      }
+    });
+  }
+  
+  function addNewStop() {
+    const stopsContainer = document.getElementById('calc-stops');
+    const toField = stopsContainer.querySelector('[data-stop="1"]');
+    
+    // Change "To" label to "Via" for the previous stop
+    const allStops = stopsContainer.querySelectorAll('.stop-field');
+    allStops.forEach((stop, idx) => {
+      if (idx > 0) {
+        const label = stop.querySelector('label');
+        if (label && idx < allStops.length) {
+          label.textContent = 'Via';
+        }
+      }
+    });
+    
+    const stopId = stopCounter++;
+    const newStop = document.createElement('div');
+    newStop.className = 'calc-field stop-field';
+    newStop.dataset.stop = stopId;
+    newStop.innerHTML = `
+      <label>To</label>
+      <div class="stop-row">
+        <div class="searchable-select">
+          <input type="text" class="searchable-input" id="search-stop-${stopId}" placeholder="Type to search..." autocomplete="off">
+          <div class="searchable-dropdown" id="dropdown-stop-${stopId}"></div>
+          <input type="hidden" id="travel-stop-${stopId}" class="travel-stop">
+        </div>
+        <button type="button" class="remove-stop-btn" title="Remove stop">×</button>
+      </div>
+    `;
+    
+    // Insert before the last "To" or at the end
+    stopsContainer.appendChild(newStop);
+    
+    // Setup dropdown for new stop
+    setupSearchableDropdownGeneric(`stop-${stopId}`);
+    
+    // Setup remove button
+    newStop.querySelector('.remove-stop-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      removeStop(newStop);
+    });
+    
+    // Update labels
+    updateStopLabels();
+  }
+  
+  function removeStop(stopElement) {
+    stopElement.remove();
+    updateStopLabels();
+  }
+  
+  function updateStopLabels() {
+    const stopsContainer = document.getElementById('calc-stops');
+    const allStops = stopsContainer.querySelectorAll('.stop-field');
+    
+    allStops.forEach((stop, idx) => {
+      const label = stop.querySelector('label');
+      if (label) {
+        if (idx === 0) {
+          label.textContent = 'From';
+        } else if (idx === allStops.length - 1) {
+          label.textContent = 'To';
+        } else {
+          label.textContent = 'Via';
+        }
+      }
+    });
+  }
+  
+  function setupSearchableDropdown(type) {
+    setupSearchableDropdownGeneric(type);
+  }
+  
+  function setupSearchableDropdownGeneric(type) {
+    const input = document.getElementById(`search-${type}`);
+    const dropdown = document.getElementById(`dropdown-${type}`);
+    const hiddenInput = document.getElementById(`travel-${type}`);
+    
+    if (!input || !dropdown || !hiddenInput) return;
+    
+    // Show dropdown on focus
+    input.addEventListener('focus', () => {
+      renderDropdownOptionsGeneric(type, input.value);
+      dropdown.classList.add('show');
+    });
+    
+    // Filter on input
+    input.addEventListener('input', () => {
+      renderDropdownOptionsGeneric(type, input.value);
+      dropdown.classList.add('show');
+      // Clear selection when typing
+      hiddenInput.value = '';
+      hiddenInput.dataset.x = '';
+      hiddenInput.dataset.y = '';
+      hiddenInput.dataset.name = '';
+      input.classList.remove('has-value');
+    });
+  }
+  
+  function renderDropdownOptions(type, searchText) {
+    renderDropdownOptionsGeneric(type, searchText);
+  }
+  
+  function renderDropdownOptionsGeneric(type, searchText) {
+    const dropdown = document.getElementById(`dropdown-${type}`);
+    if (!dropdown) return;
+    
+    const search = searchText.toLowerCase();
+    const filtered = travelSettlements.filter(s => 
+      s.name.toLowerCase().includes(search) || 
+      s.kingdomName.toLowerCase().includes(search)
+    );
+    
+    if (filtered.length === 0) {
+      dropdown.innerHTML = '<div class="searchable-option" style="color: var(--text-secondary);">No settlements found</div>';
+      return;
+    }
+    
+    dropdown.innerHTML = filtered.map(s => `
+      <div class="searchable-option" 
+           data-id="${s.id}" 
+           data-x="${s.x}" 
+           data-y="${s.y}"
+           data-name="${s.name}">
+        ${s.name}<span class="kingdom">${s.kingdomName}</span>
+      </div>
+    `).join('');
+    
+    // Add click handlers
+    dropdown.querySelectorAll('.searchable-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        selectDropdownOptionGeneric(type, opt);
+      });
+    });
+  }
+  
+  function selectDropdownOption(type, option) {
+    selectDropdownOptionGeneric(type, option);
+  }
+  
+  function selectDropdownOptionGeneric(type, option) {
+    const input = document.getElementById(`search-${type}`);
+    const dropdown = document.getElementById(`dropdown-${type}`);
+    const hiddenInput = document.getElementById(`travel-${type}`);
+    
+    if (!input || !dropdown || !hiddenInput) return;
+    
+    const id = option.dataset.id;
+    const name = option.dataset.name;
+    const x = option.dataset.x;
+    const y = option.dataset.y;
+    
+    input.value = name;
+    input.classList.add('has-value');
+    hiddenInput.value = id;
+    hiddenInput.dataset.x = x;
+    hiddenInput.dataset.y = y;
+    hiddenInput.dataset.name = name;
+    dropdown.classList.remove('show');
+    
+    // Auto-calculate when selection is made
+    calculateTravel();
+  }
+  
+  function populateTravelDropdowns() {
+    // Get all settlements
+    travelSettlements = [];
+    Object.keys(SETTLEMENTS).forEach(kingdom => {
+      const kData = SETTLEMENTS[kingdom];
+      ['capitals', 'largeCities', 'mediumCities', 'towns', 'villages'].forEach(type => {
+        if (kData[type]) {
+          kData[type].forEach(s => {
+            travelSettlements.push({
+              ...s,
+              kingdom: kingdom,
+              kingdomName: KINGDOMS[kingdom].name
+            });
+          });
+        }
+      });
+    });
+    
+    // Sort alphabetically
+    travelSettlements.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  
+  function calculateTravel() {
+    const resultDiv = document.getElementById('calc-result');
+    const pathDiv = document.getElementById('calc-path');
+    
+    if (!resultDiv || !pathDiv) return;
+    
+    // Gather all stops
+    const stops = [];
+    const fromInput = document.getElementById('travel-from');
+    if (fromInput && fromInput.value) {
+      stops.push({
+        id: fromInput.value,
+        name: fromInput.dataset.name || '',
+        x: parseFloat(fromInput.dataset.x),
+        y: parseFloat(fromInput.dataset.y)
+      });
+    }
+    
+    const toInput = document.getElementById('travel-to');
+    if (toInput && toInput.value) {
+      stops.push({
+        id: toInput.value,
+        name: toInput.dataset.name || '',
+        x: parseFloat(toInput.dataset.x),
+        y: parseFloat(toInput.dataset.y)
+      });
+    }
+    
+    // Get additional stops
+    const additionalStops = document.querySelectorAll('[id^="travel-stop-"]');
+    additionalStops.forEach(stop => {
+      if (stop.value) {
+        stops.push({
+          id: stop.value,
+          name: stop.dataset.name || '',
+          x: parseFloat(stop.dataset.x),
+          y: parseFloat(stop.dataset.y)
+        });
+      }
+    });
+    
+    // Sort stops by their order in the DOM
+    const stopsContainer = document.getElementById('calc-stops');
+    const orderedStops = [];
+    const stopFields = stopsContainer.querySelectorAll('.stop-field');
+    stopFields.forEach(field => {
+      const input = field.querySelector('input[type="hidden"]');
+      if (input && input.value) {
+        orderedStops.push({
+          id: input.value,
+          name: input.dataset.name || '',
+          x: parseFloat(input.dataset.x),
+          y: parseFloat(input.dataset.y)
+        });
+      }
+    });
+    
+    if (orderedStops.length < 2) {
+      resultDiv.innerHTML = '<div style="color: #e94560; text-align: center;">Please select at least origin and destination</div>';
+      resultDiv.classList.add('show');
+      pathDiv.classList.remove('show');
+      clearRouteFromMap();
+      return;
+    }
+    
+    // Get travel options from dropdowns
+    const modeSelect = document.getElementById('travel-mode');
+    const roadPaceSelect = document.getElementById('road-pace');
+    const shipPaceSelect = document.getElementById('ship-pace');
+    
+    const travelOptions = {
+      mode: modeSelect ? modeSelect.value : 'any',
+      roadPace: roadPaceSelect ? roadPaceSelect.value : 'normal',
+      shipPace: shipPaceSelect ? shipPaceSelect.value : 'normal'
+    };
+    
+    // Get speed values from ROAD_NETWORK
+    const roadSpeed = ROAD_NETWORK && ROAD_NETWORK.TRAVEL_SPEEDS ? 
+      ROAD_NETWORK.TRAVEL_SPEEDS.road[travelOptions.roadPace] : 30;
+    const shipSpeed = ROAD_NETWORK && ROAD_NETWORK.TRAVEL_SPEEDS ? 
+      ROAD_NETWORK.TRAVEL_SPEEDS.ship[travelOptions.shipPace] : 50;
+    
+    // Calculate total distance and collect all paths
+    let totalDistance = 0;
+    let totalTravelTime = 0;
+    let allPaths = [];
+    let allPathResults = []; // Store full path results for road waypoints
+    let hasRoadPath = true;
+    let usesShip = false;
+    let noRouteFound = false;
+    
+    for (let i = 0; i < orderedStops.length - 1; i++) {
+      const from = orderedStops[i];
+      const to = orderedStops[i + 1];
+      
+      let segmentDist = null;
+      let segmentPath = null;
+      let pathInfo = null;
+      
+      if (typeof ROAD_NETWORK !== 'undefined') {
+        pathInfo = ROAD_NETWORK.findPath(from.id, to.id, travelOptions);
+        if (pathInfo) {
+          segmentDist = pathInfo.distance;
+          segmentPath = pathInfo.path;
+          totalTravelTime += pathInfo.travelTime || (segmentDist / roadSpeed);
+          allPathResults.push(pathInfo);
+          // Check if this segment uses ship routes
+          if (pathInfo.roadIds && pathInfo.roadIds.some(id => typeof id === 'string' && id.startsWith('ship-'))) {
+            usesShip = true;
+          }
+        }
+      }
+      
+      if (segmentDist === null) {
+        // No route found with current mode - show error
+        if (travelOptions.mode !== 'any') {
+          noRouteFound = true;
+          resultDiv.innerHTML = `
+            <div style="color: #e94560; text-align: center;">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p>No ${travelOptions.mode === 'land-only' ? 'land' : 'sea'} route found between ${from.name} and ${to.name}</p>
+              <p style="font-size: 0.85em; opacity: 0.8;">Try "Any" mode or a different route</p>
+            </div>
+          `;
+          resultDiv.classList.add('show');
+          pathDiv.classList.remove('show');
+          clearRouteFromMap();
+          return;
+        }
+        
+        // Fallback to straight-line (only in "any" mode as last resort)
+        const percentDist = Math.sqrt(Math.pow(to.x - from.x, 2) + Math.pow(to.y - from.y, 2));
+        segmentDist = percentDist * KM_PER_PERCENT;
+        segmentPath = [from.id, to.id];
+        hasRoadPath = false;
+        totalTravelTime += segmentDist / roadSpeed;
+        allPathResults.push({ path: segmentPath, roadIds: [] });
+      }
+      
+      totalDistance += segmentDist;
+      
+      // Add path nodes (avoid duplicates at junctions)
+      if (segmentPath) {
+        segmentPath.forEach((nodeId, idx) => {
+          if (idx === 0 && allPaths.length > 0) return; // Skip first node of subsequent segments
+          allPaths.push(nodeId);
+        });
+      }
+    }
+    
+    // Calculate travel time display
+    const fullDays = Math.floor(totalTravelTime);
+    const remainingHours = Math.round((totalTravelTime - fullDays) * 8);
+    
+    let travelTimeStr = '';
+    if (fullDays > 0) {
+      travelTimeStr = fullDays + ' ' + (fullDays === 1 ? 'day' : 'days');
+      if (remainingHours > 0) {
+        travelTimeStr += ', ' + remainingHours + ' hours';
+      }
+    } else if (remainingHours > 0) {
+      travelTimeStr = remainingHours + ' hours';
+    } else {
+      travelTimeStr = 'Less than an hour';
+    }
+    
+    // Build mode description
+    let modeDesc = '';
+    // Check if sea-only route used land segments to reach ports
+    let seaOnlyUsedLand = false;
+    if (travelOptions.mode === 'sea-only') {
+      allPathResults.forEach(result => {
+        if (result._usedLandToPort || result._usedLandFromPort) {
+          seaOnlyUsedLand = true;
+        }
+      });
+    }
+    
+    if (travelOptions.mode === 'land-only') {
+      modeDesc = 'Land only';
+    } else if (travelOptions.mode === 'sea-only') {
+      if (seaOnlyUsedLand) {
+        modeDesc = 'Sea (via nearest port)';
+      } else {
+        modeDesc = 'Sea only';
+      }
+    } else if (usesShip) {
+      modeDesc = 'Mixed (land + sea)';
+    } else {
+      modeDesc = 'Land';
+    }
+    
+    // Build route string
+    const routeStr = orderedStops.map(s => s.name).join(' → ');
+    
+    // Display result
+    resultDiv.innerHTML = `
+      <div class="result-header">
+        <i class="fas fa-route"></i>
+        <span>${routeStr}</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Distance</span>
+        <span class="value">${Math.round(totalDistance)} km</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Travel Mode</span>
+        <span class="value">${modeDesc}</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Road/Ship Speed</span>
+        <span class="value">${roadSpeed}/${shipSpeed} km/day</span>
+      </div>
+      <div class="result-highlight">
+        <div class="big-number">${travelTimeStr}</div>
+        <div class="unit">estimated travel time</div>
+      </div>
+    `;
+    resultDiv.classList.add('show');
+    
+    // Build a map of which segments are ship routes
+    const shipSegments = new Set();
+    allPathResults.forEach(result => {
+      if (result.roadIds) {
+        result.roadIds.forEach((roadId, idx) => {
+          if (typeof roadId === 'string' && roadId.startsWith('ship-')) {
+            // Mark both nodes of this edge as ship-connected
+            if (result.path && idx < result.path.length - 1) {
+              shipSegments.add(`${result.path[idx]}->${result.path[idx + 1]}`);
+            }
+          }
+        });
+      }
+    });
+    
+    // Display path - filter out junction nodes for cleaner display
+    if (allPaths.length > 0) {
+      // Filter out junctions for display purposes
+      const displayPaths = allPaths.filter(nodeId => {
+        if (ROAD_NETWORK && ROAD_NETWORK.settlements && ROAD_NETWORK.settlements[nodeId]) {
+          return !ROAD_NETWORK.settlements[nodeId].isJunction;
+        }
+        return true;
+      });
+      
+      let stepNum = 0;
+      const pathSteps = displayPaths.map((nodeId, idx) => {
+        stepNum++;
+        // Get settlement name if it exists
+        let nodeName = nodeId;
+        if (ROAD_NETWORK && ROAD_NETWORK.settlements && ROAD_NETWORK.settlements[nodeId]) {
+          nodeName = ROAD_NETWORK.settlements[nodeId].name;
+        } else {
+          // Try to find in travelSettlements
+          const found = travelSettlements.find(s => s.id === nodeId);
+          if (found) nodeName = found.name;
+        }
+        
+        // Check if the next segment is a ship route (check through original allPaths for ship segments)
+        let arrowType = '↓';
+        let arrowClass = 'road';
+        if (idx < displayPaths.length - 1) {
+          const nextNode = displayPaths[idx + 1];
+          // Check if any segment between current and next display node uses ship
+          const currentIdx = allPaths.indexOf(nodeId);
+          const nextIdx = allPaths.indexOf(nextNode);
+          for (let i = currentIdx; i < nextIdx; i++) {
+            const from = allPaths[i];
+            const to = allPaths[i + 1];
+            if (shipSegments.has(`${from}->${to}`) || shipSegments.has(`${to}->${from}`)) {
+              arrowType = '⛵';
+              arrowClass = 'ship';
+              break;
+            }
+          }
+        }
+        
+        return `
+          <div class="path-step">
+            <span class="step-num">${stepNum}</span>
+            <span class="step-name">${nodeName}</span>
+          </div>
+          ${idx < displayPaths.length - 1 ? `<div class="path-arrow ${arrowClass}">${arrowType}</div>` : ''}
+        `;
+      }).join('');
+      
+      pathDiv.innerHTML = `
+        <div class="path-header">
+          <i class="fas fa-map-signs"></i>
+          Route (${displayPaths.length} stops)
+        </div>
+        <div class="path-list">
+          ${pathSteps}
+        </div>
+      `;
+      pathDiv.classList.add('show');
+      
+      // Draw route on map using road waypoints
+      drawRouteOnMap(allPathResults);
+    } else {
+      pathDiv.classList.remove('show');
+      clearRouteFromMap();
+    }
+  }
+  
+  // ========================================
+  // ROUTE DRAWING ON MAP
+  // ========================================
+  function drawRouteOnMap(pathResults) {
+    // Clear existing route
+    clearRouteFromMap();
+    
+    if (!pathResults || pathResults.length === 0) return;
+    if (!mapWrapper) return;
+    
+    // Create SVG overlay for the route
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.id = 'route-overlay';
+    svg.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;';
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    
+    // Collect all coordinates from all path segments
+    const allCoords = [];
+    const nodePositions = []; // Track settlement/junction positions for markers
+    
+    pathResults.forEach((pathResult, segmentIdx) => {
+      // Use ROAD_NETWORK.getPathCoordinates if available
+      if (typeof ROAD_NETWORK !== 'undefined' && ROAD_NETWORK.getPathCoordinates) {
+        const coords = ROAD_NETWORK.getPathCoordinates(pathResult);
+        coords.forEach((coord, idx) => {
+          // Avoid duplicate points at segment junctions
+          if (segmentIdx > 0 && idx === 0 && allCoords.length > 0) {
+            const last = allCoords[allCoords.length - 1];
+            if (Math.abs(last.x - coord.x) < 0.1 && Math.abs(last.y - coord.y) < 0.1) {
+              return; // Skip duplicate
+            }
+          }
+          allCoords.push(coord);
+          if (coord.isNode) {
+            nodePositions.push({ x: coord.x, y: coord.y, nodeId: coord.nodeId });
+          }
+        });
+      } else {
+        // Fallback: just use settlement coordinates
+        const path = pathResult.path || [];
+        path.forEach((nodeId, idx) => {
+          let coords = null;
+          if (ROAD_NETWORK && ROAD_NETWORK.settlements && ROAD_NETWORK.settlements[nodeId]) {
+            coords = ROAD_NETWORK.settlements[nodeId];
+          } else {
+            const found = travelSettlements.find(s => s.id === nodeId);
+            if (found) coords = { x: found.x, y: found.y };
+          }
+          if (coords) {
+            // Avoid duplicates at junctions
+            if (segmentIdx > 0 && idx === 0 && allCoords.length > 0) {
+              const last = allCoords[allCoords.length - 1];
+              if (Math.abs(last.x - coords.x) < 0.1 && Math.abs(last.y - coords.y) < 0.1) {
+                return;
+              }
+            }
+            allCoords.push({ x: coords.x, y: coords.y, isNode: true, nodeId: nodeId });
+            nodePositions.push({ x: coords.x, y: coords.y, nodeId: nodeId });
+          }
+        });
+      }
+    });
+    
+    if (allCoords.length < 2) return;
+    
+    // Create path element using all coordinates (including waypoints)
+    const pathD = allCoords.map((p, i) => 
+      (i === 0 ? 'M' : 'L') + p.x + ' ' + p.y
+    ).join(' ');
+    
+    const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pathEl.setAttribute('d', pathD);
+    pathEl.setAttribute('stroke', '#00d4ff');
+    pathEl.setAttribute('stroke-width', '0.4');
+    pathEl.setAttribute('fill', 'none');
+    pathEl.setAttribute('stroke-linecap', 'round');
+    pathEl.setAttribute('stroke-linejoin', 'round');
+    pathEl.setAttribute('stroke-dasharray', '1,0.5');
+    pathEl.classList.add('route-line');
+    
+    svg.appendChild(pathEl);
+    
+    // Add markers only at settlement/junction nodes (not waypoints)
+    nodePositions.forEach((p, i) => {
+      // Skip junction nodes (they have isJunction flag)
+      const settlement = ROAD_NETWORK && ROAD_NETWORK.settlements && ROAD_NETWORK.settlements[p.nodeId];
+      if (settlement && settlement.isJunction) return;
+      
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', p.x);
+      circle.setAttribute('cy', p.y);
+      circle.setAttribute('r', '0.6');
+      circle.setAttribute('fill', i === 0 ? '#4caf50' : (i === nodePositions.length - 1 ? '#e94560' : '#00d4ff'));
+      circle.setAttribute('stroke', '#ffffff');
+      circle.setAttribute('stroke-width', '0.15');
+      circle.classList.add('route-marker');
+      svg.appendChild(circle);
+    });
+    
+    mapWrapper.appendChild(svg);
+  }
+  
+  function clearRouteFromMap() {
+    const existingRoute = document.getElementById('route-overlay');
+    if (existingRoute) {
+      existingRoute.remove();
+    }
   }
 
   // ========================================

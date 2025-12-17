@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayner Road Analysis - Name Your Roads</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Left Panel - Road List */
+        .road-list-panel {
+            width: 350px;
+            background: #16213e;
+            padding: 15px;
+            overflow-y: auto;
+            border-right: 2px solid #0f3460;
+        }
+        .road-list-panel h2 {
+            color: #e94560;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .road-stats {
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .road-stats span { color: #4ecca3; }
+        
+        .filter-section {
+            margin-bottom: 15px;
+        }
+        .filter-section input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background: #0f3460;
+            color: #eee;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8em;
+            background: #0f3460;
+            color: #eee;
+        }
+        .filter-btn:hover { background: #e94560; }
+        .filter-btn.active { background: #4ecca3; color: #000; }
+        
+        .road-item {
+            background: #0f3460;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            border-left: 4px solid #555;
+            transition: all 0.2s;
+        }
+        .road-item:hover { background: #1a3a6e; }
+        .road-item.selected { border-left-color: #e94560; background: #1a3a6e; }
+        .road-item.named { border-left-color: #4ecca3; }
+        .road-item.unnamed { border-left-color: #f39c12; }
+        
+        .road-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .road-number { font-weight: bold; color: #e94560; }
+        .road-points { font-size: 0.8em; color: #888; }
+        .road-name {
+            font-size: 0.9em;
+            color: #4ecca3;
+            font-style: italic;
+        }
+        .road-nearby {
+            font-size: 0.75em;
+            color: #aaa;
+            margin-top: 3px;
+        }
+        
+        /* Map Container */
+        .map-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        #map {
+            position: absolute;
+            cursor: grab;
+        }
+        #map:active { cursor: grabbing; }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        /* Right Panel - Road Details */
+        .details-panel {
+            width: 400px;
+            background: #16213e;
+            padding: 15px;
+            overflow-y: auto;
+            border-left: 2px solid #0f3460;
+        }
+        .details-panel h2 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .detail-section {
+            background: #0f3460;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+        .detail-section h3 {
+            color: #4ecca3;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .name-input-group {
+            display: flex;
+            gap: 8px;
+        }
+        .name-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background: #1a1a2e;
+            color: #eee;
+            font-size: 1em;
+        }
+        .save-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #4ecca3;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .save-btn:hover { background: #3db892; }
+        
+        .suggestion-list {
+            margin-top: 10px;
+        }
+        .suggestion {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px;
+            background: #1a1a2e;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+        .suggestion:hover { background: #e94560; }
+        
+        .coords-list {
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.8em;
+            background: #1a1a2e;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .coord-point {
+            padding: 2px 0;
+            border-bottom: 1px solid #333;
+        }
+        .coord-point:last-child { border-bottom: none; }
+        
+        .nearby-settlement {
+            padding: 5px 8px;
+            margin: 3px 0;
+            background: #1a1a2e;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .settlement-name { color: #4ecca3; }
+        .settlement-dist { color: #888; font-size: 0.9em; }
+        .settlement-kingdom { 
+            font-size: 0.75em; 
+            color: #e94560;
+            background: #0f3460;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        /* Export Section */
+        .export-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #0f3460;
+        }
+        .export-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .export-btn.primary { background: #e94560; color: #fff; }
+        .export-btn.secondary { background: #0f3460; color: #eee; }
+        .export-btn:hover { opacity: 0.9; }
+        
+        /* Controls */
+        .map-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #16213e;
+            color: #eee;
+            cursor: pointer;
+        }
+        .control-btn:hover { background: #0f3460; }
+        
+        .legend {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            z-index: 100;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4ecca3;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        .toast.show { opacity: 1; }
+        
+        /* Modal for export */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            background: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow: auto;
+        }
+        .modal-content h3 { color: #e94560; margin-bottom: 15px; }
+        .modal-content pre {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85em;
+        }
+        .modal-close {
+            float: right;
+            background: #e94560;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-btn {
+            background: #4ecca3;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Panel: Road List -->
+    <div class="road-list-panel">
+        <h2>🛤️ Dayner Roads</h2>
+        <div class="road-stats">
+            Total Roads: <span id="totalRoads">69</span> | 
+            Named: <span id="namedCount">0</span> | 
+            Unnamed: <span id="unnamedCount">69</span>
+        </div>
+        
+        <div class="filter-section">
+            <input type="text" id="searchRoads" placeholder="Search by name or nearby town...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="named">Named</button>
+                <button class="filter-btn" data-filter="unnamed">Unnamed</button>
+                <button class="filter-btn" data-filter="islefield">Islefield</button>
+                <button class="filter-btn" data-filter="braewood">Braewood</button>
+                <button class="filter-btn" data-filter="kluimont">Kluimont</button>
+            </div>
+        </div>
+        
+        <div id="roadList"></div>
+    </div>
+    
+    <!-- Map Container -->
+    <div class="map-container" id="mapContainer">
+        <img id="map" src="map.jpg" alt="Dayner Map">
+        <canvas id="canvas"></canvas>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e94560;"></div>
+                <span>Selected Road</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ecca3;"></div>
+                <span>Named Roads</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f39c12;"></div>
+                <span>Unnamed Roads</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(100,100,255,0.5);"></div>
+                <span>Other Roads</span>
+            </div>
+        </div>
+        
+        <div class="map-controls">
+            <button class="control-btn" onclick="zoomIn()">➕ Zoom In</button>
+            <button class="control-btn" onclick="zoomOut()">➖ Zoom Out</button>
+            <button class="control-btn" onclick="resetView()">🔄 Reset</button>
+            <button class="control-btn" onclick="toggleAllRoads()">👁️ Toggle All</button>
+        </div>
+    </div>
+    
+    <!-- Right Panel: Details -->
+    <div class="details-panel">
+        <h2>📝 Road Details</h2>
+        
+        <div class="detail-section" id="noSelection">
+            <p style="text-align: center; color: #888; padding: 20px;">
+                Select a road from the list to view details and assign a name.
+            </p>
+        </div>
+        
+        <div id="roadDetails" style="display: none;">
+            <div class="detail-section">
+                <h3>Road Name</h3>
+                <div class="name-input-group">
+                    <input type="text" id="roadNameInput" class="name-input" placeholder="Enter road name...">
+                    <button class="save-btn" onclick="saveName()">Save</button>
+                </div>
+                <div class="suggestion-list" id="suggestions"></div>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Road Info</h3>
+                <p>Road #<span id="detailRoadNum"></span> • <span id="detailPoints"></span> points</p>
+                <p>Length: ~<span id="detailLength"></span> km</p>
+                <p>Region: <span id="detailRegion"></span></p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Nearby Settlements (within 10km)</h3>
+                <div id="nearbySettlements"></div>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Endpoints</h3>
+                <div id="endpoints"></div>
+            </div>
+            
+            <div class="detail-section">
+                <h3>All Coordinates</h3>
+                <div class="coords-list" id="coordsList"></div>
+            </div>
+        </div>
+        
+        <div class="export-section">
+            <button class="export-btn primary" onclick="exportNamed()">📤 Export Named Roads</button>
+            <button class="export-btn secondary" onclick="exportAll()">📋 Export All Roads with Names</button>
+            <button class="export-btn secondary" onclick="saveToLocalStorage()">💾 Save Progress</button>
+            <button class="export-btn secondary" onclick="loadFromLocalStorage()">📂 Load Saved</button>
+        </div>
+    </div>
+    
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- Export Modal -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">Close</button>
+            <h3 id="modalTitle">Export</h3>
+            <pre id="modalContent"></pre>
+            <button class="copy-btn" onclick="copyExport()">📋 Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <!-- Load Data Files -->
+    <script src="road-data.js"></script>
+    <script src="dayner-map-data.js"></script>
+    
+    <script>
+        // Map setup
+        const mapContainer = document.getElementById('mapContainer');
+        const mapImg = document.getElementById('map');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Constants
+        const KM_PER_PERCENT = 4.46;
+        const NEARBY_RADIUS = 10; // km
+        
+        // State
+        let scale = 1;
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+        let lastX, lastY;
+        let selectedRoad = null;
+        let showAllRoads = true;
+        
+        // Road names storage
+        let roadNames = {};
+        
+        // All settlements flattened
+        let allSettlements = [];
+        
+        // Initialize when map loads
+        mapImg.onload = function() {
+            canvas.width = mapImg.naturalWidth;
+            canvas.height = mapImg.naturalHeight;
+            
+            // Fit map to container
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            
+            updateMapTransform();
+            flattenSettlements();
+            analyzeAllRoads();
+            renderRoadList();
+            drawAllRoads();
+            loadFromLocalStorage();
+        };
+        
+        function flattenSettlements() {
+            if (typeof DAYNER_MAP_DATA === 'undefined') {
+                console.warn('DAYNER_MAP_DATA not loaded');
+                return;
+            }
+            
+            const settlements = DAYNER_MAP_DATA.settlements;
+            for (const kingdom in settlements) {
+                const kData = settlements[kingdom];
+                
+                // Capital
+                if (kData.capital) {
+                    allSettlements.push({
+                        name: kData.capital.name,
+                        x: kData.capital.x,
+                        y: kData.capital.y,
+                        type: 'capital',
+                        kingdom: kingdom
+                    });
+                }
+                
+                // Large cities
+                if (kData.largeCities) {
+                    kData.largeCities.forEach(c => {
+                        allSettlements.push({ ...c, type: 'large city', kingdom });
+                    });
+                }
+                
+                // Medium cities
+                if (kData.mediumCities) {
+                    kData.mediumCities.forEach(c => {
+                        allSettlements.push({ ...c, type: 'medium city', kingdom });
+                    });
+                }
+                
+                // Towns
+                if (kData.towns) {
+                    kData.towns.forEach(c => {
+                        allSettlements.push({ ...c, type: 'town', kingdom });
+                    });
+                }
+                
+                // Villages
+                if (kData.villages) {
+                    kData.villages.forEach(c => {
+                        allSettlements.push({ ...c, type: 'village', kingdom });
+                    });
+                }
+            }
+            
+            console.log(`Loaded ${allSettlements.length} settlements`);
+        }
+        
+        // Road analysis data
+        let roadAnalysis = [];
+        
+        function analyzeAllRoads() {
+            roadAnalysis = DAYNER_ROADS.roads.map((road, idx) => {
+                const startPoint = road[0];
+                const endPoint = road[road.length - 1];
+                
+                // Find nearby settlements at start and end
+                const nearStart = findNearbySettlements(startPoint.x, startPoint.y, NEARBY_RADIUS);
+                const nearEnd = findNearbySettlements(endPoint.x, endPoint.y, NEARBY_RADIUS);
+                
+                // Calculate road length
+                let length = 0;
+                for (let i = 1; i < road.length; i++) {
+                    const dx = (road[i].x - road[i-1].x) * KM_PER_PERCENT;
+                    const dy = (road[i].y - road[i-1].y) * KM_PER_PERCENT;
+                    length += Math.sqrt(dx*dx + dy*dy);
+                }
+                
+                // Determine region based on average position
+                const avgX = road.reduce((s, p) => s + p.x, 0) / road.length;
+                const avgY = road.reduce((s, p) => s + p.y, 0) / road.length;
+                const region = determineRegion(avgX, avgY);
+                
+                return {
+                    index: idx,
+                    points: road.length,
+                    length: Math.round(length * 10) / 10,
+                    start: startPoint,
+                    end: endPoint,
+                    nearStart,
+                    nearEnd,
+                    region,
+                    avgX,
+                    avgY
+                };
+            });
+        }
+        
+        function findNearbySettlements(x, y, radiusKm) {
+            return allSettlements
+                .map(s => {
+                    const dx = (s.x - x) * KM_PER_PERCENT;
+                    const dy = (s.y - y) * KM_PER_PERCENT;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    return { ...s, distance: Math.round(dist * 10) / 10 };
+                })
+                .filter(s => s.distance <= radiusKm)
+                .sort((a, b) => a.distance - b.distance);
+        }
+        
+        function determineRegion(x, y) {
+            // Rough region boundaries
+            if (x < 45 && y > 40) return 'Islefield';
+            if (x > 45 && y < 45) return 'Braewood/Kluimont';
+            if (x > 60 && y > 40) return 'Braewood';
+            if (x < 35 && y < 40) return 'Kluimont';
+            return 'Central';
+        }
+        
+        function renderRoadList() {
+            const list = document.getElementById('roadList');
+            list.innerHTML = '';
+            
+            roadAnalysis.forEach((road, idx) => {
+                const name = roadNames[idx] || '';
+                const isNamed = name.length > 0;
+                
+                const nearby = [...road.nearStart, ...road.nearEnd]
+                    .filter((s, i, arr) => arr.findIndex(x => x.name === s.name) === i)
+                    .slice(0, 3)
+                    .map(s => s.name)
+                    .join(', ');
+                
+                const div = document.createElement('div');
+                div.className = `road-item ${isNamed ? 'named' : 'unnamed'} ${selectedRoad === idx ? 'selected' : ''}`;
+                div.dataset.index = idx;
+                div.dataset.region = road.region.toLowerCase();
+                div.dataset.nearby = nearby.toLowerCase();
+                div.dataset.name = name.toLowerCase();
+                
+                div.innerHTML = `
+                    <div class="road-header">
+                        <span class="road-number">Road #${idx + 1}</span>
+                        <span class="road-points">${road.points} pts • ${road.length}km</span>
+                    </div>
+                    ${name ? `<div class="road-name">"${name}"</div>` : ''}
+                    <div class="road-nearby">Near: ${nearby || 'No nearby settlements'}</div>
+                `;
+                
+                div.onclick = () => selectRoad(idx);
+                list.appendChild(div);
+            });
+            
+            updateStats();
+        }
+        
+        function updateStats() {
+            const named = Object.keys(roadNames).filter(k => roadNames[k]).length;
+            document.getElementById('namedCount').textContent = named;
+            document.getElementById('unnamedCount').textContent = 69 - named;
+        }
+        
+        function selectRoad(idx) {
+            selectedRoad = idx;
+            
+            // Update list selection
+            document.querySelectorAll('.road-item').forEach(el => {
+                el.classList.toggle('selected', parseInt(el.dataset.index) === idx);
+            });
+            
+            // Show details
+            document.getElementById('noSelection').style.display = 'none';
+            document.getElementById('roadDetails').style.display = 'block';
+            
+            const road = roadAnalysis[idx];
+            const roadData = DAYNER_ROADS.roads[idx];
+            
+            // Fill details
+            document.getElementById('detailRoadNum').textContent = idx + 1;
+            document.getElementById('detailPoints').textContent = road.points;
+            document.getElementById('detailLength').textContent = road.length;
+            document.getElementById('detailRegion').textContent = road.region;
+            document.getElementById('roadNameInput').value = roadNames[idx] || '';
+            
+            // Nearby settlements
+            const nearbyDiv = document.getElementById('nearbySettlements');
+            const allNearby = [...road.nearStart, ...road.nearEnd]
+                .filter((s, i, arr) => arr.findIndex(x => x.name === s.name) === i)
+                .sort((a, b) => a.distance - b.distance);
+            
+            if (allNearby.length === 0) {
+                nearbyDiv.innerHTML = '<p style="color:#888;">No settlements within 10km</p>';
+            } else {
+                nearbyDiv.innerHTML = allNearby.map(s => `
+                    <div class="nearby-settlement">
+                        <span class="settlement-name">${s.name}</span>
+                        <span class="settlement-dist">${s.distance}km</span>
+                        <span class="settlement-kingdom">${s.kingdom}</span>
+                    </div>
+                `).join('');
+            }
+            
+            // Endpoints
+            const endpointsDiv = document.getElementById('endpoints');
+            const startNear = road.nearStart[0];
+            const endNear = road.nearEnd[0];
+            endpointsDiv.innerHTML = `
+                <p><strong>Start:</strong> (${road.start.x}, ${road.start.y}) ${startNear ? `- Near ${startNear.name} (${startNear.distance}km)` : ''}</p>
+                <p><strong>End:</strong> (${road.end.x}, ${road.end.y}) ${endNear ? `- Near ${endNear.name} (${endNear.distance}km)` : ''}</p>
+            `;
+            
+            // Coordinates
+            const coordsDiv = document.getElementById('coordsList');
+            coordsDiv.innerHTML = roadData.map((p, i) => 
+                `<div class="coord-point">${i + 1}. (${p.x}, ${p.y})</div>`
+            ).join('');
+            
+            // Suggestions
+            generateSuggestions(idx);
+            
+            // Center map on road
+            centerOnRoad(idx);
+            
+            // Redraw
+            drawAllRoads();
+        }
+        
+        function generateSuggestions(idx) {
+            const road = roadAnalysis[idx];
+            const suggestions = [];
+            
+            // From nearby settlements
+            const allNearby = [...road.nearStart, ...road.nearEnd]
+                .filter((s, i, arr) => arr.findIndex(x => x.name === s.name) === i)
+                .slice(0, 4);
+            
+            if (allNearby.length >= 2) {
+                suggestions.push(`${allNearby[0].name}-${allNearby[1].name} Road`);
+                suggestions.push(`${allNearby[0].name} Road`);
+            } else if (allNearby.length === 1) {
+                suggestions.push(`${allNearby[0].name} Road`);
+                suggestions.push(`${allNearby[0].name} Way`);
+            }
+            
+            // Region-based
+            suggestions.push(`${road.region} Road #${idx + 1}`);
+            
+            // Cardinal direction
+            const dx = road.end.x - road.start.x;
+            const dy = road.end.y - road.start.y;
+            let direction = '';
+            if (Math.abs(dx) > Math.abs(dy)) {
+                direction = dx > 0 ? 'East' : 'West';
+            } else {
+                direction = dy > 0 ? 'South' : 'North';
+            }
+            suggestions.push(`${direction}ern ${road.region} Road`);
+            
+            const suggestDiv = document.getElementById('suggestions');
+            suggestDiv.innerHTML = suggestions.map(s => 
+                `<span class="suggestion" onclick="useSuggestion('${s}')">${s}</span>`
+            ).join('');
+        }
+        
+        function useSuggestion(name) {
+            document.getElementById('roadNameInput').value = name;
+            saveName();
+        }
+        
+        function saveName() {
+            if (selectedRoad === null) return;
+            
+            const name = document.getElementById('roadNameInput').value.trim();
+            roadNames[selectedRoad] = name;
+            
+            renderRoadList();
+            drawAllRoads();
+            showToast('Road name saved!');
+            
+            // Re-select to update UI
+            selectRoad(selectedRoad);
+        }
+        
+        function centerOnRoad(idx) {
+            const road = roadAnalysis[idx];
+            const roadData = DAYNER_ROADS.roads[idx];
+            
+            // Calculate bounding box
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            roadData.forEach(p => {
+                const px = (p.x / 100) * mapImg.naturalWidth;
+                const py = (p.y / 100) * mapImg.naturalHeight;
+                minX = Math.min(minX, px);
+                maxX = Math.max(maxX, px);
+                minY = Math.min(minY, py);
+                maxY = Math.max(maxY, py);
+            });
+            
+            const centerX = (minX + maxX) / 2;
+            const centerY = (minY + maxY) / 2;
+            
+            // Center on road
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            
+            offsetX = containerWidth / 2 - centerX * scale;
+            offsetY = containerHeight / 2 - centerY * scale;
+            
+            updateMapTransform();
+        }
+        
+        function drawAllRoads() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (!showAllRoads && selectedRoad === null) return;
+            
+            DAYNER_ROADS.roads.forEach((road, idx) => {
+                if (!showAllRoads && idx !== selectedRoad) return;
+                
+                const isSelected = idx === selectedRoad;
+                const isNamed = roadNames[idx];
+                
+                ctx.beginPath();
+                ctx.lineWidth = isSelected ? 5 : 3;
+                
+                if (isSelected) {
+                    ctx.strokeStyle = '#e94560';
+                } else if (isNamed) {
+                    ctx.strokeStyle = '#4ecca3';
+                } else {
+                    ctx.strokeStyle = 'rgba(243, 156, 18, 0.7)';
+                }
+                
+                road.forEach((point, i) => {
+                    const x = (point.x / 100) * canvas.width;
+                    const y = (point.y / 100) * canvas.height;
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                
+                ctx.stroke();
+                
+                // Draw endpoints for selected road
+                if (isSelected) {
+                    const start = road[0];
+                    const end = road[road.length - 1];
+                    
+                    // Start point (green)
+                    ctx.beginPath();
+                    ctx.arc(
+                        (start.x / 100) * canvas.width,
+                        (start.y / 100) * canvas.height,
+                        8, 0, Math.PI * 2
+                    );
+                    ctx.fillStyle = '#4ecca3';
+                    ctx.fill();
+                    
+                    // End point (red)
+                    ctx.beginPath();
+                    ctx.arc(
+                        (end.x / 100) * canvas.width,
+                        (end.y / 100) * canvas.height,
+                        8, 0, Math.PI * 2
+                    );
+                    ctx.fillStyle = '#e94560';
+                    ctx.fill();
+                }
+            });
+            
+            // Draw settlement markers
+            allSettlements.forEach(s => {
+                const x = (s.x / 100) * canvas.width;
+                const y = (s.y / 100) * canvas.height;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+            });
+        }
+        
+        // Map controls
+        function updateMapTransform() {
+            mapImg.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            mapImg.style.transformOrigin = '0 0';
+            canvas.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            canvas.style.transformOrigin = '0 0';
+        }
+        
+        mapContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+        
+        mapContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            offsetX += e.clientX - lastX;
+            offsetY += e.clientY - lastY;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            updateMapTransform();
+        });
+        
+        mapContainer.addEventListener('mouseup', () => isDragging = false);
+        mapContainer.addEventListener('mouseleave', () => isDragging = false);
+        
+        mapContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            scale *= delta;
+            scale = Math.max(0.2, Math.min(5, scale));
+            updateMapTransform();
+        });
+        
+        function zoomIn() { scale *= 1.2; scale = Math.min(5, scale); updateMapTransform(); }
+        function zoomOut() { scale *= 0.8; scale = Math.max(0.2, scale); updateMapTransform(); }
+        function resetView() {
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            offsetX = 0;
+            offsetY = 0;
+            updateMapTransform();
+        }
+        function toggleAllRoads() {
+            showAllRoads = !showAllRoads;
+            drawAllRoads();
+        }
+        
+        // Filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterRoads(btn.dataset.filter);
+            };
+        });
+        
+        document.getElementById('searchRoads').oninput = (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.road-item').forEach(item => {
+                const matches = 
+                    item.dataset.name.includes(query) ||
+                    item.dataset.nearby.includes(query) ||
+                    item.dataset.region.includes(query);
+                item.style.display = matches ? 'block' : 'none';
+            });
+        };
+        
+        function filterRoads(filter) {
+            document.querySelectorAll('.road-item').forEach(item => {
+                const idx = parseInt(item.dataset.index);
+                const isNamed = roadNames[idx];
+                let show = true;
+                
+                switch(filter) {
+                    case 'named': show = isNamed; break;
+                    case 'unnamed': show = !isNamed; break;
+                    case 'islefield': show = item.dataset.region.includes('islefield'); break;
+                    case 'braewood': show = item.dataset.region.includes('braewood'); break;
+                    case 'kluimont': show = item.dataset.region.includes('kluimont'); break;
+                }
+                
+                item.style.display = show ? 'block' : 'none';
+            });
+        }
+        
+        // Export functions
+        function exportNamed() {
+            const named = Object.entries(roadNames)
+                .filter(([idx, name]) => name)
+                .map(([idx, name]) => ({
+                    index: parseInt(idx) + 1,
+                    name: name,
+                    points: DAYNER_ROADS.roads[idx].length,
+                    region: roadAnalysis[idx].region
+                }));
+            
+            const content = JSON.stringify(named, null, 2);
+            showModal('Named Roads Export', content);
+        }
+        
+        function exportAll() {
+            const exportData = DAYNER_ROADS.roads.map((road, idx) => ({
+                name: roadNames[idx] || `Road #${idx + 1}`,
+                points: road
+            }));
+            
+            const jsContent = `/**
+ * DAYNER NAMED ROAD NETWORK
+ * Generated ${new Date().toISOString().split('T')[0]}
+ * ${Object.values(roadNames).filter(n => n).length} roads named
+ */
+
+const DAYNER_NAMED_ROADS = {
+  roads: [
+${exportData.map((r, i) => `    // ${r.name}
+    {
+      name: "${r.name}",
+      points: [
+${r.points.map(p => `        { x: ${p.x}, y: ${p.y} }`).join(',\n')}
+      ]
+    }`).join(',\n')}
+  ],
+  
+  totalRoads: ${DAYNER_ROADS.roads.length}
+};`;
+            
+            showModal('Full Roads Export (JavaScript)', jsContent);
+        }
+        
+        function showModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalContent').textContent = content;
+            document.getElementById('exportModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('exportModal').classList.remove('show');
+        }
+        
+        function copyExport() {
+            const content = document.getElementById('modalContent').textContent;
+            navigator.clipboard.writeText(content).then(() => {
+                showToast('Copied to clipboard!');
+            });
+        }
+        
+        // Local storage
+        function saveToLocalStorage() {
+            localStorage.setItem('dayner_road_names', JSON.stringify(roadNames));
+            showToast('Progress saved to browser!');
+        }
+        
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('dayner_road_names');
+            if (saved) {
+                roadNames = JSON.parse(saved);
+                renderRoadList();
+                drawAllRoads();
+                showToast(`Loaded ${Object.keys(roadNames).filter(k => roadNames[k]).length} saved names`);
+            }
+        }
+        
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+            
+            if (e.key === 'ArrowDown' && selectedRoad !== null) {
+                e.preventDefault();
+                selectRoad(Math.min(68, selectedRoad + 1));
+            } else if (e.key === 'ArrowUp' && selectedRoad !== null) {
+                e.preventDefault();
+                selectRoad(Math.max(0, selectedRoad - 1));
+            } else if (e.key === 's' && e.ctrlKey) {
+                e.preventDefault();
+                saveToLocalStorage();
+            }
+        });
+    </script>
+</body>
+</html>

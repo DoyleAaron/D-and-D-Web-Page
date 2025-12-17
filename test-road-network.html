@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Network Tests</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 { color: #569cd6; }
+        h3 { color: #4ec9b0; margin-top: 20px; }
+        h4 { color: #ce9178; margin: 10px 0 5px 0; }
+        .pass { color: #4ec9b0; }
+        .fail { color: #f14c4c; }
+        .summary { 
+            font-size: 1.2em; 
+            padding: 15px; 
+            background: #2d2d2d; 
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .test-result {
+            padding: 5px 10px;
+            margin: 2px 0;
+            background: #252526;
+            border-radius: 4px;
+        }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 10px 5px 10px 0;
+        }
+        button:hover { background: #1177bb; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🗺️ Road Network Pathfinding Tests</h1>
+    <button onclick="runTests()">Run All Tests</button>
+    <button onclick="document.getElementById('output').innerHTML = ''">Clear</button>
+    
+    <div id="output"></div>
+
+    <script src="map-coordinates.js"></script>
+    <script src="ship-routes.js"></script>
+    <script src="static/js/road-network.js"></script>
+    <script src="static/js/road-network-tests.js"></script>
+    <script>
+        function runTests() {
+            const output = document.getElementById('output');
+            output.innerHTML = '<p>Running tests...</p>';
+            
+            // Override console methods to capture output
+            const originalLog = console.log;
+            const originalError = console.error;
+            let html = '';
+            
+            console.log = function(...args) {
+                const msg = args.join(' ');
+                if (msg.includes('✅')) {
+                    html += `<div class="test-result pass">${msg}</div>`;
+                } else if (msg.includes('===')) {
+                    html += `<h3>${msg}</h3>`;
+                } else if (msg.includes('---')) {
+                    html += `<h4>${msg}</h4>`;
+                } else {
+                    html += `<div class="test-result">${msg}</div>`;
+                }
+                originalLog.apply(console, args);
+            };
+            
+            console.error = function(...args) {
+                const msg = args.join(' ');
+                html += `<div class="test-result fail">${msg}</div>`;
+                originalError.apply(console, args);
+            };
+            
+            try {
+                const results = ROAD_NETWORK_TESTS.runAll();
+                
+                html += `<div class="summary">
+                    <span class="pass">✅ Passed: ${results.passed}</span> | 
+                    <span class="fail">❌ Failed: ${results.failed}</span> | 
+                    Total: ${results.passed + results.failed}
+                </div>`;
+            } catch (e) {
+                html += `<div class="fail">Error running tests: ${e.message}<br>${e.stack}</div>`;
+                console.error(e);
+            }
+            
+            // Restore console
+            console.log = originalLog;
+            console.error = originalError;
+            
+            output.innerHTML = html;
+        }
+        
+        // Auto-run on load
+        window.onload = runTests;
+    </script>
+</body>
+</html>

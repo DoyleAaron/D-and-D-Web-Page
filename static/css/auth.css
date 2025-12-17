@@ -228,7 +228,7 @@
   top: 0;
   right: -450px;
   width: 450px;
-  max-width: 100%;
+  max-width: 100vw;
   height: 100vh;
   background: var(--bg-secondary);
   border-left: 1px solid var(--border-color);
@@ -238,10 +238,12 @@
   flex-direction: column;
   box-shadow: var(--shadow-xl);
   overflow: hidden;
+  visibility: hidden;
 }
 
 .journal-panel.active {
   right: 0;
+  visibility: visible;
 }
 
 .journal-header {

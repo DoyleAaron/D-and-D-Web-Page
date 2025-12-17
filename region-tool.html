@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayner Water/Land Boundary Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 320px;
+            background: #16213e;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 2px solid #e94560;
+        }
+        h1 {
+            color: #e94560;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 0.85em;
+            margin-bottom: 20px;
+        }
+        .region-selector {
+            margin-bottom: 20px;
+        }
+        .region-selector label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e94560;
+        }
+        .region-selector select {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a2e;
+            border: 1px solid #e94560;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .region-type {
+            margin-bottom: 20px;
+        }
+        .region-type label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e94560;
+        }
+        .type-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+        }
+        .type-btn {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .type-btn.forest { background: #228B22; color: white; }
+        .type-btn.mountain { background: #8B4513; color: white; }
+        .type-btn.desert { background: #DEB887; color: #333; }
+        .type-btn.swamp { background: #556B2F; color: white; }
+        .type-btn.grove { background: #32CD32; color: white; }
+        .type-btn.volcano { background: #DC143C; color: white; }
+        .type-btn.isles { background: #4169E1; color: white; }
+        .type-btn.heights { background: #A0522D; color: white; }
+        .type-btn.ocean { background: #0077BE; color: white; }
+        .type-btn.land { background: #8B7355; color: white; }
+        .type-btn.river { background: #4169E1; color: white; }
+        .type-btn.lake { background: #00CED1; color: white; }
+        .type-btn.active { outline: 3px solid #fff; }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn-new { background: #e94560; color: white; }
+        .btn-undo { background: #ff6b6b; color: white; }
+        .btn-clear { background: #c92a42; color: white; }
+        .btn-copy { background: #4ecdc4; color: white; }
+        .btn:hover { opacity: 0.8; transform: translateY(-1px); }
+        .status {
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        .region-list {
+            margin-top: 15px;
+        }
+        .region-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .region-item.forest { background: rgba(34, 139, 34, 0.3); border-left: 3px solid #228B22; }
+        .region-item.mountain { background: rgba(139, 69, 19, 0.3); border-left: 3px solid #8B4513; }
+        .region-item.desert { background: rgba(222, 184, 135, 0.3); border-left: 3px solid #DEB887; }
+        .region-item.swamp { background: rgba(85, 107, 47, 0.3); border-left: 3px solid #556B2F; }
+        .region-item.grove { background: rgba(50, 205, 50, 0.3); border-left: 3px solid #32CD32; }
+        .region-item.volcano { background: rgba(220, 20, 60, 0.3); border-left: 3px solid #DC143C; }
+        .region-item.isles { background: rgba(65, 105, 225, 0.3); border-left: 3px solid #4169E1; }
+        .region-item.heights { background: rgba(160, 82, 45, 0.3); border-left: 3px solid #A0522D; }
+        .region-item.ocean { background: rgba(0, 119, 190, 0.3); border-left: 3px solid #0077BE; }
+        .region-item.land { background: rgba(139, 115, 85, 0.3); border-left: 3px solid #8B7355; }
+        .region-item.river { background: rgba(65, 105, 225, 0.3); border-left: 3px solid #4169E1; }
+        .region-item.lake { background: rgba(0, 206, 209, 0.3); border-left: 3px solid #00CED1; }
+        .region-item span { flex: 1; }
+        .region-item button {
+            background: #e94560;
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        .output {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .output pre {
+            font-size: 11px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .map-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: crosshair;
+        }
+        .point-marker {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .point-marker.forest { background: #228B22; }
+        .point-marker.mountain { background: #8B4513; }
+        .point-marker.desert { background: #DEB887; }
+        .point-marker.swamp { background: #556B2F; }
+        .point-marker.grove { background: #32CD32; }
+        .point-marker.volcano { background: #DC143C; }
+        .point-marker.isles { background: #4169E1; }
+        .point-marker.heights { background: #A0522D; }
+        .point-marker.ocean { background: #0077BE; }
+        .point-marker.land { background: #8B7355; }
+        .point-marker.river { background: #4169E1; }
+        .point-marker.lake { background: #00CED1; }
+        .coords-display {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .instructions {
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .instructions strong { color: #e94560; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>🌊 Water/Land Tool</h1>
+            <p class="subtitle">Map ocean, lakes, rivers & land for ship route validation</p>
+            
+            <div class="instructions">
+                <strong>🌊 Water/Land Validation Tool</strong><br>
+                1. Start with water boundaries (ocean coasts)<br>
+                2. Mark Lavalto Lake (ring) and Lavalto Island (land center)<br>
+                3. Mark rivers if needed<br>
+                4. Mark mainland as LAND<br>
+                5. Copy data → use for ship route validation<br>
+                <strong style="color:#ff6b6b">Ships can ONLY go through ocean/lake/river, NOT land!</strong>
+            </div>
+
+            <div class="region-selector">
+                <label>Current Region:</label>
+                <select id="regionSelect">
+                    <optgroup label="-- Water Boundaries (for validation) --">
+                        <option value="ocean_east">Ocean - East Coast</option>
+                        <option value="ocean_south">Ocean - South Coast</option>
+                        <option value="ocean_west">Ocean - West Coast</option>
+                        <option value="ocean_north">Ocean - North Coast</option>
+                        <option value="lavalto_lake">Lavalto Lake (Ring)</option>
+                        <option value="lavalto_island">Lavalto Island (LAND - no ships!)</option>
+                        <option value="river_1">River 1</option>
+                        <option value="river_2">River 2</option>
+                        <option value="river_3">River 3</option>
+                        <option value="river_4">River 4</option>
+                        <option value="river_5">River 5</option>
+                        <option value="river_6">River 6</option>
+                        <option value="river_7">River 7</option>
+                        <option value="river_8">River 8</option>
+                        <option value="river_9">River 9</option>
+                        <option value="river_10">River 10</option>
+                    </optgroup>
+                    <optgroup label="-- Land Masses (no ships!) --">
+                        <option value="mainland">Mainland (main continent)</option>
+                        <option value="kluimont_islands">Kluimont Islands</option>
+                    </optgroup>
+                    <optgroup label="-- Points of Interest --">
+                        <option value="tempawa_forest">Tempawa Forest</option>
+                        <option value="rimduff_isles">Rimduff Isles</option>
+                        <option value="meriver_mountains">Meriver Mountains</option>
+                        <option value="gray_toad_wood">Gray Toad Wood</option>
+                        <option value="iroware_heights">Iroware Heights</option>
+                        <option value="iroware_desert">Iroware Desert</option>
+                        <option value="shercam_woods">Shercam Woods</option>
+                        <option value="lavalto_volcano">Lavalto Volcano</option>
+                        <option value="kingfisher_grove">Prairie Kingfisher Grove</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="region-type">
+                <label>Region Type:</label>
+                <div class="type-buttons">
+                    <button class="type-btn ocean active" data-type="ocean">🌊 Ocean</button>
+                    <button class="type-btn lake" data-type="lake">💧 Lake</button>
+                    <button class="type-btn river" data-type="river">〰️ River</button>
+                    <button class="type-btn land" data-type="land">🏝️ Land</button>
+                    <button class="type-btn forest" data-type="forest">🌲 Forest</button>
+                    <button class="type-btn mountain" data-type="mountain">⛰️ Mountain</button>
+                    <button class="type-btn desert" data-type="desert">🏜️ Desert</button>
+                    <button class="type-btn swamp" data-type="swamp">🐸 Swamp</button>
+                    <button class="type-btn grove" data-type="grove">🌳 Grove</button>
+                    <button class="type-btn volcano" data-type="volcano">🌋 Volcano</button>
+                    <button class="type-btn isles" data-type="isles">🏝️ Isles</button>
+                    <button class="type-btn heights" data-type="heights">🏔️ Heights</button>
+                </div>
+            </div>
+
+            <button class="btn btn-new" onclick="finishRegion()">✓ Finish This Region</button>
+            <button class="btn btn-undo" onclick="undoPoint()">↩ Undo Last Point</button>
+            <button class="btn btn-clear" onclick="clearCurrent()">✕ Clear Current</button>
+            <button class="btn btn-copy" onclick="copyAll()">📋 Copy All Data</button>
+
+            <div class="status" id="status">
+                Click on map to start drawing region border
+            </div>
+
+            <div class="region-list" id="regionList">
+                <!-- Completed regions appear here -->
+            </div>
+
+            <div class="output">
+                <pre id="output">// Region data will appear here</pre>
+            </div>
+        </div>
+
+        <div class="map-container" id="mapContainer">
+            <img id="map" src="map.jpg" alt="Dayner Map">
+            <svg id="svg"></svg>
+        </div>
+    </div>
+
+    <div class="coords-display" id="coords">X: 0.0 | Y: 0.0</div>
+
+    <script>
+        // State
+        let currentPoints = [];
+        let currentType = 'forest';
+        let allRegions = {};
+        
+        // Pre-populate region types
+        const regionTypes = {
+            // Water boundaries
+            'ocean_east': 'ocean',
+            'ocean_south': 'ocean',
+            'ocean_west': 'ocean',
+            'ocean_north': 'ocean',
+            'lavalto_lake': 'lake',
+            'lavalto_island': 'land',
+            'river_1': 'river',
+            'river_2': 'river',
+            'river_3': 'river',
+            'river_4': 'river',
+            'river_5': 'river',
+            'river_6': 'river',
+            'river_7': 'river',
+            'river_8': 'river',
+            'river_9': 'river',
+            'river_10': 'river',
+            // Land masses
+            'mainland': 'land',
+            'kluimont_islands': 'land',
+            // POIs
+            'tempawa_forest': 'forest',
+            'rimduff_isles': 'isles',
+            'meriver_mountains': 'mountain',
+            'gray_toad_wood': 'swamp',
+            'iroware_heights': 'heights',
+            'iroware_desert': 'desert',
+            'shercam_woods': 'forest',
+            'lavalto_volcano': 'volcano',
+            'kingfisher_grove': 'grove'
+        };
+
+        // Elements
+        const map = document.getElementById('map');
+        const mapContainer = document.getElementById('mapContainer');
+        const svg = document.getElementById('svg');
+        const status = document.getElementById('status');
+        const output = document.getElementById('output');
+        const coords = document.getElementById('coords');
+        const regionSelect = document.getElementById('regionSelect');
+
+        // Set type when region changes
+        regionSelect.addEventListener('change', () => {
+            const region = regionSelect.value;
+            const type = regionTypes[region] || 'forest';
+            setType(type);
+            
+            // Load existing points if any
+            if (allRegions[region]) {
+                currentPoints = [...allRegions[region].points];
+                currentType = allRegions[region].type;
+                setType(currentType);
+            } else {
+                currentPoints = [];
+            }
+            render();
+            updateStatus();
+        });
+
+        // Type buttons
+        document.querySelectorAll('.type-btn').forEach(btn => {
+            btn.addEventListener('click', () => setType(btn.dataset.type));
+        });
+
+        function setType(type) {
+            currentType = type;
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.type-btn.${type}`)?.classList.add('active');
+        }
+
+        // Initialize with correct type
+        setType(regionTypes[regionSelect.value]);
+
+        // Map click handler
+        map.addEventListener('click', (e) => {
+            const rect = map.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+            const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+            
+            currentPoints.push({ x: parseFloat(x), y: parseFloat(y) });
+            render();
+            updateStatus();
+        });
+
+        // Mouse move for coords
+        map.addEventListener('mousemove', (e) => {
+            const rect = map.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+            const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+            coords.textContent = `X: ${x} | Y: ${y}`;
+        });
+
+        function render() {
+            // Clear markers
+            document.querySelectorAll('.point-marker').forEach(m => m.remove());
+            
+            // Clear SVG
+            svg.innerHTML = '';
+            
+            const rect = map.getBoundingClientRect();
+            const containerRect = mapContainer.getBoundingClientRect();
+            const offsetX = rect.left - containerRect.left;
+            const offsetY = rect.top - containerRect.top;
+
+            // Draw completed regions
+            Object.entries(allRegions).forEach(([name, region]) => {
+                if (region.points.length > 2) {
+                    drawPolygon(region.points, region.type, rect, offsetX, offsetY, 0.3);
+                }
+            });
+
+            // Draw current region
+            if (currentPoints.length > 0) {
+                // Draw polygon if enough points
+                if (currentPoints.length > 2) {
+                    drawPolygon(currentPoints, currentType, rect, offsetX, offsetY, 0.5);
+                }
+                
+                // Draw lines
+                if (currentPoints.length > 1) {
+                    for (let i = 0; i < currentPoints.length - 1; i++) {
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        line.setAttribute('x1', offsetX + (currentPoints[i].x / 100) * rect.width);
+                        line.setAttribute('y1', offsetY + (currentPoints[i].y / 100) * rect.height);
+                        line.setAttribute('x2', offsetX + (currentPoints[i+1].x / 100) * rect.width);
+                        line.setAttribute('y2', offsetY + (currentPoints[i+1].y / 100) * rect.height);
+                        line.setAttribute('stroke', getColor(currentType));
+                        line.setAttribute('stroke-width', '2');
+                        svg.appendChild(line);
+                    }
+                }
+                
+                // Draw points
+                currentPoints.forEach((point, i) => {
+                    const marker = document.createElement('div');
+                    marker.className = `point-marker ${currentType}`;
+                    marker.style.left = `${offsetX + (point.x / 100) * rect.width}px`;
+                    marker.style.top = `${offsetY + (point.y / 100) * rect.height}px`;
+                    if (i === 0) marker.style.border = '2px solid white';
+                    mapContainer.appendChild(marker);
+                });
+            }
+
+            updateOutput();
+        }
+
+        function drawPolygon(points, type, rect, offsetX, offsetY, opacity) {
+            const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            const pointsStr = points.map(p => 
+                `${offsetX + (p.x / 100) * rect.width},${offsetY + (p.y / 100) * rect.height}`
+            ).join(' ');
+            polygon.setAttribute('points', pointsStr);
+            polygon.setAttribute('fill', getColor(type));
+            polygon.setAttribute('fill-opacity', opacity);
+            polygon.setAttribute('stroke', getColor(type));
+            polygon.setAttribute('stroke-width', '2');
+            svg.appendChild(polygon);
+        }
+
+        function getColor(type) {
+            const colors = {
+                forest: '#228B22',
+                mountain: '#8B4513',
+                desert: '#DEB887',
+                swamp: '#556B2F',
+                grove: '#32CD32',
+                volcano: '#DC143C',
+                isles: '#4169E1',
+                heights: '#A0522D',
+                ocean: '#0077BE',
+                land: '#8B7355',
+                river: '#4169E1',
+                lake: '#00CED1'
+            };
+            return colors[type] || '#888';
+        }
+
+        function updateStatus() {
+            const regionName = regionSelect.options[regionSelect.selectedIndex].text;
+            status.innerHTML = `<strong>${regionName}</strong><br>Points: ${currentPoints.length} | Type: ${currentType}`;
+        }
+
+        function finishRegion() {
+            if (currentPoints.length < 3) {
+                alert('Need at least 3 points to define a region');
+                return;
+            }
+            
+            const regionId = regionSelect.value;
+            const regionName = regionSelect.options[regionSelect.selectedIndex].text;
+            
+            allRegions[regionId] = {
+                name: regionName,
+                type: currentType,
+                points: [...currentPoints]
+            };
+            
+            updateRegionList();
+            
+            // Move to next unfinished region
+            const options = Array.from(regionSelect.options);
+            const currentIndex = regionSelect.selectedIndex;
+            for (let i = currentIndex + 1; i < options.length; i++) {
+                if (!allRegions[options[i].value]) {
+                    regionSelect.selectedIndex = i;
+                    regionSelect.dispatchEvent(new Event('change'));
+                    break;
+                }
+            }
+            
+            currentPoints = [];
+            render();
+            updateStatus();
+        }
+
+        function updateRegionList() {
+            const list = document.getElementById('regionList');
+            list.innerHTML = Object.entries(allRegions).map(([id, region]) => `
+                <div class="region-item ${region.type}">
+                    <span>${region.name} (${region.points.length} pts)</span>
+                    <button onclick="editRegion('${id}')">Edit</button>
+                    <button onclick="deleteRegion('${id}')">×</button>
+                </div>
+            `).join('');
+        }
+
+        function editRegion(id) {
+            regionSelect.value = id;
+            regionSelect.dispatchEvent(new Event('change'));
+        }
+
+        function deleteRegion(id) {
+            delete allRegions[id];
+            updateRegionList();
+            render();
+        }
+
+        function undoPoint() {
+            currentPoints.pop();
+            render();
+            updateStatus();
+        }
+
+        function clearCurrent() {
+            currentPoints = [];
+            render();
+            updateStatus();
+        }
+
+        function updateOutput() {
+            const allData = { ...allRegions };
+            if (currentPoints.length > 0) {
+                allData[regionSelect.value] = {
+                    name: regionSelect.options[regionSelect.selectedIndex].text,
+                    type: currentType,
+                    points: currentPoints
+                };
+            }
+            
+            let str = 'const DAYNER_REGIONS = {\n';
+            Object.entries(allData).forEach(([id, region]) => {
+                str += `  ${id}: {\n`;
+                str += `    name: '${region.name}',\n`;
+                str += `    type: '${region.type}',\n`;
+                str += `    points: [\n`;
+                region.points.forEach(p => {
+                    str += `      { x: ${p.x}, y: ${p.y} },\n`;
+                });
+                str += `    ]\n  },\n`;
+            });
+            str += '};';
+            
+            output.textContent = str;
+        }
+
+        function copyAll() {
+            // Make sure current region is included
+            if (currentPoints.length >= 3) {
+                allRegions[regionSelect.value] = {
+                    name: regionSelect.options[regionSelect.selectedIndex].text,
+                    type: currentType,
+                    points: [...currentPoints]
+                };
+            }
+            
+            updateOutput();
+            navigator.clipboard.writeText(output.textContent);
+            alert('Copied to clipboard!');
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', render);
+        
+        // Initial render
+        setTimeout(render, 100);
+    </script>
+</body>
+</html>

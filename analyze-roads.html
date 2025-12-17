@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road Network Analysis - Dayner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+    h1 { color: #d4af37; margin-bottom: 20px; }
+    h2 { color: #4ea8de; margin: 20px 0 10px; }
+    .summary { background: #2a2a4e; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .road-entry {
+      background: #252540;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border-left: 3px solid #d4af37;
+    }
+    .road-entry.problem { border-left-color: #e94560; }
+    .road-entry.intersection { border-left-color: #48cae4; }
+    .road-entry.manual { border-left-color: #ffd700; background: #2a2a40; }
+    .endpoint { color: #90EE90; font-weight: bold; }
+    .distance { color: #888; font-size: 0.9em; }
+    .intersection-note { color: #48cae4; }
+    .settlement-note { color: #90EE90; }
+    .problem-note { color: #e94560; }
+    pre {
+      background: #1e1e3a;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 12px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    button {
+      background: #d4af37;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+    }
+    button:hover { background: #b8962d; }
+  </style>
+</head>
+<body>
+  <h1>🛣️ Road Network Analysis</h1>
+  
+  <div class="summary" id="summary"></div>
+  
+  <button onclick="copyNetworkData()">Copy Network Data</button>
+  <button onclick="showProblemsOnly()">Show Problems Only</button>
+  <button onclick="showAll()">Show All</button>
+  
+  <h2>Road Connections</h2>
+  <div id="results"></div>
+  
+  <h2>Generated Network Data</h2>
+  <pre id="network-data"></pre>
+
+  <script src="road-data.js"></script>
+  <script>
+    // All settlements extracted from map.js
+    const SETTLEMENTS = [
+      // Braewood
+      { id: 'braewood-city', name: 'Braewood City', x: 80.2, y: 42.9, kingdom: 'braewood' },
+      { id: 'eaveton', name: 'Eaveton', x: 76.9, y: 66.3, kingdom: 'braewood' },
+      { id: 'mortling-stronghold', name: 'Mortling Stronghold', x: 68.3, y: 40.5, kingdom: 'braewood' },
+      { id: 'phine', name: 'Phine', x: 53.8, y: 16.4, kingdom: 'braewood' },
+      { id: 'barge', name: 'Barge', x: 71.5, y: 24.6, kingdom: 'braewood' },
+      { id: 'sheyton', name: 'Sheyton', x: 69.5, y: 53.3, kingdom: 'braewood' },
+      { id: 'strane', name: 'Strane', x: 46.5, y: 4.2, kingdom: 'braewood' },
+      { id: 'kadena', name: 'Kadena', x: 56.2, y: 74.3, kingdom: 'braewood' },
+      { id: 'cleamond', name: 'Cleamond', x: 72.6, y: 46.1, kingdom: 'braewood' },
+      { id: 'borugham', name: 'Borugham', x: 75.9, y: 13.6, kingdom: 'braewood' },
+      { id: 'ardismouth', name: 'Ardismouth', x: 86.7, y: 32.5, kingdom: 'braewood' },
+      { id: 'gitstin', name: 'Gitstin', x: 66.8, y: 69.6, kingdom: 'braewood' },
+      { id: 'osegas', name: 'Osegas', x: 71.2, y: 75.5, kingdom: 'braewood' },
+      { id: 'yotherdon', name: 'Yotherdon', x: 87.7, y: 15.3, kingdom: 'braewood' },
+      { id: 'vorton', name: 'Vorton', x: 43.9, y: 3.5, kingdom: 'braewood' },
+      { id: 'slada', name: 'Slada', x: 89.3, y: 6.3, kingdom: 'braewood' },
+      { id: 'adaham', name: 'Adaham', x: 72.3, y: 36, kingdom: 'braewood' },
+      { id: 'oyard', name: 'Oyard', x: 91.4, y: 41, kingdom: 'braewood' },
+      { id: 'ineross', name: 'Ineross', x: 75.7, y: 53, kingdom: 'braewood' },
+      { id: 'eimgend', name: 'Eimgend', x: 66.4, y: 57.7, kingdom: 'braewood' },
+      { id: 'ioxyhull', name: 'Ioxyhull', x: 92.9, y: 60.1, kingdom: 'braewood' },
+      { id: 'olkgend', name: 'Olkgend', x: 64.6, y: 73.7, kingdom: 'braewood' },
+      { id: 'frore', name: 'Frore', x: 80.5, y: 80, kingdom: 'braewood' },
+      { id: 'dalo', name: 'Dalo', x: 74.1, y: 83, kingdom: 'braewood' },
+      { id: 'trares', name: 'Trares', x: 65, y: 81.3, kingdom: 'braewood' },
+      { id: 'rens', name: 'Rens', x: 78.3, y: 87.9, kingdom: 'braewood' },
+      // Islefield
+      { id: 'islefield-city', name: 'Islefield City', x: 22.4, y: 83.1, kingdom: 'islefield' },
+      { id: 'rye', name: 'Rye', x: 48.4, y: 74.5, kingdom: 'islefield' },
+      { id: 'esterhull', name: 'Esterhull', x: 26.2, y: 96.3, kingdom: 'islefield' },
+      { id: 'cheling', name: 'Cheling', x: 14.9, y: 86.3, kingdom: 'islefield' },
+      { id: 'antstel', name: 'Antstel', x: 40.8, y: 74.6, kingdom: 'islefield' },
+      { id: 'yhey', name: 'Yhey', x: 32, y: 44.3, kingdom: 'islefield' },
+      { id: 'beyross', name: 'Beyross', x: 10.9, y: 74.3, kingdom: 'islefield' },
+      { id: 'halten', name: 'Halten', x: 35.7, y: 77.9, kingdom: 'islefield' },
+      { id: 'avinin', name: 'Avinin', x: 42.8, y: 68.8, kingdom: 'islefield' },
+      { id: 'slido', name: 'Slido', x: 18.1, y: 58.9, kingdom: 'islefield' },
+      { id: 'cok', name: 'Cok', x: 15.4, y: 81.7, kingdom: 'islefield' },
+      { id: 'stanron', name: 'Stanron (Destroyed)', x: 25.9, y: 91.9, kingdom: 'islefield' },
+      { id: 'ulsall', name: 'Ulsall', x: 15.4, y: 93.8, kingdom: 'islefield' },
+      { id: 'praso', name: 'Praso', x: 22.8, y: 71.5, kingdom: 'islefield' },
+      { id: 'eighwood', name: 'Eighwood', x: 32.6, y: 61, kingdom: 'islefield' },
+      { id: 'wrando', name: 'Wrando', x: 16.8, y: 63, kingdom: 'islefield' },
+      { id: 'agosgas', name: 'Agosgas', x: 6.6, y: 65, kingdom: 'islefield' },
+      { id: 'okcaster', name: 'Okcaster', x: 7.2, y: 56.8, kingdom: 'islefield' },
+      { id: 'guatpool', name: 'Guatpool', x: 13.2, y: 52.3, kingdom: 'islefield' },
+      { id: 'resross', name: 'Resross', x: 28.7, y: 41.8, kingdom: 'islefield' },
+      { id: 'sable', name: 'Sable', x: 39.3, y: 44.7, kingdom: 'islefield' },
+      // Kluimont
+      { id: 'kluimont-city', name: 'Kluimont City', x: 10.7, y: 12.9, kingdom: 'kluimont' },
+      { id: 'eimgend-kluimont', name: 'Eimgend (Kluimont)', x: 28.2, y: 35.4, kingdom: 'kluimont' },
+      { id: 'qrey', name: 'Qrey', x: 7.8, y: 7, kingdom: 'kluimont' },
+      { id: 'slonmore', name: 'Slonmore', x: 50.9, y: 27.1, kingdom: 'kluimont' },
+      { id: 'sord', name: 'Sord', x: 45.3, y: 31.5, kingdom: 'kluimont' },
+      { id: 'tarora', name: 'Tarora', x: 18.5, y: 24.7, kingdom: 'kluimont' },
+      { id: 'lloy', name: 'Lloy (Destroyed)', x: 20.1, y: 10.1, kingdom: 'kluimont' },
+      { id: 'aresphia', name: 'Aresphia', x: 9.2, y: 27.9, kingdom: 'kluimont' },
+      { id: 'kilson', name: 'Kilson', x: 11, y: 29.5, kingdom: 'kluimont' },
+      { id: 'yuosburn', name: 'Yuosburn', x: 29.8, y: 14.4, kingdom: 'kluimont' },
+      { id: 'ukrolis', name: 'Ukrolis', x: 37.4, y: 13.6, kingdom: 'kluimont' },
+      { id: 'ajag', name: 'Ajag', x: 39.8, y: 26.9, kingdom: 'kluimont' },
+      { id: 'ansdale', name: 'Ansdale', x: 47.9, y: 40.8, kingdom: 'kluimont' },
+      { id: 'klovine', name: 'Klovine', x: 56.4, y: 38.3, kingdom: 'kluimont' },
+      // Lavalto
+      { id: 'dawerton', name: 'Dawerton', x: 58.8, y: 52.7, kingdom: 'lavalto' },
+      { id: 'flison', name: 'Flison', x: 51.7, y: 52.9, kingdom: 'lavalto' },
+      { id: 'agosron', name: 'Agosron', x: 50, y: 62.7, kingdom: 'lavalto' },
+    ];
+
+    // Manual corrections for roads where auto-detection fails
+    // Road indices are 0-based (Road 1 = index 0)
+    const MANUAL_CORRECTIONS = {
+      3:  { end: { type: 'settlement', id: 'islefield-city', name: 'Islefield City' } },  // Road 4 ends in Islefield
+      4:  { start: { type: 'settlement', id: 'cheling', name: 'Cheling' } },              // Road 5 starts in Cheling
+      24: { start: { type: 'settlement', id: 'yhey', name: 'Yhey' } },                    // Road 25 - Yhey confirmed
+      26: { end: { type: 'settlement', id: 'phine', name: 'Phine' } },                    // Road 27 - Phine confirmed
+      34: { start: { type: 'settlement', id: 'kluimont-city', name: 'Kluimont City' } },  // Road 35 - Kluimont
+      35: { start: { type: 'settlement', id: 'kluimont-city', name: 'Kluimont City' } },  // Road 36 - Kluimont
+      37: { end: { type: 'road', roadIdx: 39, name: 'Road 40' } },                        // Road 38 connects to Road 40
+      38: { start: { type: 'settlement', id: 'phine', name: 'Phine' } },                  // Road 39 - Phine
+      40: { start: { type: 'road', roadIdx: 39, name: 'Road 40' } },                      // Road 41 (Borugham) connects to Road 40
+      42: { end: { type: 'settlement', id: 'yotherdon', name: 'Yotherdon' } },            // Road 43 - Yotherdon
+      43: { end: { type: 'settlement', id: 'braewood-city', name: 'Braewood City' } },    // Road 44 - Braewood City
+      45: { start: { type: 'settlement', id: 'braewood-city', name: 'Braewood City' } }, // Road 46 - Braewood City
+      47: { start: { type: 'settlement', id: 'braewood-city', name: 'Braewood City' } }, // Road 48 - Braewood City
+      51: { start: { type: 'settlement', id: 'braewood-city', name: 'Braewood City' } }, // Road 52 - Braewood City
+      57: { end: { type: 'settlement', id: 'eaveton', name: 'Eaveton' } },                // Road 58 - Eaveton
+      62: { start: { type: 'settlement', id: 'kadena', name: 'Kadena' } },                // Road 63 - Kadena
+    };
+
+    const KM_PER_PERCENT = 4.46;
+    const SETTLEMENT_THRESHOLD = 2.5; // Max distance in % to consider a settlement match
+    const INTERSECTION_THRESHOLD = 1.0; // Max distance to consider an intersection
+
+    function distance(p1, p2) {
+      return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+    }
+
+    function findNearestSettlement(point) {
+      let nearest = null;
+      let minDist = Infinity;
+      
+      for (const settlement of SETTLEMENTS) {
+        const dist = distance(point, settlement);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = settlement;
+        }
+      }
+      
+      return { settlement: nearest, distance: minDist };
+    }
+
+    function findNearestRoadPoint(point, excludeRoadIdx) {
+      let nearest = null;
+      let minDist = Infinity;
+      
+      for (let i = 0; i < DAYNER_ROADS.roads.length; i++) {
+        if (i === excludeRoadIdx) continue;
+        
+        const road = DAYNER_ROADS.roads[i];
+        
+        // Check all points on the road
+        for (let j = 0; j < road.length; j++) {
+          const dist = distance(point, road[j]);
+          if (dist < minDist) {
+            minDist = dist;
+            nearest = { roadIdx: i, pointIdx: j, point: road[j] };
+          }
+        }
+      }
+      
+      return { intersection: nearest, distance: minDist };
+    }
+
+    function calculateRoadLength(road) {
+      let length = 0;
+      for (let i = 1; i < road.length; i++) {
+        length += distance(road[i-1], road[i]) * KM_PER_PERCENT;
+      }
+      return length;
+    }
+
+    function analyzeRoads() {
+      const results = [];
+      const networkData = [];
+      
+      for (let i = 0; i < DAYNER_ROADS.roads.length; i++) {
+        const road = DAYNER_ROADS.roads[i];
+        const startPoint = road[0];
+        const endPoint = road[road.length - 1];
+        const length = calculateRoadLength(road);
+        
+        // Check for manual corrections first
+        const correction = MANUAL_CORRECTIONS[i];
+        
+        // Find what start connects to
+        const startSettlement = findNearestSettlement(startPoint);
+        const startIntersection = findNearestRoadPoint(startPoint, i);
+        
+        // Find what end connects to
+        const endSettlement = findNearestSettlement(endPoint);
+        const endIntersection = findNearestRoadPoint(endPoint, i);
+        
+        // Determine start connection (check manual correction first)
+        let startConnection = null;
+        if (correction && correction.start) {
+          startConnection = { ...correction.start, distance: 0, manual: true };
+        } else if (startSettlement.distance < SETTLEMENT_THRESHOLD) {
+          startConnection = {
+            type: 'settlement',
+            id: startSettlement.settlement.id,
+            name: startSettlement.settlement.name,
+            distance: startSettlement.distance
+          };
+        } else if (startIntersection.distance < INTERSECTION_THRESHOLD) {
+          startConnection = {
+            type: 'road',
+            roadIdx: startIntersection.intersection.roadIdx,
+            pointIdx: startIntersection.intersection.pointIdx,
+            distance: startIntersection.distance
+          };
+        } else {
+          startConnection = {
+            type: 'unknown',
+            nearestSettlement: startSettlement.settlement.name,
+            settlementDist: startSettlement.distance,
+            nearestRoad: startIntersection.intersection?.roadIdx,
+            roadDist: startIntersection.distance
+          };
+        }
+        
+        // Determine end connection (check manual correction first)
+        let endConnection = null;
+        if (correction && correction.end) {
+          endConnection = { ...correction.end, distance: 0, manual: true };
+        } else if (endSettlement.distance < SETTLEMENT_THRESHOLD) {
+          endConnection = {
+            type: 'settlement',
+            id: endSettlement.settlement.id,
+            name: endSettlement.settlement.name,
+            distance: endSettlement.distance
+          };
+        } else if (endIntersection.distance < INTERSECTION_THRESHOLD) {
+          endConnection = {
+            type: 'road',
+            roadIdx: endIntersection.intersection.roadIdx,
+            pointIdx: endIntersection.intersection.pointIdx,
+            distance: endIntersection.distance
+          };
+        } else {
+          endConnection = {
+            type: 'unknown',
+            nearestSettlement: endSettlement.settlement.name,
+            settlementDist: endSettlement.distance,
+            nearestRoad: endIntersection.intersection?.roadIdx,
+            roadDist: endIntersection.distance
+          };
+        }
+        
+        const result = {
+          roadIdx: i,
+          length: length,
+          startPoint: startPoint,
+          endPoint: endPoint,
+          startConnection: startConnection,
+          endConnection: endConnection
+        };
+        
+        results.push(result);
+        
+        // Build network data entry
+        networkData.push({
+          id: i,
+          length: Math.round(length * 10) / 10,
+          start: startConnection.type === 'settlement' ? startConnection.id : 
+                 startConnection.type === 'road' ? `road-${startConnection.roadIdx}` : 'unknown',
+          end: endConnection.type === 'settlement' ? endConnection.id :
+               endConnection.type === 'road' ? `road-${endConnection.roadIdx}` : 'unknown'
+        });
+      }
+      
+      return { results, networkData };
+    }
+
+    function renderResults(results, networkData) {
+      const container = document.getElementById('results');
+      const summary = document.getElementById('summary');
+      
+      let settlementConnections = 0;
+      let roadIntersections = 0;
+      let unknownConnections = 0;
+      let problems = [];
+      
+      let html = '';
+      
+      for (const result of results) {
+        const hasProblem = result.startConnection.type === 'unknown' || result.endConnection.type === 'unknown';
+        const isIntersection = result.startConnection.type === 'road' || result.endConnection.type === 'road';
+        const hasManual = result.startConnection.manual || result.endConnection.manual;
+        
+        if (hasProblem) problems.push(result.roadIdx);
+        
+        // Count connection types
+        [result.startConnection, result.endConnection].forEach(conn => {
+          if (conn.type === 'settlement') settlementConnections++;
+          else if (conn.type === 'road') roadIntersections++;
+          else unknownConnections++;
+        });
+        
+        let startDesc = '';
+        const startManualTag = result.startConnection.manual ? ' <span style="color:#ffd700">✏️ Manual</span>' : '';
+        if (result.startConnection.type === 'settlement') {
+          startDesc = `<span class="settlement-note">📍 ${result.startConnection.name}</span>${startManualTag}`;
+        } else if (result.startConnection.type === 'road') {
+          const roadName = result.startConnection.name || `Road ${result.startConnection.roadIdx + 1}`;
+          startDesc = `<span class="intersection-note">🔗 ${roadName}</span>${startManualTag}`;
+        } else {
+          startDesc = `<span class="problem-note">❓ Unknown</span> - nearest: ${result.startConnection.nearestSettlement} (${result.startConnection.settlementDist.toFixed(2)}%), Road ${result.startConnection.nearestRoad + 1} (${result.startConnection.roadDist.toFixed(2)}%)`;
+        }
+        
+        let endDesc = '';
+        const endManualTag = result.endConnection.manual ? ' <span style="color:#ffd700">✏️ Manual</span>' : '';
+        if (result.endConnection.type === 'settlement') {
+          endDesc = `<span class="settlement-note">📍 ${result.endConnection.name}</span>${endManualTag}`;
+        } else if (result.endConnection.type === 'road') {
+          const roadName = result.endConnection.name || `Road ${result.endConnection.roadIdx + 1}`;
+          endDesc = `<span class="intersection-note">🔗 ${roadName}</span>${endManualTag}`;
+        } else {
+          endDesc = `<span class="problem-note">❓ Unknown</span> - nearest: ${result.endConnection.nearestSettlement} (${result.endConnection.settlementDist.toFixed(2)}%), Road ${result.endConnection.nearestRoad + 1} (${result.endConnection.roadDist.toFixed(2)}%)`;
+        }
+        
+        html += `
+          <div class="road-entry ${hasProblem ? 'problem' : hasManual ? 'manual' : isIntersection ? 'intersection' : ''}" data-problem="${hasProblem}">
+            <strong>Road ${result.roadIdx + 1}</strong> <span class="distance">(${result.length.toFixed(1)} km)</span><br>
+            <strong>Start:</strong> ${startDesc}<br>
+            <strong>End:</strong> ${endDesc}
+          </div>
+        `;
+      }
+      
+      container.innerHTML = html;
+      
+      summary.innerHTML = `
+        <strong>Summary:</strong><br>
+        Total Roads: ${results.length}<br>
+        Settlement Connections: ${settlementConnections}<br>
+        Road Intersections: ${roadIntersections}<br>
+        Manual Corrections: ${Object.keys(MANUAL_CORRECTIONS).length}<br>
+        <span class="${unknownConnections > 0 ? 'problem-note' : ''}">Unknown Connections: ${unknownConnections}</span><br>
+        ${problems.length > 0 ? `<br><span class="problem-note">⚠️ Problem roads: ${problems.map(p => p + 1).join(', ')}</span>` : '<span class="settlement-note">✅ All roads connected!</span>'}
+      `;
+      
+      // Show network data
+      document.getElementById('network-data').textContent = JSON.stringify(networkData, null, 2);
+    }
+
+    function showProblemsOnly() {
+      document.querySelectorAll('.road-entry').forEach(el => {
+        el.style.display = el.dataset.problem === 'true' ? 'block' : 'none';
+      });
+    }
+
+    function showAll() {
+      document.querySelectorAll('.road-entry').forEach(el => {
+        el.style.display = 'block';
+      });
+    }
+
+    function copyNetworkData() {
+      const data = document.getElementById('network-data').textContent;
+      navigator.clipboard.writeText(data).then(() => {
+        alert('Network data copied to clipboard!');
+      });
+    }
+
+    // Run analysis
+    const { results, networkData } = analyzeRoads();
+    renderResults(results, networkData);
+  </script>
+</body>
+</html>

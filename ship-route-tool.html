@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ship Route Tool - Dayner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+    }
+    
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    
+    .sidebar {
+      width: 350px;
+      background: #16213e;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 2px solid #0f3460;
+    }
+    
+    h1 {
+      color: #4da8da;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+    
+    h2 {
+      color: #4da8da;
+      margin: 20px 0 10px;
+      font-size: 1.2em;
+    }
+    
+    .instructions {
+      background: #0f3460;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    
+    .instructions ol {
+      margin-left: 20px;
+    }
+    
+    .controls {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #4da8da;
+    }
+    
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      background: #1a1a2e;
+      color: #eee;
+      margin-bottom: 15px;
+    }
+    
+    button {
+      background: #4da8da;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    button:hover {
+      background: #3d8db8;
+    }
+    
+    button.danger {
+      background: #e94560;
+    }
+    
+    button.danger:hover {
+      background: #c73e54;
+    }
+    
+    .route-list {
+      margin-top: 20px;
+    }
+    
+    .route-item {
+      background: #0f3460;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    
+    .route-item .route-name {
+      font-weight: bold;
+      color: #4da8da;
+    }
+    
+    .route-item .route-details {
+      font-size: 0.85em;
+      color: #aaa;
+      margin-top: 5px;
+    }
+    
+    .route-item button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 0.85em;
+    }
+    
+    .map-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #map {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: crosshair;
+    }
+    
+    .point-marker {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #4da8da;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 100;
+    }
+    
+    .point-marker.first {
+      background: #00ff00;
+      width: 14px;
+      height: 14px;
+    }
+    
+    .point-marker.last {
+      background: #e94560;
+      width: 14px;
+      height: 14px;
+    }
+    
+    .current-route {
+      background: #1e3a5f;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .current-route h3 {
+      color: #4da8da;
+      margin-bottom: 10px;
+    }
+    
+    .point-list {
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    
+    .point-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      background: #0f3460;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    
+    .output-section {
+      margin-top: 20px;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 200px;
+      background: #0a0a15;
+      color: #4da8da;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.85em;
+    }
+    
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+    
+    .coordinate-display {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15, 52, 96, 0.9);
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-family: monospace;
+      z-index: 200;
+    }
+    
+    .stats {
+      background: #0f3460;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+    
+    .stats span {
+      color: #4da8da;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>🚢 Ship Route Tool</h1>
+      
+      <div class="instructions">
+        <strong>Instructions:</strong>
+        <ol>
+          <li>Enter a route name</li>
+          <li>Click on map to add points</li>
+          <li>First point = start (green)</li>
+          <li>Last point = end (red)</li>
+          <li>Click "Finish" to save</li>
+          <li>Copy code to road-network.js</li>
+        </ol>
+      </div>
+      
+      <div class="controls">
+        <label>Route Name:</label>
+        <input type="text" id="route-name" placeholder="e.g., Kluimont-Braewood Ferry">
+        
+        <button onclick="finishRoute()">Finish Route</button>
+        <button onclick="undoLastPoint()">Undo</button>
+        <button class="danger" onclick="clearRoute()">Clear All</button>
+      </div>
+      
+      <div class="current-route">
+        <h3>Current Route Points</h3>
+        <div class="point-list" id="point-list">
+          <p style="color: #666; font-style: italic;">Click on map to add points</p>
+        </div>
+        <div class="stats" id="stats" style="display: none;">
+          Points: <span id="point-count">0</span> | 
+          Distance: <span id="total-distance">0</span> km
+        </div>
+      </div>
+      
+      <h2>Saved Routes</h2>
+      <div class="route-list" id="route-list">
+        <p style="color: #666; font-style: italic;">No routes yet</p>
+      </div>
+      
+      <div class="output-section">
+        <h2>Generated Code</h2>
+        <textarea id="output" readonly placeholder="Route code will appear here..."></textarea>
+        <button onclick="copyOutput()">Copy to Clipboard</button>
+        <button onclick="generateAllCode()">Generate All Routes</button>
+      </div>
+    </div>
+    
+    <div class="map-container" id="map-container">
+      <img id="map" src="map.jpg" alt="Dayner Map">
+      <svg id="route-svg"></svg>
+    </div>
+  </div>
+  
+  <div class="coordinate-display" id="coord-display">
+    X: 0.0%, Y: 0.0%
+  </div>
+
+  <script>
+    // Scale: 1% of map = 8.92 km (matching the doubled distances)
+    const KM_PER_PERCENT = 8.92;
+    
+    let currentPoints = [];
+    let savedRoutes = [];
+    let markers = [];
+    
+    const map = document.getElementById('map');
+    const mapContainer = document.getElementById('map-container');
+    const svg = document.getElementById('route-svg');
+    const coordDisplay = document.getElementById('coord-display');
+    
+    // Get percentage coordinates from click
+    function getPercentCoords(e) {
+      const rect = map.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      return { x: parseFloat(x), y: parseFloat(y) };
+    }
+    
+    // Calculate distance between two points
+    function calcDistance(p1, p2) {
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      const percentDist = Math.sqrt(dx * dx + dy * dy);
+      return percentDist * KM_PER_PERCENT;
+    }
+    
+    // Calculate total route distance
+    function calcTotalDistance(points) {
+      let total = 0;
+      for (let i = 0; i < points.length - 1; i++) {
+        total += calcDistance(points[i], points[i + 1]);
+      }
+      return Math.round(total);
+    }
+    
+    // Update coordinate display
+    map.addEventListener('mousemove', (e) => {
+      const coords = getPercentCoords(e);
+      coordDisplay.textContent = `X: ${coords.x}%, Y: ${coords.y}%`;
+    });
+    
+    // Handle map clicks
+    map.addEventListener('click', (e) => {
+      const coords = getPercentCoords(e);
+      currentPoints.push(coords);
+      updatePointDisplay();
+      drawRoute();
+    });
+    
+    // Finish current route
+    function finishRoute() {
+      const name = document.getElementById('route-name').value.trim();
+      
+      if (!name) {
+        alert('Please enter a route name');
+        return;
+      }
+      
+      if (currentPoints.length < 2) {
+        alert('Need at least 2 points for a route');
+        return;
+      }
+      
+      const distance = calcTotalDistance(currentPoints);
+      
+      savedRoutes.push({
+        name: name,
+        points: [...currentPoints],
+        distance: distance
+      });
+      
+      updateRouteList();
+      generateCode(savedRoutes[savedRoutes.length - 1]);
+      
+      // Clear for next route
+      document.getElementById('route-name').value = '';
+      currentPoints = [];
+      updatePointDisplay();
+      drawRoute();
+    }
+    
+    // Clear current route
+    function clearRoute() {
+      currentPoints = [];
+      updatePointDisplay();
+      drawRoute();
+    }
+    
+    // Undo last point
+    function undoLastPoint() {
+      if (currentPoints.length > 0) {
+        currentPoints.pop();
+        updatePointDisplay();
+        drawRoute();
+      }
+    }
+    
+    // Update point list display
+    function updatePointDisplay() {
+      const list = document.getElementById('point-list');
+      const stats = document.getElementById('stats');
+      
+      if (currentPoints.length === 0) {
+        list.innerHTML = '<p style="color: #666; font-style: italic;">Click on map to add points</p>';
+        stats.style.display = 'none';
+        return;
+      }
+      
+      list.innerHTML = '';
+      currentPoints.forEach((p, i) => {
+        const item = document.createElement('div');
+        item.className = 'point-item';
+        let label = `Point ${i + 1}`;
+        if (i === 0) label = '🟢 Start';
+        else if (i === currentPoints.length - 1 && currentPoints.length > 1) label = '🔴 End';
+        else label = `📍 ${i + 1}`;
+        
+        item.innerHTML = `<span>${label}</span><span>(${p.x}, ${p.y})</span>`;
+        list.appendChild(item);
+      });
+      
+      // Update stats
+      stats.style.display = 'block';
+      document.getElementById('point-count').textContent = currentPoints.length;
+      document.getElementById('total-distance').textContent = calcTotalDistance(currentPoints);
+    }
+    
+    // Clear markers
+    function clearMarkers() {
+      markers.forEach(m => m.remove());
+      markers = [];
+    }
+    
+    // Draw route on map
+    function drawRoute() {
+      clearMarkers();
+      svg.innerHTML = '';
+      
+      if (currentPoints.length === 0) return;
+      
+      const rect = map.getBoundingClientRect();
+      const containerRect = mapContainer.getBoundingClientRect();
+      const offsetX = rect.left - containerRect.left;
+      const offsetY = rect.top - containerRect.top;
+      
+      // Draw path
+      if (currentPoints.length > 1) {
+        let pathD = '';
+        currentPoints.forEach((p, i) => {
+          const px = offsetX + (p.x / 100) * rect.width;
+          const py = offsetY + (p.y / 100) * rect.height;
+          if (i === 0) {
+            pathD += `M ${px} ${py}`;
+          } else {
+            pathD += ` L ${px} ${py}`;
+          }
+        });
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathD);
+        path.setAttribute('stroke', '#4da8da');
+        path.setAttribute('stroke-width', '3');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke-dasharray', '10,5');
+        svg.appendChild(path);
+      }
+      
+      // Draw markers
+      currentPoints.forEach((p, i) => {
+        const marker = document.createElement('div');
+        marker.className = 'point-marker';
+        
+        if (i === 0) {
+          marker.classList.add('first');
+        } else if (i === currentPoints.length - 1 && currentPoints.length > 1) {
+          marker.classList.add('last');
+        }
+        
+        marker.style.left = (offsetX + (p.x / 100) * rect.width) + 'px';
+        marker.style.top = (offsetY + (p.y / 100) * rect.height) + 'px';
+        mapContainer.appendChild(marker);
+        markers.push(marker);
+      });
+    }
+    
+    // Generate code for a route
+    function generateCode(route) {
+      const startId = route.name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+      
+      let code = `    // Ship Route: ${route.name} (${route.distance} km)\n`;
+      code += `    // Replace START_ID and END_ID with actual settlement IDs\n`;
+      code += `    { id: 'ship-${startId}', length: ${route.distance}, start: 'START_ID', end: 'END_ID', isShipRoute: true,\n`;
+      code += `      waypoints: [\n`;
+      route.points.forEach((p, i) => {
+        code += `        { x: ${p.x}, y: ${p.y} }`;
+        if (i < route.points.length - 1) code += ',';
+        code += '\n';
+      });
+      code += `      ] },\n`;
+      
+      document.getElementById('output').value = code;
+    }
+    
+    // Generate all routes code
+    function generateAllCode() {
+      if (savedRoutes.length === 0) {
+        alert('No saved routes');
+        return;
+      }
+      
+      let code = '    // === SHIP ROUTES ===\n';
+      savedRoutes.forEach(route => {
+        const startId = route.name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+        code += `    // ${route.name} (${route.distance} km)\n`;
+        code += `    { id: 'ship-${startId}', length: ${route.distance}, start: 'START_ID', end: 'END_ID', isShipRoute: true,\n`;
+        code += `      waypoints: [\n`;
+        route.points.forEach((p, i) => {
+          code += `        { x: ${p.x}, y: ${p.y} }`;
+          if (i < route.points.length - 1) code += ',';
+          code += '\n';
+        });
+        code += `      ] },\n`;
+      });
+      
+      document.getElementById('output').value = code;
+    }
+    
+    // Update saved routes list
+    function updateRouteList() {
+      const list = document.getElementById('route-list');
+      
+      if (savedRoutes.length === 0) {
+        list.innerHTML = '<p style="color: #666; font-style: italic;">No routes yet</p>';
+        return;
+      }
+      
+      list.innerHTML = '';
+      savedRoutes.forEach((route, i) => {
+        const item = document.createElement('div');
+        item.className = 'route-item';
+        item.innerHTML = `
+          <div class="route-name">${route.name}</div>
+          <div class="route-details">
+            ${route.points.length} points, ${route.distance} km
+          </div>
+          <button class="danger" onclick="deleteRoute(${i})">Delete</button>
+        `;
+        list.appendChild(item);
+      });
+    }
+    
+    // Delete a saved route
+    function deleteRoute(index) {
+      if (confirm('Delete this route?')) {
+        savedRoutes.splice(index, 1);
+        updateRouteList();
+      }
+    }
+    
+    // Copy output to clipboard
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+    
+    // Redraw on resize
+    window.addEventListener('resize', drawRoute);
+  </script>
+</body>
+</html>

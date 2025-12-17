@@ -7,16 +7,16 @@
   <meta name="theme-color" content="#1a1a2e">
   <title>Dayner - A World of Kingdoms</title>
   
-  <!-- CSS Filesss - v3 cache bust -->
-  <link rel="stylesheet" href="static/css/variables.css?v=3">
-  <link rel="stylesheet" href="static/css/base.css?v=3">
-  <link rel="stylesheet" href="static/css/layout.css?v=3">
-  <link rel="stylesheet" href="static/css/components.css?v=3">
-  <link rel="stylesheet" href="static/css/sidebar.css?v=3">
-  <link rel="stylesheet" href="static/css/calendar.css?v=3">
-  <link rel="stylesheet" href="static/css/auth.css?v=3">
-  <link rel="stylesheet" href="static/css/quiz.css?v=3">
-  <link rel="stylesheet" href="static/css/responsive.css?v=3">
+  <!-- CSS Filesss - v5 cache bust -->
+  <link rel="stylesheet" href="static/css/variables.css?v=5">
+  <link rel="stylesheet" href="static/css/base.css?v=5">
+  <link rel="stylesheet" href="static/css/layout.css?v=5">
+  <link rel="stylesheet" href="static/css/components.css?v=5">
+  <link rel="stylesheet" href="static/css/sidebar.css?v=5">
+  <link rel="stylesheet" href="static/css/calendar.css?v=5">
+  <link rel="stylesheet" href="static/css/auth.css?v=5">
+  <link rel="stylesheet" href="static/css/quiz.css?v=5">
+  <link rel="stylesheet" href="static/css/responsive.css?v=5">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -217,6 +217,26 @@
     </div>
     
     <nav class="nav-menu" id="nav-menu">
+      <!-- Quick Actions -->
+      <div class="nav-item" id="random-lore-btn">
+        <i class="fas fa-dice nav-icon"></i>
+        <span class="menu-text">Discover Something New</span>
+      </div>
+      
+      <!-- Bookmarks Section -->
+      <div class="nav-item has-submenu" id="bookmarks-toggle">
+        <i class="fas fa-star nav-icon" style="color: var(--color-gold);"></i>
+        <span class="menu-text">Bookmarks</span>
+        <i class="fas fa-chevron-down submenu-arrow"></i>
+      </div>
+      <div class="submenu" id="bookmarks-list">
+        <div class="nav-item bookmark-empty" style="color: var(--text-muted); font-style: italic;">
+          <span class="menu-text">No bookmarks yet</span>
+        </div>
+      </div>
+      
+      <div class="nav-separator"></div>
+      
       <!-- World Map Link -->
       <a href="map.html" class="nav-link">
         <i class="fas fa-map nav-icon"></i>
@@ -1310,6 +1330,10 @@
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
           <input type="text" class="search-input" id="search-input" placeholder="Search lore... (Ctrl+K)" autocomplete="off">
+          <div class="search-dropdown" id="search-dropdown">
+            <div class="search-dropdown-header">Recently Visited</div>
+            <div class="search-dropdown-list" id="recently-visited-list"></div>
+          </div>
         </div>
       </div>
       
@@ -1381,7 +1405,7 @@
   </div>
   
   <!-- Single JavaScript File -->
-  <script src="static/js/main.js?v=3"></script>
+  <script src="static/js/main.js?v=5"></script>
   
   <!-- Firebase SDK (v9 Compat for easier setup) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>

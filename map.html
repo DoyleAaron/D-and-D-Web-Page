@@ -156,7 +156,7 @@
       <div class="map-container" id="map-container">
         <div class="map-wrapper" id="map-wrapper">
           <img src="map.jpg" alt="Map of Dayner" class="map-image" id="map-image" draggable="false">
-          <!-- Settlement markers will bee rendered here by JavaScript -->
+          <!-- Settlement markers will be rendered here by JavaScript -->
         </div>
       </div>
 
@@ -186,6 +186,70 @@
         <div class="legend-item">
           <div class="legend-dot poi"></div>
           <span>Point of Interest</span>
+        </div>
+      </div>
+      
+      <!-- Travel Calculator -->
+      <div class="travel-calculator" id="travel-calculator">
+        <div class="calc-header">
+          <i class="fas fa-route"></i>
+          <span>Travel Calculator</span>
+          <button class="calc-toggle" id="calc-toggle">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        <div class="calc-body" id="calc-body">
+          <div class="calc-stops" id="calc-stops">
+            <div class="calc-field stop-field" data-stop="0">
+              <label>From</label>
+              <div class="searchable-select">
+                <input type="text" class="searchable-input" id="search-from" placeholder="Type to search..." autocomplete="off">
+                <div class="searchable-dropdown" id="dropdown-from"></div>
+                <input type="hidden" id="travel-from" class="travel-stop">
+              </div>
+            </div>
+            <div class="calc-field stop-field" data-stop="1">
+              <label>To</label>
+              <div class="stop-row">
+                <div class="searchable-select">
+                  <input type="text" class="searchable-input" id="search-to" placeholder="Type to search..." autocomplete="off">
+                  <div class="searchable-dropdown" id="dropdown-to"></div>
+                  <input type="hidden" id="travel-to" class="travel-stop">
+                </div>
+                <button type="button" class="add-stop-btn" id="add-stop-btn" title="Add stop">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="calc-field">
+            <label>Travel Mode</label>
+            <select id="travel-mode" class="calc-select">
+              <option value="any" selected>Any (Land + Sea)</option>
+              <option value="land-only">Land Only</option>
+              <option value="sea-only">Sea Only</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label>Road Speed</label>
+            <select id="road-pace" class="calc-select">
+              <option value="slow">Slow (20 km/day)</option>
+              <option value="normal" selected>Normal (30 km/day)</option>
+              <option value="fast">Fast (40 km/day)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label>Ship Speed</label>
+            <select id="ship-pace" class="calc-select">
+              <option value="slow">Keelboat (40 km/day)</option>
+              <option value="normal" selected>Sailing Ship (50 km/day)</option>
+              <option value="fast">Galley (70 km/day)</option>
+            </select>
+          </div>
+          <button type="button" class="calc-btn" id="calculate-travel">
+            <i class="fas fa-route"></i>
+            <span>Calculate Route</span>
+          </button>
+          <div class="calc-result" id="calc-result"></div>
+          <div class="calc-path" id="calc-path"></div>
         </div>
       </div>
 
@@ -233,6 +297,11 @@
     </div>
   </div>
 
+  <!-- Road Network for Travel Calculator -->
+  <script src="road-data.js"></script>
+  <script src="ship-routes.js"></script>
+  <script src="static/js/road-network.js"></script>
+  
   <!-- Map JavaScript -->
   <script src="static/js/map.js"></script>
   

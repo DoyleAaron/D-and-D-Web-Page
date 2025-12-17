@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayner Complete Map - Roads, Rivers & Lakes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            overflow: hidden;
+        }
+        
+        .map-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        #map {
+            position: absolute;
+            cursor: grab;
+        }
+        #map:active { cursor: grabbing; }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(22, 33, 62, 0.95);
+            border: 2px solid #4ecca3;
+            border-radius: 8px;
+            padding: 12px 16px;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+            max-width: 300px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .tooltip.show { display: block; }
+        .tooltip-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4ecca3;
+            margin-bottom: 5px;
+        }
+        .tooltip-type {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .tooltip-info {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .tooltip-info span { color: #4ecca3; }
+        
+        /* Controls */
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 100;
+            width: 280px;
+        }
+        .controls h3 {
+            color: #4ecca3;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        .layer-toggle {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .layer-toggle input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        .layer-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+            margin-right: 8px;
+        }
+        .layer-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .zoom-controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .zoom-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background: #0f3460;
+            color: #eee;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .zoom-btn:hover { background: #1a3a6e; }
+        
+        /* Info Panel */
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 100;
+            max-width: 350px;
+        }
+        .info-panel h3 {
+            color: #e94560;
+            margin-bottom: 8px;
+        }
+        .info-panel p {
+            font-size: 0.9em;
+            color: #aaa;
+            margin: 5px 0;
+        }
+        .info-panel .stat {
+            display: inline-block;
+            background: #0f3460;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 3px;
+            font-size: 0.85em;
+        }
+        
+        /* Selected feature panel */
+        .selected-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 100;
+            width: 300px;
+            display: none;
+            border: 2px solid #e94560;
+        }
+        .selected-panel.show { display: block; }
+        .selected-panel h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        .selected-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .selected-panel .detail-row {
+            margin: 8px 0;
+            font-size: 0.9em;
+        }
+        .selected-panel .detail-label {
+            color: #888;
+        }
+        .selected-panel .detail-value {
+            color: #4ecca3;
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container" id="mapContainer">
+        <img id="map" src="map.jpg" alt="Dayner Map">
+        <canvas id="canvas"></canvas>
+    </div>
+    
+    <div class="tooltip" id="tooltip">
+        <div class="tooltip-title" id="tooltipTitle"></div>
+        <div class="tooltip-type" id="tooltipType"></div>
+        <div class="tooltip-info" id="tooltipInfo"></div>
+    </div>
+    
+    <div class="controls">
+        <h3>🗺️ Map Layers</h3>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showRoads" checked>
+            <div class="layer-color" style="background: #f4a261;"></div>
+            Roads (69)
+        </label>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showRivers" checked>
+            <div class="layer-color" style="background: #4ea8de;"></div>
+            Rivers
+        </label>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showLakes" checked>
+            <div class="layer-dot" style="background: #48cae4;"></div>
+            Lakes
+        </label>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showBridges" checked>
+            <div class="layer-dot" style="background: #f72585;"></div>
+            Bridges (10)
+        </label>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showSettlements" checked>
+            <div class="layer-dot" style="background: #fff;"></div>
+            Settlements
+        </label>
+        
+        <label class="layer-toggle">
+            <input type="checkbox" id="showLabels" checked>
+            🏷️ Show Labels
+        </label>
+        
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn()">➕</button>
+            <button class="zoom-btn" onclick="zoomOut()">➖</button>
+            <button class="zoom-btn" onclick="resetView()">🔄</button>
+        </div>
+    </div>
+    
+    <div class="info-panel">
+        <h3>Dayner World Map</h3>
+        <p>Hover over features to see names. Click for details.</p>
+        <div>
+            <span class="stat">🛤️ 69 Roads</span>
+            <span class="stat">🌊 Rivers</span>
+            <span class="stat">💧 5 Lakes</span>
+            <span class="stat">🌉 10 Bridges</span>
+        </div>
+    </div>
+    
+    <div class="selected-panel" id="selectedPanel">
+        <button class="close-btn" onclick="closeSelected()">✕</button>
+        <h3 id="selectedTitle">Feature Name</h3>
+        <div id="selectedDetails"></div>
+    </div>
+
+    <script src="road-data.js"></script>
+    <script src="dayner-map-data.js"></script>
+    
+    <script>
+        // =====================================================
+        // NAMED DATA - All roads, rivers, lakes with names
+        // =====================================================
+        
+        const NAMED_ROADS = [
+            { name: "Stanron South Road", region: "Islefield" },
+            { name: "Esterhull-Ulsall Road", region: "Islefield" },
+            { name: "Ulsall-Cheling Road", region: "Islefield" },
+            { name: "Cheling East Road", region: "Islefield" },
+            { name: "Cheling-Cok Road", region: "Islefield" },
+            { name: "Cok-Beyross Road", region: "Islefield" },
+            { name: "Beyross-Agosgas Road", region: "Islefield" },
+            { name: "Praso Loop Road", region: "Islefield" },
+            { name: "Slido-Praso Road", region: "Islefield" },
+            { name: "Wrando Connector", region: "Islefield" },
+            { name: "Agosgas-Slido Road", region: "Islefield" },
+            { name: "Okcaster-Guatpool Road", region: "Islefield" },
+            { name: "Okcaster West Road", region: "Islefield" },
+            { name: "Eighwood-Shercam Road", region: "Islefield" },
+            { name: "Islefield-Halten Road", region: "Islefield" },
+            { name: "Halten-Antstel Road", region: "Islefield" },
+            { name: "Antstel-Rye Road", region: "Islefield" },
+            { name: "Avinin North Road", region: "Islefield" },
+            { name: "Avinin-Kadena Road", region: "Braewood" },
+            { name: "Shercam Forest Road", region: "Islefield" },
+            { name: "Yhey-Iroware Road", region: "Islefield" },
+            { name: "Resross South Road", region: "Islefield" },
+            { name: "Sable East Road", region: "Islefield" },
+            { name: "Yhey North Road", region: "Kluimont" },
+            { name: "Eimgend-Klovine Road", region: "Kluimont" },
+            { name: "Ajag Connector", region: "Kluimont" },
+            { name: "Slonmore-Phine Road", region: "Kluimont" },
+            { name: "Slonmore Junction", region: "Kluimont" },
+            { name: "Sord-Ansdale Road", region: "Kluimont" },
+            { name: "Slonmore-Barge Road", region: "Braewood" },
+            { name: "Ansdale Connector", region: "Kluimont" },
+            { name: "Mortling-Braewood Road", region: "Braewood" },
+            { name: "Klovine-Ansdale Road", region: "Kluimont" },
+            { name: "Aresphia Road", region: "Kluimont" },
+            { name: "Qrey-Kluimont Road", region: "Kluimont" },
+            { name: "Kluimont City Road", region: "Kluimont" },
+            { name: "Vorton Road", region: "Braewood" },
+            { name: "Northern Coast Road", region: "Braewood" },
+            { name: "Phine-Barge Road", region: "Braewood" },
+            { name: "Barge-Yotherdon Road", region: "Braewood" },
+            { name: "Borugham Road", region: "Braewood" },
+            { name: "Slada Coast Road", region: "Braewood" },
+            { name: "Ardismouth Road", region: "Braewood" },
+            { name: "Adaham-Cleamond Road", region: "Braewood" },
+            { name: "Adaham Connector", region: "Braewood" },
+            { name: "Ardismouth-Oyard Road", region: "Braewood" },
+            { name: "Oyard East Road", region: "Braewood" },
+            { name: "Braewood City North Road", region: "Braewood" },
+            { name: "Mortling Approach", region: "Braewood" },
+            { name: "Cleamond-Sheyton Road", region: "Braewood" },
+            { name: "Ineross Road", region: "Braewood" },
+            { name: "Eastern Coastal Highway", region: "Braewood" },
+            { name: "Ioxyhull Road", region: "Braewood" },
+            { name: "Ineross-Sheyton Road", region: "Braewood" },
+            { name: "Sheyton-Eimgend Road", region: "Braewood" },
+            { name: "Eimgend Connector", region: "Braewood" },
+            { name: "Eimgend-Gitstin Road", region: "Braewood" },
+            { name: "Gitstin-Osegas Road", region: "Braewood" },
+            { name: "Osegas Loop", region: "Braewood" },
+            { name: "Gitstin South Road", region: "Braewood" },
+            { name: "Kadena-Olkgend Road", region: "Braewood" },
+            { name: "Olkgend Connector", region: "Braewood" },
+            { name: "Trares Road", region: "Braewood" },
+            { name: "Trares-Osegas Road", region: "Braewood" },
+            { name: "Osegas-Frore Road", region: "Braewood" },
+            { name: "Osegas-Rens Road", region: "Braewood" },
+            { name: "Dalo Connector", region: "Braewood" },
+            { name: "Frore East Road", region: "Braewood" },
+            { name: "Lavalto Ring Road", region: "Central" }
+        ];
+        
+        const NAMED_RIVERS = [
+            { name: "Islefield River", type: "Major River", description: "Main river through southern Islefield" },
+            { name: "Cheling Creek", type: "Minor River", description: "Flows near Cheling" },
+            { name: "Braewood River", type: "Major River", description: "Eastern Braewood waterway" },
+            { name: "Kluimont Strait River", type: "Minor River", description: "Flows through Rimduff Isles" },
+            { name: "Central Basin River", type: "Major River", description: "Feeds into Lavalto Lake" },
+            { name: "Iroware Stream", type: "Minor River", description: "Near Iroware Heights" }
+        ];
+        
+        const NAMED_LAKES = [
+            { name: "Lavalto Lake", type: "Major Lake", description: "Massive ring lake surrounding volcanic island, ~70km x 50km" },
+            { name: "Kluimont Lake", type: "Small Lake", x: 40.8, y: 28.1 },
+            { name: "Northern Braewood Lake", type: "Small Lake", x: 78, y: 15 },
+            { name: "Eastern Braewood Lake", type: "Small Lake", x: 82.1, y: 52.3 },
+            { name: "Border Lake", type: "Small Lake", x: 48.6, y: 5.5 }
+        ];
+        
+        const NAMED_BRIDGES = [
+            { name: "Grand Span", x: 53, y: 75, length: "20km", connects: "Kadena ↔ Rye" },
+            { name: "Southern Islefield Bridge", x: 14.8, y: 79.9 },
+            { name: "Islefield River Bridge", x: 15.4, y: 72.9 },
+            { name: "Central River Bridge", x: 30.1, y: 60.8 },
+            { name: "Western River Bridge", x: 19, y: 61.9 },
+            { name: "Yhey Border Crossing", x: 33.3, y: 40.6, connects: "Islefield ↔ Kluimont" },
+            { name: "Northern Bridge", x: 50, y: 20.1, connects: "Kluimont ↔ Braewood" },
+            { name: "Mortling Bridge", x: 66.3, y: 39.5 },
+            { name: "Coastal Bridge", x: 83.5, y: 57.4 },
+            { name: "Southern Braewood Bridge", x: 58.2, y: 74.2 }
+        ];
+        
+        // =====================================================
+        // Map Setup
+        // =====================================================
+        
+        const mapContainer = document.getElementById('mapContainer');
+        const mapImg = document.getElementById('map');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const tooltip = document.getElementById('tooltip');
+        
+        const KM_PER_PERCENT = 4.46;
+        
+        let scale = 1;
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+        let lastX, lastY;
+        
+        // Clickable regions for hover detection
+        let hitRegions = [];
+        
+        // All settlements
+        let allSettlements = [];
+        
+        mapImg.onload = function() {
+            canvas.width = mapImg.naturalWidth;
+            canvas.height = mapImg.naturalHeight;
+            
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            
+            updateMapTransform();
+            flattenSettlements();
+            drawAll();
+        };
+        
+        function flattenSettlements() {
+            if (typeof DAYNER_MAP_DATA === 'undefined') return;
+            
+            const settlements = DAYNER_MAP_DATA.settlements;
+            for (const kingdom in settlements) {
+                const kData = settlements[kingdom];
+                
+                if (kData.capital) {
+                    allSettlements.push({ ...kData.capital, type: 'capital', kingdom });
+                }
+                ['largeCities', 'mediumCities', 'towns', 'villages'].forEach(cat => {
+                    if (kData[cat]) {
+                        kData[cat].forEach(s => allSettlements.push({ ...s, type: cat, kingdom }));
+                    }
+                });
+            }
+        }
+        
+        // =====================================================
+        // Drawing Functions
+        // =====================================================
+        
+        function drawAll() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hitRegions = [];
+            
+            const showRoads = document.getElementById('showRoads').checked;
+            const showRivers = document.getElementById('showRivers').checked;
+            const showLakes = document.getElementById('showLakes').checked;
+            const showBridges = document.getElementById('showBridges').checked;
+            const showSettlements = document.getElementById('showSettlements').checked;
+            const showLabels = document.getElementById('showLabels').checked;
+            
+            // Draw in order: rivers, lakes, roads, bridges, settlements
+            if (showRivers) drawRivers(showLabels);
+            if (showLakes) drawLakes(showLabels);
+            if (showRoads) drawRoads(showLabels);
+            if (showBridges) drawBridges(showLabels);
+            if (showSettlements) drawSettlements(showLabels);
+        }
+        
+        function drawRoads(showLabels) {
+            if (typeof DAYNER_ROADS === 'undefined') return;
+            
+            DAYNER_ROADS.roads.forEach((road, idx) => {
+                const roadInfo = NAMED_ROADS[idx] || { name: `Road #${idx + 1}`, region: 'Unknown' };
+                
+                // Draw road
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#f4a261';
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                
+                const points = [];
+                road.forEach((p, i) => {
+                    const x = (p.x / 100) * canvas.width;
+                    const y = (p.y / 100) * canvas.height;
+                    points.push({ x, y });
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+                
+                // Calculate road length
+                let length = 0;
+                for (let i = 1; i < road.length; i++) {
+                    const dx = (road[i].x - road[i-1].x) * KM_PER_PERCENT;
+                    const dy = (road[i].y - road[i-1].y) * KM_PER_PERCENT;
+                    length += Math.sqrt(dx*dx + dy*dy);
+                }
+                
+                // Add hit region
+                hitRegions.push({
+                    type: 'road',
+                    name: roadInfo.name,
+                    info: `${roadInfo.region} Region • ${road.length} points • ~${Math.round(length)}km`,
+                    points: points,
+                    lineWidth: 8
+                });
+                
+                // Label at midpoint
+                if (showLabels && road.length > 3) {
+                    const midIdx = Math.floor(road.length / 2);
+                    const mid = road[midIdx];
+                    ctx.font = '10px Arial';
+                    ctx.fillStyle = 'rgba(244, 162, 97, 0.9)';
+                    ctx.fillText(roadInfo.name, (mid.x / 100) * canvas.width + 3, (mid.y / 100) * canvas.height - 3);
+                }
+            });
+        }
+        
+        function drawRivers(showLabels) {
+            if (typeof DAYNER_MAP_DATA === 'undefined') return;
+            
+            const water = DAYNER_MAP_DATA.water;
+            
+            // Major rivers
+            if (water.majorRivers) {
+                const segments = groupRiverPoints(water.majorRivers);
+                segments.forEach((segment, idx) => {
+                    const riverInfo = NAMED_RIVERS[idx] || { name: `River ${idx + 1}`, type: 'Major River' };
+                    
+                    ctx.beginPath();
+                    ctx.lineWidth = 4;
+                    ctx.strokeStyle = '#4ea8de';
+                    ctx.lineCap = 'round';
+                    
+                    const points = [];
+                    segment.forEach((p, i) => {
+                        const x = (p.x / 100) * canvas.width;
+                        const y = (p.y / 100) * canvas.height;
+                        points.push({ x, y });
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    });
+                    ctx.stroke();
+                    
+                    hitRegions.push({
+                        type: 'river',
+                        name: riverInfo.name,
+                        info: `${riverInfo.type} • ${segment.length} points`,
+                        points: points,
+                        lineWidth: 10
+                    });
+                    
+                    if (showLabels && segment.length > 2) {
+                        const mid = segment[Math.floor(segment.length / 2)];
+                        ctx.font = 'italic 11px Arial';
+                        ctx.fillStyle = '#4ea8de';
+                        ctx.fillText(riverInfo.name, (mid.x / 100) * canvas.width + 3, (mid.y / 100) * canvas.height - 3);
+                    }
+                });
+            }
+            
+            // Minor rivers
+            if (water.minorRivers) {
+                const segments = groupRiverPoints(water.minorRivers);
+                segments.forEach((segment, idx) => {
+                    const riverIdx = (DAYNER_MAP_DATA.water.majorRivers ? groupRiverPoints(DAYNER_MAP_DATA.water.majorRivers).length : 0) + idx;
+                    const riverInfo = NAMED_RIVERS[riverIdx] || { name: `Stream ${idx + 1}`, type: 'Minor River' };
+                    
+                    ctx.beginPath();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#48cae4';
+                    ctx.lineCap = 'round';
+                    
+                    const points = [];
+                    segment.forEach((p, i) => {
+                        const x = (p.x / 100) * canvas.width;
+                        const y = (p.y / 100) * canvas.height;
+                        points.push({ x, y });
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    });
+                    ctx.stroke();
+                    
+                    hitRegions.push({
+                        type: 'river',
+                        name: riverInfo.name,
+                        info: `${riverInfo.type}`,
+                        points: points,
+                        lineWidth: 8
+                    });
+                });
+            }
+        }
+        
+        function groupRiverPoints(points) {
+            const segments = [];
+            let current = [];
+            const MAX_GAP = 5;
+            
+            for (let i = 0; i < points.length; i++) {
+                if (current.length === 0) {
+                    current.push(points[i]);
+                } else {
+                    const last = current[current.length - 1];
+                    const dist = Math.sqrt(Math.pow(points[i].x - last.x, 2) + Math.pow(points[i].y - last.y, 2));
+                    
+                    if (dist < MAX_GAP) {
+                        current.push(points[i]);
+                    } else {
+                        if (current.length > 1) segments.push(current);
+                        current = [points[i]];
+                    }
+                }
+            }
+            if (current.length > 1) segments.push(current);
+            return segments.length > 0 ? segments : [points];
+        }
+        
+        function drawLakes(showLabels) {
+            if (typeof DAYNER_MAP_DATA === 'undefined') return;
+            
+            const water = DAYNER_MAP_DATA.water;
+            
+            // Lavalto Lake
+            if (water.lavaltoLake) {
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#48cae4';
+                ctx.fillStyle = 'rgba(72, 202, 228, 0.2)';
+                
+                water.lavaltoLake.outer.forEach((p, i) => {
+                    const x = (p.x / 100) * canvas.width;
+                    const y = (p.y / 100) * canvas.height;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+                
+                // Inner ring
+                ctx.beginPath();
+                water.lavaltoLake.inner.forEach((p, i) => {
+                    const x = (p.x / 100) * canvas.width;
+                    const y = (p.y / 100) * canvas.height;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.closePath();
+                ctx.stroke();
+                
+                // Hit region for Lavalto
+                const avgX = water.lavaltoLake.outer.reduce((s, p) => s + p.x, 0) / water.lavaltoLake.outer.length;
+                const avgY = water.lavaltoLake.outer.reduce((s, p) => s + p.y, 0) / water.lavaltoLake.outer.length;
+                
+                hitRegions.push({
+                    type: 'lake',
+                    name: 'Lavalto Lake',
+                    info: 'Major Lake • Ring lake around volcanic island • ~70km × 50km',
+                    center: { x: (avgX / 100) * canvas.width, y: (avgY / 100) * canvas.height },
+                    radius: 80
+                });
+                
+                if (showLabels) {
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillStyle = '#48cae4';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Lavalto Lake', (avgX / 100) * canvas.width, (avgY / 100) * canvas.height);
+                    ctx.textAlign = 'left';
+                }
+            }
+            
+            // Small lakes
+            if (water.smallLakes) {
+                water.smallLakes.forEach((lake, idx) => {
+                    const x = (lake.x / 100) * canvas.width;
+                    const y = (lake.y / 100) * canvas.height;
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, 8, 0, Math.PI * 2);
+                    ctx.fillStyle = '#48cae4';
+                    ctx.fill();
+                    
+                    hitRegions.push({
+                        type: 'lake',
+                        name: lake.name,
+                        info: 'Small Lake',
+                        center: { x, y },
+                        radius: 15
+                    });
+                    
+                    if (showLabels) {
+                        ctx.font = '11px Arial';
+                        ctx.fillStyle = '#48cae4';
+                        ctx.fillText(lake.name, x + 10, y + 4);
+                    }
+                });
+            }
+        }
+        
+        function drawBridges(showLabels) {
+            NAMED_BRIDGES.forEach(bridge => {
+                const x = (bridge.x / 100) * canvas.width;
+                const y = (bridge.y / 100) * canvas.height;
+                
+                // Bridge marker
+                ctx.beginPath();
+                ctx.arc(x, y, 8, 0, Math.PI * 2);
+                ctx.fillStyle = '#f72585';
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                let info = 'Bridge';
+                if (bridge.length) info += ` • ${bridge.length}`;
+                if (bridge.connects) info += ` • ${bridge.connects}`;
+                
+                hitRegions.push({
+                    type: 'bridge',
+                    name: bridge.name,
+                    info: info,
+                    center: { x, y },
+                    radius: 15
+                });
+                
+                if (showLabels) {
+                    ctx.font = 'bold 10px Arial';
+                    ctx.fillStyle = '#f72585';
+                    ctx.fillText(bridge.name, x + 10, y + 4);
+                }
+            });
+        }
+        
+        function drawSettlements(showLabels) {
+            allSettlements.forEach(s => {
+                const x = (s.x / 100) * canvas.width;
+                const y = (s.y / 100) * canvas.height;
+                
+                let radius = 4;
+                if (s.type === 'capital') radius = 8;
+                else if (s.type === 'largeCities') radius = 6;
+                else if (s.type === 'mediumCities') radius = 5;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+                
+                hitRegions.push({
+                    type: 'settlement',
+                    name: s.name,
+                    info: `${s.type.replace(/([A-Z])/g, ' $1').trim()} • ${s.kingdom}`,
+                    center: { x, y },
+                    radius: radius + 8
+                });
+                
+                if (showLabels && (s.type === 'capital' || s.type === 'largeCities')) {
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText(s.name, x + radius + 3, y + 4);
+                }
+            });
+        }
+        
+        // =====================================================
+        // Interaction
+        // =====================================================
+        
+        canvas.style.pointerEvents = 'auto';
+        
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = (e.clientX - rect.left) / scale;
+            const mouseY = (e.clientY - rect.top) / scale;
+            
+            let found = null;
+            
+            // Check point features first (bridges, lakes, settlements)
+            for (const region of hitRegions) {
+                if (region.center) {
+                    const dist = Math.sqrt(
+                        Math.pow(mouseX - region.center.x, 2) + 
+                        Math.pow(mouseY - region.center.y, 2)
+                    );
+                    if (dist < region.radius) {
+                        found = region;
+                        break;
+                    }
+                }
+            }
+            
+            // Check line features (roads, rivers)
+            if (!found) {
+                for (const region of hitRegions) {
+                    if (region.points) {
+                        for (let i = 1; i < region.points.length; i++) {
+                            const dist = pointToLineDistance(
+                                mouseX, mouseY,
+                                region.points[i-1].x, region.points[i-1].y,
+                                region.points[i].x, region.points[i].y
+                            );
+                            if (dist < region.lineWidth) {
+                                found = region;
+                                break;
+                            }
+                        }
+                        if (found) break;
+                    }
+                }
+            }
+            
+            if (found) {
+                tooltip.classList.add('show');
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+                
+                document.getElementById('tooltipTitle').textContent = found.name;
+                document.getElementById('tooltipType').textContent = found.type.charAt(0).toUpperCase() + found.type.slice(1);
+                document.getElementById('tooltipInfo').textContent = found.info;
+                
+                canvas.style.cursor = 'pointer';
+            } else {
+                tooltip.classList.remove('show');
+                canvas.style.cursor = 'grab';
+            }
+        });
+        
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = (e.clientX - rect.left) / scale;
+            const mouseY = (e.clientY - rect.top) / scale;
+            
+            let found = null;
+            
+            for (const region of hitRegions) {
+                if (region.center) {
+                    const dist = Math.sqrt(
+                        Math.pow(mouseX - region.center.x, 2) + 
+                        Math.pow(mouseY - region.center.y, 2)
+                    );
+                    if (dist < region.radius) {
+                        found = region;
+                        break;
+                    }
+                }
+            }
+            
+            if (!found) {
+                for (const region of hitRegions) {
+                    if (region.points) {
+                        for (let i = 1; i < region.points.length; i++) {
+                            const dist = pointToLineDistance(
+                                mouseX, mouseY,
+                                region.points[i-1].x, region.points[i-1].y,
+                                region.points[i].x, region.points[i].y
+                            );
+                            if (dist < region.lineWidth) {
+                                found = region;
+                                break;
+                            }
+                        }
+                        if (found) break;
+                    }
+                }
+            }
+            
+            if (found) {
+                showSelectedPanel(found);
+            }
+        });
+        
+        function pointToLineDistance(px, py, x1, y1, x2, y2) {
+            const A = px - x1;
+            const B = py - y1;
+            const C = x2 - x1;
+            const D = y2 - y1;
+            
+            const dot = A * C + B * D;
+            const lenSq = C * C + D * D;
+            let param = -1;
+            if (lenSq !== 0) param = dot / lenSq;
+            
+            let xx, yy;
+            if (param < 0) { xx = x1; yy = y1; }
+            else if (param > 1) { xx = x2; yy = y2; }
+            else { xx = x1 + param * C; yy = y1 + param * D; }
+            
+            return Math.sqrt((px - xx) ** 2 + (py - yy) ** 2);
+        }
+        
+        function showSelectedPanel(feature) {
+            const panel = document.getElementById('selectedPanel');
+            document.getElementById('selectedTitle').textContent = feature.name;
+            
+            let details = `
+                <div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">${feature.type}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Details:</span>
+                    <span class="detail-value">${feature.info}</span>
+                </div>
+            `;
+            
+            document.getElementById('selectedDetails').innerHTML = details;
+            panel.classList.add('show');
+        }
+        
+        function closeSelected() {
+            document.getElementById('selectedPanel').classList.remove('show');
+        }
+        
+        // =====================================================
+        // Map Controls
+        // =====================================================
+        
+        function updateMapTransform() {
+            mapImg.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            mapImg.style.transformOrigin = '0 0';
+            canvas.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            canvas.style.transformOrigin = '0 0';
+        }
+        
+        mapContainer.addEventListener('mousedown', (e) => {
+            if (e.target === canvas && !e.target.style.cursor.includes('pointer')) {
+                isDragging = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+            }
+        });
+        
+        mapContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            offsetX += e.clientX - lastX;
+            offsetY += e.clientY - lastY;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            updateMapTransform();
+        });
+        
+        mapContainer.addEventListener('mouseup', () => isDragging = false);
+        mapContainer.addEventListener('mouseleave', () => isDragging = false);
+        
+        mapContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            scale *= delta;
+            scale = Math.max(0.2, Math.min(5, scale));
+            updateMapTransform();
+            drawAll();
+        });
+        
+        function zoomIn() { scale *= 1.2; scale = Math.min(5, scale); updateMapTransform(); drawAll(); }
+        function zoomOut() { scale *= 0.8; scale = Math.max(0.2, scale); updateMapTransform(); drawAll(); }
+        function resetView() {
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            offsetX = 0;
+            offsetY = 0;
+            updateMapTransform();
+            drawAll();
+        }
+        
+        // Layer toggles
+        document.querySelectorAll('.layer-toggle input').forEach(input => {
+            input.addEventListener('change', drawAll);
+        });
+    </script>
+</body>
+</html>

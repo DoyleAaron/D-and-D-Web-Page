@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road Mapping Tool</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    .header {
+      background: #0f0f1a;
+      padding: 15px 20px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    h1 {
+      font-size: 1.2rem;
+      color: #d4af37;
+    }
+    .instructions {
+      font-size: 0.85rem;
+      color: #aaa;
+      max-width: 500px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    button {
+      background: #e94560;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #c73a52; }
+    button.secondary {
+      background: #333;
+    }
+    button.secondary:hover { background: #444; }
+    button.active {
+      background: #4caf50;
+    }
+    select {
+      background: #333;
+      color: white;
+      border: 1px solid #555;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    
+    .main {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+    
+    .map-area {
+      flex: 1;
+      overflow: auto;
+      position: relative;
+      background: #0a0a15;
+    }
+    
+    .map-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .map-container img {
+      display: block;
+      max-width: none;
+    }
+    
+    /* Road points */
+    .road-point {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      background: #d4a574;
+    }
+    .road-point:hover {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+    
+    /* River points - different colors for each river */
+    .river-point { background: #1e90ff; }
+    .river-point.river_1 { background: #1e90ff; }
+    .river-point.river_2 { background: #00bfff; }
+    .river-point.river_3 { background: #87ceeb; }
+    .river-point.river_4 { background: #00ced1; }
+    .river-point.river_5 { background: #20b2aa; }
+    .river-point.river_6 { background: #5f9ea0; }
+    .river-point.river_7 { background: #4682b4; }
+    .river-point.river_8 { background: #6495ed; }
+    .river-point.river_9 { background: #7b68ee; }
+    .river-point.river_10 { background: #9370db; }
+    
+    /* River lines */
+    .river-line { stroke: #1e90ff; stroke-width: 4; }
+    .river-line.river_1 { stroke: #1e90ff; }
+    .river-line.river_2 { stroke: #00bfff; }
+    .river-line.river_3 { stroke: #87ceeb; }
+    .river-line.river_4 { stroke: #00ced1; }
+    .river-line.river_5 { stroke: #20b2aa; }
+    .river-line.river_6 { stroke: #5f9ea0; }
+    .river-line.river_7 { stroke: #4682b4; }
+    .river-line.river_8 { stroke: #6495ed; }
+    .river-line.river_9 { stroke: #7b68ee; }
+    .river-line.river_10 { stroke: #9370db; }
+    
+    /* Agosgas marker */
+    .agosgas-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 3px solid #ffd700;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 30;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      background: #e94560;
+    }
+    .agosgas-marker::after {
+      content: 'Agosgas';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      white-space: nowrap;
+      color: #ffd700;
+    }
+    
+    /* SVG overlay for lines */
+    .road-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    
+    .road-line {
+      fill: none;
+      stroke: #d4a574;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 350px;
+      background: #16162a;
+      border-left: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .sidebar-header {
+      padding: 15px;
+      background: #0f0f1a;
+      border-bottom: 1px solid #333;
+    }
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #1e1e35;
+      border-radius: 8px;
+      border-left: 4px solid #d4a574;
+    }
+    .section.agosgas {
+      border-color: #ffd700;
+    }
+    
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .point-count {
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .point-list {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: #0a0a15;
+      padding: 10px;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      word-break: break-all;
+    }
+    
+    .output-section {
+      padding: 15px;
+      background: #0f0f1a;
+      border-top: 1px solid #333;
+    }
+    .output-section h3 {
+      margin-bottom: 10px;
+      color: #d4af37;
+      font-size: 0.9rem;
+    }
+    #output {
+      width: 100%;
+      height: 200px;
+      background: #0a0a15;
+      color: #4caf50;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.75rem;
+      resize: vertical;
+    }
+    
+    .legend {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.road { background: #d4a574; }
+    .legend-dot.river { background: #1e90ff; }
+    .legend-dot.agosgas { background: #e94560; border: 2px solid #ffd700; }
+    
+    .cursor-info {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.8);
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-family: monospace;
+      z-index: 100;
+    }
+    
+    .mode-indicator {
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    .mode-indicator.road { background: #d4a574; color: #000; }
+    .mode-indicator.river { background: #1e90ff; color: #fff; }
+    .mode-indicator.agosgas { background: #ffd700; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>🛤️ Road & River Mapping Tool</h1>
+      <p class="instructions">Click to add points (they connect in sequence). Use "New Road/River" to start a new path. Select river number to draw different rivers.</p>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot road"></div> Roads</div>
+        <div class="legend-item"><div class="legend-dot river"></div> Rivers</div>
+        <div class="legend-item"><div class="legend-dot agosgas"></div> Agosgas</div>
+      </div>
+    </div>
+    <div class="controls">
+      <span class="mode-indicator road" id="mode-indicator">Mode: Roads</span>
+      <button id="mode-road" class="active" onclick="setMode('road')">🛤️ Roads</button>
+      <select id="river-select" onchange="setRiverMode(this.value)">
+        <option value="">🌊 Rivers...</option>
+        <option value="river_1">River 1</option>
+        <option value="river_2">River 2</option>
+        <option value="river_3">River 3</option>
+        <option value="river_4">River 4</option>
+        <option value="river_5">River 5</option>
+        <option value="river_6">River 6</option>
+        <option value="river_7">River 7</option>
+        <option value="river_8">River 8</option>
+        <option value="river_9">River 9</option>
+        <option value="river_10">River 10</option>
+      </select>
+      <button id="mode-agosgas" onclick="setMode('agosgas')">📍 Agosgas</button>
+      <button onclick="newPath()">New Path</button>
+      <button onclick="undoLast()">Undo Last</button>
+      <button class="secondary" onclick="clearAll()">Clear All</button>
+      <button onclick="copyOutput()">📋 Copy Output</button>
+    </div>
+  </div>
+  
+  <div class="main">
+    <div class="map-area" id="map-area">
+      <div class="map-container" id="map-container">
+        <img src="map.jpg" id="map-image" alt="Map">
+        <svg class="road-svg" id="road-svg"></svg>
+      </div>
+    </div>
+    
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2 style="font-size: 1rem; color: #d4af37;">Map Data</h2>
+      </div>
+      <div class="sidebar-content" id="sidebar-content">
+        <div class="section agosgas">
+          <div class="section-title">
+            <span>📍 Agosgas Location</span>
+          </div>
+          <div class="point-list" id="agosgas-coords">Not yet placed</div>
+        </div>
+        <div class="section">
+          <div class="section-title">
+            <span>🛤️ Roads</span>
+            <span class="point-count" id="road-count">0 points</span>
+          </div>
+          <div class="point-list" id="road-list">No roads yet</div>
+        </div>
+        <div class="section" style="border-color: #1e90ff;">
+          <div class="section-title">
+            <span>🌊 Rivers</span>
+          </div>
+          <div class="point-list" id="river-list">No rivers yet</div>
+        </div>
+      </div>
+      <div class="output-section">
+        <h3>📋 Output for Copilot</h3>
+        <textarea id="output" readonly placeholder="Road coordinates will appear here..."></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cursor-info" id="cursor-info">X: 0.0% | Y: 0.0%</div>
+
+  <script>
+    let mode = 'road'; // 'road', 'river_1' through 'river_10', or 'agosgas'
+    let roads = [[]]; // Array of road arrays
+    let rivers = {
+      river_1: [[]], river_2: [[]], river_3: [[]], river_4: [[]], river_5: [[]],
+      river_6: [[]], river_7: [[]], river_8: [[]], river_9: [[]], river_10: [[]]
+    };
+    let agosgas = null;
+    
+    const mapContainer = document.getElementById('map-container');
+    const mapImage = document.getElementById('map-image');
+    const svg = document.getElementById('road-svg');
+    const cursorInfo = document.getElementById('cursor-info');
+    
+    function setMode(newMode) {
+      mode = newMode;
+      document.getElementById('mode-road').classList.toggle('active', mode === 'road');
+      document.getElementById('mode-agosgas').classList.toggle('active', mode === 'agosgas');
+      document.getElementById('river-select').value = mode.startsWith('river_') ? mode : '';
+      
+      const indicator = document.getElementById('mode-indicator');
+      if (mode === 'road') {
+        indicator.textContent = 'Mode: Roads';
+        indicator.className = 'mode-indicator road';
+      } else if (mode === 'agosgas') {
+        indicator.textContent = 'Mode: Agosgas';
+        indicator.className = 'mode-indicator agosgas';
+      } else if (mode.startsWith('river_')) {
+        indicator.textContent = 'Mode: ' + mode.replace('_', ' ').replace('river', 'River');
+        indicator.className = 'mode-indicator river';
+      }
+    }
+    
+    function setRiverMode(riverNum) {
+      if (riverNum) {
+        setMode(riverNum);
+      }
+    }
+    
+    // Track cursor position
+    mapContainer.addEventListener('mousemove', (e) => {
+      const rect = mapImage.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      cursorInfo.textContent = `X: ${x}% | Y: ${y}%`;
+    });
+    
+    // Add point on click
+    mapContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('road-point') || e.target.classList.contains('agosgas-marker')) {
+        return; // Don't add when clicking existing points
+      }
+      
+      const rect = mapImage.getBoundingClientRect();
+      const x = parseFloat(((e.clientX - rect.left) / rect.width * 100).toFixed(1));
+      const y = parseFloat(((e.clientY - rect.top) / rect.height * 100).toFixed(1));
+      
+      if (mode === 'road') {
+        // Add to current road
+        roads[roads.length - 1].push({ x, y });
+      } else if (mode.startsWith('river_')) {
+        // Add to current river
+        rivers[mode][rivers[mode].length - 1].push({ x, y });
+      } else {
+        // Set Agosgas location
+        agosgas = { x, y };
+      }
+      
+      render();
+      updateOutput();
+    });
+    
+    function newPath() {
+      if (mode === 'road') {
+        if (roads[roads.length - 1].length > 0) {
+          roads.push([]);
+        }
+      } else if (mode.startsWith('river_')) {
+        if (rivers[mode][rivers[mode].length - 1].length > 0) {
+          rivers[mode].push([]);
+        }
+      }
+      render();
+      updateOutput();
+    }
+    
+    function undoLast() {
+      if (mode === 'road') {
+        // Remove last road point
+        if (roads[roads.length - 1].length > 0) {
+          roads[roads.length - 1].pop();
+        } else if (roads.length > 1) {
+          roads.pop();
+          if (roads[roads.length - 1].length > 0) {
+            roads[roads.length - 1].pop();
+          }
+        }
+      } else if (mode.startsWith('river_')) {
+        // Remove last river point
+        const river = rivers[mode];
+        if (river[river.length - 1].length > 0) {
+          river[river.length - 1].pop();
+        } else if (river.length > 1) {
+          river.pop();
+          if (river[river.length - 1].length > 0) {
+            river[river.length - 1].pop();
+          }
+        }
+      } else {
+        // Clear Agosgas
+        agosgas = null;
+      }
+      render();
+      updateOutput();
+    }
+    
+    function clearAll() {
+      if (confirm('Clear all roads, rivers and Agosgas marker?')) {
+        roads = [[]];
+        rivers = {
+          river_1: [[]], river_2: [[]], river_3: [[]], river_4: [[]], river_5: [[]],
+          river_6: [[]], river_7: [[]], river_8: [[]], river_9: [[]], river_10: [[]]
+        };
+        agosgas = null;
+        render();
+        updateOutput();
+      }
+    }
+    
+    function render() {
+      // Clear existing markers
+      document.querySelectorAll('.road-point, .river-point, .agosgas-marker').forEach(el => el.remove());
+      
+      // Clear SVG
+      svg.innerHTML = '';
+      
+      // Draw roads
+      roads.forEach((road, roadIndex) => {
+        // Draw line
+        if (road.length >= 2) {
+          const pathData = road.map((p, i) => 
+            `${i === 0 ? 'M' : 'L'} ${p.x}% ${p.y}%`
+          ).join(' ');
+          
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', pathData);
+          path.setAttribute('class', 'road-line');
+          path.setAttribute('vector-effect', 'non-scaling-stroke');
+          svg.appendChild(path);
+        }
+        
+        // Draw points
+        road.forEach((point, i) => {
+          const marker = document.createElement('div');
+          marker.className = 'road-point';
+          marker.style.left = point.x + '%';
+          marker.style.top = point.y + '%';
+          marker.title = `Road ${roadIndex + 1}, Point ${i + 1}: (${point.x}, ${point.y})`;
+          marker.onclick = (e) => {
+            e.stopPropagation();
+            road.splice(i, 1);
+            render();
+            updateOutput();
+          };
+          mapContainer.appendChild(marker);
+        });
+      });
+      
+      // Draw rivers
+      for (const [riverName, riverPaths] of Object.entries(rivers)) {
+        riverPaths.forEach((riverPath, pathIndex) => {
+          // Draw line
+          if (riverPath.length >= 2) {
+            const pathData = riverPath.map((p, i) => 
+              `${i === 0 ? 'M' : 'L'} ${p.x}% ${p.y}%`
+            ).join(' ');
+            
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', pathData);
+            path.setAttribute('class', `road-line river-line ${riverName}`);
+            path.setAttribute('vector-effect', 'non-scaling-stroke');
+            svg.appendChild(path);
+          }
+          
+          // Draw points
+          riverPath.forEach((point, i) => {
+            const marker = document.createElement('div');
+            marker.className = `road-point river-point ${riverName}`;
+            marker.style.left = point.x + '%';
+            marker.style.top = point.y + '%';
+            marker.title = `${riverName.replace('_', ' ')} Path ${pathIndex + 1}, Point ${i + 1}: (${point.x}, ${point.y})`;
+            marker.onclick = (e) => {
+              e.stopPropagation();
+              riverPath.splice(i, 1);
+              render();
+              updateOutput();
+            };
+            mapContainer.appendChild(marker);
+          });
+        });
+      }
+      
+      // Draw Agosgas marker
+      if (agosgas) {
+        const marker = document.createElement('div');
+        marker.className = 'agosgas-marker';
+        marker.style.left = agosgas.x + '%';
+        marker.style.top = agosgas.y + '%';
+        marker.title = `Agosgas: (${agosgas.x}, ${agosgas.y})`;
+        mapContainer.appendChild(marker);
+      }
+      
+      // Update sidebar
+      updateSidebar();
+    }
+    
+    function updateSidebar() {
+      // Agosgas
+      const agosgasCoords = document.getElementById('agosgas-coords');
+      if (agosgas) {
+        agosgasCoords.textContent = `x: ${agosgas.x}, y: ${agosgas.y}`;
+      } else {
+        agosgasCoords.textContent = 'Not yet placed';
+      }
+      
+      // Roads
+      const totalRoadPoints = roads.reduce((sum, road) => sum + road.length, 0);
+      document.getElementById('road-count').textContent = `${totalRoadPoints} points, ${roads.filter(r => r.length > 0).length} roads`;
+      
+      const roadList = document.getElementById('road-list');
+      if (totalRoadPoints === 0) {
+        roadList.textContent = 'No roads yet';
+      } else {
+        roadList.innerHTML = roads.map((road, i) => {
+          if (road.length === 0) return '';
+          return `<div><strong>Road ${i + 1}:</strong> ${road.length} points</div>`;
+        }).filter(s => s).join('');
+      }
+      
+      // Rivers
+      let riverHtml = '';
+      for (const [riverName, riverPaths] of Object.entries(rivers)) {
+        const totalPoints = riverPaths.reduce((sum, p) => sum + p.length, 0);
+        if (totalPoints > 0) {
+          riverHtml += `<div><strong>${riverName.replace('_', ' ')}:</strong> ${totalPoints} points</div>`;
+        }
+      }
+      const riverList = document.getElementById('river-list');
+      if (riverList) {
+        riverList.innerHTML = riverHtml || 'No rivers yet';
+      }
+    }
+    
+    function updateOutput() {
+      let text = '// AGOSGAS LOCATION\n';
+      if (agosgas) {
+        text += `agosgas: { x: ${agosgas.x}, y: ${agosgas.y} }\n\n`;
+      } else {
+        text += 'agosgas: null // Not placed yet\n\n';
+      }
+      
+      text += '// ROADS\n';
+      text += `roads: [\n`;
+      roads.forEach((road, i) => {
+        if (road.length > 0) {
+          text += `  // Road ${i + 1} (${road.length} points)\n`;
+          text += `  [\n`;
+          road.forEach(p => {
+            text += `    { x: ${p.x}, y: ${p.y} },\n`;
+          });
+          text += `  ],\n`;
+        }
+      });
+      text += `]\n\n`;
+      
+      text += '// RIVERS\n';
+      for (const [riverName, riverPaths] of Object.entries(rivers)) {
+        const nonEmptyPaths = riverPaths.filter(p => p.length > 0);
+        if (nonEmptyPaths.length > 0) {
+          text += `// ${riverName.toUpperCase()}\n`;
+          text += `${riverName}: [\n`;
+          nonEmptyPaths.forEach((riverPath, i) => {
+            text += `  // Path ${i + 1} (${riverPath.length} points)\n`;
+            text += `  [\n`;
+            riverPath.forEach(p => {
+              text += `    { x: ${p.x}, y: ${p.y} },\n`;
+            });
+            text += `  ],\n`;
+          });
+          text += `],\n\n`;
+        }
+      }
+      
+      document.getElementById('output').value = text;
+    }
+    
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+    
+    // Initialize
+    render();
+    updateOutput();
+  </script>
+</body>
+</html>

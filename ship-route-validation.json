@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-12-17T18:40:12.906Z",
+  "officialPorts": [
+    "slada",
+    "borugham",
+    "ardismouth",
+    "ioxyhull",
+    "rens",
+    "islefield-city",
+    "cok",
+    "wrando",
+    "agosgas",
+    "okcaster",
+    "braewood-city",
+    "mortling-stronghold",
+    "adaham",
+    "dawerton",
+    "flison",
+    "agosron",
+    "slonmore",
+    "vorton",
+    "kluimont-city",
+    "eimgend-city",
+    "tarora",
+    "aresphia",
+    "yuosburn",
+    "ukrolis",
+    "erymont",
+    "resross",
+    "ajag"
+  ],
+  "totalPorts": 27,
+  "landMasses": [
+    "lavalto_island"
+  ],
+  "waterRegions": [
+    "ocean_north",
+    "ocean_east",
+    "ocean_south",
+    "ocean_west",
+    "rimduff",
+    "lavalto_lake",
+    "river_central",
+    "river_braewood",
+    "river_east",
+    "river_kluimont"
+  ]
+}

@@ -269,6 +269,9 @@
       renderContent(html, title, filePath);
       updateBreadcrumb(filePath);
       
+      // Track recently visited
+      addToRecentlyVisited(filePath, title);
+      
     } catch (error) {
       console.error('Error loading content:', error);
       showError('Content not found', 'The requested lore entry could not be loaded: ' + filePath);
@@ -279,18 +282,32 @@
 
   function renderContent(html, title, filePath) {
     const icon = getIconForPath(filePath);
+    const isBookmarked = isPageBookmarked(filePath);
+    const bookmarkClass = isBookmarked ? 'bookmarked' : '';
+    const bookmarkIcon = isBookmarked ? 'fas' : 'far';
     
     // Auto-link known terms (characters, places) in the content
     const linkedHtml = autoLinkTerms(html, filePath);
     
     contentArea.innerHTML = `
       <div class="content-card">
-        <h1><i class="fas ${icon}"></i> ${escapeHtml(title)}</h1>
+        <div class="content-header">
+          <h1><i class="fas ${icon}"></i> ${escapeHtml(title)}</h1>
+          <button class="bookmark-btn ${bookmarkClass}" id="bookmark-btn" data-path="${escapeHtml(filePath)}" data-title="${escapeHtml(title)}" title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
+            <i class="${bookmarkIcon} fa-star"></i>
+          </button>
+        </div>
         <div class="lore-content">${linkedHtml}</div>
       </div>
     `;
     
     contentArea.scrollTop = 0;
+    
+    // Set up bookmark button
+    const bookmarkBtn = document.getElementById('bookmark-btn');
+    if (bookmarkBtn) {
+      bookmarkBtn.addEventListener('click', () => toggleBookmark(filePath, title));
+    }
     
     // Set up click handlers for cross-reference links
     setupContentLinks(filePath);
@@ -596,6 +613,206 @@
     }
 
     breadcrumb.innerHTML = html;
+  }
+
+  // ========================================
+  // BOOKMARKS
+  // ========================================
+  function getBookmarks() {
+    try {
+      return JSON.parse(localStorage.getItem('bookmarks') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function saveBookmarks(bookmarks) {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }
+
+  function isPageBookmarked(filePath) {
+    return getBookmarks().some(b => b.path === filePath);
+  }
+
+  function toggleBookmark(filePath, title) {
+    const bookmarks = getBookmarks();
+    const index = bookmarks.findIndex(b => b.path === filePath);
+    
+    if (index >= 0) {
+      // Remove bookmark
+      bookmarks.splice(index, 1);
+    } else {
+      // Add bookmark
+      bookmarks.unshift({ path: filePath, title: title, addedAt: Date.now() });
+    }
+    
+    saveBookmarks(bookmarks);
+    updateBookmarkButton(filePath);
+    renderBookmarksList();
+  }
+
+  function updateBookmarkButton(filePath) {
+    const btn = document.getElementById('bookmark-btn');
+    if (!btn) return;
+    
+    const isBookmarked = isPageBookmarked(filePath);
+    btn.classList.toggle('bookmarked', isBookmarked);
+    btn.querySelector('i').className = isBookmarked ? 'fas fa-star' : 'far fa-star';
+    btn.title = isBookmarked ? 'Remove bookmark' : 'Add bookmark';
+  }
+
+  function renderBookmarksList() {
+    const list = document.getElementById('bookmarks-list');
+    if (!list) return;
+    
+    const bookmarks = getBookmarks();
+    
+    if (bookmarks.length === 0) {
+      list.innerHTML = `
+        <div class="nav-item bookmark-empty" style="color: var(--text-muted); font-style: italic;">
+          <span class="menu-text">No bookmarks yet</span>
+        </div>
+      `;
+    } else {
+      list.innerHTML = bookmarks.map(b => `
+        <div class="nav-item bookmark-item" data-file="${escapeHtml(b.path)}">
+          <i class="fas fa-star nav-icon" style="color: var(--color-gold); font-size: 0.7rem;"></i>
+          <span class="menu-text">${escapeHtml(b.title)}</span>
+          <button class="bookmark-remove" data-path="${escapeHtml(b.path)}" title="Remove bookmark">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      `).join('');
+      
+      // Bind click handlers
+      list.querySelectorAll('.bookmark-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          if (!e.target.closest('.bookmark-remove')) {
+            loadContent(item.dataset.file);
+          }
+        });
+      });
+      
+      list.querySelectorAll('.bookmark-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const path = btn.dataset.path;
+          const bookmarks = getBookmarks();
+          const bookmark = bookmarks.find(b => b.path === path);
+          if (bookmark) {
+            toggleBookmark(path, bookmark.title);
+          }
+        });
+      });
+    }
+  }
+
+  // ========================================
+  // RECENTLY VISITED
+  // ========================================
+  const MAX_RECENT = 8;
+
+  function getRecentlyVisited() {
+    try {
+      return JSON.parse(localStorage.getItem('recentlyVisited') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function addToRecentlyVisited(filePath, title) {
+    let recent = getRecentlyVisited();
+    
+    // Remove if already exists
+    recent = recent.filter(r => r.path !== filePath);
+    
+    // Add to front
+    recent.unshift({ path: filePath, title: title, visitedAt: Date.now() });
+    
+    // Limit size
+    recent = recent.slice(0, MAX_RECENT);
+    
+    localStorage.setItem('recentlyVisited', JSON.stringify(recent));
+  }
+
+  function initRecentlyVisited() {
+    const dropdown = document.getElementById('search-dropdown');
+    const list = document.getElementById('recently-visited-list');
+    
+    if (!searchInput || !dropdown || !list) return;
+    
+    // Show dropdown on focus (when empty)
+    searchInput.addEventListener('focus', () => {
+      if (searchInput.value.trim() === '') {
+        renderRecentlyVisited();
+        dropdown.classList.add('visible');
+      }
+    });
+    
+    // Hide dropdown on blur (with delay for click)
+    searchInput.addEventListener('blur', () => {
+      setTimeout(() => {
+        dropdown.classList.remove('visible');
+      }, 200);
+    });
+    
+    // Hide when typing
+    searchInput.addEventListener('input', () => {
+      if (searchInput.value.trim() !== '') {
+        dropdown.classList.remove('visible');
+      } else {
+        renderRecentlyVisited();
+        dropdown.classList.add('visible');
+      }
+    });
+  }
+
+  function renderRecentlyVisited() {
+    const list = document.getElementById('recently-visited-list');
+    if (!list) return;
+    
+    const recent = getRecentlyVisited();
+    
+    if (recent.length === 0) {
+      list.innerHTML = '<div class="search-dropdown-item empty">No recent pages</div>';
+    } else {
+      list.innerHTML = recent.map(r => `
+        <div class="search-dropdown-item" data-path="${escapeHtml(r.path)}">
+          <i class="fas fa-clock"></i>
+          <span>${escapeHtml(r.title)}</span>
+        </div>
+      `).join('');
+      
+      list.querySelectorAll('.search-dropdown-item').forEach(item => {
+        item.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          loadContent(item.dataset.path);
+          document.getElementById('search-dropdown').classList.remove('visible');
+          searchInput.value = '';
+          searchInput.blur();
+        });
+      });
+    }
+  }
+
+  // ========================================
+  // RANDOM LORE
+  // ========================================
+  function initRandomLore() {
+    const btn = document.getElementById('random-lore-btn');
+    if (!btn) return;
+    
+    btn.addEventListener('click', () => {
+      const loreFiles = searchIndex.filter(item => item.type === 'file' && item.path);
+      if (loreFiles.length === 0) {
+        console.warn('No lore files indexed yet');
+        return;
+      }
+      
+      const randomIndex = Math.floor(Math.random() * loreFiles.length);
+      const randomFile = loreFiles[randomIndex];
+      loadContent(randomFile.path);
+    });
   }
 
   function showLoading() {
@@ -1323,6 +1540,9 @@
     initTheme();
     initNavigation();
     initSearch();
+    initRecentlyVisited();
+    initRandomLore();
+    renderBookmarksList();
     
     // Check for file parameter in URL (from map navigation)
     const urlParams = new URLSearchParams(window.location.search);

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayner Water & Bridge Analysis</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Left Panel - Feature List */
+        .feature-list-panel {
+            width: 350px;
+            background: #16213e;
+            padding: 15px;
+            overflow-y: auto;
+            border-right: 2px solid #0f3460;
+        }
+        .feature-list-panel h2 {
+            color: #4ea8de;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .feature-stats {
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .feature-stats span { color: #4ecca3; }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #0f3460;
+            color: #eee;
+        }
+        .tab-btn:hover { background: #1a3a6e; }
+        .tab-btn.active { background: #4ea8de; color: #000; }
+        .tab-btn.rivers { border-bottom: 3px solid #4ea8de; }
+        .tab-btn.lakes { border-bottom: 3px solid #48cae4; }
+        .tab-btn.bridges { border-bottom: 3px solid #f4a261; }
+        
+        .feature-item {
+            background: #0f3460;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            border-left: 4px solid #555;
+            transition: all 0.2s;
+        }
+        .feature-item:hover { background: #1a3a6e; }
+        .feature-item.selected { border-left-color: #e94560; background: #1a3a6e; }
+        .feature-item.river { border-left-color: #4ea8de; }
+        .feature-item.lake { border-left-color: #48cae4; }
+        .feature-item.bridge { border-left-color: #f4a261; }
+        .feature-item.named { opacity: 1; }
+        .feature-item.unnamed { opacity: 0.7; }
+        
+        .feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .feature-type { 
+            font-weight: bold; 
+            font-size: 0.85em;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+        .feature-type.river { background: #4ea8de; color: #000; }
+        .feature-type.lake { background: #48cae4; color: #000; }
+        .feature-type.bridge { background: #f4a261; color: #000; }
+        .feature-points { font-size: 0.8em; color: #888; }
+        .feature-name {
+            font-size: 1em;
+            color: #4ecca3;
+            margin-top: 5px;
+        }
+        .feature-coords {
+            font-size: 0.75em;
+            color: #aaa;
+            margin-top: 3px;
+        }
+        
+        /* Map Container */
+        .map-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        #map {
+            position: absolute;
+            cursor: grab;
+        }
+        #map:active { cursor: grabbing; }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        /* Right Panel - Details */
+        .details-panel {
+            width: 400px;
+            background: #16213e;
+            padding: 15px;
+            overflow-y: auto;
+            border-left: 2px solid #0f3460;
+        }
+        .details-panel h2 {
+            color: #4ea8de;
+            margin-bottom: 15px;
+        }
+        
+        .detail-section {
+            background: #0f3460;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+        .detail-section h3 {
+            color: #4ecca3;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .name-input-group {
+            display: flex;
+            gap: 8px;
+        }
+        .name-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background: #1a1a2e;
+            color: #eee;
+            font-size: 1em;
+        }
+        .save-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #4ecca3;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .save-btn:hover { background: #3db892; }
+        
+        .coords-list {
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.8em;
+            background: #1a1a2e;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .coord-point {
+            padding: 2px 0;
+            border-bottom: 1px solid #333;
+        }
+        .coord-point:last-child { border-bottom: none; }
+        
+        /* Export Section */
+        .export-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #0f3460;
+        }
+        .export-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .export-btn.primary { background: #4ea8de; color: #000; }
+        .export-btn.secondary { background: #0f3460; color: #eee; }
+        .export-btn:hover { opacity: 0.9; }
+        
+        /* Controls */
+        .map-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #16213e;
+            color: #eee;
+            cursor: pointer;
+        }
+        .control-btn:hover { background: #0f3460; }
+        
+        .legend {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            z-index: 100;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4ecca3;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        .toast.show { opacity: 1; }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            background: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow: auto;
+        }
+        .modal-content h3 { color: #4ea8de; margin-bottom: 15px; }
+        .modal-content pre {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85em;
+        }
+        .modal-close {
+            float: right;
+            background: #e94560;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-btn {
+            background: #4ecca3;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .verification-note {
+            background: #f4a261;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Panel -->
+    <div class="feature-list-panel">
+        <h2>🌊 Water Features & Bridges</h2>
+        
+        <div class="verification-note">
+            ⚠️ Verify each feature matches the map before naming!
+        </div>
+        
+        <div class="feature-stats">
+            Rivers: <span id="riverCount">0</span> | 
+            Lakes: <span id="lakeCount">0</span> | 
+            Bridges: <span id="bridgeCount">0</span>
+        </div>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn rivers active" data-tab="rivers">🌊 Rivers</button>
+            <button class="tab-btn lakes" data-tab="lakes">💧 Lakes</button>
+            <button class="tab-btn bridges" data-tab="bridges">🌉 Bridges</button>
+        </div>
+        
+        <div id="featureList"></div>
+    </div>
+    
+    <!-- Map Container -->
+    <div class="map-container" id="mapContainer">
+        <img id="map" src="map.jpg" alt="Dayner Map">
+        <canvas id="canvas"></canvas>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e94560;"></div>
+                <span>Selected</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ea8de;"></div>
+                <span>Rivers</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #48cae4; height: 10px; border-radius: 50%;"></div>
+                <span>Lakes</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #f4a261;"></div>
+                <span>Bridges</span>
+            </div>
+        </div>
+        
+        <div class="map-controls">
+            <button class="control-btn" onclick="zoomIn()">➕ Zoom In</button>
+            <button class="control-btn" onclick="zoomOut()">➖ Zoom Out</button>
+            <button class="control-btn" onclick="resetView()">🔄 Reset</button>
+            <button class="control-btn" onclick="toggleLabels()">🏷️ Labels</button>
+        </div>
+    </div>
+    
+    <!-- Right Panel -->
+    <div class="details-panel">
+        <h2>📝 Feature Details</h2>
+        
+        <div class="detail-section" id="noSelection">
+            <p style="text-align: center; color: #888; padding: 20px;">
+                Select a feature from the list to view details and verify/name it.
+            </p>
+        </div>
+        
+        <div id="featureDetails" style="display: none;">
+            <div class="detail-section">
+                <h3>Feature Name</h3>
+                <div class="name-input-group">
+                    <input type="text" id="featureNameInput" class="name-input" placeholder="Enter name...">
+                    <button class="save-btn" onclick="saveName()">Save</button>
+                </div>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Feature Info</h3>
+                <p>Type: <span id="detailType"></span></p>
+                <p>Points: <span id="detailPoints"></span></p>
+                <p id="detailLength"></p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Location</h3>
+                <p id="detailLocation"></p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>All Coordinates</h3>
+                <div class="coords-list" id="coordsList"></div>
+            </div>
+        </div>
+        
+        <div class="export-section">
+            <button class="export-btn primary" onclick="exportAll()">📤 Export All Named Features</button>
+            <button class="export-btn secondary" onclick="saveToLocalStorage()">💾 Save Progress</button>
+            <button class="export-btn secondary" onclick="loadFromLocalStorage()">📂 Load Saved</button>
+        </div>
+    </div>
+    
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- Modal -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">Close</button>
+            <h3 id="modalTitle">Export</h3>
+            <pre id="modalContent"></pre>
+            <button class="copy-btn" onclick="copyExport()">📋 Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script src="dayner-map-data.js"></script>
+    
+    <script>
+        // Map setup
+        const mapContainer = document.getElementById('mapContainer');
+        const mapImg = document.getElementById('map');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const KM_PER_PERCENT = 4.46;
+        
+        // State
+        let scale = 1;
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+        let lastX, lastY;
+        let selectedFeature = null;
+        let currentTab = 'rivers';
+        let showLabels = true;
+        
+        // Feature data with names
+        let featureNames = {};
+        
+        // Parsed features
+        let allFeatures = {
+            rivers: [],
+            lakes: [],
+            bridges: []
+        };
+        
+        // Initialize
+        mapImg.onload = function() {
+            canvas.width = mapImg.naturalWidth;
+            canvas.height = mapImg.naturalHeight;
+            
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            
+            updateMapTransform();
+            parseFeatures();
+            renderFeatureList();
+            drawAllFeatures();
+            loadFromLocalStorage();
+        };
+        
+        function parseFeatures() {
+            if (typeof DAYNER_MAP_DATA === 'undefined') {
+                console.error('DAYNER_MAP_DATA not loaded');
+                return;
+            }
+            
+            const water = DAYNER_MAP_DATA.water;
+            
+            // Parse major rivers - group connected points
+            if (water.majorRivers && water.majorRivers.length > 0) {
+                // Try to identify separate river segments
+                const riverSegments = identifyRiverSegments(water.majorRivers);
+                riverSegments.forEach((segment, idx) => {
+                    allFeatures.rivers.push({
+                        id: `major_river_${idx}`,
+                        type: 'Major River',
+                        points: segment,
+                        name: ''
+                    });
+                });
+            }
+            
+            // Parse minor rivers
+            if (water.minorRivers && water.minorRivers.length > 0) {
+                const minorSegments = identifyRiverSegments(water.minorRivers);
+                minorSegments.forEach((segment, idx) => {
+                    allFeatures.rivers.push({
+                        id: `minor_river_${idx}`,
+                        type: 'Minor River',
+                        points: segment,
+                        name: ''
+                    });
+                });
+            }
+            
+            // Lavalto Lake
+            if (water.lavaltoLake) {
+                allFeatures.lakes.push({
+                    id: 'lavalto_lake',
+                    type: 'Major Lake',
+                    name: 'Lavalto Lake',
+                    points: water.lavaltoLake.outer,
+                    innerPoints: water.lavaltoLake.inner,
+                    dimensions: water.lavaltoLake.dimensions
+                });
+            }
+            
+            // Small lakes
+            if (water.smallLakes) {
+                water.smallLakes.forEach((lake, idx) => {
+                    allFeatures.lakes.push({
+                        id: `small_lake_${idx}`,
+                        type: 'Small Lake',
+                        name: lake.name || '',
+                        points: [{ x: lake.x, y: lake.y }],
+                        isPoint: true
+                    });
+                });
+            }
+            
+            // Bridges
+            if (DAYNER_MAP_DATA.bridges) {
+                DAYNER_MAP_DATA.bridges.forEach((bridge, idx) => {
+                    allFeatures.bridges.push({
+                        id: `bridge_${idx}`,
+                        type: 'Bridge',
+                        name: bridge.name || '',
+                        points: [{ x: bridge.x, y: bridge.y }],
+                        length: bridge.length,
+                        connects: bridge.connects,
+                        notes: bridge.notes,
+                        isPoint: true
+                    });
+                });
+            }
+            
+            // Update stats
+            document.getElementById('riverCount').textContent = allFeatures.rivers.length;
+            document.getElementById('lakeCount').textContent = allFeatures.lakes.length;
+            document.getElementById('bridgeCount').textContent = allFeatures.bridges.length;
+        }
+        
+        function identifyRiverSegments(points) {
+            // Group points into segments based on distance
+            const segments = [];
+            let currentSegment = [];
+            const MAX_GAP = 5; // percent
+            
+            for (let i = 0; i < points.length; i++) {
+                if (currentSegment.length === 0) {
+                    currentSegment.push(points[i]);
+                } else {
+                    const last = currentSegment[currentSegment.length - 1];
+                    const dist = Math.sqrt(
+                        Math.pow(points[i].x - last.x, 2) + 
+                        Math.pow(points[i].y - last.y, 2)
+                    );
+                    
+                    if (dist < MAX_GAP) {
+                        currentSegment.push(points[i]);
+                    } else {
+                        if (currentSegment.length > 1) {
+                            segments.push(currentSegment);
+                        }
+                        currentSegment = [points[i]];
+                    }
+                }
+            }
+            
+            if (currentSegment.length > 1) {
+                segments.push(currentSegment);
+            }
+            
+            return segments.length > 0 ? segments : [points];
+        }
+        
+        function renderFeatureList() {
+            const list = document.getElementById('featureList');
+            list.innerHTML = '';
+            
+            const features = allFeatures[currentTab];
+            
+            features.forEach((feature, idx) => {
+                const name = featureNames[feature.id] || feature.name || '';
+                const isNamed = name.length > 0;
+                
+                const div = document.createElement('div');
+                div.className = `feature-item ${currentTab.slice(0, -1)} ${isNamed ? 'named' : 'unnamed'}`;
+                if (selectedFeature && selectedFeature.id === feature.id) {
+                    div.classList.add('selected');
+                }
+                
+                const typeClass = currentTab.slice(0, -1);
+                const coordStr = feature.points[0] ? 
+                    `(${feature.points[0].x.toFixed(1)}, ${feature.points[0].y.toFixed(1)})` : '';
+                
+                div.innerHTML = `
+                    <div class="feature-header">
+                        <span class="feature-type ${typeClass}">${feature.type}</span>
+                        <span class="feature-points">${feature.points.length} pts</span>
+                    </div>
+                    ${name ? `<div class="feature-name">${name}</div>` : '<div class="feature-name" style="color:#f39c12;">Unnamed</div>'}
+                    <div class="feature-coords">Start: ${coordStr}</div>
+                `;
+                
+                div.onclick = () => selectFeature(feature);
+                list.appendChild(div);
+            });
+        }
+        
+        function selectFeature(feature) {
+            selectedFeature = feature;
+            
+            document.getElementById('noSelection').style.display = 'none';
+            document.getElementById('featureDetails').style.display = 'block';
+            
+            // Fill details
+            const name = featureNames[feature.id] || feature.name || '';
+            document.getElementById('featureNameInput').value = name;
+            document.getElementById('detailType').textContent = feature.type;
+            document.getElementById('detailPoints').textContent = feature.points.length;
+            
+            // Length calculation for rivers
+            if (feature.points.length > 1) {
+                let length = 0;
+                for (let i = 1; i < feature.points.length; i++) {
+                    const dx = (feature.points[i].x - feature.points[i-1].x) * KM_PER_PERCENT;
+                    const dy = (feature.points[i].y - feature.points[i-1].y) * KM_PER_PERCENT;
+                    length += Math.sqrt(dx*dx + dy*dy);
+                }
+                document.getElementById('detailLength').textContent = `Length: ~${Math.round(length)}km`;
+            } else {
+                document.getElementById('detailLength').textContent = feature.length ? `Length: ${feature.length}` : '';
+            }
+            
+            // Location
+            let locText = '';
+            if (feature.points[0]) {
+                const avgX = feature.points.reduce((s, p) => s + p.x, 0) / feature.points.length;
+                const avgY = feature.points.reduce((s, p) => s + p.y, 0) / feature.points.length;
+                locText = `Center: (${avgX.toFixed(1)}, ${avgY.toFixed(1)})`;
+                
+                // Determine region
+                if (avgX < 45 && avgY > 40) locText += ' - Islefield Region';
+                else if (avgX > 60 && avgY > 40) locText += ' - Braewood Region';
+                else if (avgX < 35 && avgY < 40) locText += ' - Kluimont Region';
+                else locText += ' - Central Region';
+            }
+            if (feature.connects) {
+                locText += `<br>Connects: ${feature.connects.join(' ↔ ')}`;
+            }
+            if (feature.notes) {
+                locText += `<br>Notes: ${feature.notes}`;
+            }
+            document.getElementById('detailLocation').innerHTML = locText;
+            
+            // Coordinates
+            const coordsDiv = document.getElementById('coordsList');
+            coordsDiv.innerHTML = feature.points.map((p, i) => 
+                `<div class="coord-point">${i + 1}. (${p.x}, ${p.y})</div>`
+            ).join('');
+            
+            // Center map
+            centerOnFeature(feature);
+            
+            // Redraw
+            renderFeatureList();
+            drawAllFeatures();
+        }
+        
+        function centerOnFeature(feature) {
+            if (!feature.points.length) return;
+            
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            feature.points.forEach(p => {
+                const px = (p.x / 100) * mapImg.naturalWidth;
+                const py = (p.y / 100) * mapImg.naturalHeight;
+                minX = Math.min(minX, px);
+                maxX = Math.max(maxX, px);
+                minY = Math.min(minY, py);
+                maxY = Math.max(maxY, py);
+            });
+            
+            const centerX = (minX + maxX) / 2;
+            const centerY = (minY + maxY) / 2;
+            
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            
+            offsetX = containerWidth / 2 - centerX * scale;
+            offsetY = containerHeight / 2 - centerY * scale;
+            
+            updateMapTransform();
+        }
+        
+        function saveName() {
+            if (!selectedFeature) return;
+            
+            const name = document.getElementById('featureNameInput').value.trim();
+            featureNames[selectedFeature.id] = name;
+            
+            renderFeatureList();
+            drawAllFeatures();
+            showToast('Name saved!');
+        }
+        
+        function drawAllFeatures() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw rivers
+            allFeatures.rivers.forEach(river => {
+                const isSelected = selectedFeature && selectedFeature.id === river.id;
+                ctx.beginPath();
+                ctx.lineWidth = isSelected ? 6 : 4;
+                ctx.strokeStyle = isSelected ? '#e94560' : '#4ea8de';
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                
+                river.points.forEach((p, i) => {
+                    const x = (p.x / 100) * canvas.width;
+                    const y = (p.y / 100) * canvas.height;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+                
+                // Label
+                if (showLabels && river.points.length > 0) {
+                    const name = featureNames[river.id] || river.name;
+                    if (name) {
+                        const midIdx = Math.floor(river.points.length / 2);
+                        const mid = river.points[midIdx];
+                        ctx.font = 'bold 14px Arial';
+                        ctx.fillStyle = '#fff';
+                        ctx.fillText(name, (mid.x / 100) * canvas.width + 5, (mid.y / 100) * canvas.height);
+                    }
+                }
+            });
+            
+            // Draw lakes
+            allFeatures.lakes.forEach(lake => {
+                const isSelected = selectedFeature && selectedFeature.id === lake.id;
+                
+                if (lake.isPoint) {
+                    // Small lake - draw as circle
+                    const x = (lake.points[0].x / 100) * canvas.width;
+                    const y = (lake.points[0].y / 100) * canvas.height;
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, isSelected ? 15 : 10, 0, Math.PI * 2);
+                    ctx.fillStyle = isSelected ? '#e94560' : '#48cae4';
+                    ctx.fill();
+                    
+                    if (showLabels) {
+                        const name = featureNames[lake.id] || lake.name;
+                        if (name) {
+                            ctx.font = 'bold 12px Arial';
+                            ctx.fillStyle = '#fff';
+                            ctx.fillText(name, x + 12, y + 4);
+                        }
+                    }
+                } else {
+                    // Large lake - draw outline
+                    ctx.beginPath();
+                    ctx.lineWidth = isSelected ? 5 : 3;
+                    ctx.strokeStyle = isSelected ? '#e94560' : '#48cae4';
+                    
+                    lake.points.forEach((p, i) => {
+                        const x = (p.x / 100) * canvas.width;
+                        const y = (p.y / 100) * canvas.height;
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    });
+                    ctx.closePath();
+                    ctx.stroke();
+                    
+                    // Inner ring if exists
+                    if (lake.innerPoints) {
+                        ctx.beginPath();
+                        lake.innerPoints.forEach((p, i) => {
+                            const x = (p.x / 100) * canvas.width;
+                            const y = (p.y / 100) * canvas.height;
+                            if (i === 0) ctx.moveTo(x, y);
+                            else ctx.lineTo(x, y);
+                        });
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                    
+                    if (showLabels) {
+                        const name = featureNames[lake.id] || lake.name;
+                        if (name) {
+                            const avgX = lake.points.reduce((s, p) => s + p.x, 0) / lake.points.length;
+                            const avgY = lake.points.reduce((s, p) => s + p.y, 0) / lake.points.length;
+                            ctx.font = 'bold 16px Arial';
+                            ctx.fillStyle = '#fff';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(name, (avgX / 100) * canvas.width, (avgY / 100) * canvas.height);
+                            ctx.textAlign = 'left';
+                        }
+                    }
+                }
+            });
+            
+            // Draw bridges
+            allFeatures.bridges.forEach(bridge => {
+                const isSelected = selectedFeature && selectedFeature.id === bridge.id;
+                const x = (bridge.points[0].x / 100) * canvas.width;
+                const y = (bridge.points[0].y / 100) * canvas.height;
+                
+                // Bridge marker
+                ctx.beginPath();
+                ctx.arc(x, y, isSelected ? 12 : 8, 0, Math.PI * 2);
+                ctx.fillStyle = isSelected ? '#e94560' : '#f4a261';
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                if (showLabels) {
+                    const name = featureNames[bridge.id] || bridge.name;
+                    if (name) {
+                        ctx.font = 'bold 11px Arial';
+                        ctx.fillStyle = '#fff';
+                        ctx.fillText(name, x + 10, y + 4);
+                    }
+                }
+            });
+        }
+        
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentTab = btn.dataset.tab;
+                selectedFeature = null;
+                document.getElementById('noSelection').style.display = 'block';
+                document.getElementById('featureDetails').style.display = 'none';
+                renderFeatureList();
+                drawAllFeatures();
+            };
+        });
+        
+        // Map controls
+        function updateMapTransform() {
+            mapImg.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            mapImg.style.transformOrigin = '0 0';
+            canvas.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            canvas.style.transformOrigin = '0 0';
+        }
+        
+        mapContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
+        
+        mapContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            offsetX += e.clientX - lastX;
+            offsetY += e.clientY - lastY;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            updateMapTransform();
+        });
+        
+        mapContainer.addEventListener('mouseup', () => isDragging = false);
+        mapContainer.addEventListener('mouseleave', () => isDragging = false);
+        
+        mapContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            scale *= delta;
+            scale = Math.max(0.2, Math.min(5, scale));
+            updateMapTransform();
+        });
+        
+        function zoomIn() { scale *= 1.2; scale = Math.min(5, scale); updateMapTransform(); }
+        function zoomOut() { scale *= 0.8; scale = Math.max(0.2, scale); updateMapTransform(); }
+        function resetView() {
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+            scale = Math.min(containerWidth / mapImg.naturalWidth, containerHeight / mapImg.naturalHeight);
+            offsetX = 0;
+            offsetY = 0;
+            updateMapTransform();
+        }
+        function toggleLabels() {
+            showLabels = !showLabels;
+            drawAllFeatures();
+        }
+        
+        // Export
+        function exportAll() {
+            const exportData = {
+                rivers: allFeatures.rivers.map(r => ({
+                    id: r.id,
+                    type: r.type,
+                    name: featureNames[r.id] || r.name || 'Unnamed',
+                    pointCount: r.points.length
+                })),
+                lakes: allFeatures.lakes.map(l => ({
+                    id: l.id,
+                    type: l.type,
+                    name: featureNames[l.id] || l.name || 'Unnamed'
+                })),
+                bridges: allFeatures.bridges.map(b => ({
+                    id: b.id,
+                    name: featureNames[b.id] || b.name || 'Unnamed',
+                    x: b.points[0].x,
+                    y: b.points[0].y
+                }))
+            };
+            
+            showModal('All Features Export', JSON.stringify(exportData, null, 2));
+        }
+        
+        function showModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalContent').textContent = content;
+            document.getElementById('exportModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('exportModal').classList.remove('show');
+        }
+        
+        function copyExport() {
+            const content = document.getElementById('modalContent').textContent;
+            navigator.clipboard.writeText(content).then(() => showToast('Copied!'));
+        }
+        
+        // Local storage
+        function saveToLocalStorage() {
+            localStorage.setItem('dayner_water_names', JSON.stringify(featureNames));
+            showToast('Progress saved!');
+        }
+        
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('dayner_water_names');
+            if (saved) {
+                featureNames = JSON.parse(saved);
+                renderFeatureList();
+                drawAllFeatures();
+                showToast('Loaded saved names');
+            }
+        }
+        
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+    </script>
+</body>
+</html>

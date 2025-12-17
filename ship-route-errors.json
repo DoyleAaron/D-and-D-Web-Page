@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-12-17T16:13:51.420Z",
+  "totalRoutes": 56,
+  "routesWithErrors": 7,
+  "totalErrors": 8,
+  "errors": [
+    {
+      "routeId": "ship-mortling-dawerton",
+      "errors": [
+        {
+          "waypointIndex": 8,
+          "x": 58.8,
+          "y": 52.7,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-dawerton-flison",
+      "errors": [
+        {
+          "waypointIndex": 0,
+          "x": 58.8,
+          "y": 52.7,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        },
+        {
+          "waypointIndex": 5,
+          "x": 51.7,
+          "y": 52.9,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-flison-agosron",
+      "errors": [
+        {
+          "waypointIndex": 0,
+          "x": 51.7,
+          "y": 52.9,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-agosron-dawerton",
+      "errors": [
+        {
+          "waypointIndex": 8,
+          "x": 58.8,
+          "y": 52.7,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-dawerton-sheyton",
+      "errors": [
+        {
+          "waypointIndex": 0,
+          "x": 58.8,
+          "y": 52.7,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-sheyton-flison",
+      "errors": [
+        {
+          "waypointIndex": 6,
+          "x": 51.7,
+          "y": 52.9,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    },
+    {
+      "routeId": "ship-flison-antstel",
+      "errors": [
+        {
+          "waypointIndex": 0,
+          "x": 51.7,
+          "y": 52.9,
+          "zone": "Lavalto Island (Volcanic Center)",
+          "description": "Ships cannot cross the volcanic island in the center of Lavalto Lake"
+        }
+      ]
+    }
+  ]
+}

@@ -600,6 +600,714 @@
   border-style: dashed;
 }
 
+/* Legend lines for roads/rivers */
+.legend-line {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-line.road {
+  background: #c9a227;
+}
+
+.legend-line.river {
+  background: #4ea8de;
+}
+
+.legend-dot.lake {
+  background: linear-gradient(135deg, #48cae4 0%, #0096c7 100%);
+}
+
+.legend-dot.bridge {
+  background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
+}
+
+.legend-section {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legend-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 8px;
+}
+
+.legend-subtitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.legend-toggle {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.legend-btn {
+  flex: 1;
+  padding: 6px 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.legend-btn.active {
+  opacity: 1;
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--accent-gold);
+}
+
+.legend-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   FEATURE TOOLTIP
+   ======================================== */
+.feature-tooltip {
+  position: fixed;
+  background: rgba(22, 33, 62, 0.98);
+  border: 2px solid var(--accent-gold);
+  border-radius: 8px;
+  padding: 12px 16px;
+  pointer-events: none;
+  z-index: 1000;
+  display: none;
+  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.feature-tooltip.show {
+  display: block;
+}
+
+.feature-tooltip .tooltip-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.feature-tooltip .tooltip-type {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.feature-tooltip .tooltip-info {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ========================================
+   FEATURES CANVAS
+   ======================================== */
+#features-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   TRAVEL CALCULATOR
+   ======================================== */
+.travel-calculator {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  background: rgba(26, 26, 46, 0.98);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  z-index: 95;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.calc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.calc-header i {
+  color: var(--accent-gold);
+}
+
+.calc-header span {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calc-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 4px;
+}
+
+.calc-toggle.collapsed {
+  transform: rotate(180deg);
+}
+
+.calc-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 600px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+}
+
+.calc-body.collapsed {
+  max-height: 0;
+  padding: 0 16px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calc-field label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.settlement-search {
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settlement-search:focus {
+  border-color: var(--accent-gold);
+  outline: none;
+}
+
+.settlement-search::placeholder {
+  color: var(--text-muted);
+}
+
+.calc-field select {
+  padding: 10px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-field select:hover,
+.calc-field select:focus {
+  border-color: var(--accent-gold);
+  outline: none;
+}
+
+.speed-options {
+  display: flex;
+  gap: 6px;
+}
+
+.speed-btn {
+  flex: 1;
+  padding: 8px 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speed-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.speed-btn.active {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Mode and pace buttons - same style as speed-btn */
+.mode-btn,
+.road-speed-btn,
+.ship-speed-btn {
+  flex: 1;
+  padding: 8px 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-btn:hover,
+.road-speed-btn:hover,
+.ship-speed-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.mode-btn.active,
+.road-speed-btn.active,
+.ship-speed-btn.active {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Ship speed gets a blue accent */
+.ship-speed-btn.active {
+  background: rgba(0, 180, 255, 0.2);
+  border-color: #00b4ff;
+  color: #00b4ff;
+}
+
+.ship-speed-btn:hover {
+  border-color: #00b4ff;
+  color: #00b4ff;
+}
+
+/* Calculate Button */
+.calc-btn {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 12px;
+  background-color: #d4af37;
+  background-image: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.calc-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.calc-btn:active {
+  transform: translateY(0);
+}
+
+.calc-btn i {
+  font-size: 1.1rem;
+}
+
+/* Searchable Select Dropdown */
+.searchable-select {
+  position: relative;
+  width: 100%;
+}
+
+.searchable-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.searchable-input:focus {
+  border-color: var(--accent-gold);
+  outline: none;
+}
+
+.searchable-input.has-value {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+.searchable-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 1000;
+  display: none;
+}
+
+.searchable-dropdown.show {
+  display: block;
+}
+
+.searchable-option {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.searchable-option:last-child {
+  border-bottom: none;
+}
+
+.searchable-option:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-gold);
+}
+
+.searchable-option .kingdom {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-left: 6px;
+}
+
+.custom-speed {
+  margin-top: 8px;
+}
+
+.custom-speed input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.custom-speed input:focus {
+  border-color: var(--accent-gold);
+  outline: none;
+}
+
+/* Stop row with add button */
+.stop-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.stop-row .searchable-select {
+  flex: 1;
+}
+
+.add-stop-btn {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  border: none;
+  border-radius: 6px;
+  color: #1a1a2e;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.add-stop-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.4);
+}
+
+.remove-stop-btn {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  background: linear-gradient(135deg, #e94560 0%, #c53030 100%);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-stop-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(233, 69, 96, 0.4);
+}
+
+/* Calculate Submit Button */
+.calc-submit-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #b8962d 100%);
+  border: none;
+  border-radius: 8px;
+  color: #1a1a2e;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.calc-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.calc-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #b8962d 100%);
+  border: none;
+  border-radius: 8px;
+  color: #1a1a2e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Path Display */
+.calc-path {
+  display: none;
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.calc-path.show {
+  display: block;
+}
+
+.calc-path .path-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--accent-gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.calc-path .path-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calc-path .path-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.calc-path .path-step .step-num {
+  width: 20px;
+  height: 20px;
+  background: var(--accent-gold);
+  color: #1a1a2e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.calc-path .path-step .step-name {
+  flex: 1;
+  color: var(--text-primary);
+}
+
+.calc-path .path-arrow {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding-left: 28px;
+}
+
+.calc-path .path-arrow.ship {
+  color: #00b4ff;
+  font-size: 1rem;
+}
+
+.calc-path .path-step.junction {
+  opacity: 0.7;
+}
+
+.calc-path .path-step.junction .step-name {
+  font-style: italic;
+  font-size: 0.85em;
+}
+
+/* Route Overlay on Map */
+#route-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+#route-overlay .route-line {
+  filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.6));
+  animation: route-pulse 2s ease-in-out infinite;
+}
+
+@keyframes route-pulse {
+  0%, 100% { 
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.6));
+  }
+  50% { 
+    stroke-opacity: 0.7;
+    filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.9));
+  }
+}
+
+#route-overlay .route-marker {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+.calc-result {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px;
+  display: none;
+}
+
+.calc-result.show {
+  display: block;
+}
+
+.calc-result .result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.calc-result .result-header i {
+  color: var(--accent-gold);
+}
+
+.calc-result .result-header span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calc-result .result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+
+.calc-result .result-row .label {
+  color: var(--text-muted);
+}
+
+.calc-result .result-row .value {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.calc-result .result-highlight {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.calc-result .result-highlight .big-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.calc-result .result-highlight .unit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
 /* ========================================
    SETTLEMENT LIST (Mobile/Fallback)
    ======================================== */
@@ -699,6 +1407,20 @@
   
   .map-legend {
     display: none;
+  }
+  
+  .travel-calculator {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 50vh;
+  }
+  
+  .calc-body {
+    max-height: 40vh;
   }
   
   .settlement-list {
