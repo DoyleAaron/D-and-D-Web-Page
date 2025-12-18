@@ -227,6 +227,12 @@
   }
 
   function toggleSidebar() {
+    // Close music dropdown when opening sidebar
+    const musicDropdown = document.getElementById('music-dropdown');
+    if (musicDropdown) {
+      musicDropdown.classList.remove('active');
+    }
+    
     sidebarOpen ? closeSidebar() : openSidebar();
   }
 
@@ -1270,6 +1276,12 @@
     if (musicToggleBtn && musicDropdown) {
       musicToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        
+        // Close sidebar when opening music dropdown
+        if (sidebarOpen) {
+          closeSidebar();
+        }
+        
         musicDropdown.classList.toggle('active');
       });
 
