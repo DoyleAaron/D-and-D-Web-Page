@@ -120,7 +120,7 @@
   .search-input {
     padding: var(--spacing-xs) var(--spacing-sm);
     padding-left: 36px;
-    font-size: var(--font-size-sm);
+    font-size: 16px; /* Minimum 16px prevents mobile zoom */
   }
   
   .search-icon {
