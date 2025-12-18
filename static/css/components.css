@@ -236,10 +236,6 @@
   transition: transform var(--transition-slow);
 }
 
-.map-container:hover .map-image {
-  transform: scale(1.02);
-}
-
 .map-overlay {
   position: absolute;
   bottom: 0;
