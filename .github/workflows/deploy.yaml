@@ -2,8 +2,10 @@ name: Deploy to Vercel Production
 
 on:
   push:
-    branches:
-      - main
+    pull_request:
+      types: [closed]
+      branches:
+        - main
 
 jobs:
   deploy:
