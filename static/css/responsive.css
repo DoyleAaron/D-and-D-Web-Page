@@ -27,8 +27,21 @@
     --header-height: 60px;
   }
   
-  /* Sidebar overlays content on small screens */
+  /* Show hamburger menu */
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* Sidebar hidden by default on mobile */
   .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+    box-shadow: none;
+  }
+
+  /* Sidebar open state */
+  .sidebar.open {
+    transform: translateX(0);
     box-shadow: var(--shadow-lg);
   }
   
@@ -107,7 +120,7 @@
   .search-input {
     padding: var(--spacing-xs) var(--spacing-sm);
     padding-left: 36px;
-    font-size: var(--font-size-sm);
+    font-size: 16px; /* Minimum 16px prevents mobile zoom */
   }
   
   .search-icon {

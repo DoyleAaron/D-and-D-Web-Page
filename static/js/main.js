@@ -107,6 +107,21 @@
       if (e.key === 'Escape' && sidebarOpen) closeSidebar();
     });
 
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSidebar();
+      });
+    }
+
+    // Overlay click closes sidebar
+    const overlay = document.getElementById('sidebar-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeSidebar);
+    }
+
     // Sidebar collapse button
     const collapseBtn = document.querySelector('.sidebar-collapse-btn');
     if (collapseBtn) {
@@ -212,17 +227,35 @@
   }
 
   function toggleSidebar() {
+    // Close music dropdown when opening sidebar
+    const musicDropdown = document.getElementById('music-dropdown');
+    if (musicDropdown) {
+      musicDropdown.classList.remove('active');
+    }
+    
     sidebarOpen ? closeSidebar() : openSidebar();
   }
 
   function openSidebar() {
     sidebarOpen = true;
     if (sidebar) sidebar.classList.add('open');
+    
+    // Show overlay on mobile
+    const overlay = document.getElementById('sidebar-overlay');
+    if (overlay && window.innerWidth <= 991) {
+      overlay.classList.add('visible');
+    }
   }
 
   function closeSidebar() {
     sidebarOpen = false;
     if (sidebar) sidebar.classList.remove('open');
+    
+    // Hide overlay
+    const overlay = document.getElementById('sidebar-overlay');
+    if (overlay) {
+      overlay.classList.remove('visible');
+    }
   }
 
   function toggleCollapse() {
@@ -1230,12 +1263,34 @@
     const nextBtn = document.getElementById('music-next');
     const volumeSlider = document.getElementById('music-volume');
     const trackName = document.getElementById('music-track-name');
-    const minimizeBtn = document.getElementById('music-minimize');
-    const musicPlayer = document.getElementById('music-player');
+    const musicToggleBtn = document.getElementById('music-toggle-btn');
+    const musicDropdown = document.getElementById('music-dropdown');
+    const volumeValue = document.getElementById('volume-value');
 
     if (!audio || !toggleBtn) {
       console.log('Music player elements not found');
       return;
+    }
+
+    // Toggle dropdown
+    if (musicToggleBtn && musicDropdown) {
+      musicToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Close sidebar when opening music dropdown
+        if (sidebarOpen) {
+          closeSidebar();
+        }
+        
+        musicDropdown.classList.toggle('active');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!musicDropdown.contains(e.target) && e.target !== musicToggleBtn) {
+          musicDropdown.classList.remove('active');
+        }
+      });
     }
 
     // Track list - update these paths to match your files
@@ -1252,18 +1307,13 @@
 
     // Load saved preferences
     const savedVolume = localStorage.getItem('musicVolume');
-    const savedMinimized = localStorage.getItem('musicMinimized');
     
     if (savedVolume !== null) {
       audio.volume = parseFloat(savedVolume);
       volumeSlider.value = parseFloat(savedVolume) * 100;
+      if (volumeValue) volumeValue.textContent = Math.round(parseFloat(savedVolume) * 100) + '%';
     } else {
       audio.volume = 0.3;
-    }
-
-    if (savedMinimized === 'true') {
-      musicPlayer.classList.add('minimized');
-      minimizeBtn.querySelector('i').classList.replace('fa-chevron-right', 'fa-chevron-left');
     }
 
     // Extract short track name for display
@@ -1323,131 +1373,7 @@
       const volume = e.target.value / 100;
       audio.volume = volume;
       localStorage.setItem('musicVolume', volume);
-    });
-
-    minimizeBtn.addEventListener('click', () => {
-      musicPlayer.classList.toggle('minimized');
-      const isMinimized = musicPlayer.classList.contains('minimized');
-      minimizeBtn.querySelector('i').classList.toggle('fa-chevron-right', !isMinimized);
-      minimizeBtn.querySelector('i').classList.toggle('fa-chevron-left', isMinimized);
-      localStorage.setItem('musicMinimized', isMinimized);
-    });
-
-    // ========================================
-    // DRAG FUNCTIONALITY
-    // ========================================
-    let isDragging = false;
-    let dragStartX, dragStartY;
-    let playerStartX, playerStartY;
-
-    // Load saved position
-    const savedPos = localStorage.getItem('musicPlayerPosition');
-    if (savedPos) {
-      const pos = JSON.parse(savedPos);
-      musicPlayer.style.right = 'auto';
-      musicPlayer.style.bottom = 'auto';
-      musicPlayer.style.left = pos.left + 'px';
-      musicPlayer.style.top = pos.top + 'px';
-    }
-
-    musicPlayer.addEventListener('mousedown', (e) => {
-      // Don't start drag if clicking a button or input
-      if (e.target.closest('button') || e.target.closest('input')) return;
-      
-      isDragging = true;
-      musicPlayer.classList.add('dragging');
-      
-      dragStartX = e.clientX;
-      dragStartY = e.clientY;
-      
-      const rect = musicPlayer.getBoundingClientRect();
-      playerStartX = rect.left;
-      playerStartY = rect.top;
-      
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      
-      const deltaX = e.clientX - dragStartX;
-      const deltaY = e.clientY - dragStartY;
-      
-      let newLeft = playerStartX + deltaX;
-      let newTop = playerStartY + deltaY;
-      
-      // Keep within viewport bounds
-      const rect = musicPlayer.getBoundingClientRect();
-      newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - rect.width));
-      newTop = Math.max(0, Math.min(newTop, window.innerHeight - rect.height));
-      
-      musicPlayer.style.right = 'auto';
-      musicPlayer.style.bottom = 'auto';
-      musicPlayer.style.left = newLeft + 'px';
-      musicPlayer.style.top = newTop + 'px';
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        musicPlayer.classList.remove('dragging');
-        
-        // Save position
-        const rect = musicPlayer.getBoundingClientRect();
-        localStorage.setItem('musicPlayerPosition', JSON.stringify({
-          left: rect.left,
-          top: rect.top
-        }));
-      }
-    });
-
-    // Touch support for mobile
-    musicPlayer.addEventListener('touchstart', (e) => {
-      if (e.target.closest('button') || e.target.closest('input')) return;
-      
-      isDragging = true;
-      musicPlayer.classList.add('dragging');
-      
-      const touch = e.touches[0];
-      dragStartX = touch.clientX;
-      dragStartY = touch.clientY;
-      
-      const rect = musicPlayer.getBoundingClientRect();
-      playerStartX = rect.left;
-      playerStartY = rect.top;
-    }, { passive: true });
-
-    document.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      
-      const touch = e.touches[0];
-      const deltaX = touch.clientX - dragStartX;
-      const deltaY = touch.clientY - dragStartY;
-      
-      let newLeft = playerStartX + deltaX;
-      let newTop = playerStartY + deltaY;
-      
-      const rect = musicPlayer.getBoundingClientRect();
-      newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - rect.width));
-      newTop = Math.max(0, Math.min(newTop, window.innerHeight - rect.height));
-      
-      musicPlayer.style.right = 'auto';
-      musicPlayer.style.bottom = 'auto';
-      musicPlayer.style.left = newLeft + 'px';
-      musicPlayer.style.top = newTop + 'px';
-    }, { passive: true });
-
-    document.addEventListener('touchend', () => {
-      if (isDragging) {
-        isDragging = false;
-        musicPlayer.classList.remove('dragging');
-        
-        const rect = musicPlayer.getBoundingClientRect();
-        localStorage.setItem('musicPlayerPosition', JSON.stringify({
-          left: rect.left,
-          top: rect.top
-        }));
-      }
+      if (volumeValue) volumeValue.textContent = Math.round(volume * 100) + '%';
     });
 
     // Auto-play next track when current ends

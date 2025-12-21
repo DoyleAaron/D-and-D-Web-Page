@@ -70,3 +70,6 @@ node_modules/
 
 # Private DM notes (not for public)
 DM_Private/
+
+# Debug related
+fiveserver.config.js

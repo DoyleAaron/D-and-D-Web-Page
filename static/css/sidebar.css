@@ -98,6 +98,42 @@
   transition: opacity var(--transition-fast);
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  margin-right: var(--spacing-sm);
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--color-gold);
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-sticky) - 1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Navigation Menu */
 .nav-menu {
   flex: 1;
