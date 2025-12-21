@@ -1,0 +1,1473 @@
+/**
+ * Guild Board Styles
+ * A wooden board with paper mission postings
+ */
+
+/* ============================================
+   Page Layout
+   ============================================ */
+
+body {
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)),
+    url('images/wood-texture.jpg') center/cover fixed;
+  background-color: #1a1a2e;
+}
+
+/* ============================================
+   Header Styles
+   ============================================ */
+
+.guild-header {
+  background: linear-gradient(180deg, rgba(15, 15, 26, 0.98) 0%, rgba(26, 26, 46, 0.95) 100%);
+  border-bottom: 3px solid var(--color-gold);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.back-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-link:hover {
+  color: var(--color-gold);
+}
+
+.header-title {
+  text-align: center;
+  flex: 1;
+}
+
+.guild-sigil {
+  color: var(--color-gold);
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.header-title h1 {
+  font-family: 'MedievalSharp', var(--font-primary);
+  color: var(--color-gold);
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.motto {
+  font-family: 'Fondamento', serif;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.guild-info {
+  color: var(--text-secondary);
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+}
+
+.location i {
+  color: var(--color-accent);
+  margin-right: 0.25rem;
+}
+
+/* ============================================
+   Tier Navigation Tabs
+   ============================================ */
+
+.tier-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(15, 15, 26, 0.9);
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
+.tier-tab {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tier-tab:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.tier-tab.active {
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 100%);
+  border-color: var(--color-gold);
+  color: var(--bg-primary);
+  font-weight: 600;
+}
+
+.tier-tab.tier-d { --tab-color: #7cb342; }
+.tier-tab.tier-c { --tab-color: #29b6f6; }
+.tier-tab.tier-b { --tab-color: #ab47bc; }
+.tier-tab.tier-a { --tab-color: #ef5350; }
+
+.tier-tab.tier-d:hover, .tier-tab.tier-d.active { border-color: var(--tab-color); }
+.tier-tab.tier-c:hover, .tier-tab.tier-c.active { border-color: var(--tab-color); }
+.tier-tab.tier-b:hover, .tier-tab.tier-b.active { border-color: var(--tab-color); }
+.tier-tab.tier-a:hover, .tier-tab.tier-a.active { border-color: var(--tab-color); }
+
+/* ============================================
+   Guild Board Container
+   ============================================ */
+
+.guild-board-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+}
+
+.board-frame {
+  background: 
+    linear-gradient(135deg, #4a3728 0%, #2d1f14 50%, #4a3728 100%);
+  border: 12px solid #2d1f14;
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.5),
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 0 4px #1a1a2e;
+  padding: 8px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.board-surface {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      #5d4037 0px,
+      #5d4037 2px,
+      #4e342e 2px,
+      #4e342e 100px
+    ),
+    linear-gradient(180deg, #6d4c41 0%, #4e342e 50%, #3e2723 100%);
+  border-radius: 4px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  min-height: 500px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   Mission Paper Cards
+   ============================================ */
+
+.mission-paper {
+  background: 
+    linear-gradient(135deg, #fdf6e3 0%, #f5e6c8 50%, #e8d4a8 100%);
+  border-radius: 2px;
+  padding: 1.5rem;
+  padding-top: 2rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    3px 3px 10px rgba(0, 0, 0, 0.4),
+    -1px -1px 5px rgba(0, 0, 0, 0.1);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  
+  /* Paper texture effect */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #fdf6e3 0%, #f5e6c8 50%, #e8d4a8 100%);
+}
+
+.mission-paper:hover {
+  box-shadow: 
+    5px 5px 20px rgba(0, 0, 0, 0.5),
+    -2px -2px 10px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.2);
+  z-index: 10;
+}
+
+/* Paper tilt variations */
+.mission-paper.tilted-left {
+  transform: rotate(-2deg);
+}
+
+.mission-paper.tilted-right {
+  transform: rotate(2deg);
+}
+
+/* Aged parchment for higher tiers */
+.mission-paper.parchment-aged {
+  background: 
+    linear-gradient(135deg, #f0e4c8 0%, #ddd0aa 50%, #c9b896 100%);
+  border: 1px solid #a89060;
+}
+
+/* Worn parchment for B-tier */
+.mission-paper.parchment-worn {
+  background: 
+    linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 50%, #c0af8c 100%);
+  border: 2px solid #7b1fa2;
+  box-shadow: 
+    3px 3px 10px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(123, 31, 162, 0.2);
+}
+
+/* Elite parchment for A-tier - The Spehlina */
+.mission-paper.parchment-elite {
+  background: 
+    linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 30%, #dcc4a0 70%, #d4b896 100%);
+  border: 3px solid #c62828;
+  box-shadow: 
+    4px 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(198, 40, 40, 0.3),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+  min-height: 220px;
+  grid-column: span 1;
+}
+
+.mission-paper.parchment-elite:hover {
+  box-shadow: 
+    6px 6px 25px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(198, 40, 40, 0.4),
+    0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+/* Elite banner */
+.elite-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #c62828 0%, #ef5350 50%, #c62828 100%);
+  color: #fff;
+  text-align: center;
+  font-family: 'MedievalSharp', serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 4px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mission-subtitle {
+  font-family: 'Fondamento', serif;
+  font-style: italic;
+  color: #5d4037;
+  font-size: 0.85rem;
+  margin: -0.5rem 0 0.5rem 0;
+  text-align: center;
+}
+
+/* Warning banner for dangerous missions */
+.warning-banner {
+  background: linear-gradient(90deg, transparent 0%, rgba(198, 40, 40, 0.15) 20%, rgba(198, 40, 40, 0.15) 80%, transparent 100%);
+  color: #c62828;
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  margin-top: 0.5rem;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.warning-banner i {
+  margin-right: 4px;
+}
+
+/* Death count for major bounties */
+.death-count {
+  background: rgba(62, 39, 35, 0.1);
+  color: #c62828;
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  margin-top: 0.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(198, 40, 40, 0.3);
+}
+
+.death-count i {
+  margin-right: 4px;
+}
+
+/* Large reward text */
+.mission-reward.reward-large {
+  color: #d4af37 !important;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Push pin */
+.paper-pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #888 0%, #444 60%, #222 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.paper-pin.red-pin {
+  background: radial-gradient(circle at 30% 30%, #ef5350 0%, #c62828 60%, #8b0000 100%);
+}
+
+.paper-pin.purple-pin {
+  background: radial-gradient(circle at 30% 30%, #ce93d8 0%, #7b1fa2 60%, #4a148c 100%);
+}
+
+.paper-pin.gold-pin {
+  background: radial-gradient(circle at 30% 30%, #ffd54f 0%, #d4af37 60%, #aa8c2c 100%);
+  width: 24px;
+  height: 24px;
+  top: -10px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(212, 175, 55, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4);
+}
+
+/* Tier Badge */
+.tier-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'MedievalSharp', serif;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tier-badge.tier-d {
+  background: linear-gradient(135deg, #7cb342 0%, #558b2f 100%);
+}
+
+.tier-badge.tier-c {
+  background: linear-gradient(135deg, #29b6f6 0%, #0288d1 100%);
+}
+
+.tier-badge.tier-b {
+  background: linear-gradient(135deg, #ab47bc 0%, #7b1fa2 100%);
+}
+
+.tier-badge.tier-a {
+  background: linear-gradient(135deg, #ef5350 0%, #c62828 100%);
+}
+
+/* Mission content */
+.mission-title {
+  font-family: 'MedievalSharp', serif;
+  color: #2d1f14;
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  padding-right: 2rem;
+  line-height: 1.3;
+}
+
+.mission-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mission-type, .mission-reward {
+  font-family: 'Fondamento', serif;
+  font-size: 0.85rem;
+  color: #5d4037;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mission-type i {
+  color: #795548;
+}
+
+.mission-reward {
+  color: #8b6914;
+  font-weight: 600;
+}
+
+.mission-reward i {
+  color: #d4af37;
+}
+
+.mission-location {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: #6d4c41;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #c4a87c;
+}
+
+.mission-location i {
+  color: #c62828;
+  margin-right: 0.25rem;
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   Mission Detail Modal
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mission-detail-paper {
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #fdf6e3 0%, #f5e6c8 30%, #e8d4a8 70%, #dbc896 100%);
+  border-radius: 4px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(139, 105, 20, 0.3);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .mission-detail-paper {
+  transform: scale(1) translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #5d4037;
+  border: none;
+  color: #fdf6e3;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.close-modal:hover {
+  background: #c62828;
+  transform: rotate(90deg);
+}
+
+.mission-detail-content {
+  padding: 2rem;
+}
+
+/* Detail header */
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tier-badge-large {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'MedievalSharp', serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.tier-badge-large.tier-d {
+  background: linear-gradient(135deg, #7cb342 0%, #558b2f 100%);
+}
+
+.tier-badge-large.tier-c {
+  background: linear-gradient(135deg, #29b6f6 0%, #0288d1 100%);
+}
+
+.tier-badge-large.tier-b {
+  background: linear-gradient(135deg, #ab47bc 0%, #7b1fa2 100%);
+}
+
+.tier-badge-large.tier-a {
+  background: linear-gradient(135deg, #ef5350 0%, #c62828 100%);
+}
+
+.detail-title {
+  font-family: 'MedievalSharp', serif;
+  color: #2d1f14;
+  font-size: 1.6rem;
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.detail-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #c4a87c 20%, #8b6914 50%, #c4a87c 80%, transparent 100%);
+  margin: 1.25rem 0;
+}
+
+/* Detail grid */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.detail-section {
+  margin-bottom: 0.5rem;
+}
+
+.detail-section h4 {
+  font-family: 'MedievalSharp', serif;
+  color: #5d4037;
+  font-size: 0.9rem;
+  margin: 0 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-section h4 i {
+  color: #8b6914;
+  width: 16px;
+}
+
+.detail-section p {
+  font-family: 'Fondamento', serif;
+  color: #3e2723;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.detail-section.full-width {
+  grid-column: 1 / -1;
+}
+
+.reward-text {
+  color: #8b6914 !important;
+  font-weight: 600;
+}
+
+.job-description {
+  font-family: var(--font-secondary) !important;
+  text-align: justify;
+  line-height: 1.7 !important;
+}
+
+/* Accept info section */
+.accept-info {
+  background: rgba(93, 64, 55, 0.1);
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #8b6914;
+}
+
+.accept-info p {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: #3e2723;
+  margin: 0.35rem 0;
+}
+
+.accept-info strong {
+  color: #5d4037;
+}
+
+.accept-info span {
+  color: #2d1f14;
+}
+
+/* Guild seal */
+.seal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.guild-seal {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 50%, #8b6914 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.guild-seal i {
+  font-size: 1.8rem;
+  color: #2d1f14;
+}
+
+.seal-text {
+  font-family: 'Fondamento', serif;
+  font-size: 0.8rem;
+  color: #6d4c41;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.guild-footer {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(15, 15, 26, 0.98) 100%);
+  border-top: 3px solid var(--color-gold-dark);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  font-family: var(--font-secondary);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.35rem 0;
+}
+
+.footer-content strong {
+  color: var(--color-gold);
+}
+
+.footer-note {
+  margin-top: 0.75rem !important;
+  font-style: italic;
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+  .guild-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .guild-info {
+    margin-top: 0.5rem;
+  }
+  
+  .header-title h1 {
+    font-size: 1.4rem;
+  }
+  
+  .tier-tabs {
+    gap: 0.35rem;
+  }
+  
+  .tier-tab {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .tier-tab span {
+    display: none;
+  }
+  
+  .guild-board-container {
+    padding: 1rem;
+  }
+  
+  .board-surface {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .mission-paper {
+    min-height: 160px;
+  }
+  
+  .mission-title {
+    font-size: 1rem;
+  }
+  
+  .mission-detail-content {
+    padding: 1.5rem;
+  }
+  
+  .detail-title {
+    font-size: 1.3rem;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .guild-header {
+    padding: 0.75rem 1rem;
+    padding-top: 2.5rem;
+  }
+  
+  .back-link {
+    font-size: 0.8rem;
+  }
+  
+  .board-frame {
+    border-width: 8px;
+    padding: 4px;
+  }
+  
+  .mission-paper {
+    padding: 1rem;
+    padding-top: 1.5rem;
+  }
+  
+  .tier-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+  }
+  
+  .paper-pin {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+
+.mission-detail-paper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mission-detail-paper::-webkit-scrollbar-track {
+  background: #e8d4a8;
+}
+
+.mission-detail-paper::-webkit-scrollbar-thumb {
+  background: #8b6914;
+  border-radius: 4px;
+}
+
+.mission-detail-paper::-webkit-scrollbar-thumb:hover {
+  background: #6d4c41;
+}
+/* ============================================
+   Login Required Overlay
+   ============================================ */
+
+.login-required-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 15, 26, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.login-required-content {
+  text-align: center;
+  padding: 3rem;
+  max-width: 500px;
+}
+
+.login-required-content i.fa-lock {
+  font-size: 4rem;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.login-required-content h2 {
+  font-family: 'MedievalSharp', var(--font-primary);
+  color: var(--color-gold);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.login-required-content p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-family: var(--font-secondary);
+}
+
+.login-prompt-btn {
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 100%);
+  color: var(--bg-primary);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-prompt-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.back-home-link {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.back-home-link:hover {
+  color: var(--color-gold);
+}
+
+/* ============================================
+   Auth Modal
+   ============================================ */
+
+.auth-modal {
+  display: none;
+}
+
+.auth-modal.active {
+  display: flex;
+}
+
+.auth-modal-content {
+  background: linear-gradient(135deg, #fdf6e3 0%, #f5e6c8 50%, #e8d4a8 100%);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.auth-modal-content .close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #5d4037;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.auth-modal-content .close-modal:hover {
+  color: #8b4513;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header .guild-sigil {
+  font-size: 3rem;
+  color: #8b6914;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header h2 {
+  font-family: 'MedievalSharp', var(--font-primary);
+  color: #3e2723;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.auth-header p {
+  color: #5d4037;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.auth-form label {
+  display: block;
+  color: #5d4037;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-form select,
+.auth-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #c9a66b;
+  border-radius: var(--radius-md);
+  background: #fdf6e3;
+  color: #3e2723;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form select:focus,
+.auth-form input:focus {
+  outline: none;
+  border-color: #8b6914;
+}
+
+.auth-status {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1rem;
+  color: #5d4037;
+}
+
+.auth-status.signup {
+  color: #2e7d32;
+}
+
+.auth-status.login {
+  color: #1565c0;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #6d4c41 0%, #8b6914 100%);
+  color: #fdf6e3;
+  border: none;
+  padding: 0.9rem;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(109, 76, 65, 0.4);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   User Info & Logout
+   ============================================ */
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  color: var(--color-gold);
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ============================================
+   Location Bar
+   ============================================ */
+
+.location-bar {
+  background: rgba(15, 15, 26, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.location-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.location-selector i {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+.location-selector label {
+  color: var(--text-secondary);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}
+
+.location-selector select {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.location-selector select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.chapter-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.chapter-name {
+  color: var(--color-gold);
+  font-family: 'MedievalSharp', var(--font-primary);
+  font-size: 1rem;
+}
+
+.chapter-desc {
+  color: var(--text-secondary);
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ============================================
+   Accepted Tab Styling
+   ============================================ */
+
+.tier-tab.tier-accepted {
+  --tab-color: #4caf50;
+}
+
+.tier-tab.tier-accepted:hover,
+.tier-tab.tier-accepted.active {
+  border-color: var(--tab-color);
+}
+
+.tier-tab.tier-accepted.active {
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+}
+
+/* ============================================
+   Accepted Mission Styling
+   ============================================ */
+
+.mission-paper.accepted {
+  border: 3px solid #4caf50;
+  box-shadow: 
+    3px 3px 10px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(76, 175, 80, 0.1);
+}
+
+.accepted-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.location-badge {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--color-accent);
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Party Badge (Admin View) */
+.party-badge {
+  position: absolute;
+  top: 2rem;
+  right: 0.5rem;
+  background: linear-gradient(135deg, #1565c0 0%, #42a5f5 100%);
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.party-badge i {
+  font-size: 0.55rem;
+}
+
+/* Admin View Indicator */
+body.admin-view .guild-header::after {
+  content: 'ADMIN VIEW';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #c62828 0%, #ef5350 100%);
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 1rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+body.admin-view .guild-header {
+  position: relative;
+}
+
+/* ============================================
+   Mission Action Buttons
+   ============================================ */
+
+.mission-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #c9a66b;
+}
+
+.accept-mission-btn,
+.complete-mission-btn,
+.abandon-mission-btn {
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.accept-mission-btn {
+  background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 100%);
+  color: var(--bg-primary);
+}
+
+.accept-mission-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.complete-mission-btn {
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  color: white;
+}
+
+.complete-mission-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.abandon-mission-btn {
+  background: transparent;
+  border: 2px solid #c62828;
+  color: #c62828;
+}
+
+.abandon-mission-btn:hover {
+  background: #c62828;
+  color: white;
+}
+
+/* ============================================
+   No Missions Message
+   ============================================ */
+
+.no-missions {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.no-missions i {
+  font-size: 4rem;
+  color: rgba(253, 246, 227, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.no-missions p {
+  color: rgba(253, 246, 227, 0.8);
+  font-family: 'MedievalSharp', var(--font-primary);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.no-missions .sub {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: rgba(253, 246, 227, 0.5);
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   Notification Toast
+   ============================================ */
+
+.notification-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--color-gold);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translateX(150%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.notification-toast.show {
+  transform: translateX(0);
+}
+
+.notification-toast.success {
+  border-left-color: #4caf50;
+}
+
+.notification-toast.success i {
+  color: #4caf50;
+}
+
+.notification-toast.error {
+  border-left-color: #f44336;
+}
+
+.notification-toast.error i {
+  color: #f44336;
+}
+
+.notification-toast.warning {
+  border-left-color: #ff9800;
+}
+
+.notification-toast.warning i {
+  color: #ff9800;
+}
+
+#notificationText {
+  color: var(--text-primary);
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   Responsive Adjustments for New Elements
+   ============================================ */
+
+@media (max-width: 768px) {
+  .location-bar {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .location-selector {
+    flex-wrap: wrap;
+  }
+
+  .chapter-info {
+    align-items: flex-start;
+  }
+
+  .auth-modal-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .mission-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .accept-mission-btn,
+  .complete-mission-btn,
+  .abandon-mission-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .notification-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
