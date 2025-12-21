@@ -233,11 +233,6 @@
   width: 100%;
   height: auto;
   display: block;
-  transition: transform var(--transition-slow);
-}
-
-.map-container:hover .map-image {
-  transform: scale(1.02);
 }
 
 .map-overlay {
