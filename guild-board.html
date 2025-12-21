@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wayfarers' Accord Guild Mission Board">
+  <title>Guild Board - Wayfarers' Accord</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="static/css/variables.css?v=5">
+  <link rel="stylesheet" href="static/css/base.css?v=5">
+  <link rel="stylesheet" href="static/css/auth.css?v=5">
+  <link rel="stylesheet" href="static/css/guild-board.css?v=3">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts for handwriting style -->
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Fondamento&family=Indie+Flower&display=swap" rel="stylesheet">
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <!-- Login Required Overlay -->
+  <div class="login-required-overlay" id="loginRequiredOverlay">
+    <div class="login-required-content">
+      <i class="fas fa-lock"></i>
+      <h2>Adventurer's Credentials Required</h2>
+      <p>You must be a registered member of the Wayfarers' Accord to view the mission board.</p>
+      <button class="login-prompt-btn" id="showLoginBtn">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+      <a href="index.html" class="back-home-link">
+        <i class="fas fa-arrow-left"></i> Return to Dayner
+      </a>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay auth-modal" id="authModal">
+    <div class="auth-modal-content">
+      <button class="close-modal" id="closeAuthModal">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="auth-header">
+        <i class="fas fa-compass guild-sigil"></i>
+        <h2>Wayfarers' Accord</h2>
+        <p>Select your character to continue</p>
+      </div>
+      <div class="auth-form">
+        <div class="form-group">
+          <label for="characterSelect">Character</label>
+          <select id="characterSelect">
+            <option value="">-- Select Character --</option>
+          </select>
+        </div>
+        <div class="form-group" id="passwordGroup" style="display: none;">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="Enter your password">
+        </div>
+        <p class="auth-status" id="authStatus"></p>
+        <button class="auth-submit-btn" id="authSubmitBtn" style="display: none;">
+          <i class="fas fa-sign-in-alt"></i> Enter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden until logged in) -->
+  <div class="guild-content" id="guildContent" style="display: none;">
+    <!-- Header -->
+    <header class="guild-header">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Dayner
+      </a>
+      <div class="header-title">
+        <i class="fas fa-compass guild-sigil"></i>
+        <h1>The Wayfarers' Accord</h1>
+        <span class="motto">"For coin, for cause, for completion."</span>
+      </div>
+      <div class="user-info">
+        <span class="user-name" id="userName"></span>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Location Selector -->
+    <div class="location-bar">
+      <div class="location-selector">
+        <i class="fas fa-map-marker-alt"></i>
+        <label for="locationSelect">Guild Chapter:</label>
+        <select id="locationSelect">
+          <!-- Locations will be populated dynamically -->
+        </select>
+      </div>
+      <div class="chapter-info" id="chapterInfo">
+        <!-- Dynamic chapter info -->
+      </div>
+    </div>
+
+    <!-- Tier Filter Tabs -->
+    <nav class="tier-tabs">
+      <button class="tier-tab active" data-tier="all">
+        <i class="fas fa-scroll"></i> <span>All</span>
+      </button>
+      <button class="tier-tab tier-d" data-tier="D">
+        <i class="fas fa-seedling"></i> <span>D</span>
+      </button>
+      <button class="tier-tab tier-c" data-tier="C">
+        <i class="fas fa-shield-alt"></i> <span>C</span>
+      </button>
+      <button class="tier-tab tier-b" data-tier="B">
+        <i class="fas fa-khanda"></i> <span>B</span>
+      </button>
+      <button class="tier-tab tier-a" data-tier="A">
+        <i class="fas fa-dragon"></i> <span>A</span>
+      </button>
+      <button class="tier-tab tier-accepted" data-tier="accepted">
+        <i class="fas fa-clipboard-check"></i> <span>Accepted</span>
+      </button>
+    </nav>
+
+    <!-- The Guild Board -->
+    <main class="guild-board-container">
+      <div class="board-frame">
+        <div class="board-surface" id="missionBoard">
+          <!-- Missions will be dynamically inserted here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Mission Detail Modal -->
+    <div class="modal-overlay" id="missionModal">
+      <div class="mission-detail-paper">
+        <button class="close-modal" aria-label="Close mission details">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="mission-detail-content">
+          <div class="detail-header">
+            <div class="tier-badge-large" id="modalTierBadge">D</div>
+            <h2 class="detail-title" id="modalTitle">Mission Title</h2>
+          </div>
+          
+          <div class="detail-divider"></div>
+          
+          <div class="detail-grid">
+            <div class="detail-section">
+              <h4><i class="fas fa-user-tie"></i> Client</h4>
+              <p id="modalClient">Unknown</p>
+            </div>
+            
+            <div class="detail-section">
+              <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+              <p id="modalLocation">Unknown</p>
+            </div>
+            
+            <div class="detail-section">
+              <h4><i class="fas fa-hourglass-half"></i> Duration</h4>
+              <p id="modalDuration">Unknown</p>
+            </div>
+            
+            <div class="detail-section">
+              <h4><i class="fas fa-coins"></i> Reward</h4>
+              <p id="modalReward" class="reward-text">Unknown</p>
+            </div>
+            
+            <div class="detail-section">
+              <h4><i class="fas fa-exclamation-triangle"></i> Combat Expected</h4>
+              <p id="modalCombat">Unknown</p>
+            </div>
+            
+            <div class="detail-section">
+              <h4><i class="fas fa-route"></i> Travel</h4>
+              <p id="modalTravel">None required</p>
+            </div>
+          </div>
+          
+          <div class="detail-divider"></div>
+          
+          <div class="detail-section full-width">
+            <h4><i class="fas fa-scroll"></i> The Job</h4>
+            <p id="modalDescription" class="job-description">Job description here...</p>
+          </div>
+          
+          <div class="detail-divider"></div>
+          
+          <div class="detail-section full-width">
+            <h4><i class="fas fa-info-circle"></i> To Accept This Mission</h4>
+            <div class="accept-info" id="modalAcceptInfo">
+              <p><strong>Speak to:</strong> <span id="modalContact">Guild Representative</span></p>
+              <p><strong>At:</strong> <span id="modalContactLocation">Local Guild Chapter</span></p>
+              <p><strong>Requirements:</strong> <span id="modalRequirements">Guild membership required</span></p>
+            </div>
+          </div>
+          
+          <!-- Accept/Complete Buttons -->
+          <div class="mission-actions" id="missionActions">
+            <button class="accept-mission-btn" id="acceptMissionBtn">
+              <i class="fas fa-handshake"></i> Accept Mission
+            </button>
+            <button class="complete-mission-btn" id="completeMissionBtn" style="display: none;">
+              <i class="fas fa-check-circle"></i> Mark as Complete
+            </button>
+            <button class="abandon-mission-btn" id="abandonMissionBtn" style="display: none;">
+              <i class="fas fa-times-circle"></i> Abandon Mission
+            </button>
+          </div>
+          
+          <div class="seal-container">
+            <div class="guild-seal">
+              <i class="fas fa-compass"></i>
+            </div>
+            <span class="seal-text">Official Guild Posting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Info -->
+    <footer class="guild-footer">
+      <div class="footer-content">
+        <p><i class="fas fa-info-circle"></i> Current Party Rank: <strong>D-Tier</strong></p>
+        <p><i class="fas fa-calendar"></i> Available: <strong id="missionCount">0</strong> | Accepted: <strong id="acceptedCount">0</strong></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="notification-toast" id="notificationToast">
+    <i class="fas fa-check-circle"></i>
+    <span id="notificationText">Notification</span>
+  </div>
+
+  <script src="static/js/firebase-config.js"></script>
+  <script>
+    // ========================================
+    // Guild Chapter Locations
+    // ========================================
+    const guildLocations = {
+      'dawerton': {
+        name: 'Dawerton',
+        chapterName: 'Wavecrest Hall',
+        description: 'The bustling port city chapter, located on the docks.',
+        guildmaster: 'Guildmaster Tobren Ashford',
+        registrar: 'Registrar Yenna Cole',
+        boardKeeper: 'Board Keeper Dax'
+      },
+      'braewood-city': {
+        name: 'Braewood City',
+        chapterName: 'The Golden Compass Hall',
+        description: 'The capital chapter, largest in the kingdom.',
+        guildmaster: 'Guildmaster Helena Vance',
+        registrar: 'Registrar Marcus Thorne',
+        boardKeeper: 'Board Keeper Elia'
+      },
+      'cleamond': {
+        name: 'Cleamond',
+        chapterName: 'Trader\'s Rest Chapter',
+        description: 'A smaller chapter serving the trade town.',
+        guildmaster: 'Chapter Warden Doris Helm',
+        registrar: 'Clerk Fenton',
+        boardKeeper: 'Clerk Fenton'
+      },
+      'mortling': {
+        name: 'Mortling Stronghold',
+        chapterName: 'Iron Gate Chapter',
+        description: 'A fortified chapter near the dwarven territories.',
+        guildmaster: 'Warden-Captain Bjorn Ironside',
+        registrar: 'Scribe Aldara',
+        boardKeeper: 'Scribe Aldara'
+      }
+    };
+
+    // ========================================
+    // Mission Data - Organized by Location
+    // ========================================
+    const missionsByLocation = {
+      'dawerton': {
+        'D-01': {
+          tier: 'D',
+          title: 'The Cheating Merchant',
+          client: 'Merchant\'s Guild (Anonymous)',
+          location: 'Market District',
+          duration: '2-3 days',
+          reward: '40 gp (Bonus: +10 gp if bribe refused)',
+          combat: 'Unlikely (social/investigation)',
+          travel: 'None – Mission takes place locally',
+          description: 'A cloth merchant named Yorvin Thatch is suspected of falsifying quality certifications on imported silks. The Merchant\'s Guild wants proof before taking action. Investigate discreetly—if Yorvin catches wind of the investigation, he\'ll destroy evidence.',
+          requirements: 'D-Tier rank or higher',
+          type: 'Investigation'
+        },
+        'D-02': {
+          tier: 'D',
+          title: 'Warehouse Rats',
+          client: 'Grain Collective',
+          location: 'Dock Warehouse #7',
+          duration: '1 day',
+          reward: '25 gp (Bonus: 15 gp if basement chest found)',
+          combat: 'Yes – Straightforward extermination',
+          travel: 'None – Warehouse is at the docks',
+          description: 'Giant rats have infested a grain warehouse. The Grain Collective needs them cleared before the next shipment arrives tomorrow. There may be more rats in the basement.',
+          requirements: 'D-Tier rank or higher. Fire is forbidden!',
+          type: 'Extermination'
+        },
+        'D-03': {
+          tier: 'D',
+          title: 'The Missing Shipment',
+          client: 'Wine Merchant Varros Windell',
+          location: 'Cleamond Road',
+          duration: '3-5 days',
+          reward: '50 gp + 2 bottles fine wine',
+          combat: 'Possible – Bandits or wild animals',
+          travel: '~35km to Cleamond (1 day each way)',
+          description: 'A wagon carrying 20 casks of fine Islefield wine never arrived from Cleamond. Suspected theft or bandit activity. Find the shipment and either recover it or discover what happened.',
+          requirements: 'D-Tier rank or higher',
+          type: 'Recovery'
+        },
+        'D-04': {
+          tier: 'D',
+          title: 'Haunted? Or Hoax?',
+          client: 'Innkeeper Darla Moss',
+          location: 'The Rusty Anchor, Dockside',
+          duration: '1-2 nights',
+          reward: '35 gp + Free lodging',
+          combat: 'Possible – Depends on investigation',
+          travel: 'None – Investigation within the city',
+          description: 'Staff at The Rusty Anchor refuse to enter the cellar after dark. They report cold spots, whispers, objects moving. The innkeeper wants answers—ghost, prank, or something else?',
+          requirements: 'D-Tier rank or higher. Discretion appreciated.',
+          type: 'Investigation'
+        },
+        'C-01': {
+          tier: 'C',
+          title: 'Noble Escort – Lady Meren Ashvale',
+          client: 'House Ashvale',
+          location: 'To Cleamond and back',
+          duration: '4 days round trip',
+          reward: '200 gp (Bonus: 50 gp if threat source exposed)',
+          combat: 'Likely – Ambush expected on road',
+          travel: '~35km each way (4 day round trip)',
+          description: 'Lady Meren Ashvale has received threatening letters and requires protection for her journey to Cleamond. Keep her alive for the entire round trip. Threats are credible.',
+          requirements: 'C-Tier rank or higher. Protection experience preferred.',
+          type: 'Protection'
+        },
+        'C-02': {
+          tier: 'C',
+          title: 'The Drowned Man\'s Secret',
+          client: 'City Watch (Unofficial)',
+          location: 'Docks & Temple District',
+          duration: '3-7 days',
+          reward: '150 gp (Bonus: 25 gp for live capture)',
+          combat: 'Yes – Cult encounter expected',
+          travel: 'None – Investigation within the city',
+          description: 'A dock worker was found floating in the harbor with strange symbols carved into his chest. The Watch needs discreet investigators. The symbols appear ritualistic.',
+          requirements: 'C-Tier rank or higher. Discretion mandatory.',
+          type: 'Investigation'
+        },
+        'C-03': {
+          tier: 'C',
+          title: 'The Sculptor\'s Debt',
+          client: 'Madame Elara Vance (Sealed Letter)',
+          location: 'Tidewatch Slums',
+          duration: '2-4 days',
+          reward: '175 gp (Bonus: 50 gp for discretion)',
+          combat: 'Likely – Hired thugs protecting debtor',
+          travel: 'None – Mission within the city',
+          description: 'A marble statue was stolen by a debtor who fled to the slums. Retrieve the statue intact—it cannot be damaged. The slums are gang territory—navigate carefully.',
+          requirements: 'C-Tier rank or higher. Statue must not be damaged.',
+          type: 'Recovery'
+        },
+        'C-04': {
+          tier: 'C',
+          title: 'Beast of the Southern Road',
+          client: 'Caravan Collective',
+          location: 'Southern Road to Mortling',
+          duration: '5-7 days',
+          reward: '300 gp (Bonus: Beast pelt worth 100 gp)',
+          combat: 'Yes – Monster hunt',
+          travel: '~33km (attack zone 15-20km out)',
+          description: 'Something is attacking caravans on the road to Mortling Stronghold. Three attacks in two weeks. Survivors describe it as "wolf-like but wrong." Bring proof of the kill.',
+          requirements: 'C-Tier rank or higher. Combat capability essential.',
+          type: 'Monster Hunt'
+        },
+        'B-01': {
+          tier: 'B',
+          title: 'The Saltmire Syndicate',
+          client: 'City Council (Official)',
+          location: 'Harbor district',
+          duration: '1-2 weeks',
+          reward: '800 gp + bounties (50 gp per member)',
+          combat: 'Yes – Multiple engagements expected',
+          travel: 'None – Operation based locally',
+          description: 'A smuggling operation is running contraband through the harbor. The Council wants them dismantled. 15-20 members including a rumored spellcaster. Lethal force authorized.',
+          requirements: 'B-Tier rank or higher. Evidence collection mandatory.',
+          type: 'Takedown'
+        },
+        'B-02': {
+          tier: 'B',
+          title: 'The Collector\'s Request',
+          client: 'Anonymous (Sealed Contract)',
+          location: 'Ashfall Crypts',
+          duration: 'Unknown – Previous team missing',
+          reward: '1,200 gp',
+          combat: 'Yes – Undead presence confirmed',
+          travel: 'Travel to Ashfall Crypts required',
+          description: 'Retrieve a bronze urn with silver inlay from a tomb sealed for 200 years. WARNING: A previous team did not return. Undead presence has been confirmed.',
+          requirements: 'B-Tier rank or higher. Anti-undead capabilities recommended.',
+          type: 'Dungeon Delve',
+          warning: 'Undead Confirmed'
+        },
+        'A-01': {
+          tier: 'A',
+          title: 'Terror of Lavalto Lake – The Spehlina',
+          client: 'Joint Bounty (City & Crown)',
+          location: 'Lavalto Lake',
+          duration: 'Unknown – Previous attempts failed',
+          reward: '10,000 gp (5,000 + 5,000)',
+          combat: 'Yes – Gargantuan aquatic monster',
+          travel: 'Sea/lake travel required',
+          description: 'A massive creature terrorizes the lake. 12 ships destroyed, 60+ deaths in the past year. Called "The Bleeding Shadow" by locals. Only attacks at night. All previous hunting attempts have failed.',
+          requirements: 'B-Tier rank or higher to accept. Naval support available.',
+          type: 'Monster Hunt',
+          subtitle: 'The Spehlina',
+          deaths: '60+ confirmed deaths',
+          majorBounty: true
+        }
+      },
+      'braewood-city': {
+        // No missions currently - can be added later
+      },
+      'cleamond': {
+        // No missions currently - can be added later
+      },
+      'mortling': {
+        // No missions currently - can be added later
+      }
+    };
+
+    // ========================================
+    // Character Data
+    // ========================================
+    const CHARACTERS = [
+      { id: 'amdir', name: 'Amdir Aeristel', player: 'Aaron' },
+      { id: 'blorf', name: 'Blorf of Clan Beren', player: 'Kirk' },
+      { id: 'leontius', name: 'Leontius', player: 'Ronan' },
+      { id: 'morjor', name: 'Morjor the Enlightened', player: 'Jack' },
+      { id: 'tearitus', name: 'Tearitus Dropius Pather', player: 'Dylan' },
+      { id: 'varin', name: 'Varin', player: 'Aiden' },
+      { id: 'admin', name: 'Dungeon Master (Admin)', player: 'Admin', isAdmin: true }
+    ];
+
+    const PARTY_ID = 'wayfarers_party_1';
+
+    // Party Names (for admin view)
+    const PARTY_NAMES = {
+      'wayfarers_party_1': 'The Wayfarers'
+      // Add more parties here as needed
+    };
+
+    // ========================================
+    // State
+    // ========================================
+    let currentUser = null;
+    let userProfile = null;
+    let acceptedMissions = [];       // Party's accepted missions (or all for admin)
+    let allAcceptedMissions = [];    // All accepted missions across all parties (admin only)
+    let currentMissionId = null;
+    let currentLocation = 'dawerton';
+    let isAdmin = false;
+
+    // ========================================
+    // DOM Elements
+    // ========================================
+    const loginRequiredOverlay = document.getElementById('loginRequiredOverlay');
+    const guildContent = document.getElementById('guildContent');
+    const authModal = document.getElementById('authModal');
+    const missionModal = document.getElementById('missionModal');
+    const missionBoard = document.getElementById('missionBoard');
+    const characterSelect = document.getElementById('characterSelect');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordGroup = document.getElementById('passwordGroup');
+    const authStatus = document.getElementById('authStatus');
+    const authSubmitBtn = document.getElementById('authSubmitBtn');
+    const locationSelect = document.getElementById('locationSelect');
+    const chapterInfo = document.getElementById('chapterInfo');
+
+    // ========================================
+    // Initialize
+    // ========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Populate character dropdown
+      CHARACTERS.forEach(char => {
+        const option = document.createElement('option');
+        option.value = char.id;
+        option.textContent = char.isAdmin ? char.name : `${char.name} (${char.player})`;
+        characterSelect.appendChild(option);
+      });
+
+      // Populate location dropdown
+      Object.entries(guildLocations).forEach(([id, loc]) => {
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = `${loc.name} – ${loc.chapterName}`;
+        locationSelect.appendChild(option);
+      });
+
+      // Event Listeners
+      document.getElementById('showLoginBtn').addEventListener('click', () => {
+        authModal.classList.add('active');
+      });
+
+      document.getElementById('closeAuthModal').addEventListener('click', () => {
+        authModal.classList.remove('active');
+      });
+
+      characterSelect.addEventListener('change', checkAccountStatus);
+      authSubmitBtn.addEventListener('click', handleAuth);
+      passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleAuth();
+      });
+
+      document.getElementById('logoutBtn').addEventListener('click', logout);
+
+      locationSelect.addEventListener('change', () => {
+        currentLocation = locationSelect.value;
+        updateChapterInfo();
+        renderMissions('all');
+        // Reset to "all" tab
+        document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+        document.querySelector('.tier-tab[data-tier="all"]').classList.add('active');
+      });
+
+      // Close modals on outside click
+      authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) authModal.classList.remove('active');
+      });
+
+      // Tier filter tabs
+      document.querySelectorAll('.tier-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderMissions(tab.dataset.tier);
+        });
+      });
+
+      // Mission modal close
+      document.querySelector('#missionModal .close-modal').addEventListener('click', closeMissionModal);
+      missionModal.addEventListener('click', (e) => {
+        if (e.target === missionModal) closeMissionModal();
+      });
+
+      // Mission action buttons
+      document.getElementById('acceptMissionBtn').addEventListener('click', acceptMission);
+      document.getElementById('completeMissionBtn').addEventListener('click', completeMission);
+      document.getElementById('abandonMissionBtn').addEventListener('click', abandonMission);
+
+      // Listen for auth state
+      window.firebaseAuth.onAuthStateChanged(handleAuthStateChange);
+    });
+
+    // ========================================
+    // Location Functions
+    // ========================================
+    function updateChapterInfo() {
+      const loc = guildLocations[currentLocation];
+      if (!loc) return;
+      
+      chapterInfo.innerHTML = `
+        <span class="chapter-name">${loc.chapterName}</span>
+        <span class="chapter-desc">${loc.description}</span>
+      `;
+    }
+
+    function getContactForMission(mission) {
+      const loc = guildLocations[currentLocation];
+      if (!loc) return { contact: 'Guild Representative', location: 'Local Chapter' };
+      
+      // Determine contact based on mission tier
+      if (mission.tier === 'A' || mission.tier === 'B') {
+        return { contact: loc.guildmaster, location: `${loc.chapterName}, ${loc.name}` };
+      } else if (mission.client && mission.client.includes('Sealed')) {
+        return { contact: loc.registrar, location: `${loc.chapterName}, ${loc.name}` };
+      } else {
+        return { contact: loc.boardKeeper, location: `${loc.chapterName}, ${loc.name}` };
+      }
+    }
+
+    // ========================================
+    // Auth Functions
+    // ========================================
+    async function checkAccountStatus() {
+      const selectedId = characterSelect.value;
+      if (!selectedId) {
+        passwordGroup.style.display = 'none';
+        authSubmitBtn.style.display = 'none';
+        authStatus.textContent = '';
+        return;
+      }
+
+      authStatus.textContent = 'Checking account...';
+      authStatus.className = 'auth-status';
+
+      const email = `${selectedId}@dayner.local`;
+
+      try {
+        await window.firebaseAuth.signInWithEmailAndPassword(email, '__check__');
+      } catch (error) {
+        passwordGroup.style.display = 'block';
+        authSubmitBtn.style.display = 'block';
+        
+        if (error.code === 'auth/user-not-found') {
+          authStatus.textContent = 'New adventurer! Create a password to register.';
+          authStatus.className = 'auth-status signup';
+          authSubmitBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create Account';
+        } else {
+          authStatus.textContent = 'Enter your password to continue.';
+          authStatus.className = 'auth-status login';
+          authSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+        }
+      }
+    }
+
+    async function handleAuth() {
+      const selectedId = characterSelect.value;
+      const password = passwordInput.value;
+
+      if (!selectedId || !password) {
+        showNotification('Please select a character and enter a password', 'error');
+        return;
+      }
+
+      const email = `${selectedId}@dayner.local`;
+      const character = CHARACTERS.find(c => c.id === selectedId);
+
+      authSubmitBtn.disabled = true;
+      authSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Please wait...';
+
+      try {
+        await window.firebaseAuth.signInWithEmailAndPassword(email, password);
+      } catch (signInError) {
+        if (signInError.code === 'auth/user-not-found') {
+          try {
+            const userCredential = await window.firebaseAuth.createUserWithEmailAndPassword(email, password);
+            await userCredential.user.updateProfile({ displayName: character.name });
+            
+            await window.firebaseDb.collection('users').doc(userCredential.user.uid).set({
+              characterId: selectedId,
+              character: character.name,
+              player: character.player,
+              email: email,
+              partyId: PARTY_ID,
+              isAdmin: character.isAdmin || false,
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+          } catch (createError) {
+            showNotification('Failed to create account: ' + createError.message, 'error');
+            authSubmitBtn.disabled = false;
+            authSubmitBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create Account';
+            return;
+          }
+        } else if (signInError.code === 'auth/wrong-password' || signInError.code === 'auth/invalid-credential') {
+          showNotification('Incorrect password', 'error');
+          authSubmitBtn.disabled = false;
+          authSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+          return;
+        } else {
+          showNotification('Login failed: ' + signInError.message, 'error');
+          authSubmitBtn.disabled = false;
+          authSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+          return;
+        }
+      }
+
+      authModal.classList.remove('active');
+    }
+
+    async function handleAuthStateChange(user) {
+      currentUser = user;
+
+      if (user) {
+        try {
+          const profileDoc = await window.firebaseDb.collection('users').doc(user.uid).get();
+          if (profileDoc.exists) {
+            userProfile = profileDoc.data();
+            if (!userProfile.partyId) {
+              await window.firebaseDb.collection('users').doc(user.uid).update({ partyId: PARTY_ID });
+              userProfile.partyId = PARTY_ID;
+            }
+          } else {
+            const characterId = user.email.split('@')[0];
+            const character = CHARACTERS.find(c => c.id === characterId) || {};
+            userProfile = {
+              characterId: characterId,
+              character: user.displayName || character.name || 'Unknown',
+              player: character.player || 'Unknown',
+              partyId: PARTY_ID,
+              isAdmin: user.email === 'admin@dayner.local'
+            };
+            await window.firebaseDb.collection('users').doc(user.uid).set(userProfile);
+          }
+        } catch (e) {
+          console.error('Error loading profile:', e);
+          const characterId = user.email.split('@')[0];
+          const character = CHARACTERS.find(c => c.id === characterId) || {};
+          userProfile = {
+            characterId: characterId,
+            character: user.displayName || character.name || 'Unknown',
+            player: character.player || 'Unknown',
+            partyId: PARTY_ID
+          };
+        }
+
+        loginRequiredOverlay.style.display = 'none';
+        guildContent.style.display = 'block';
+        document.getElementById('userName').textContent = userProfile.character;
+        
+        // Set admin flag
+        isAdmin = userProfile.isAdmin || user.email === 'admin@dayner.local';
+        if (isAdmin) {
+          document.body.classList.add('admin-view');
+        }
+
+        updateChapterInfo();
+        await loadAcceptedMissions();
+        renderMissions('all');
+      } else {
+        loginRequiredOverlay.style.display = 'flex';
+        guildContent.style.display = 'none';
+        userProfile = null;
+        acceptedMissions = [];
+        allAcceptedMissions = [];
+        isAdmin = false;
+        document.body.classList.remove('admin-view');
+      }
+    }
+
+    async function logout() {
+      try {
+        await window.firebaseAuth.signOut();
+        showNotification('Logged out successfully', 'success');
+      } catch (error) {
+        showNotification('Logout failed', 'error');
+      }
+    }
+
+    // ========================================
+    // Mission Functions
+    // ========================================
+    async function loadAcceptedMissions() {
+      if (!userProfile) return;
+
+      try {
+        if (isAdmin) {
+          // Admin: Load ALL accepted missions across all parties
+          const snapshot = await window.firebaseDb
+            .collection('partyMissions')
+            .where('status', '==', 'accepted')
+            .get();
+
+          allAcceptedMissions = snapshot.docs.map(doc => ({
+            docId: doc.id,
+            ...doc.data()
+          }));
+          
+          // For admin, acceptedMissions is also all missions
+          acceptedMissions = allAcceptedMissions;
+        } else {
+          // Regular user: Load only their party's missions
+          if (!userProfile.partyId) return;
+          
+          const snapshot = await window.firebaseDb
+            .collection('partyMissions')
+            .where('partyId', '==', userProfile.partyId)
+            .where('status', '==', 'accepted')
+            .get();
+
+          acceptedMissions = snapshot.docs.map(doc => ({
+            docId: doc.id,
+            ...doc.data()
+          }));
+        }
+
+        updateMissionCounts();
+      } catch (error) {
+        console.error('Error loading accepted missions:', error);
+      }
+    }
+
+    // Helper to get party name
+    function getPartyName(partyId) {
+      return PARTY_NAMES[partyId] || partyId || 'Unknown Party';
+    }
+
+    // Check if a mission is accepted (and by which party)
+    function getMissionAcceptance(missionId) {
+      if (isAdmin) {
+        const accepted = allAcceptedMissions.find(m => m.missionId === missionId);
+        return accepted ? { accepted: true, partyId: accepted.partyId, partyName: getPartyName(accepted.partyId), acceptedBy: accepted.acceptedBy } : { accepted: false };
+      } else {
+        const accepted = acceptedMissions.find(m => m.missionId === missionId);
+        return accepted ? { accepted: true, partyId: accepted.partyId, partyName: getPartyName(accepted.partyId), acceptedBy: accepted.acceptedBy } : { accepted: false };
+      }
+    }
+
+    function getMissionsForCurrentLocation() {
+      return missionsByLocation[currentLocation] || {};
+    }
+
+    function renderMissions(tierFilter) {
+      missionBoard.innerHTML = '';
+      const missions = getMissionsForCurrentLocation();
+
+      if (tierFilter === 'accepted') {
+        if (acceptedMissions.length === 0) {
+          missionBoard.innerHTML = `
+            <div class="no-missions">
+              <i class="fas fa-clipboard"></i>
+              <p>No missions currently accepted by your party.</p>
+              <p class="sub">Browse the board and accept a mission to get started!</p>
+            </div>
+          `;
+          return;
+        }
+
+        acceptedMissions.forEach(accepted => {
+          // Find mission in any location
+          let mission = null;
+          let missionLoc = null;
+          Object.entries(missionsByLocation).forEach(([locId, locMissions]) => {
+            if (locMissions[accepted.missionId]) {
+              mission = locMissions[accepted.missionId];
+              missionLoc = locId;
+            }
+          });
+          
+          if (mission) {
+            const acceptance = {
+              accepted: true,
+              partyId: accepted.partyId,
+              partyName: getPartyName(accepted.partyId),
+              acceptedBy: accepted.acceptedBy
+            };
+            const paper = createMissionPaper(accepted.missionId, mission, true, missionLoc, acceptance);
+            missionBoard.appendChild(paper);
+          }
+        });
+      } else {
+        const acceptedIds = acceptedMissions.map(m => m.missionId);
+        let hasVisibleMissions = false;
+
+        Object.entries(missions).forEach(([id, mission]) => {
+          // For admin: show all missions. For players: hide accepted ones
+          const acceptance = getMissionAcceptance(id);
+          
+          if (!isAdmin && acceptance.accepted) return;
+          if (tierFilter !== 'all' && mission.tier !== tierFilter) return;
+
+          hasVisibleMissions = true;
+          const paper = createMissionPaper(id, mission, acceptance.accepted, null, acceptance);
+          missionBoard.appendChild(paper);
+        });
+
+        if (!hasVisibleMissions) {
+          const tierText = tierFilter === 'all' ? '' : ` ${tierFilter}-Tier`;
+          const locName = guildLocations[currentLocation]?.name || 'this location';
+          missionBoard.innerHTML = `
+            <div class="no-missions">
+              <i class="fas fa-scroll"></i>
+              <p>No${tierText} missions available at ${locName}.</p>
+              <p class="sub">Check back later or try another guild chapter.</p>
+            </div>
+          `;
+        }
+      }
+
+      updateMissionCounts();
+    }
+
+    function createMissionPaper(id, mission, isAccepted, missionLocation = null, acceptance = null) {
+      const article = document.createElement('article');
+      
+      let classes = 'mission-paper';
+      if (mission.tier === 'C') classes += ' parchment-aged';
+      if (mission.tier === 'B') classes += ' parchment-worn';
+      if (mission.tier === 'A') classes += ' parchment-elite';
+      if (isAccepted) classes += ' accepted';
+      
+      const tilts = ['', 'tilted-left', 'tilted-right'];
+      classes += ' ' + tilts[Math.floor(Math.random() * tilts.length)];
+      
+      article.className = classes;
+      article.dataset.tier = mission.tier;
+      article.dataset.mission = id;
+      if (missionLocation) article.dataset.location = missionLocation;
+
+      const pinClass = mission.tier === 'A' ? 'gold-pin' : 
+                       mission.tier === 'B' ? 'purple-pin' : 
+                       mission.tier === 'C' ? 'red-pin' : '';
+
+      // For admin view: show party name on accepted missions
+      let acceptedBadge = '';
+      let partyBadge = '';
+      
+      if (isAccepted && acceptance) {
+        acceptedBadge = '<div class="accepted-badge"><i class="fas fa-check"></i> ACCEPTED</div>';
+        if (isAdmin) {
+          partyBadge = `<div class="party-badge"><i class="fas fa-users"></i> ${acceptance.partyName}</div>`;
+        }
+      } else if (isAccepted) {
+        acceptedBadge = '<div class="accepted-badge"><i class="fas fa-check"></i> ACCEPTED</div>';
+      }
+      
+      const locationBadge = isAccepted && missionLocation ? 
+        `<div class="location-badge"><i class="fas fa-map-marker-alt"></i> ${guildLocations[missionLocation]?.name || missionLocation}</div>` : '';
+
+      article.innerHTML = `
+        <div class="paper-pin ${pinClass}"></div>
+        <div class="tier-badge tier-${mission.tier.toLowerCase()}">${mission.tier}</div>
+        ${acceptedBadge}
+        ${partyBadge}
+        ${locationBadge}
+        ${mission.majorBounty ? '<div class="elite-banner">MAJOR BOUNTY</div>' : ''}
+        <h3 class="mission-title">${mission.title}</h3>
+        ${mission.subtitle ? `<div class="mission-subtitle">— ${mission.subtitle} —</div>` : ''}
+        <div class="mission-preview">
+          <p class="mission-type"><i class="fas fa-scroll"></i> ${mission.type || 'Contract'}</p>
+          <p class="mission-reward ${mission.tier === 'A' ? 'reward-large' : ''}"><i class="fas fa-coins"></i> ${getShortReward(mission.reward)}</p>
+        </div>
+        <div class="mission-location">
+          <i class="fas fa-map-marker-alt"></i> ${mission.location}
+        </div>
+        ${mission.warning ? `<div class="warning-banner"><i class="fas fa-exclamation-triangle"></i> ${mission.warning}</div>` : ''}
+        ${mission.deaths ? `<div class="death-count"><i class="fas fa-skull-crossbones"></i> ${mission.deaths}</div>` : ''}
+      `;
+
+      article.addEventListener('click', () => openMissionModal(id, isAccepted, missionLocation));
+      
+      return article;
+    }
+
+    function getShortReward(reward) {
+      const match = reward.match(/^[\d,]+\s*gp/);
+      if (match) return match[0];
+      return reward.split('(')[0].trim();
+    }
+
+    function openMissionModal(missionId, isAccepted, missionLocation = null) {
+      const loc = missionLocation || currentLocation;
+      const missions = missionsByLocation[loc] || {};
+      const mission = missions[missionId];
+      if (!mission) return;
+
+      currentMissionId = missionId;
+
+      const contactInfo = getContactForMission(mission);
+
+      document.getElementById('modalTierBadge').textContent = mission.tier;
+      document.getElementById('modalTierBadge').className = `tier-badge-large tier-${mission.tier.toLowerCase()}`;
+      document.getElementById('modalTitle').textContent = mission.title;
+      document.getElementById('modalClient').textContent = mission.client;
+      document.getElementById('modalLocation').textContent = mission.location;
+      document.getElementById('modalDuration').textContent = mission.duration;
+      document.getElementById('modalReward').textContent = mission.reward;
+      document.getElementById('modalCombat').textContent = mission.combat;
+      document.getElementById('modalTravel').textContent = mission.travel;
+      document.getElementById('modalDescription').textContent = mission.description;
+      document.getElementById('modalContact').textContent = contactInfo.contact;
+      document.getElementById('modalContactLocation').textContent = contactInfo.location;
+      document.getElementById('modalRequirements').textContent = mission.requirements;
+
+      const acceptBtn = document.getElementById('acceptMissionBtn');
+      const completeBtn = document.getElementById('completeMissionBtn');
+      const abandonBtn = document.getElementById('abandonMissionBtn');
+
+      if (isAccepted) {
+        acceptBtn.style.display = 'none';
+        completeBtn.style.display = 'inline-flex';
+        abandonBtn.style.display = 'inline-flex';
+      } else {
+        acceptBtn.style.display = 'inline-flex';
+        completeBtn.style.display = 'none';
+        abandonBtn.style.display = 'none';
+      }
+
+      missionModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMissionModal() {
+      missionModal.classList.remove('active');
+      document.body.style.overflow = '';
+      currentMissionId = null;
+    }
+
+    async function acceptMission() {
+      if (!currentMissionId || !userProfile) return;
+
+      const missions = getMissionsForCurrentLocation();
+      const mission = missions[currentMissionId];
+      if (!mission) return;
+      
+      try {
+        await window.firebaseDb.collection('partyMissions').add({
+          partyId: userProfile.partyId,
+          missionId: currentMissionId,
+          missionTitle: mission.title,
+          missionTier: mission.tier,
+          missionLocation: currentLocation,
+          status: 'accepted',
+          acceptedBy: userProfile.character,
+          acceptedByUid: currentUser.uid,
+          acceptedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        // Add to party checklist
+        await window.firebaseDb.collection('partyChecklist').add({
+          partyId: userProfile.partyId,
+          text: `[${mission.tier}] ${mission.title} - ${getShortReward(mission.reward)}`,
+          missionId: currentMissionId,
+          completed: false,
+          createdBy: userProfile.character,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        showNotification(`Mission accepted: ${mission.title}`, 'success');
+        closeMissionModal();
+        await loadAcceptedMissions();
+        
+        const activeTab = document.querySelector('.tier-tab.active');
+        renderMissions(activeTab ? activeTab.dataset.tier : 'all');
+      } catch (error) {
+        console.error('Error accepting mission:', error);
+        showNotification('Failed to accept mission', 'error');
+      }
+    }
+
+    async function completeMission() {
+      if (!currentMissionId) return;
+
+      const accepted = acceptedMissions.find(m => m.missionId === currentMissionId);
+      if (!accepted) return;
+
+      try {
+        await window.firebaseDb.collection('partyMissions').doc(accepted.docId).update({
+          status: 'completed',
+          completedBy: userProfile.character,
+          completedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        const checklistQuery = await window.firebaseDb.collection('partyChecklist')
+          .where('partyId', '==', userProfile.partyId)
+          .where('missionId', '==', currentMissionId)
+          .get();
+        
+        checklistQuery.docs.forEach(async (doc) => {
+          await doc.ref.update({ completed: true });
+        });
+
+        showNotification(`Mission completed! Collect your reward from the guild.`, 'success');
+        closeMissionModal();
+        await loadAcceptedMissions();
+        
+        const activeTab = document.querySelector('.tier-tab.active');
+        renderMissions(activeTab ? activeTab.dataset.tier : 'all');
+      } catch (error) {
+        console.error('Error completing mission:', error);
+        showNotification('Failed to complete mission', 'error');
+      }
+    }
+
+    async function abandonMission() {
+      if (!currentMissionId) return;
+
+      const accepted = acceptedMissions.find(m => m.missionId === currentMissionId);
+      if (!accepted) return;
+
+      if (!confirm('Are you sure you want to abandon this mission? It will return to the board.')) {
+        return;
+      }
+
+      try {
+        await window.firebaseDb.collection('partyMissions').doc(accepted.docId).delete();
+
+        const checklistQuery = await window.firebaseDb.collection('partyChecklist')
+          .where('partyId', '==', userProfile.partyId)
+          .where('missionId', '==', currentMissionId)
+          .get();
+        
+        checklistQuery.docs.forEach(async (doc) => {
+          await doc.ref.delete();
+        });
+
+        showNotification(`Mission abandoned. It has been returned to the board.`, 'warning');
+        closeMissionModal();
+        await loadAcceptedMissions();
+        
+        const activeTab = document.querySelector('.tier-tab.active');
+        renderMissions(activeTab ? activeTab.dataset.tier : 'all');
+      } catch (error) {
+        console.error('Error abandoning mission:', error);
+        showNotification('Failed to abandon mission', 'error');
+      }
+    }
+
+    function updateMissionCounts() {
+      const missions = getMissionsForCurrentLocation();
+      const acceptedIds = acceptedMissions.map(m => m.missionId);
+      const availableCount = Object.keys(missions).filter(id => !acceptedIds.includes(id)).length;
+      
+      document.getElementById('missionCount').textContent = availableCount;
+      document.getElementById('acceptedCount').textContent = acceptedMissions.length;
+    }
+
+    // ========================================
+    // Utility Functions
+    // ========================================
+    function showNotification(message, type = 'success') {
+      const toast = document.getElementById('notificationToast');
+      const text = document.getElementById('notificationText');
+      
+      toast.className = 'notification-toast ' + type;
+      text.textContent = message;
+      
+      const icon = toast.querySelector('i');
+      if (type === 'success') icon.className = 'fas fa-check-circle';
+      else if (type === 'error') icon.className = 'fas fa-exclamation-circle';
+      else if (type === 'warning') icon.className = 'fas fa-exclamation-triangle';
+      
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
+          <div class="paper-pin"></div>
+          <div class="tier-badge tier-d">D</div>
+          <h3 class="mission-title">Haunted? Or Hoax?</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-ghost"></i> Investigation</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 35 gp + Lodging</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> The Rusty Anchor
+          </div>
+        </article>
+
+        <!-- C-Tier Missions -->
+        <article class="mission-paper parchment-aged" data-tier="C" data-mission="C-01">
+          <div class="paper-pin red-pin"></div>
+          <div class="tier-badge tier-c">C</div>
+          <h3 class="mission-title">Noble Escort</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-user-shield"></i> Protection</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 200 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Dawerton → Cleamond
+          </div>
+        </article>
+
+        <article class="mission-paper parchment-aged tilted-left" data-tier="C" data-mission="C-02">
+          <div class="paper-pin red-pin"></div>
+          <div class="tier-badge tier-c">C</div>
+          <h3 class="mission-title">The Drowned Man's Secret</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-water"></i> Investigation</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 150 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Docks & Temple District
+          </div>
+        </article>
+
+        <article class="mission-paper parchment-aged tilted-right" data-tier="C" data-mission="C-03">
+          <div class="paper-pin red-pin"></div>
+          <div class="tier-badge tier-c">C</div>
+          <h3 class="mission-title">The Sculptor's Debt</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-gem"></i> Recovery</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 175 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Tidewatch Slums
+          </div>
+        </article>
+
+        <article class="mission-paper parchment-aged" data-tier="C" data-mission="C-04">
+          <div class="paper-pin red-pin"></div>
+          <div class="tier-badge tier-c">C</div>
+          <h3 class="mission-title">Beast of the Southern Road</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-paw"></i> Monster Hunt</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 300 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Southern Road to Mortling
+          </div>
+        </article>
+
+        <!-- B-Tier Missions -->
+        <article class="mission-paper parchment-worn" data-tier="B" data-mission="B-01">
+          <div class="paper-pin purple-pin"></div>
+          <div class="tier-badge tier-b">B</div>
+          <h3 class="mission-title">The Saltmire Syndicate</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-mask"></i> Takedown</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 800+ gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Dawerton Harbor
+          </div>
+        </article>
+
+        <article class="mission-paper parchment-worn tilted-left" data-tier="B" data-mission="B-02">
+          <div class="paper-pin purple-pin"></div>
+          <div class="tier-badge tier-b">B</div>
+          <h3 class="mission-title">The Collector's Request</h3>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-skull"></i> Dungeon Delve</p>
+            <p class="mission-reward"><i class="fas fa-coins"></i> 1,200 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Ashfall Crypts
+          </div>
+          <div class="warning-banner"><i class="fas fa-exclamation-triangle"></i> Undead Confirmed</div>
+        </article>
+
+        <!-- A-Tier Mission - The Spehlina -->
+        <article class="mission-paper parchment-elite" data-tier="A" data-mission="A-01">
+          <div class="paper-pin gold-pin"></div>
+          <div class="tier-badge tier-a">A</div>
+          <div class="elite-banner">MAJOR BOUNTY</div>
+          <h3 class="mission-title">Terror of Lavalto Lake</h3>
+          <div class="mission-subtitle">— The Spehlina —</div>
+          <div class="mission-preview">
+            <p class="mission-type"><i class="fas fa-dragon"></i> Monster Hunt</p>
+            <p class="mission-reward reward-large"><i class="fas fa-coins"></i> 10,000 gp</p>
+          </div>
+          <div class="mission-location">
+            <i class="fas fa-map-marker-alt"></i> Lavalto Lake
+          </div>
+          <div class="death-count"><i class="fas fa-skull-crossbones"></i> 60+ confirmed deaths</div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mission Detail Modal -->
+  <div class="modal-overlay" id="missionModal">
+    <div class="mission-detail-paper">
+      <button class="close-modal" aria-label="Close mission details">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="mission-detail-content">
+        <div class="detail-header">
+          <div class="tier-badge-large" id="modalTierBadge">D</div>
+          <h2 class="detail-title" id="modalTitle">Mission Title</h2>
+        </div>
+        
+        <div class="detail-divider"></div>
+        
+        <div class="detail-grid">
+          <div class="detail-section">
+            <h4><i class="fas fa-user-tie"></i> Client</h4>
+            <p id="modalClient">Unknown</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+            <p id="modalLocation">Unknown</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4><i class="fas fa-hourglass-half"></i> Duration</h4>
+            <p id="modalDuration">Unknown</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4><i class="fas fa-coins"></i> Reward</h4>
+            <p id="modalReward" class="reward-text">Unknown</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4><i class="fas fa-exclamation-triangle"></i> Combat Expected</h4>
+            <p id="modalCombat">Unknown</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4><i class="fas fa-route"></i> Travel</h4>
+            <p id="modalTravel">None required</p>
+          </div>
+        </div>
+        
+        <div class="detail-divider"></div>
+        
+        <div class="detail-section full-width">
+          <h4><i class="fas fa-scroll"></i> The Job</h4>
+          <p id="modalDescription" class="job-description">Job description here...</p>
+        </div>
+        
+        <div class="detail-divider"></div>
+        
+        <div class="detail-section full-width">
+          <h4><i class="fas fa-info-circle"></i> To Accept This Mission</h4>
+          <div class="accept-info" id="modalAcceptInfo">
+            <p><strong>Speak to:</strong> <span id="modalContact">Board Keeper Dax</span></p>
+            <p><strong>At:</strong> <span id="modalContactLocation">Wavecrest Hall, Dawerton Docks</span></p>
+            <p><strong>Requirements:</strong> <span id="modalRequirements">D-Tier rank or higher</span></p>
+          </div>
+        </div>
+        
+        <div class="seal-container">
+          <div class="guild-seal">
+            <i class="fas fa-compass"></i>
+          </div>
+          <span class="seal-text">Official Guild Posting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <footer class="guild-footer">
+    <div class="footer-content">
+      <p><i class="fas fa-info-circle"></i> Current Party Rank: <strong>D-Tier</strong></p>
+      <p><i class="fas fa-calendar"></i> Missions Available: <strong>11</strong></p>
+      <p class="footer-note">Speak to <strong>Registrar Yenna Cole</strong> for registration or <strong>Board Keeper Dax</strong> for mission details.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mission Data
+    const missions = {
+      'D-01': {
+        tier: 'D',
+        title: 'The Cheating Merchant',
+        client: 'Merchant\'s Guild (Anonymous)',
+        location: 'Dawerton – Market District',
+        duration: '2-3 days',
+        reward: '40 gp (Bonus: +10 gp if bribe refused)',
+        combat: 'Unlikely (social/investigation)',
+        travel: 'None – Mission takes place within Dawerton',
+        description: 'A cloth merchant named Yorvin Thatch is suspected of falsifying quality certifications on imported silks. The Merchant\'s Guild wants proof before taking action. Investigate discreetly—if Yorvin catches wind of the investigation, he\'ll destroy evidence. Evidence of false labeling and the real ledger are required.',
+        contact: 'Board Keeper Dax',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'D-Tier rank or higher'
+      },
+      'D-02': {
+        tier: 'D',
+        title: 'Warehouse Rats',
+        client: 'Grain Collective',
+        location: 'Dawerton – Dock Warehouse #7',
+        duration: '1 day',
+        reward: '25 gp (Bonus: 15 gp if basement chest found)',
+        combat: 'Yes – Straightforward extermination',
+        travel: 'None – Warehouse is at the docks',
+        description: 'Giant rats have infested a grain warehouse. The Grain Collective needs them cleared before the next shipment arrives tomorrow. The warehouse is a large wooden structure with grain sacks stacked high. There may be more rats in the basement—speak to Foreman Gregor Holt on site.',
+        contact: 'Foreman Gregor Holt',
+        contactLocation: 'Dock Warehouse #7, Dawerton',
+        requirements: 'D-Tier rank or higher. Fire is forbidden!'
+      },
+      'D-03': {
+        tier: 'D',
+        title: 'The Missing Shipment',
+        client: 'Wine Merchant Varros Windell',
+        location: 'Cleamond Road (between Dawerton and Cleamond)',
+        duration: '3-5 days',
+        reward: '50 gp + 2 bottles fine wine (Bonus: 20 gp for delivering letter)',
+        combat: 'Possible – Bandits or wild animals',
+        travel: '~35km to Cleamond (1 day travel each way)',
+        description: 'A wagon carrying 20 casks of fine Islefield wine never arrived from Cleamond. Varros suspects theft or bandit activity. Find the shipment and either recover it or discover what happened. The road passes through light woodland—be cautious.',
+        contact: 'Varros Windell',
+        contactLocation: 'Windell Wine Imports, Market District',
+        requirements: 'D-Tier rank or higher. Recovery of wine preferred.'
+      },
+      'D-04': {
+        tier: 'D',
+        title: 'Haunted? Or Hoax?',
+        client: 'Innkeeper Darla Moss',
+        location: 'Dawerton – The Rusty Anchor, Dockside District',
+        duration: '1-2 nights',
+        reward: '35 gp + Free lodging at The Rusty Anchor',
+        combat: 'Possible – Depends on investigation',
+        travel: 'None – Investigation within Dawerton',
+        description: 'Staff at The Rusty Anchor refuse to enter the cellar after dark. They report cold spots, whispers, objects moving, and the feeling of being watched. The innkeeper wants answers—ghost, prank, or something else entirely? Investigate and resolve the disturbance.',
+        contact: 'Darla Moss',
+        contactLocation: 'The Rusty Anchor, Dockside District',
+        requirements: 'D-Tier rank or higher. Discretion appreciated.'
+      },
+      'C-01': {
+        tier: 'C',
+        title: 'Noble Escort – Lady Meren Ashvale',
+        client: 'House Ashvale',
+        location: 'Dawerton → Cleamond → Dawerton',
+        duration: '4 days round trip',
+        reward: '200 gp (Bonus: 50 gp if threat source exposed)',
+        combat: 'Likely – Ambush expected on road',
+        travel: '~35km each way (4 day round trip)',
+        description: 'Lady Meren Ashvale has received threatening letters and requires protection for her journey to Cleamond to meet with a trade partner. Keep her alive for the entire round trip. Threats are credible—expect professional opposition. Lady Meren is capable but not a fighter.',
+        contact: 'Guildmaster Tobren Ashford',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'C-Tier rank or higher. Protection experience preferred.'
+      },
+      'C-02': {
+        tier: 'C',
+        title: 'The Drowned Man\'s Secret',
+        client: 'City Watch (Unofficial)',
+        location: 'Dawerton – Docks & Temple District',
+        duration: '3-7 days',
+        reward: '150 gp (Bonus: 25 gp for live capture of leader)',
+        combat: 'Yes – Cult encounter expected',
+        travel: 'None – Investigation within Dawerton',
+        description: 'A dock worker named Hennik Solt was found floating in the harbor with strange symbols carved into his chest. The Watch is overwhelmed and needs discreet investigators. The symbols appear ritualistic—possibly cult activity. This is an unofficial contract—handle with discretion.',
+        contact: 'Sergeant Kella Bryne',
+        contactLocation: 'City Watch Barracks, Temple District',
+        requirements: 'C-Tier rank or higher. Discretion mandatory.'
+      },
+      'C-03': {
+        tier: 'C',
+        title: 'The Sculptor\'s Debt',
+        client: 'Madame Elara Vance (Sealed Letter)',
+        location: 'Dawerton – Tidewatch Slums',
+        duration: '2-4 days',
+        reward: '175 gp (Bonus: 50 gp for complete discretion)',
+        combat: 'Likely – Hired thugs protecting debtor',
+        travel: 'None – Mission within Dawerton (Tidewatch Slums)',
+        description: 'A marble statue was stolen by Corvin Ashby, a debtor who fled to the Tidewatch Slums. Retrieve the statue intact—it cannot be damaged under any circumstances. The client values discretion highly. The Tidewatch Slums are controlled by the Mudlark gang—navigate carefully.',
+        contact: 'Registrar Yenna Cole (sealed instructions)',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'C-Tier rank or higher. Statue must not be damaged.'
+      },
+      'C-04': {
+        tier: 'C',
+        title: 'Beast of the Southern Road',
+        client: 'Caravan Collective',
+        location: 'Southern Road (Dawerton to Mortling Stronghold)',
+        duration: '5-7 days',
+        reward: '300 gp (Bonus: Beast pelt worth 100 gp)',
+        combat: 'Yes – Monster hunt',
+        travel: '~33km to Mortling (attack zone 15-20km from Dawerton)',
+        description: 'Something is attacking caravans on the road to Mortling Stronghold. Three attacks in two weeks. Survivors describe it as "wolf-like but wrong"—larger than normal, seems to phase through attacks. The Caravan Collective wants it dead. Bring proof of the kill.',
+        contact: 'Board Keeper Dax',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'C-Tier rank or higher. Combat capability essential.'
+      },
+      'B-01': {
+        tier: 'B',
+        title: 'The Saltmire Syndicate',
+        client: 'Dawerton City Council (Official)',
+        location: 'Dawerton Harbor and surrounding areas',
+        duration: '1-2 weeks',
+        reward: '800 gp + bounties on captured members (50 gp each)',
+        combat: 'Yes – Multiple engagements expected',
+        travel: 'None – Operation based in Dawerton',
+        description: 'A smuggling operation called the Saltmire Syndicate is running contraband through the harbor. The City Council wants them dismantled. The syndicate has 15-20 members, including a rumored spellcaster. Lethal force is authorized. Evidence of their operations is required for full payment.',
+        contact: 'Guildmaster Tobren Ashford',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'B-Tier rank or higher. Evidence collection mandatory.'
+      },
+      'B-02': {
+        tier: 'B',
+        title: 'The Collector\'s Request',
+        client: 'Anonymous (via sealed contract)',
+        location: 'Ashfall Crypts',
+        duration: 'Unknown – Previous team did not return',
+        reward: '1,200 gp',
+        combat: 'Yes – Undead presence confirmed',
+        travel: 'Travel to Ashfall Crypts required',
+        description: 'An anonymous collector seeks a specific artifact from a sealed tomb in the Ashfall Crypts. The tomb has been sealed for 200 years. The artifact is a bronze urn with silver inlay. WARNING: A previous team was sent and did not return. Undead presence has been confirmed. Prepare accordingly.',
+        contact: 'Registrar Yenna Cole (sealed instructions)',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'B-Tier rank or higher. Anti-undead capabilities strongly recommended.'
+      },
+      'A-01': {
+        tier: 'A',
+        title: 'Terror of Lavalto Lake – The Spehlina',
+        client: 'Joint Bounty (Dawerton / Crown of Braewood)',
+        location: 'Lavalto Lake',
+        duration: 'Unknown – Multiple previous attempts have failed',
+        reward: '10,000 gp (5,000 from Dawerton, 5,000 from Crown)',
+        combat: 'Yes – Gargantuan aquatic monster',
+        travel: 'Sea/lake travel required. Vessel recommended.',
+        description: 'A massive creature known as the Spehlina terrorizes Lavalto Lake. The monster has destroyed 12 ships in the past year with an estimated 60+ deaths. Local fishermen call it "The Bleeding Shadow." It only attacks at night, and survivors report "the water itself turned against them." The creature is aquatic, gargantuan, and highly aggressive. All previous hunting attempts have failed.',
+        contact: 'Guildmaster Tobren Ashford',
+        contactLocation: 'Wavecrest Hall, Dawerton Docks',
+        requirements: 'B-Tier rank or higher to officially accept. Killing without guild sanction forfeits the reward. Naval support available—speak to the Saltheart Crew at the docks.'
+      }
+    };
+
+    // DOM Elements
+    const missionPapers = document.querySelectorAll('.mission-paper');
+    const modal = document.getElementById('missionModal');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const tierTabs = document.querySelectorAll('.tier-tab');
+
+    // Open mission modal
+    missionPapers.forEach(paper => {
+      paper.addEventListener('click', () => {
+        const missionId = paper.dataset.mission;
+        const mission = missions[missionId];
+        
+        if (mission) {
+          document.getElementById('modalTierBadge').textContent = mission.tier;
+          document.getElementById('modalTierBadge').className = `tier-badge-large tier-${mission.tier.toLowerCase()}`;
+          document.getElementById('modalTitle').textContent = mission.title;
+          document.getElementById('modalClient').textContent = mission.client;
+          document.getElementById('modalLocation').textContent = mission.location;
+          document.getElementById('modalDuration').textContent = mission.duration;
+          document.getElementById('modalReward').textContent = mission.reward;
+          document.getElementById('modalCombat').textContent = mission.combat;
+          document.getElementById('modalTravel').textContent = mission.travel;
+          document.getElementById('modalDescription').textContent = mission.description;
+          document.getElementById('modalContact').textContent = mission.contact;
+          document.getElementById('modalContactLocation').textContent = mission.contactLocation;
+          document.getElementById('modalRequirements').textContent = mission.requirements;
+          
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Tier filtering
+    tierTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tier = tab.dataset.tier;
+        
+        // Update active tab
+        tierTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Filter missions
+        missionPapers.forEach(paper => {
+          if (tier === 'all' || paper.dataset.tier === tier) {
+            paper.style.display = '';
+            paper.classList.add('fade-in');
+          } else {
+            paper.style.display = 'none';
+            paper.classList.remove('fade-in');
+          }
+        });
+      });
+    });
+
+    // Add paper hover sound effect (optional enhancement)
+    missionPapers.forEach(paper => {
+      paper.addEventListener('mouseenter', () => {
+        paper.style.transform = paper.classList.contains('tilted-left') 
+          ? 'rotate(-2deg) translateY(-8px) scale(1.02)'
+          : paper.classList.contains('tilted-right')
+            ? 'rotate(2deg) translateY(-8px) scale(1.02)'
+            : 'translateY(-8px) scale(1.02)';
+      });
+      
+      paper.addEventListener('mouseleave', () => {
+        paper.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>

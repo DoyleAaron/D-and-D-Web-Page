@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Node Tool - Dayner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+    }
+    
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    
+    .sidebar {
+      width: 350px;
+      background: #16213e;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 2px solid #0f3460;
+    }
+    
+    h1 {
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    
+    .subtitle {
+      color: #888;
+      font-size: 0.85em;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #ffd700;
+      margin: 15px 0 10px;
+      font-size: 1em;
+    }
+    
+    .instructions {
+      background: #0f3460;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 0.85em;
+      line-height: 1.5;
+    }
+    
+    button {
+      background: #ffd700;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    button:hover { background: #e6c200; }
+    button.danger { background: #e94560; color: white; }
+    button.danger:hover { background: #c73e54; }
+    
+    .stats {
+      background: #0f3460;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+    
+    .stats span { color: #ffd700; font-weight: bold; }
+    
+    .node-list {
+      max-height: 250px;
+      overflow-y: auto;
+      background: #0a0a15;
+      border-radius: 4px;
+      padding: 8px;
+      font-family: monospace;
+      font-size: 0.8em;
+    }
+    
+    .node-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      margin-bottom: 4px;
+      border-radius: 4px;
+      background: rgba(255, 215, 0, 0.15);
+      border-left: 3px solid #ffd700;
+    }
+    
+    .node-item button { 
+      padding: 3px 8px; 
+      margin: 0; 
+      font-size: 0.75em; 
+    }
+    
+    .map-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #map {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: crosshair;
+    }
+    
+    /* Navigation node markers */
+    .nav-marker {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: #ffd700;
+      border: 2px solid #000;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 90;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .nav-marker:hover {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+    
+    /* Port markers (red, from saved data) */
+    .port-marker {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #e94560;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 80;
+      opacity: 0.7;
+    }
+    
+    .port-marker .label {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(233, 69, 96, 0.9);
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 8px;
+      white-space: nowrap;
+      color: white;
+    }
+    
+    .output-section {
+      margin-top: 15px;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 200px;
+      background: #0a0a15;
+      color: #4caf50;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.75em;
+    }
+    
+    .coordinate-display {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15, 52, 96, 0.95);
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-family: monospace;
+      z-index: 200;
+      font-size: 14px;
+    }
+    
+    .toggle-ports {
+      margin-bottom: 15px;
+    }
+    
+    .toggle-ports label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    
+    .toggle-ports input {
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>◆ Navigation Node Tool</h1>
+      <p class="subtitle">Click on water to place navigation waypoints</p>
+      
+      <div class="instructions">
+        <strong>Simple usage:</strong><br>
+        • Click anywhere on water to add a node<br>
+        • Nodes are auto-numbered (nav-1, nav-2, etc.)<br>
+        • Click a node marker to delete it<br>
+        • Copy the output when done
+      </div>
+      
+      <div class="toggle-ports">
+        <label>
+          <input type="checkbox" id="show-ports" checked onchange="render()">
+          Show port settlements (reference)
+        </label>
+      </div>
+      
+      <div class="stats">
+        Navigation Nodes: <span id="nav-count">0</span>
+      </div>
+      
+      <div style="margin-bottom: 15px;">
+        <button onclick="undoLast()">↩ Undo</button>
+        <button class="danger" onclick="clearAll()">Clear All</button>
+      </div>
+      
+      <h2>Placed Nodes</h2>
+      <div class="node-list" id="node-list">
+        <p style="color: #666; font-style: italic;">Click on map to add nodes</p>
+      </div>
+      
+      <div class="output-section">
+        <h2>Generated Code</h2>
+        <textarea id="output" readonly placeholder="Node data will appear here..."></textarea>
+        <button onclick="copyOutput()">📋 Copy to Clipboard</button>
+      </div>
+    </div>
+    
+    <div class="map-container" id="map-container">
+      <img id="map" src="../map.jpg" alt="Dayner Map">
+    </div>
+  </div>
+  
+  <div class="coordinate-display" id="coord-display">
+    X: 0.0% | Y: 0.0%
+  </div>
+
+  <script>
+    // Existing port settlements (for reference display)
+    const PORT_SETTLEMENTS = {
+      'port-kluimont': { name: 'Kluimont', x: 10.4, y: 31.3 },
+      'port-kilson': { name: 'Kilson', x: 10.9, y: 41 },
+      'port-aresphia': { name: 'Aresphia', x: 6.5, y: 37.4 },
+      'port-tarora': { name: 'Tarora', x: 18.7, y: 37.3 },
+      'port-erymont': { name: 'Erymont', x: 27.3, y: 25.3 },
+      'port-yuosburn': { name: 'Yuosburn', x: 30.2, y: 31.2 },
+      'port-volton': { name: 'Volton', x: 42.1, y: 23.3 },
+      'port-ajag': { name: 'Ajag', x: 40.3, y: 37.3 },
+      'port-eimgend': { name: 'Eimgend', x: 25.7, y: 40.1 },
+      'port-slonmore': { name: 'Slonmore', x: 51, y: 35.5 },
+      'port-okcaster': { name: 'Okcaster', x: 5.4, y: 53.7 },
+      'port-agosgas': { name: 'Agosgas', x: 4.1, y: 58.6 },
+      'port-islefield': { name: 'Islefield', x: 28.4, y: 69.8 },
+      'port-dawerton': { name: 'Dawerton', x: 61.4, y: 49.8 },
+      'port-flison': { name: 'Flison', x: 51.7, y: 50.4 },
+      'port-agosron': { name: 'Agosron', x: 49.3, y: 58.9 },
+      'port-rens': { name: 'Rens', x: 78.7, y: 73.7 },
+      'port-ioxyhull': { name: 'Ioxyhull', x: 94.9, y: 56.2 },
+      'port-braewood': { name: 'Braewood', x: 83.6, y: 47.4 },
+      'port-slada': { name: 'Slada', x: 90.1, y: 23.6 },
+      'port-borugham': { name: 'Borugham', x: 78, y: 29.4 },
+      'port-mortling': { name: 'Mortling', x: 66.8, y: 43.6 },
+      'port-adham': { name: 'Adham', x: 71.5, y: 41.6 },
+      'port-oyard': { name: 'Oyard', x: 93.6, y: 44.9 },
+      'port-ardismouth': { name: 'Ardismouth', x: 88.4, y: 38.7 },
+      'port-yhey': { name: 'Yhey', x: 32, y: 44.7 },
+      'port-resross': { name: 'Resross', x: 28.3, y: 44.5 },
+      'port-sable': { name: 'Sable', x: 40.3, y: 46.6 },
+      'port-qrey': { name: 'Qrey', x: 7.5, y: 23.3 },
+      'port-ukrolis': { name: 'Ukrolis', x: 37.5, y: 27.8 },
+      'port-wrando': { name: 'Wrando', x: 17.2, y: 58.3 },
+    };
+    
+    let navNodes = [];
+    let nodeCounter = 1;
+    
+    const map = document.getElementById('map');
+    const mapContainer = document.getElementById('map-container');
+    const coordDisplay = document.getElementById('coord-display');
+    
+    // Track mouse position
+    map.addEventListener('mousemove', (e) => {
+      const rect = map.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      coordDisplay.textContent = `X: ${x}% | Y: ${y}%`;
+    });
+    
+    // Add node on click
+    map.addEventListener('click', (e) => {
+      const rect = map.getBoundingClientRect();
+      const x = parseFloat(((e.clientX - rect.left) / rect.width * 100).toFixed(1));
+      const y = parseFloat(((e.clientY - rect.top) / rect.height * 100).toFixed(1));
+      
+      const node = {
+        id: `nav-${nodeCounter}`,
+        num: nodeCounter,
+        x: x,
+        y: y
+      };
+      
+      navNodes.push(node);
+      nodeCounter++;
+      
+      render();
+      updateOutput();
+    });
+    
+    function undoLast() {
+      if (navNodes.length === 0) return;
+      navNodes.pop();
+      render();
+      updateOutput();
+    }
+    
+    function clearAll() {
+      if (navNodes.length === 0) return;
+      if (!confirm('Clear all navigation nodes?')) return;
+      navNodes = [];
+      nodeCounter = 1;
+      render();
+      updateOutput();
+    }
+    
+    function deleteNode(index) {
+      navNodes.splice(index, 1);
+      render();
+      updateOutput();
+    }
+    
+    function render() {
+      // Clear existing markers
+      document.querySelectorAll('.nav-marker, .port-marker').forEach(m => m.remove());
+      
+      const rect = map.getBoundingClientRect();
+      const containerRect = mapContainer.getBoundingClientRect();
+      const offsetX = rect.left - containerRect.left;
+      const offsetY = rect.top - containerRect.top;
+      
+      // Draw port markers (reference)
+      const showPorts = document.getElementById('show-ports').checked;
+      if (showPorts) {
+        Object.values(PORT_SETTLEMENTS).forEach(port => {
+          const marker = document.createElement('div');
+          marker.className = 'port-marker';
+          marker.style.left = (offsetX + (port.x / 100) * rect.width) + 'px';
+          marker.style.top = (offsetY + (port.y / 100) * rect.height) + 'px';
+          marker.innerHTML = `<div class="label">${port.name}</div>`;
+          mapContainer.appendChild(marker);
+        });
+      }
+      
+      // Draw nav node markers
+      navNodes.forEach((node, i) => {
+        const marker = document.createElement('div');
+        marker.className = 'nav-marker';
+        marker.style.left = (offsetX + (node.x / 100) * rect.width) + 'px';
+        marker.style.top = (offsetY + (node.y / 100) * rect.height) + 'px';
+        marker.textContent = node.num;
+        marker.title = `${node.id}: (${node.x}, ${node.y})`;
+        marker.onclick = (e) => {
+          e.stopPropagation();
+          deleteNode(i);
+        };
+        mapContainer.appendChild(marker);
+      });
+      
+      // Update list
+      updateList();
+      
+      // Update stats
+      document.getElementById('nav-count').textContent = navNodes.length;
+    }
+    
+    function updateList() {
+      const list = document.getElementById('node-list');
+      
+      if (navNodes.length === 0) {
+        list.innerHTML = '<p style="color: #666; font-style: italic;">Click on map to add nodes</p>';
+        return;
+      }
+      
+      list.innerHTML = navNodes.map((n, i) => `
+        <div class="node-item">
+          <span>${n.id}: (${n.x}, ${n.y})</span>
+          <button class="danger" onclick="deleteNode(${i})">×</button>
+        </div>
+      `).join('');
+    }
+    
+    function updateOutput() {
+      let code = '// NAVIGATION NODES\n';
+      code += '// Waypoints in open water for routing ships between ports\n';
+      code += 'const NAV_NODES = {\n';
+      navNodes.forEach(n => {
+        code += `  '${n.id}': { x: ${n.x}, y: ${n.y} },\n`;
+      });
+      code += '};\n';
+      
+      document.getElementById('output').value = code;
+    }
+    
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+    
+    // Redraw on resize
+    window.addEventListener('resize', render);
+    
+    // Initial render
+    render();
+    updateOutput();
+  </script>
+</body>
+</html>

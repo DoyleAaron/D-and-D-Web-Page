@@ -1200,6 +1200,7 @@ const MapModule = (function() {
   // Store all settlements for the travel calculator
   let travelSettlements = [];
   let stopCounter = 2; // Start at 2 (from=0, to=1)
+  let currentTravelMode = 'road'; // 'road' or 'sea'
   
   function setupTravelCalculator() {
     const calcHeader = document.querySelector('.calc-header');
@@ -1234,21 +1235,28 @@ const MapModule = (function() {
       });
     }
     
-    // Travel mode button selection
-    const modeBtns = document.querySelectorAll('.mode-btn');
-    // Dropdown change handlers
-    const travelModeSelect = document.getElementById('travel-mode');
-    const roadPaceSelect = document.getElementById('road-pace');
-    const shipPaceSelect = document.getElementById('ship-pace');
+    // Travel mode toggle buttons
+    const modeToggleBtns = document.querySelectorAll('.mode-toggle-btn');
+    console.log('DEBUG: Found mode toggle buttons:', modeToggleBtns.length);
+    modeToggleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const mode = btn.dataset.mode;
+        console.log('DEBUG: Mode button clicked:', mode);
+        setTravelMode(mode);
+      });
+    });
     
-    if (travelModeSelect) {
-      travelModeSelect.addEventListener('change', calculateTravel);
-    }
+    // Dropdown change handlers
+    const roadPaceSelect = document.getElementById('road-pace');
+    const seaPaceSelect = document.getElementById('sea-pace');
+    
     if (roadPaceSelect) {
       roadPaceSelect.addEventListener('change', calculateTravel);
     }
-    if (shipPaceSelect) {
-      shipPaceSelect.addEventListener('change', calculateTravel);
+    if (seaPaceSelect) {
+      seaPaceSelect.addEventListener('change', calculateTravel);
     }
     
     // Calculate button
@@ -1279,6 +1287,86 @@ const MapModule = (function() {
         });
       }
     });
+  }
+  
+  function setTravelMode(mode) {
+    currentTravelMode = mode;
+    
+    // Update toggle button states
+    document.querySelectorAll('.mode-toggle-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.mode === mode);
+    });
+    
+    // Show/hide pace selectors
+    const roadPaceField = document.getElementById('road-pace-field');
+    const seaPaceField = document.getElementById('sea-pace-field');
+    const addStopBtn = document.getElementById('add-stop-btn');
+    
+    if (roadPaceField) roadPaceField.style.display = mode === 'road' ? 'block' : 'none';
+    if (seaPaceField) seaPaceField.style.display = mode === 'sea' ? 'block' : 'none';
+    
+    // Hide add stop button for sea travel (direct port-to-port only)
+    if (addStopBtn) addStopBtn.style.display = mode === 'road' ? 'inline-flex' : 'none';
+    
+    // Clear current selections
+    clearTravelSelections();
+    
+    // Repopulate dropdowns for new mode
+    setupSearchableDropdown('from');
+    setupSearchableDropdown('to');
+    
+    // Clear results
+    const resultDiv = document.getElementById('calc-result');
+    const pathDiv = document.getElementById('calc-path');
+    if (resultDiv) resultDiv.classList.remove('show');
+    if (pathDiv) pathDiv.classList.remove('show');
+    clearRouteFromMap();
+  }
+  
+  function clearTravelSelections() {
+    // Clear all search inputs and hidden values
+    const fromSearch = document.getElementById('search-from');
+    const toSearch = document.getElementById('search-to');
+    const fromHidden = document.getElementById('travel-from');
+    const toHidden = document.getElementById('travel-to');
+    
+    if (fromSearch) fromSearch.value = '';
+    if (toSearch) toSearch.value = '';
+    if (fromHidden) {
+      fromHidden.value = '';
+      fromHidden.dataset.name = '';
+      fromHidden.dataset.x = '';
+      fromHidden.dataset.y = '';
+    }
+    if (toHidden) {
+      toHidden.value = '';
+      toHidden.dataset.name = '';
+      toHidden.dataset.x = '';
+      toHidden.dataset.y = '';
+    }
+    
+    // Remove additional stops
+    const additionalStops = document.querySelectorAll('[data-stop]:not([data-stop="0"]):not([data-stop="1"])');
+    additionalStops.forEach(stop => stop.remove());
+  }
+  
+  function getAvailableLocations() {
+    if (currentTravelMode === 'sea') {
+      // Return only ports for sea travel
+      if (typeof SHIP_NETWORK !== 'undefined') {
+        return SHIP_NETWORK.getPortList().map(port => ({
+          id: port.id,
+          name: port.name,
+          x: SHIP_NETWORK.PORTS[port.id].x,
+          y: SHIP_NETWORK.PORTS[port.id].y,
+          isPort: true
+        }));
+      }
+      return [];
+    } else {
+      // Return all settlements for road travel
+      return travelSettlements;
+    }
   }
   
   function addNewStop() {
@@ -1390,25 +1478,32 @@ const MapModule = (function() {
     if (!dropdown) return;
     
     const search = searchText.toLowerCase();
-    const filtered = travelSettlements.filter(s => 
+    const locations = getAvailableLocations();
+    
+    const filtered = locations.filter(s => 
       s.name.toLowerCase().includes(search) || 
-      s.kingdomName.toLowerCase().includes(search)
+      (s.kingdomName && s.kingdomName.toLowerCase().includes(search))
     );
     
     if (filtered.length === 0) {
-      dropdown.innerHTML = '<div class="searchable-option" style="color: var(--text-secondary);">No settlements found</div>';
+      const noResultsText = currentTravelMode === 'sea' ? 'No ports found' : 'No settlements found';
+      dropdown.innerHTML = `<div class="searchable-option" style="color: var(--text-secondary);">${noResultsText}</div>`;
       return;
     }
     
-    dropdown.innerHTML = filtered.map(s => `
-      <div class="searchable-option" 
-           data-id="${s.id}" 
-           data-x="${s.x}" 
-           data-y="${s.y}"
-           data-name="${s.name}">
-        ${s.name}<span class="kingdom">${s.kingdomName}</span>
-      </div>
-    `).join('');
+    dropdown.innerHTML = filtered.map(s => {
+      const subtitle = currentTravelMode === 'sea' ? '<span class="kingdom">⚓ Port</span>' : 
+                       (s.kingdomName ? `<span class="kingdom">${s.kingdomName}</span>` : '');
+      return `
+        <div class="searchable-option" 
+             data-id="${s.id}" 
+             data-x="${s.x}" 
+             data-y="${s.y}"
+             data-name="${s.name}">
+          ${s.name}${subtitle}
+        </div>
+      `;
+    }).join('');
     
     // Add click handlers
     dropdown.querySelectorAll('.searchable-option').forEach(opt => {
@@ -1474,6 +1569,12 @@ const MapModule = (function() {
     
     if (!resultDiv || !pathDiv) return;
     
+    // Handle sea travel separately
+    if (currentTravelMode === 'sea') {
+      calculateSeaTravel();
+      return;
+    }
+    
     // Gather all stops
     const stops = [];
     const fromInput = document.getElementById('travel-from');
@@ -1513,8 +1614,10 @@ const MapModule = (function() {
     const stopsContainer = document.getElementById('calc-stops');
     const orderedStops = [];
     const stopFields = stopsContainer.querySelectorAll('.stop-field');
-    stopFields.forEach(field => {
+    console.log('DEBUG: Found stopFields:', stopFields.length);
+    stopFields.forEach((field, idx) => {
       const input = field.querySelector('input[type="hidden"]');
+      console.log(`DEBUG: Field ${idx}, input:`, input, 'value:', input ? input.value : 'no input');
       if (input && input.value) {
         orderedStops.push({
           id: input.value,
@@ -1524,6 +1627,7 @@ const MapModule = (function() {
         });
       }
     });
+    console.log('DEBUG: orderedStops:', orderedStops);
     
     if (orderedStops.length < 2) {
       resultDiv.innerHTML = '<div style="color: #e94560; text-align: center;">Please select at least origin and destination</div>';
@@ -1534,21 +1638,15 @@ const MapModule = (function() {
     }
     
     // Get travel options from dropdowns
-    const modeSelect = document.getElementById('travel-mode');
     const roadPaceSelect = document.getElementById('road-pace');
-    const shipPaceSelect = document.getElementById('ship-pace');
     
     const travelOptions = {
-      mode: modeSelect ? modeSelect.value : 'any',
-      roadPace: roadPaceSelect ? roadPaceSelect.value : 'normal',
-      shipPace: shipPaceSelect ? shipPaceSelect.value : 'normal'
+      pace: roadPaceSelect ? roadPaceSelect.value : 'normal'
     };
     
-    // Get speed values from ROAD_NETWORK
+    // Get speed value from ROAD_NETWORK
     const roadSpeed = ROAD_NETWORK && ROAD_NETWORK.TRAVEL_SPEEDS ? 
-      ROAD_NETWORK.TRAVEL_SPEEDS.road[travelOptions.roadPace] : 30;
-    const shipSpeed = ROAD_NETWORK && ROAD_NETWORK.TRAVEL_SPEEDS ? 
-      ROAD_NETWORK.TRAVEL_SPEEDS.ship[travelOptions.shipPace] : 50;
+      ROAD_NETWORK.TRAVEL_SPEEDS[travelOptions.pace] : 30;
     
     // Calculate total distance and collect all paths
     let totalDistance = 0;
@@ -1556,7 +1654,6 @@ const MapModule = (function() {
     let allPaths = [];
     let allPathResults = []; // Store full path results for road waypoints
     let hasRoadPath = true;
-    let usesShip = false;
     let noRouteFound = false;
     
     for (let i = 0; i < orderedStops.length - 1; i++) {
@@ -1574,37 +1671,22 @@ const MapModule = (function() {
           segmentPath = pathInfo.path;
           totalTravelTime += pathInfo.travelTime || (segmentDist / roadSpeed);
           allPathResults.push(pathInfo);
-          // Check if this segment uses ship routes
-          if (pathInfo.roadIds && pathInfo.roadIds.some(id => typeof id === 'string' && id.startsWith('ship-'))) {
-            usesShip = true;
-          }
         }
       }
       
       if (segmentDist === null) {
-        // No route found with current mode - show error
-        if (travelOptions.mode !== 'any') {
-          noRouteFound = true;
-          resultDiv.innerHTML = `
-            <div style="color: #e94560; text-align: center;">
-              <i class="fas fa-exclamation-triangle"></i>
-              <p>No ${travelOptions.mode === 'land-only' ? 'land' : 'sea'} route found between ${from.name} and ${to.name}</p>
-              <p style="font-size: 0.85em; opacity: 0.8;">Try "Any" mode or a different route</p>
-            </div>
-          `;
-          resultDiv.classList.add('show');
-          pathDiv.classList.remove('show');
-          clearRouteFromMap();
-          return;
-        }
-        
-        // Fallback to straight-line (only in "any" mode as last resort)
-        const percentDist = Math.sqrt(Math.pow(to.x - from.x, 2) + Math.pow(to.y - from.y, 2));
-        segmentDist = percentDist * KM_PER_PERCENT;
-        segmentPath = [from.id, to.id];
-        hasRoadPath = false;
-        totalTravelTime += segmentDist / roadSpeed;
-        allPathResults.push({ path: segmentPath, roadIds: [] });
+        // No route found - show error
+        noRouteFound = true;
+        resultDiv.innerHTML = `
+          <div style="color: #e94560; text-align: center;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>No road route found between ${from.name} and ${to.name}</p>
+          </div>
+        `;
+        resultDiv.classList.add('show');
+        pathDiv.classList.remove('show');
+        clearRouteFromMap();
+        return;
       }
       
       totalDistance += segmentDist;
@@ -1634,30 +1716,14 @@ const MapModule = (function() {
       travelTimeStr = 'Less than an hour';
     }
     
-    // Build mode description
-    let modeDesc = '';
-    // Check if sea-only route used land segments to reach ports
-    let seaOnlyUsedLand = false;
-    if (travelOptions.mode === 'sea-only') {
-      allPathResults.forEach(result => {
-        if (result._usedLandToPort || result._usedLandFromPort) {
-          seaOnlyUsedLand = true;
-        }
-      });
-    }
-    
-    if (travelOptions.mode === 'land-only') {
-      modeDesc = 'Land only';
-    } else if (travelOptions.mode === 'sea-only') {
-      if (seaOnlyUsedLand) {
-        modeDesc = 'Sea (via nearest port)';
-      } else {
-        modeDesc = 'Sea only';
-      }
-    } else if (usesShip) {
-      modeDesc = 'Mixed (land + sea)';
+    // Build pace description
+    let paceDesc = '';
+    if (travelOptions.pace === 'slow') {
+      paceDesc = 'Slow (can use stealth)';
+    } else if (travelOptions.pace === 'fast') {
+      paceDesc = 'Fast (-5 passive perception)';
     } else {
-      modeDesc = 'Land';
+      paceDesc = 'Normal';
     }
     
     // Build route string
@@ -1674,12 +1740,12 @@ const MapModule = (function() {
         <span class="value">${Math.round(totalDistance)} km</span>
       </div>
       <div class="result-row">
-        <span class="label">Travel Mode</span>
-        <span class="value">${modeDesc}</span>
+        <span class="label">Travel Pace</span>
+        <span class="value">${paceDesc}</span>
       </div>
       <div class="result-row">
-        <span class="label">Road/Ship Speed</span>
-        <span class="value">${roadSpeed}/${shipSpeed} km/day</span>
+        <span class="label">Speed</span>
+        <span class="value">${roadSpeed} km/day</span>
       </div>
       <div class="result-highlight">
         <div class="big-number">${travelTimeStr}</div>
@@ -1687,21 +1753,6 @@ const MapModule = (function() {
       </div>
     `;
     resultDiv.classList.add('show');
-    
-    // Build a map of which segments are ship routes
-    const shipSegments = new Set();
-    allPathResults.forEach(result => {
-      if (result.roadIds) {
-        result.roadIds.forEach((roadId, idx) => {
-          if (typeof roadId === 'string' && roadId.startsWith('ship-')) {
-            // Mark both nodes of this edge as ship-connected
-            if (result.path && idx < result.path.length - 1) {
-              shipSegments.add(`${result.path[idx]}->${result.path[idx + 1]}`);
-            }
-          }
-        });
-      }
-    });
     
     // Display path - filter out junction nodes for cleaner display
     if (allPaths.length > 0) {
@@ -1726,31 +1777,15 @@ const MapModule = (function() {
           if (found) nodeName = found.name;
         }
         
-        // Check if the next segment is a ship route (check through original allPaths for ship segments)
+        // Arrow between path steps
         let arrowType = '↓';
-        let arrowClass = 'road';
-        if (idx < displayPaths.length - 1) {
-          const nextNode = displayPaths[idx + 1];
-          // Check if any segment between current and next display node uses ship
-          const currentIdx = allPaths.indexOf(nodeId);
-          const nextIdx = allPaths.indexOf(nextNode);
-          for (let i = currentIdx; i < nextIdx; i++) {
-            const from = allPaths[i];
-            const to = allPaths[i + 1];
-            if (shipSegments.has(`${from}->${to}`) || shipSegments.has(`${to}->${from}`)) {
-              arrowType = '⛵';
-              arrowClass = 'ship';
-              break;
-            }
-          }
-        }
         
         return `
           <div class="path-step">
             <span class="step-num">${stepNum}</span>
             <span class="step-name">${nodeName}</span>
           </div>
-          ${idx < displayPaths.length - 1 ? `<div class="path-arrow ${arrowClass}">${arrowType}</div>` : ''}
+          ${idx < displayPaths.length - 1 ? `<div class="path-arrow road">${arrowType}</div>` : ''}
         `;
       }).join('');
       
@@ -1773,6 +1808,184 @@ const MapModule = (function() {
     }
   }
   
+  function calculateSeaTravel() {
+    const resultDiv = document.getElementById('calc-result');
+    const pathDiv = document.getElementById('calc-path');
+    
+    if (!resultDiv || !pathDiv) return;
+    
+    const fromInput = document.getElementById('travel-from');
+    const toInput = document.getElementById('travel-to');
+    
+    if (!fromInput?.value || !toInput?.value) {
+      resultDiv.innerHTML = '<div style="color: #e94560; text-align: center;">Please select origin and destination ports</div>';
+      resultDiv.classList.add('show');
+      pathDiv.classList.remove('show');
+      clearRouteFromMap();
+      return;
+    }
+    
+    const fromId = fromInput.value;
+    const toId = toInput.value;
+    const fromName = fromInput.dataset.name || fromId;
+    const toName = toInput.dataset.name || toId;
+    
+    // Get pace
+    const seaPaceSelect = document.getElementById('sea-pace');
+    const pace = seaPaceSelect ? seaPaceSelect.value : 'normal';
+    
+    // Calculate route using SHIP_NETWORK
+    if (typeof SHIP_NETWORK === 'undefined') {
+      resultDiv.innerHTML = '<div style="color: #e94560; text-align: center;">Ship routing system not available</div>';
+      resultDiv.classList.add('show');
+      return;
+    }
+    
+    const result = SHIP_NETWORK.calculateTravel(fromId, toId, pace);
+    
+    if (!result) {
+      resultDiv.innerHTML = `
+        <div style="color: #e94560; text-align: center;">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>No sea route found between ${fromName} and ${toName}</p>
+        </div>
+      `;
+      resultDiv.classList.add('show');
+      pathDiv.classList.remove('show');
+      clearRouteFromMap();
+      return;
+    }
+    
+    // Build pace description
+    let paceDesc = '';
+    if (pace === 'slow') {
+      paceDesc = 'Slow (careful sailing, bad weather)';
+    } else if (pace === 'fast') {
+      paceDesc = 'Fast (full sail, good winds)';
+    } else {
+      paceDesc = 'Normal';
+    }
+    
+    // Display result
+    resultDiv.innerHTML = `
+      <div class="result-header sea">
+        <i class="fas fa-ship"></i>
+        <span>${fromName} → ${toName}</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Distance</span>
+        <span class="value">${Math.round(result.distance)} miles</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Sailing Speed</span>
+        <span class="value">${paceDesc}</span>
+      </div>
+      <div class="result-row">
+        <span class="label">Speed</span>
+        <span class="value">${result.speed} mi/day</span>
+      </div>
+      <div class="result-highlight sea">
+        <div class="big-number">${result.daysFormatted}</div>
+        <div class="unit">estimated sailing time</div>
+      </div>
+    `;
+    resultDiv.classList.add('show');
+    
+    // Display path (ports only, hide nav nodes)
+    const portsInPath = result.path.filter(nodeId => nodeId.startsWith('port-'));
+    if (portsInPath.length > 0) {
+      let stepNum = 0;
+      const pathSteps = portsInPath.map((nodeId, idx) => {
+        stepNum++;
+        const portName = SHIP_NETWORK.PORTS[nodeId]?.name || nodeId;
+        return `
+          <div class="path-step sea">
+            <span class="step-num">${stepNum}</span>
+            <span class="step-name">${portName}</span>
+          </div>
+          ${idx < portsInPath.length - 1 ? '<div class="path-arrow sea">⚓</div>' : ''}
+        `;
+      }).join('');
+      
+      pathDiv.innerHTML = `
+        <div class="path-header sea">
+          <i class="fas fa-anchor"></i>
+          Sea Route (${result.path.length} waypoints)
+        </div>
+        <div class="path-list">
+          ${pathSteps}
+        </div>
+      `;
+      pathDiv.classList.add('show');
+      
+      // Draw sea route on map
+      drawSeaRouteOnMap(result.path);
+    } else {
+      pathDiv.classList.remove('show');
+    }
+  }
+  
+  function drawSeaRouteOnMap(pathNodeIds) {
+    clearRouteFromMap();
+    
+    if (!pathNodeIds || pathNodeIds.length < 2) return;
+    if (!mapWrapper) return;
+    
+    // Create SVG overlay
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.id = 'route-overlay';
+    svg.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;';
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    
+    // Get all coordinates
+    const allNodes = { ...SHIP_NETWORK.PORTS, ...SHIP_NETWORK.NAV_NODES };
+    const coords = pathNodeIds.map(nodeId => {
+      const node = allNodes[nodeId];
+      return node ? { x: node.x, y: node.y, isPort: nodeId.startsWith('port-') } : null;
+    }).filter(c => c);
+    
+    if (coords.length < 2) return;
+    
+    // Create dashed line for sea route
+    const pathD = coords.map((p, i) => (i === 0 ? 'M' : 'L') + p.x + ' ' + p.y).join(' ');
+    
+    // Shadow
+    const shadowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    shadowPath.setAttribute('d', pathD);
+    shadowPath.setAttribute('stroke', 'rgba(0,0,0,0.5)');
+    shadowPath.setAttribute('stroke-width', '0.6');
+    shadowPath.setAttribute('fill', 'none');
+    shadowPath.setAttribute('stroke-dasharray', '1,0.5');
+    svg.appendChild(shadowPath);
+    
+    // Main sea route (blue dashed)
+    const routePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    routePath.setAttribute('d', pathD);
+    routePath.setAttribute('stroke', '#1e90ff');
+    routePath.setAttribute('stroke-width', '0.4');
+    routePath.setAttribute('fill', 'none');
+    routePath.setAttribute('stroke-dasharray', '1,0.5');
+    routePath.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(routePath);
+    
+    // Add port markers
+    coords.forEach(p => {
+      if (p.isPort) {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', p.x);
+        circle.setAttribute('cy', p.y);
+        circle.setAttribute('r', '0.6');
+        circle.setAttribute('fill', '#1e90ff');
+        circle.setAttribute('stroke', 'white');
+        circle.setAttribute('stroke-width', '0.15');
+        svg.appendChild(circle);
+      }
+    });
+    
+    mapWrapper.appendChild(svg);
+  }
+
   // ========================================
   // ROUTE DRAWING ON MAP
   // ========================================
