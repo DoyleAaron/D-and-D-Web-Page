@@ -1,5 +1,5 @@
 """
-Cross-Reference Linking Script for D&D Lore Files
+Cross-Reference Linking Script for D&D Lore Filess
 Adds markdown hyperlinks between related entities (characters, settlements, POIs)
 """
 

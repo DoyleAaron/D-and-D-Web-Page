@@ -176,6 +176,22 @@
 </head>
 <body>
   <div class="map-page">
+    <!-- Page Header -->
+    <header class="map-page-header">
+      <div class="header-left">
+        <a href="index.html" class="back-btn" title="Back to Home">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-title">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>World of Dayner</span>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-fab">
+        <i class="fas fa-layer-group"></i>
+      </button>
+    </header>
+
     <!-- Main Map View -->
     <div class="map-view active">
       <!-- Map Header with Region Tabs -->
@@ -257,10 +273,13 @@
       <!-- Travel Calculator -->
       <div class="travel-calculator" id="travel-calculator">
         <div class="calc-header">
+          <div class="calc-drag-handle">
+            <span class="drag-bar"></span>
+          </div>
           <i class="fas fa-route"></i>
           <span>Travel Calculator</span>
-          <button class="calc-toggle" id="calc-toggle">
-            <i class="fas fa-chevron-down"></i>
+          <button class="calc-close" id="calc-close">
+            <i class="fas fa-times"></i>
           </button>
         </div>
         <div class="calc-body" id="calc-body">
@@ -345,16 +364,94 @@
       </div>
     </div>
 
-    <!-- Mobile Settlement List Toggle -->
-    <button class="mobile-list-toggle" id="mobile-list-toggle">
-      <i class="fas fa-list"></i>
-      View Settlements
-    </button>
+    <!-- Mobile Map Menu -->
+    <div class="mobile-map-menu-overlay" id="mobile-map-menu-overlay"></div>
+    <div class="mobile-map-menu" id="mobile-map-menu">
+      <div class="menu-header">
+        <span>Map Tools</span>
+        <button class="menu-close" id="menu-close">&times;</button>
+      </div>
+      <div class="menu-grid">
+        <button class="menu-item" id="menu-zoom-in"><i class="fas fa-plus"></i> Zoom In</button>
+        <button class="menu-item" id="menu-zoom-out"><i class="fas fa-minus"></i> Zoom Out</button>
+        <button class="menu-item" id="menu-reset"><i class="fas fa-home"></i> Reset</button>
+        <button class="menu-item" id="menu-fullscreen"><i class="fas fa-expand"></i> Fullscreen</button>
+      </div>
+      <div class="menu-list">
+        <button class="menu-row" id="menu-travel-calc">
+          <i class="fas fa-route"></i> 
+          <span>Travel Calculator</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="menu-row" id="menu-settlements">
+          <i class="fas fa-list"></i> 
+          <span>View Settlements</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="menu-row" id="menu-legend">
+          <i class="fas fa-map"></i> 
+          <span>Legend</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Legend -->
+    <div class="mobile-legend-container" id="mobile-legend-container">
+      <div class="mobile-legend-header">
+        <i class="fas fa-map"></i>
+        <span>Map Legend</span>
+        <button class="mobile-legend-close" id="mobile-legend-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="mobile-legend-content">
+        <div class="legend-section">
+          <div class="legend-subtitle">Settlements</div>
+          <div class="legend-item">
+            <div class="legend-dot capital"></div>
+            <span>Capital</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot large-city"></div>
+            <span>Large City</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot medium-city"></div>
+            <span>Medium City</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot town"></div>
+            <span>Town</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot village"></div>
+            <span>Village</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot poi"></div>
+            <span>Point of Interest</span>
+          </div>
+        </div>
+        <div class="legend-section">
+          <div class="legend-subtitle">Features</div>
+          <div class="legend-item">
+            <div class="legend-line road"></div>
+            <span>Roads</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-line river"></div>
+            <span>Rivers</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Mobile Settlement List -->
     <div class="settlement-list-container" id="settlement-list-container">
       <div class="settlement-list-header">
-        <span style="font-weight: 600; color: var(--accent-gold);">Settlements</span>
+        <i class="fas fa-list"></i>
+        <span>Settlements</span>
         <button class="settlement-list-close" id="settlement-list-close">
           <i class="fas fa-times"></i>
         </button>

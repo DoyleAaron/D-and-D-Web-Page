@@ -1185,6 +1185,7 @@ const MapModule = (function() {
 
     setupRegionTabs();
     setupMapControls();
+    setupMobileMenu();
     setupMapInteraction();
     setupTravelCalculator();
     renderSettlements();
@@ -1208,11 +1209,29 @@ const MapModule = (function() {
     const calculateBtn = document.getElementById('calculate-travel');
     const addStopBtn = document.getElementById('add-stop-btn');
     
-    // Toggle calculator
-    if (calcHeader && calcBody && calcToggle) {
-      calcHeader.addEventListener('click', () => {
-        calcBody.classList.toggle('collapsed');
-        calcToggle.classList.toggle('collapsed');
+    // Header click handler to minimize/maximize
+    if (calcHeader) {
+      calcHeader.addEventListener('click', (e) => {
+        // Don't toggle if clicking the close button
+        if (e.target.closest('.calc-close')) return;
+        
+        const calc = document.getElementById('travel-calculator');
+        if (calc) {
+          calc.classList.toggle('minimized');
+        }
+      });
+    }
+    
+    // Close button handler
+    const calcClose = document.getElementById('calc-close');
+    if (calcClose) {
+      calcClose.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent header click from triggering
+        const calc = document.getElementById('travel-calculator');
+        if (calc) {
+          calc.classList.remove('active');
+          calc.classList.remove('minimized');
+        }
       });
     }
     
@@ -2166,6 +2185,90 @@ const MapModule = (function() {
     
     updateMapTransform();
     updateZoomDisplay();
+  }
+
+  // ========================================
+  // MOBILE MENU
+  // ========================================
+  function setupMobileMenu() {
+    const fab = document.getElementById('mobile-menu-fab');
+    const menu = document.getElementById('mobile-map-menu');
+    const overlay = document.getElementById('mobile-map-menu-overlay');
+    const closeBtn = document.getElementById('menu-close');
+    
+    if (!fab || !menu || !overlay) return;
+    
+    function toggleMenu() {
+      menu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+    
+    fab.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Menu Actions
+    
+    // Zoom Controls
+    document.getElementById('menu-zoom-in')?.addEventListener('click', () => {
+      zoom(0.2);
+    });
+    
+    document.getElementById('menu-zoom-out')?.addEventListener('click', () => {
+      zoom(-0.2);
+    });
+    
+    document.getElementById('menu-reset')?.addEventListener('click', () => {
+      resetView();
+      toggleMenu();
+    });
+    
+    document.getElementById('menu-fullscreen')?.addEventListener('click', () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen();
+      }
+      toggleMenu();
+    });
+    
+    // Travel Calculator
+    document.getElementById('menu-travel-calc')?.addEventListener('click', () => {
+      const calc = document.getElementById('travel-calculator');
+      if (calc) {
+        calc.classList.add('active');
+        calc.classList.remove('minimized');
+        // Ensure body is expanded
+        const body = document.getElementById('calc-body');
+        if (body) body.classList.remove('collapsed');
+      }
+      toggleMenu();
+    });
+    
+    // Settlements List
+    document.getElementById('menu-settlements')?.addEventListener('click', () => {
+      const list = document.getElementById('settlement-list-container');
+      if (list) list.classList.add('open');
+      toggleMenu();
+    });
+    
+    // Legend
+    document.getElementById('menu-legend')?.addEventListener('click', () => {
+      const legendContainer = document.getElementById('mobile-legend-container');
+      if (legendContainer) legendContainer.classList.add('open');
+      toggleMenu();
+    });
+    
+    // Close buttons for settlement list and legend
+    document.getElementById('settlement-list-close')?.addEventListener('click', () => {
+      const list = document.getElementById('settlement-list-container');
+      if (list) list.classList.remove('open');
+    });
+    
+    document.getElementById('mobile-legend-close')?.addEventListener('click', () => {
+      const legendContainer = document.getElementById('mobile-legend-container');
+      if (legendContainer) legendContainer.classList.remove('open');
+    });
   }
 
   // ========================================

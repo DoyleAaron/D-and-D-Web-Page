@@ -75,123 +75,191 @@
       border-color: rgba(255, 255, 255, 0.5);
     }
 
-    /* Background Music Player */
-    .music-player {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
+    /* Music Dropdown */
+    .music-dropdown-container {
+      position: relative;
+    }
+    .music-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 300px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      padding: 16px;
+    }
+    .music-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .music-dropdown-header {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(26, 26, 46, 0.95);
-      padding: 10px 15px;
-      border-radius: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      transition: box-shadow 0.3s ease, transform 0.1s ease;
-      cursor: grab;
-      user-select: none;
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      font-size: 0.95rem;
     }
-    .music-player:active {
-      cursor: grabbing;
-    }
-    .music-player.dragging {
-      transition: none;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    }
-    .music-player.minimized {
-      padding: 8px;
-      gap: 4px;
-    }
-    .music-player.minimized .music-info,
-    .music-player.minimized .music-volume,
-    .music-player.minimized #music-next {
-      display: none;
-    }
-    .music-player.minimized #music-minimize {
-      width: 28px;
-      height: 28px;
-      font-size: 0.9rem;
+    .music-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .music-btn {
-      background: none;
-      border: none;
-      color: #e0e0e0;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
       cursor: pointer;
-      font-size: 1.2rem;
-      padding: 5px;
-      border-radius: 50%;
+      font-size: 1rem;
+      padding: 8px;
+      border-radius: 8px;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 35px;
-      height: 35px;
+      width: 40px;
+      height: 40px;
     }
     .music-btn:hover {
-      background: rgba(139, 69, 19, 0.3);
-      color: #d4af37;
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: white;
     }
     .music-btn.playing {
-      color: #d4af37;
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.7; }
     }
     .music-info {
-      display: flex;
-      flex-direction: column;
-      max-width: 150px;
+      flex: 1;
       overflow: hidden;
     }
     .music-track-name {
-      font-size: 0.75rem;
-      color: #aaa;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .music-volume {
+    .music-volume-control {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 10px;
     }
-    .music-volume input[type="range"] {
-      width: 60px;
-      height: 4px;
+    .music-volume-control i {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      width: 20px;
+    }
+    .music-volume-control input[type="range"] {
+      flex: 1;
+      height: 6px;
       -webkit-appearance: none;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 2px;
+      appearance: none;
+      background: transparent;
+      border-radius: 3px;
       cursor: pointer;
+      outline: none;
     }
-    .music-volume input[type="range"]::-webkit-slider-thumb {
+    .music-volume-control input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+    }
+    .music-volume-control input[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+    }
+    .music-volume-control input[type="range"]::-ms-track {
+      width: 100%;
+      height: 6px;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    .music-volume-control input[type="range"]::-ms-fill-lower {
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+    }
+    .music-volume-control input[type="range"]::-ms-fill-upper {
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+    }
+    .music-volume-control input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 12px;
-      height: 12px;
-      background: #d4af37;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: var(--color-accent);
       border-radius: 50%;
       cursor: pointer;
+      border: 2px solid #ffffff;
+      margin-top: -5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .music-volume input[type="range"]::-moz-range-thumb {
-      width: 12px;
-      height: 12px;
-      background: #d4af37;
+    .music-volume-control input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 8px rgba(233, 69, 96, 0.6);
+    }
+    .music-volume-control input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: var(--color-accent);
       border-radius: 50%;
       cursor: pointer;
-      border: none;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    @media (max-width: 600px) {
-      .music-player {
-        bottom: 70px;
-        right: 10px;
-        padding: 8px 12px;
-      }
-      .music-info {
-        display: none;
+    .music-volume-control input[type="range"]::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 8px rgba(233, 69, 96, 0.6);
+    }
+    .music-volume-control input[type="range"]::-ms-thumb {
+      width: 16px;
+      height: 16px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .music-volume-control input[type="range"]::-ms-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 8px rgba(233, 69, 96, 0.6);
+    }
+    #volume-value {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      min-width: 35px;
+      text-align: right;
+    }
+    @media (max-width: 768px) {
+      .music-dropdown {
+        width: 280px;
+        right: -10px;
       }
     }
   </style>
@@ -1321,15 +1389,17 @@
     <i class="fas fa-chevron-right"></i>
   </button>
   
+  <!-- Mobile Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <!-- Content Wrapper -->
   <div class="content-wrapper">
     <!-- Header -->
     <header class="header">
       <div class="header-left">
-        <div class="header-title">
-          <i class="fas fa-dragon"></i>
-          <span>Dayner</span>
-        </div>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
       
       <div class="header-center">
@@ -1370,6 +1440,35 @@
           <button class="header-btn" id="logout-btn" aria-label="Logout" title="Logout">
             <i class="fas fa-sign-out-alt"></i>
           </button>
+        </div>
+        
+        <!-- Music Player Toggle -->
+        <div class="music-dropdown-container">
+          <button class="header-btn" id="music-toggle-btn" aria-label="Music Player" title="Music Player">
+            <i class="fas fa-music"></i>
+          </button>
+          <div class="music-dropdown" id="music-dropdown">
+            <div class="music-dropdown-header">
+              <i class="fas fa-music"></i>
+              <span>Background Music</span>
+            </div>
+            <div class="music-controls">
+              <button class="music-btn" id="music-toggle" title="Play/Pause">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="music-btn" id="music-next" title="Next Track">
+                <i class="fas fa-forward"></i>
+              </button>
+              <div class="music-info">
+                <span class="music-track-name" id="music-track-name">Click to play</span>
+              </div>
+            </div>
+            <div class="music-volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" id="music-volume" min="0" max="100" value="30" title="Volume">
+              <span id="volume-value">30%</span>
+            </div>
+          </div>
         </div>
         
         <button class="header-btn" id="theme-toggle" aria-label="Toggle theme">
@@ -1859,25 +1958,7 @@
     </div>
   </div>
 
-  <!-- Background Music Player -->
+  <!-- Background Music Audio -->
   <audio id="bg-music" preload="auto"></audio>
-  <div class="music-player" id="music-player">
-    <button class="music-btn" id="music-toggle" title="Play/Pause Music">
-      <i class="fas fa-play"></i>
-    </button>
-    <button class="music-btn" id="music-next" title="Next Track">
-      <i class="fas fa-forward"></i>
-    </button>
-    <div class="music-info">
-      <span class="music-track-name" id="music-track-name">Click to play</span>
-    </div>
-    <div class="music-volume">
-      <i class="fas fa-volume-up" style="font-size: 0.8rem; color: var(--text-secondary);"></i>
-      <input type="range" id="music-volume" min="0" max="100" value="30" title="Volume">
-    </div>
-    <button class="music-btn" id="music-minimize" title="Minimize">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
 </body>
 </html>
