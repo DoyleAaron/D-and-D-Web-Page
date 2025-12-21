@@ -476,7 +476,7 @@ const ROAD_NETWORK = {
   },
 
   // Main pathfinding function with special handling for sea-only mode with landlocked settlements
-  // For sea-only: if start/end is landlocked, find nearest port and travel by land to/from it
+  // For sea-only: if start/end is landlocked, find nearest port and travel by land to/from it.
   findPath: function(startId, endId, options = {}) {
     const mode = options.mode || 'any';
     
