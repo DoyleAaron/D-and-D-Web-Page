@@ -484,9 +484,73 @@
     return 'fa-scroll';
   }
 
+  // Pool of interesting lore files for random selection
+  const FEATURED_LORE_POOL = [
+    // Characters
+    { file: "Character Lore/Modern Characters/Queen Maera Braeden.md", icon: "fa-crown", title: "Queen Maera Braeden", desc: "Ruler of Braewood" },
+    { file: "Character Lore/Modern Characters/King Tarvin Braeden IV.md", icon: "fa-crown", title: "King Tarvin Braeden IV", desc: "The King of Braewood" },
+    { file: "Character Lore/Modern Characters/King Roden II.md", icon: "fa-crown", title: "King Roden II", desc: "A powerful monarch" },
+    { file: "Character Lore/Modern Characters/Queen Atheliana Aeristel.md", icon: "fa-crown", title: "Queen Atheliana", desc: "A noble queen" },
+    { file: "Character Lore/Modern Characters/Lord Adrian Silwynn.md", icon: "fa-user-tie", title: "Lord Adrian Silwynn", desc: "A lord of influence" },
+    { file: "Character Lore/Modern Characters/High Archon Lysanthe Kilmora.md", icon: "fa-hat-wizard", title: "High Archon Lysanthe", desc: "Master of arcane arts" },
+    { file: "Character Lore/Modern Characters/Commander Seral.md", icon: "fa-shield-alt", title: "Commander Seral", desc: "Military leader" },
+    { file: "Character Lore/Modern Characters/Scrit.md", icon: "fa-user-secret", title: "Scrit", desc: "A mysterious figure" },
+    { file: "Character Lore/Modern Characters/Envoy Pasan.md", icon: "fa-scroll", title: "Envoy Pasan", desc: "Diplomat and messenger" },
+    { file: "Character Lore/Modern Characters/Liora.md", icon: "fa-star", title: "Liora", desc: "A notable character" },
+    { file: "Character Lore/Historic Characters/Balthazar The Great Wizard.md", icon: "fa-hat-wizard", title: "Balthazar the Great", desc: "Legendary wizard" },
+    { file: "Character Lore/Historic Characters/Pirate Queen Aris Steel-Eye.md", icon: "fa-skull-crossbones", title: "Pirate Queen Aris", desc: "Terror of the seas" },
+    { file: "Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md", icon: "fa-dragon", title: "Bagi the Brass Tempest", desc: "A fearsome creature" },
+    { file: "Character Lore/Beasts & Creatures/The Spehlina.md", icon: "fa-ghost", title: "The Spehlina", desc: "Mysterious being" },
+    // Player Characters
+    { file: "Character Lore/Player Characters/Leontius (Ronan).md", icon: "fa-dice-d20", title: "Leontius", desc: "Player character" },
+    { file: "Character Lore/Player Characters/Amdir Aeristel (Aaron).md", icon: "fa-dice-d20", title: "Amdir Aeristel", desc: "Player character" },
+    { file: "Character Lore/Player Characters/Blorf of Clan Beren(Kirk).md", icon: "fa-dice-d20", title: "Blorf of Clan Beren", desc: "Player character" },
+    { file: "Character Lore/Player Characters/Morjor the Enlightened (Jack).md", icon: "fa-dice-d20", title: "Morjor the Enlightened", desc: "Player character" },
+    { file: "Character Lore/Player Characters/Varin (Aiden).md", icon: "fa-dice-d20", title: "Varin", desc: "Player character" },
+    // Kingdoms & Locations
+    { file: "Kingdoms/Braewood/Braewood.md", icon: "fa-chess-rook", title: "Braewood Kingdom", desc: "A mighty realm" },
+    { file: "Kingdoms/Islefield/Islefield.md", icon: "fa-chess-rook", title: "Islefield Kingdom", desc: "Island nation" },
+    { file: "Kingdoms/Kluimont/Kluimont.md", icon: "fa-chess-rook", title: "Kluimont Kingdom", desc: "Mountain realm" },
+    { file: "Kingdoms/Lavalto/Lavalto.md", icon: "fa-chess-rook", title: "Lavalto Kingdom", desc: "Southern kingdom" },
+    { file: "Kingdoms/Braewood/Capital/Braewood City.md", icon: "fa-city", title: "Braewood City", desc: "Capital of Braewood" },
+    { file: "Kingdoms/Braewood/Large Cities/Eaveton.md", icon: "fa-city", title: "Eaveton", desc: "A major city" },
+    { file: "Kingdoms/Braewood/Large Cities/Phine.md", icon: "fa-city", title: "Phine", desc: "Coastal city" },
+    { file: "Kingdoms/Braewood/POI/The Grand Span.md", icon: "fa-archway", title: "The Grand Span", desc: "Legendary bridge" },
+    { file: "Kingdoms/Braewood/POI/Meriver Mountains.md", icon: "fa-mountain", title: "Meriver Mountains", desc: "Towering peaks" },
+    { file: "Kingdoms/Braewood/Medium City/Sheyton/The Mogged Pigeon.md", icon: "fa-beer", title: "The Mogged Pigeon", desc: "Famous tavern" },
+    // Lore & History
+    { file: "General Lore of Dayner/Demographics/Population.md", icon: "fa-users", title: "Population", desc: "Peoples of Dayner" },
+    { file: "General Lore of Dayner/History/Ancient History.md", icon: "fa-book", title: "Ancient History", desc: "Tales of old" },
+    { file: "General Lore of Dayner/History/Historic Battles.md", icon: "fa-crossed-swords", title: "Historic Battles", desc: "Wars of the past" },
+    { file: "General Lore of Dayner/History/Recent History.md", icon: "fa-clock", title: "Recent History", desc: "Modern events" },
+    { file: "General Lore of Dayner/Religion/Gods of Dayner.md", icon: "fa-sun", title: "Gods of Dayner", desc: "Divine pantheon" },
+    { file: "General Lore of Dayner/Organizations/The Wayfarers Accord.md", icon: "fa-handshake", title: "The Wayfarers Accord", desc: "Adventurer's guild" },
+    { file: "General Lore of Dayner/Organizations/The Arcane Synod.md", icon: "fa-magic", title: "The Arcane Synod", desc: "Mage organization" },
+    { file: "General Lore of Dayner/Organizations/The Red Scarves.md", icon: "fa-mask", title: "The Red Scarves", desc: "Mysterious group" },
+    { file: "General Lore of Dayner/Politics/Power & Disputes.md", icon: "fa-balance-scale", title: "Power & Disputes", desc: "Political intrigue" },
+    { file: "General Lore of Dayner/Geography & Climate/Overview.md", icon: "fa-globe", title: "Geography Overview", desc: "Land and climate" }
+  ];
+
+  function getRandomFeaturedLore(count = 4) {
+    const shuffled = [...FEATURED_LORE_POOL].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+  }
+
   function showHome() {
     hideSearchResults();
     document.querySelectorAll('.nav-item.active').forEach(i => i.classList.remove('active'));
+
+    // Get 4 random featured lore items
+    const randomLore = getRandomFeaturedLore(4);
+
+    // Build the feature cards HTML
+    const featureCardsHtml = randomLore.map(item => `
+      <div class="feature-card" data-action="load-file" data-file="${item.file}">
+        <div class="icon"><i class="fas ${item.icon}"></i></div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `).join('');
 
     contentArea.innerHTML = `
       <div class="map-container">
@@ -501,28 +565,18 @@
         <h1><i class="fas fa-dragon"></i> Welcome to Dayner</h1>
         <p>Welcome to the comprehensive lore compendium of Dayner. Navigate through the categories using the sidebar on the left.</p>
         
-        <h2><i class="fas fa-compass"></i> Where to Start</h2>
+        <h2><i class="fas fa-compass"></i> Discover Lore <small style="font-size: 0.6em; opacity: 0.7;">(refreshes on page load)</small></h2>
         <div class="info-grid">
-          <div class="feature-card" data-action="load-file" data-file="Character Lore/Modern Characters/Queen Maera Braeden.md">
-            <div class="icon"><i class="fas fa-crown"></i></div>
-            <h3>Queen Maera Braeden</h3>
-            <p>Meet the Queen of Braewood</p>
-          </div>
-          <div class="feature-card" data-action="load-file" data-file="General Lore of Dayner/Population.md">
-            <div class="icon"><i class="fas fa-users"></i></div>
-            <h3>Population</h3>
-            <p>The peoples and races of Dayner</p>
-          </div>
-          <div class="feature-card" data-action="load-file" data-file="Kingdoms/Braewood/Braewood.md">
-            <div class="icon"><i class="fas fa-chess-rook"></i></div>
-            <h3>Braewood</h3>
-            <p>Explore the kingdom of Braewood</p>
-          </div>
-          <div class="feature-card" data-action="calendar">
-            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-            <h3>Campaign Calendar</h3>
-            <p>Track your adventures through time</p>
-          </div>
+          ${featureCardsHtml}
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="btn btn-secondary" onclick="showHome()">
+            <i class="fas fa-sync-alt"></i> Show Different Lore
+          </button>
+          <button class="btn btn-primary" onclick="showCalendarView()">
+            <i class="fas fa-calendar-alt"></i> Campaign Calendar
+          </button>
         </div>
       </div>
     `;

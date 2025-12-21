@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Port & Navigation Node Tool - Dayner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+    }
+    
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    
+    .sidebar {
+      width: 380px;
+      background: #16213e;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 2px solid #0f3460;
+    }
+    
+    h1 {
+      color: #4da8da;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+    
+    .subtitle {
+      color: #888;
+      font-size: 0.85em;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #4da8da;
+      margin: 20px 0 10px;
+      font-size: 1.1em;
+      border-bottom: 1px solid #0f3460;
+      padding-bottom: 5px;
+    }
+    
+    .instructions {
+      background: #0f3460;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.85em;
+      line-height: 1.6;
+    }
+    
+    .instructions ol {
+      margin-left: 20px;
+    }
+    
+    .mode-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .mode-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #0f3460;
+      border-radius: 8px;
+      background: #1a1a2e;
+      color: #888;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    
+    .mode-btn:hover {
+      border-color: #4da8da;
+      color: #4da8da;
+    }
+    
+    .mode-btn.active {
+      border-color: #4da8da;
+      background: #4da8da;
+      color: #1a1a2e;
+    }
+    
+    .mode-btn.port.active { background: #e94560; border-color: #e94560; }
+    .mode-btn.nav.active { background: #ffd700; border-color: #ffd700; color: #000; }
+    
+    .controls {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #4da8da;
+      font-size: 0.9em;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      background: #1a1a2e;
+      color: #eee;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    button {
+      background: #4da8da;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    button:hover { background: #3d8db8; }
+    button.danger { background: #e94560; color: white; }
+    button.danger:hover { background: #c73e54; }
+    
+    .node-list {
+      max-height: 200px;
+      overflow-y: auto;
+      background: #0a0a15;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    
+    .node-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    
+    .node-item.port {
+      background: rgba(233, 69, 96, 0.2);
+      border-left: 3px solid #e94560;
+    }
+    
+    .node-item.nav {
+      background: rgba(255, 215, 0, 0.2);
+      border-left: 3px solid #ffd700;
+    }
+    
+    .node-item .name { font-weight: bold; }
+    .node-item .coords { color: #888; font-family: monospace; font-size: 0.8em; }
+    .node-item button { padding: 4px 8px; margin: 0; font-size: 0.75em; }
+    
+    .map-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #map {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: crosshair;
+    }
+    
+    /* Port markers */
+    .port-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #e94560;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    
+    .port-marker:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    
+    .port-marker .label {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(233, 69, 96, 0.9);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      white-space: nowrap;
+      color: white;
+    }
+    
+    /* Navigation node markers */
+    .nav-marker {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: #ffd700;
+      border: 2px solid #000;
+      border-radius: 3px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      cursor: pointer;
+      z-index: 90;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    
+    .nav-marker:hover {
+      transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+    }
+    
+    .nav-marker .label {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg);
+      background: rgba(255, 215, 0, 0.9);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      white-space: nowrap;
+      color: #000;
+    }
+    
+    .output-section {
+      margin-top: 20px;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 180px;
+      background: #0a0a15;
+      color: #4caf50;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.8em;
+    }
+    
+    .coordinate-display {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15, 52, 96, 0.95);
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-family: monospace;
+      z-index: 200;
+      font-size: 14px;
+    }
+    
+    .legend {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      font-size: 0.85em;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+    
+    .legend-dot.port { background: #e94560; border: 2px solid white; }
+    .legend-dot.nav { background: #ffd700; border: 2px solid black; border-radius: 3px; transform: rotate(45deg); }
+    
+    .stats {
+      background: #0f3460;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+    
+    .stats span { color: #4da8da; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>⚓ Port & Navigation Node Tool</h1>
+      <p class="subtitle">Define port locations and navigation waypoints for ship routes</p>
+      
+      <div class="instructions">
+        <strong>How to use:</strong>
+        <ol>
+          <li>Select <strong>Port Mode</strong> - click on coastal settlements to mark their ports</li>
+          <li>Select <strong>Nav Node Mode</strong> - click in water to add navigation waypoints</li>
+          <li>Name each node before clicking</li>
+          <li>Copy generated code to use for ship routing</li>
+        </ol>
+      </div>
+      
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot port"></div> Port</div>
+        <div class="legend-item"><div class="legend-dot nav"></div> Nav Node</div>
+      </div>
+      
+      <div class="mode-buttons">
+        <button class="mode-btn port active" onclick="setMode('port')">⚓ Port Mode</button>
+        <button class="mode-btn nav" onclick="setMode('nav')">◆ Nav Node Mode</button>
+      </div>
+      
+      <div class="controls">
+        <label id="name-label">Port Settlement Name:</label>
+        <input type="text" id="node-name" placeholder="e.g., Kluimont City">
+        
+        <label>Region (optional):</label>
+        <select id="node-region">
+          <option value="">-- Select Region --</option>
+          <option value="ocean_north">Ocean North (Rimduff Sea)</option>
+          <option value="ocean_east">Ocean East (Braewood Coast)</option>
+          <option value="ocean_south">Ocean South</option>
+          <option value="ocean_west">Ocean West (Islefield Coast)</option>
+          <option value="lavalto_lake">Lavalto Lake</option>
+          <option value="river">River</option>
+        </select>
+      </div>
+      
+      <div class="stats">
+        Ports: <span id="port-count">0</span> | 
+        Nav Nodes: <span id="nav-count">0</span>
+      </div>
+      
+      <h2>⚓ Port Settlements</h2>
+      <div class="node-list" id="port-list">
+        <p style="color: #666; font-style: italic;">No ports marked yet</p>
+      </div>
+      
+      <h2>◆ Navigation Nodes</h2>
+      <div class="node-list" id="nav-list">
+        <p style="color: #666; font-style: italic;">No navigation nodes yet</p>
+      </div>
+      
+      <div style="margin-top: 15px;">
+        <button class="danger" onclick="clearAll()">Clear All</button>
+        <button onclick="undoLast()">Undo Last</button>
+      </div>
+      
+      <div class="output-section">
+        <h2>Generated Code</h2>
+        <textarea id="output" readonly placeholder="Node data will appear here..."></textarea>
+        <button onclick="copyOutput()">📋 Copy to Clipboard</button>
+        <button onclick="generateMarkdown()">📄 Generate Markdown</button>
+      </div>
+    </div>
+    
+    <div class="map-container" id="map-container">
+      <img id="map" src="../map.jpg" alt="Dayner Map">
+    </div>
+  </div>
+  
+  <div class="coordinate-display" id="coord-display">
+    X: 0.0% | Y: 0.0%
+  </div>
+
+  <script>
+    let mode = 'port'; // 'port' or 'nav'
+    let ports = [];
+    let navNodes = [];
+    let allActions = []; // For undo
+    
+    const map = document.getElementById('map');
+    const mapContainer = document.getElementById('map-container');
+    const coordDisplay = document.getElementById('coord-display');
+    const nodeNameInput = document.getElementById('node-name');
+    const nodeRegionSelect = document.getElementById('node-region');
+    
+    function setMode(newMode) {
+      mode = newMode;
+      document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.mode-btn.${newMode}`).classList.add('active');
+      
+      const label = document.getElementById('name-label');
+      if (mode === 'port') {
+        label.textContent = 'Port Settlement Name:';
+        nodeNameInput.placeholder = 'e.g., Kluimont City';
+      } else {
+        label.textContent = 'Navigation Node Name:';
+        nodeNameInput.placeholder = 'e.g., Rimduff Channel East';
+      }
+    }
+    
+    // Track mouse position
+    map.addEventListener('mousemove', (e) => {
+      const rect = map.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      coordDisplay.textContent = `X: ${x}% | Y: ${y}%`;
+    });
+    
+    let navNodeCounter = 1;
+    
+    // Add node on click
+    map.addEventListener('click', (e) => {
+      const rect = map.getBoundingClientRect();
+      const x = parseFloat(((e.clientX - rect.left) / rect.width * 100).toFixed(1));
+      const y = parseFloat(((e.clientY - rect.top) / rect.height * 100).toFixed(1));
+      const region = nodeRegionSelect.value;
+      
+      let name, id;
+      
+      if (mode === 'port') {
+        // Ports still require a name
+        name = nodeNameInput.value.trim();
+        if (!name) {
+          alert('Please enter a name for the port');
+          nodeNameInput.focus();
+          return;
+        }
+        id = `port-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`;
+      } else {
+        // Nav nodes auto-numbered
+        name = `Node ${navNodeCounter}`;
+        id = `nav-${navNodeCounter}`;
+        navNodeCounter++;
+      }
+      
+      const node = {
+        id: id,
+        name: name,
+        x: x,
+        y: y,
+        region: region,
+        type: mode
+      };
+      
+      if (mode === 'port') {
+        // Check for duplicate
+        if (ports.find(p => p.name === name)) {
+          if (!confirm(`Port "${name}" already exists. Add anyway?`)) return;
+        }
+        ports.push(node);
+        allActions.push({ type: 'port', node });
+      } else {
+        navNodes.push(node);
+        allActions.push({ type: 'nav', node });
+      }
+      
+      nodeNameInput.value = '';
+      render();
+      updateOutput();
+    });
+    
+    function undoLast() {
+      if (allActions.length === 0) return;
+      
+      const last = allActions.pop();
+      if (last.type === 'port') {
+        ports = ports.filter(p => p !== last.node);
+      } else {
+        navNodes = navNodes.filter(n => n !== last.node);
+      }
+      
+      render();
+      updateOutput();
+    }
+    
+    function clearAll() {
+      if (ports.length === 0 && navNodes.length === 0) return;
+      if (!confirm('Clear all ports and navigation nodes?')) return;
+      
+      ports = [];
+      navNodes = [];
+      allActions = [];
+      render();
+      updateOutput();
+    }
+    
+    function deleteNode(type, index) {
+      if (type === 'port') {
+        ports.splice(index, 1);
+      } else {
+        navNodes.splice(index, 1);
+      }
+      render();
+      updateOutput();
+    }
+    
+    function render() {
+      // Clear existing markers
+      document.querySelectorAll('.port-marker, .nav-marker').forEach(m => m.remove());
+      
+      const rect = map.getBoundingClientRect();
+      const containerRect = mapContainer.getBoundingClientRect();
+      const offsetX = rect.left - containerRect.left;
+      const offsetY = rect.top - containerRect.top;
+      
+      // Draw port markers
+      ports.forEach((port, i) => {
+        const marker = document.createElement('div');
+        marker.className = 'port-marker';
+        marker.style.left = (offsetX + (port.x / 100) * rect.width) + 'px';
+        marker.style.top = (offsetY + (port.y / 100) * rect.height) + 'px';
+        marker.innerHTML = `<div class="label">${port.name}</div>`;
+        marker.onclick = (e) => {
+          e.stopPropagation();
+          if (confirm(`Delete port "${port.name}"?`)) {
+            deleteNode('port', i);
+          }
+        };
+        mapContainer.appendChild(marker);
+      });
+      
+      // Draw nav node markers
+      navNodes.forEach((node, i) => {
+        const marker = document.createElement('div');
+        marker.className = 'nav-marker';
+        marker.style.left = (offsetX + (node.x / 100) * rect.width) + 'px';
+        marker.style.top = (offsetY + (node.y / 100) * rect.height) + 'px';
+        marker.innerHTML = `<div class="label">${node.name}</div>`;
+        marker.onclick = (e) => {
+          e.stopPropagation();
+          if (confirm(`Delete nav node "${node.name}"?`)) {
+            deleteNode('nav', i);
+          }
+        };
+        mapContainer.appendChild(marker);
+      });
+      
+      // Update lists
+      updateLists();
+      
+      // Update stats
+      document.getElementById('port-count').textContent = ports.length;
+      document.getElementById('nav-count').textContent = navNodes.length;
+    }
+    
+    function updateLists() {
+      const portList = document.getElementById('port-list');
+      const navList = document.getElementById('nav-list');
+      
+      if (ports.length === 0) {
+        portList.innerHTML = '<p style="color: #666; font-style: italic;">No ports marked yet</p>';
+      } else {
+        portList.innerHTML = ports.map((p, i) => `
+          <div class="node-item port">
+            <div>
+              <div class="name">${p.name}</div>
+              <div class="coords">(${p.x}, ${p.y})${p.region ? ' - ' + p.region : ''}</div>
+            </div>
+            <button class="danger" onclick="deleteNode('port', ${i})">×</button>
+          </div>
+        `).join('');
+      }
+      
+      if (navNodes.length === 0) {
+        navList.innerHTML = '<p style="color: #666; font-style: italic;">No navigation nodes yet</p>';
+      } else {
+        navList.innerHTML = navNodes.map((n, i) => `
+          <div class="node-item nav">
+            <div>
+              <div class="name">${n.name}</div>
+              <div class="coords">(${n.x}, ${n.y})${n.region ? ' - ' + n.region : ''}</div>
+            </div>
+            <button class="danger" onclick="deleteNode('nav', ${i})">×</button>
+          </div>
+        `).join('');
+      }
+    }
+    
+    function updateOutput() {
+      let code = '// PORT SETTLEMENTS\n';
+      code += '// These are settlements with harbors that ships can dock at\n';
+      code += 'const PORT_SETTLEMENTS = {\n';
+      ports.forEach(p => {
+        code += `  '${p.id}': { name: '${p.name}', x: ${p.x}, y: ${p.y}${p.region ? `, region: '${p.region}'` : ''} },\n`;
+      });
+      code += '};\n\n';
+      
+      code += '// NAVIGATION NODES\n';
+      code += '// Waypoints in open water for routing ships between ports\n';
+      code += 'const NAV_NODES = {\n';
+      navNodes.forEach(n => {
+        code += `  '${n.id}': { name: '${n.name}', x: ${n.x}, y: ${n.y}${n.region ? `, region: '${n.region}'` : ''} },\n`;
+      });
+      code += '};\n\n';
+      
+      code += '// ALL VIABLE SHIP NODES (ports + nav nodes)\n';
+      code += 'const ALL_SHIP_NODES = { ...PORT_SETTLEMENTS, ...NAV_NODES };\n';
+      
+      document.getElementById('output').value = code;
+    }
+    
+    function generateMarkdown() {
+      let md = '# Port Settlements & Navigation Nodes\n\n';
+      md += '## Port Settlements\n\n';
+      md += '| Name | ID | X | Y | Region |\n';
+      md += '|------|----|----|----|---------|\n';
+      ports.forEach(p => {
+        md += `| ${p.name} | ${p.id} | ${p.x} | ${p.y} | ${p.region || '-'} |\n`;
+      });
+      
+      md += '\n## Navigation Nodes\n\n';
+      md += '| Name | ID | X | Y | Region |\n';
+      md += '|------|----|----|----|---------|\n';
+      navNodes.forEach(n => {
+        md += `| ${n.name} | ${n.id} | ${n.x} | ${n.y} | ${n.region || '-'} |\n`;
+      });
+      
+      document.getElementById('output').value = md;
+    }
+    
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Copied to clipboard!');
+    }
+    
+    // Redraw on resize
+    window.addEventListener('resize', render);
+    
+    // Initial render
+    render();
+    updateOutput();
+  </script>
+</body>
+</html>

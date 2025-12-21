@@ -81,7 +81,7 @@ const ROAD_NETWORK = {
     'ioxyhull-junction': { name: 'Road Junction', x: 84.4, y: 56.9, isJunction: true },
     'yhey-junction': { name: 'Road Junction', x: 33.3, y: 37.6, isJunction: true },
     'eimgend-city': { name: 'Eimgend', x: 28.2, y: 35.4 },
-    // Additional port/river settlements for ship routes
+    // Additional settlements
     'erymont': { name: 'Erymont', x: 26.4, y: 4.3 },
     'mara': { name: 'Mara', x: 29.8, y: 6.9 },
   },
@@ -219,152 +219,21 @@ const ROAD_NETWORK = {
     
 
     // === EIMGEND / INEROSS / SHEYTON CONNECTIONS ===
-    { id: 68, length: 36, start: 'sheyton', end: 'ineross', pathIndex: 53 },
-
-    // ===========================================
-    // WATER ROUTES - Using waterPathIndex to reference DAYNER_WATER_ROUTES
-    // Generated: December 17, 2025
-    // All routes follow actual water paths (rivers, lakes, ocean)
-    // waterPathIndex references DAYNER_WATER_ROUTES.routes[index]
-    // ===========================================
-
-    // === MAIN BRAEWOOD-ISLEFIELD WATER ROUTE (12 stops) ===
-    // Route: Braewood City â†’ Eaveton â†’ Gitstin â†’ Kadena â†’ Rye â†’ 
-    //        Antstel â†’ Halten â†’ Praso â†’ Beyross â†’ Cok â†’ Cheling â†’ Islefield City
-    
-    { id: 'ship-braewood-eaveton', length: 60, start: 'braewood-city', end: 'eaveton', isShipRoute: true, waterPathIndex: 0 },
-    { id: 'ship-eaveton-gitstin', length: 30, start: 'eaveton', end: 'gitstin', isShipRoute: true, waterPathIndex: 1 },
-    { id: 'ship-gitstin-kadena', length: 35, start: 'gitstin', end: 'kadena', isShipRoute: true, waterPathIndex: 2 },
-    { id: 'ship-kadena-rye', length: 20, start: 'kadena', end: 'rye', isShipRoute: true, waterPathIndex: 3 },
-    { id: 'ship-rye-antstel', length: 20, start: 'rye', end: 'antstel', isShipRoute: true, waterPathIndex: 4 },
-    { id: 'ship-antstel-halten', length: 15, start: 'antstel', end: 'halten', isShipRoute: true, waterPathIndex: 5 },
-    { id: 'ship-halten-praso', length: 40, start: 'halten', end: 'praso', isShipRoute: true, waterPathIndex: 6 },
-    { id: 'ship-praso-beyross', length: 35, start: 'praso', end: 'beyross', isShipRoute: true, waterPathIndex: 7 },
-    { id: 'ship-beyross-cok', length: 25, start: 'beyross', end: 'cok', isShipRoute: true, waterPathIndex: 8 },
-    { id: 'ship-cok-cheling', length: 20, start: 'cok', end: 'cheling', isShipRoute: true, waterPathIndex: 9 },
-    { id: 'ship-cheling-islefield', length: 25, start: 'cheling', end: 'islefield-city', isShipRoute: true, waterPathIndex: 10 },
-
-    // === EAST COAST OCEAN ROUTES ===
-    { id: 'ship-slada-borugham', length: 40, start: 'slada', end: 'borugham', isShipRoute: true, waterPathIndex: 11 },
-    { id: 'ship-borugham-ardismouth', length: 60, start: 'borugham', end: 'ardismouth', isShipRoute: true, waterPathIndex: 12 },
-    { id: 'ship-ardismouth-oyard', length: 25, start: 'ardismouth', end: 'oyard', isShipRoute: true, waterPathIndex: 13 },
-    { id: 'ship-oyard-ioxyhull', length: 50, start: 'oyard', end: 'ioxyhull', isShipRoute: true, waterPathIndex: 14 },
-    { id: 'ship-ioxyhull-rens', length: 80, start: 'ioxyhull', end: 'rens', isShipRoute: true, waterPathIndex: 15 },
-
-    // === SOUTH COAST ROUTES ===
-    { id: 'ship-rens-trares', length: 30, start: 'rens', end: 'trares', isShipRoute: true, waterPathIndex: 16 },
-    { id: 'ship-trares-dalo', length: 25, start: 'trares', end: 'dalo', isShipRoute: true, waterPathIndex: 17 },
-    { id: 'ship-dalo-frore', length: 20, start: 'dalo', end: 'frore', isShipRoute: true, waterPathIndex: 18 },
-    { id: 'ship-rens-esterhull', length: 160, start: 'rens', end: 'esterhull', isShipRoute: true, waterPathIndex: 19 },
-    { id: 'ship-esterhull-ulsall', length: 35, start: 'esterhull', end: 'ulsall', isShipRoute: true, waterPathIndex: 20 },
-    { id: 'ship-ulsall-cheling', length: 25, start: 'ulsall', end: 'cheling', isShipRoute: true, waterPathIndex: 21 },
-
-    // === BRAEWOOD RIVER SYSTEM ===
-    { id: 'ship-braewood-mortling', length: 35, start: 'braewood-city', end: 'mortling-stronghold', isShipRoute: true, waterPathIndex: 22 },
-    { id: 'ship-mortling-adaham', length: 15, start: 'mortling-stronghold', end: 'adaham', isShipRoute: true, waterPathIndex: 23 },
-    { id: 'ship-adaham-sheyton', length: 45, start: 'adaham', end: 'sheyton', isShipRoute: true, waterPathIndex: 24 },
-    { id: 'ship-sheyton-dawerton', length: 30, start: 'sheyton', end: 'dawerton', isShipRoute: true, waterPathIndex: 25 },
-    { id: 'ship-dawerton-flison', length: 20, start: 'dawerton', end: 'flison', isShipRoute: true, waterPathIndex: 26 },
-    { id: 'ship-flison-agosron', length: 30, start: 'flison', end: 'agosron', isShipRoute: true, waterPathIndex: 27 },
-    { id: 'ship-agosron-avinin', length: 25, start: 'agosron', end: 'avinin', isShipRoute: true, waterPathIndex: 28 },
-    { id: 'ship-avinin-antstel', length: 20, start: 'avinin', end: 'antstel', isShipRoute: true, waterPathIndex: 29 },
-
-    // === LAKE ROUTES (Lavalto Lake) ===
-    { id: 'ship-eaveton-dawerton', length: 50, start: 'eaveton', end: 'dawerton', isShipRoute: true, waterPathIndex: 30 },
-    { id: 'ship-gitstin-agosron', length: 45, start: 'gitstin', end: 'agosron', isShipRoute: true, waterPathIndex: 31 },
-
-    // === KLUIMONT RIVER SYSTEM ===
-    { id: 'ship-vorton-strane', length: 8, start: 'vorton', end: 'strane', isShipRoute: true, waterPathIndex: 32 },
-    { id: 'ship-vorton-slonmore', length: 70, start: 'vorton', end: 'slonmore', isShipRoute: true, waterPathIndex: 33 },
-    { id: 'ship-slonmore-ajag', length: 30, start: 'slonmore', end: 'ajag', isShipRoute: true, waterPathIndex: 34 },
-    { id: 'ship-kluimont-tarora', length: 40, start: 'kluimont-city', end: 'tarora', isShipRoute: true, waterPathIndex: 35 },
-    { id: 'ship-tarora-aresphia', length: 30, start: 'tarora', end: 'aresphia', isShipRoute: true, waterPathIndex: 36 },
-    { id: 'ship-kluimont-qrey', length: 20, start: 'kluimont-city', end: 'qrey', isShipRoute: true, waterPathIndex: 37 },
-    { id: 'ship-kluimont-eimgend', length: 60, start: 'kluimont-city', end: 'eimgend-city', isShipRoute: true, waterPathIndex: 38 },
-    { id: 'ship-eimgend-resross', length: 20, start: 'eimgend-city', end: 'resross', isShipRoute: true, waterPathIndex: 39 },
-
-    // === WEST COAST ROUTES ===
-    { id: 'ship-agosgas-okcaster', length: 25, start: 'agosgas', end: 'okcaster', isShipRoute: true, waterPathIndex: 40 },
-    { id: 'ship-okcaster-beyross', length: 50, start: 'okcaster', end: 'beyross', isShipRoute: true, waterPathIndex: 41 },
-    { id: 'ship-agosgas-beyross', length: 30, start: 'agosgas', end: 'beyross', isShipRoute: true, waterPathIndex: 42 },
+    { id: 68, length: 36, start: 'sheyton', end: 'ineross', pathIndex: 53 }
   ],
 
   // Travel speeds in km per day
-  // Multiple pace options for different travel styles
   TRAVEL_SPEEDS: {
-    road: {
-      slow: 20,      // Cautious/stealthy, can use stealth
-      normal: 30,    // Standard walking pace
-      fast: 40       // Forced march, -5 passive perception
-    },
-    ship: {
-      slow: 40,      // Keelboat, river barge, cautious sailing
-      normal: 50,    // Standard sailing ship
-      fast: 70       // Longship, favorable winds, galley
-    }
-  },
-
-  // Get all settlements that have ship routes (ports)
-  getPortSettlements: function() {
-    const ports = new Set();
-    this.roads.forEach(road => {
-      if (road.isShipRoute) {
-        ports.add(road.start);
-        ports.add(road.end);
-      }
-    });
-    return ports;
-  },
-
-  // Check if a settlement is a port
-  isPort: function(settlementId) {
-    return this.roads.some(road => 
-      road.isShipRoute && (road.start === settlementId || road.end === settlementId)
-    );
-  },
-
-  // Find nearest port to a settlement (by road travel time)
-  findNearestPort: function(settlementId, options = {}) {
-    const ports = this.getPortSettlements();
-    
-    // If already a port, return self with 0 distance
-    if (ports.has(settlementId)) {
-      return { port: settlementId, distance: 0, travelTime: 0, path: [settlementId], roadIds: [] };
-    }
-    
-    // Find path to each port and return the one with shortest travel time
-    let nearestPort = null;
-    let shortestTime = Infinity;
-    
-    const landOptions = { mode: 'land-only', roadPace: options.roadPace || 'normal' };
-    
-    for (const port of ports) {
-      const result = this.findPathDirect(settlementId, port, landOptions);
-      if (result && result.travelTime < shortestTime) {
-        shortestTime = result.travelTime;
-        nearestPort = {
-          port: port,
-          distance: result.distance,
-          travelTime: result.travelTime,
-          path: result.path,
-          roadIds: result.roadIds
-        };
-      }
-    }
-    
-    return nearestPort;
+    slow: 20,      // Cautious/stealthy, can use stealth
+    normal: 30,    // Standard walking pace
+    fast: 40       // Forced march, -5 passive perception
   },
 
   // Build adjacency list for pathfinding
-  // Options: { roadPace: 'slow'|'normal'|'fast', shipPace: 'slow'|'normal'|'fast', 
-  //            mode: 'any'|'land-only'|'sea-only' }
+  // Options: { pace: 'slow'|'normal'|'fast' }
   buildGraph: function(options = {}) {
-    const roadPace = options.roadPace || 'normal';
-    const shipPace = options.shipPace || 'normal';
-    const mode = options.mode || 'any';
-    
-    const roadSpeed = this.TRAVEL_SPEEDS.road[roadPace];
-    const shipSpeed = this.TRAVEL_SPEEDS.ship[shipPace];
+    const pace = options.pace || options.roadPace || 'normal';
+    const speed = this.TRAVEL_SPEEDS[pace];
     
     const graph = {};
     
@@ -375,38 +244,30 @@ const ROAD_NETWORK = {
     
     // Add road connections - convert distance to travel time
     this.roads.forEach(road => {
-      // Filter by travel mode
-      if (mode === 'land-only' && road.isShipRoute) return;
-      if (mode === 'sea-only' && !road.isShipRoute) return;
-      
       if (!graph[road.start]) graph[road.start] = [];
       if (!graph[road.end]) graph[road.end] = [];
       
-      // Calculate travel time based on whether it's a ship route or road
-      const speed = road.isShipRoute ? shipSpeed : roadSpeed;
       const travelTime = road.length / speed; // Time in days
       
       graph[road.start].push({ 
         to: road.end, 
         distance: road.length,
         travelTime: travelTime,
-        roadId: road.id,
-        isShipRoute: road.isShipRoute || false
+        roadId: road.id
       });
       graph[road.end].push({ 
         to: road.start, 
         distance: road.length,
         travelTime: travelTime,
-        roadId: road.id,
-        isShipRoute: road.isShipRoute || false
+        roadId: road.id
       });
     });
     
     return graph;
   },
 
-  // Internal Dijkstra's algorithm - direct pathfinding without special sea-only handling
-  findPathDirect: function(startId, endId, options = {}) {
+  // Dijkstra's algorithm for pathfinding
+  findPath: function(startId, endId, options = {}) {
     const graph = this.buildGraph(options);
     
     if (!graph[startId] || !graph[endId]) {
@@ -475,103 +336,6 @@ const ROAD_NETWORK = {
     return null;
   },
 
-  // Main pathfinding function with special handling for sea-only mode with landlocked settlements
-  // For sea-only: if start/end is landlocked, find nearest port and travel by land to/from it
-  findPath: function(startId, endId, options = {}) {
-    const mode = options.mode || 'any';
-    
-    // For non-sea-only modes, use direct pathfinding
-    if (mode !== 'sea-only') {
-      return this.findPathDirect(startId, endId, options);
-    }
-    
-    // Sea-only mode: handle landlocked settlements
-    const startIsPort = this.isPort(startId);
-    const endIsPort = this.isPort(endId);
-    
-    // If both are ports, just find sea route directly
-    if (startIsPort && endIsPort) {
-      return this.findPathDirect(startId, endId, options);
-    }
-    
-    // Find nearest ports for landlocked settlements
-    const startPort = startIsPort ? 
-      { port: startId, distance: 0, travelTime: 0, path: [startId], roadIds: [] } : 
-      this.findNearestPort(startId, options);
-    
-    const endPort = endIsPort ? 
-      { port: endId, distance: 0, travelTime: 0, path: [endId], roadIds: [] } : 
-      this.findNearestPort(endId, options);
-    
-    if (!startPort || !endPort) {
-      return null; // Can't reach any port
-    }
-    
-    // Find sea route between ports (if different ports)
-    let seaRoute = null;
-    if (startPort.port !== endPort.port) {
-      seaRoute = this.findPathDirect(startPort.port, endPort.port, { 
-        mode: 'sea-only', 
-        shipPace: options.shipPace || 'normal' 
-      });
-      if (!seaRoute) {
-        return null; // No sea connection between ports
-      }
-    } else {
-      // Same port - just land travel
-      seaRoute = { distance: 0, travelTime: 0, path: [], roadIds: [] };
-    }
-    
-    // Combine: land to start port + sea route + land from end port
-    const combinedPath = [];
-    const combinedRoadIds = [];
-    let totalDistance = 0;
-    let totalTravelTime = 0;
-    
-    // Add start land segment (if not already at port)
-    if (!startIsPort) {
-      combinedPath.push(...startPort.path);
-      combinedRoadIds.push(...startPort.roadIds);
-      totalDistance += startPort.distance;
-      totalTravelTime += startPort.travelTime;
-    }
-    
-    // Add sea segment (skip first node if it would duplicate)
-    if (seaRoute.path.length > 0) {
-      const seaPathStart = (combinedPath.length > 0 && seaRoute.path[0] === combinedPath[combinedPath.length - 1]) ? 1 : 0;
-      combinedPath.push(...seaRoute.path.slice(seaPathStart));
-      combinedRoadIds.push(...seaRoute.roadIds);
-      totalDistance += seaRoute.distance;
-      totalTravelTime += seaRoute.travelTime;
-    }
-    
-    // Add end land segment (if destination is not a port)
-    if (!endIsPort) {
-      // Path from end port to destination - need to reverse the path
-      const endLandPath = [...endPort.path].reverse();
-      const endLandRoadIds = [...endPort.roadIds].reverse();
-      
-      // Skip first node if it would duplicate
-      const endPathStart = (combinedPath.length > 0 && endLandPath[0] === combinedPath[combinedPath.length - 1]) ? 1 : 0;
-      combinedPath.push(...endLandPath.slice(endPathStart));
-      combinedRoadIds.push(...endLandRoadIds);
-      totalDistance += endPort.distance;
-      totalTravelTime += endPort.travelTime;
-    }
-    
-    return {
-      distance: Math.round(totalDistance),
-      travelTime: Math.round(totalTravelTime * 10) / 10,
-      path: combinedPath,
-      roadIds: combinedRoadIds,
-      // Extra info for debugging
-      _startPort: startPort.port,
-      _endPort: endPort.port,
-      _usedLandToPort: !startIsPort,
-      _usedLandFromPort: !endIsPort
-    };
-  },
-
   // Helper to get distance with options
   getDistance: function(fromId, toId, options = {}) {
     const result = this.findPath(fromId, toId, options);
@@ -584,42 +348,22 @@ const ROAD_NETWORK = {
     return result ? result.travelTime : null;
   },
   
-  // Compare all travel options between two points
+  // Compare all travel pace options between two points
   compareRoutes: function(fromId, toId) {
     const results = {};
     
-    // Land only (normal pace)
-    const landOnly = this.findPath(fromId, toId, { mode: 'land-only', roadPace: 'normal' });
-    if (landOnly) {
-      results.landOnly = {
-        distance: landOnly.distance,
-        days: landOnly.travelTime,
-        path: landOnly.path
+    // Fast pace
+    const fast = this.findPath(fromId, toId, { pace: 'fast' });
+    if (fast) {
+      results.fast = {
+        distance: fast.distance,
+        days: fast.travelTime,
+        path: fast.path
       };
     }
     
-    // Sea only (normal pace)
-    const seaOnly = this.findPath(fromId, toId, { mode: 'sea-only', shipPace: 'normal' });
-    if (seaOnly) {
-      results.seaOnly = {
-        distance: seaOnly.distance,
-        days: seaOnly.travelTime,
-        path: seaOnly.path
-      };
-    }
-    
-    // Mixed - fastest (fast walk + fast ship)
-    const fastest = this.findPath(fromId, toId, { mode: 'any', roadPace: 'fast', shipPace: 'fast' });
-    if (fastest) {
-      results.fastest = {
-        distance: fastest.distance,
-        days: fastest.travelTime,
-        path: fastest.path
-      };
-    }
-    
-    // Mixed - normal pace
-    const normal = this.findPath(fromId, toId, { mode: 'any', roadPace: 'normal', shipPace: 'normal' });
+    // Normal pace
+    const normal = this.findPath(fromId, toId, { pace: 'normal' });
     if (normal) {
       results.normal = {
         distance: normal.distance,
@@ -628,8 +372,8 @@ const ROAD_NETWORK = {
       };
     }
     
-    // Mixed - slow (for stealth/caution)
-    const slow = this.findPath(fromId, toId, { mode: 'any', roadPace: 'slow', shipPace: 'slow' });
+    // Slow pace (for stealth/caution)
+    const slow = this.findPath(fromId, toId, { pace: 'slow' });
     if (slow) {
       results.slow = {
         distance: slow.distance,
@@ -689,84 +433,34 @@ const ROAD_NETWORK = {
         coords.push({ x: fromNode.x, y: fromNode.y, isNode: true, nodeId: fromId });
       }
       
-      // If road has pathIndex, get waypoints from DAYNER_ROADS, or check for ship route waypoints
+      // If road has pathIndex, get waypoints from DAYNER_ROADS
       if (roadId && fromNode && toNode) {
         const road = this.getRoadById(roadId);
-        if (road) {
-          // Check if this is a ship route with waterPathIndex (new water routes system)
-          if (road.isShipRoute && typeof road.waterPathIndex === 'number' && typeof DAYNER_WATER_ROUTES !== 'undefined') {
-            // Get waypoints from DAYNER_WATER_ROUTES
-            const waterPath = DAYNER_WATER_ROUTES.routes[road.waterPathIndex];
-            if (waterPath && waterPath.length > 0) {
-              // Find the closest points on the water route to both start and end nodes
-              const startIdx = this.findClosestPointIndex(waterPath, fromNode.x, fromNode.y);
-              const endIdx = this.findClosestPointIndex(waterPath, toNode.x, toNode.y);
-              
-              // Extract only the portion of the route between these points
-              let waypoints;
-              if (startIdx <= endIdx) {
-                waypoints = waterPath.slice(startIdx, endIdx + 1);
-              } else {
-                // Reverse direction
-                waypoints = waterPath.slice(endIdx, startIdx + 1).reverse();
-              }
-              
-              // Add waypoints (skip if too close to start/end nodes)
-              waypoints.forEach(wp => {
-                const distToFrom = Math.sqrt(Math.pow(wp.x - fromNode.x, 2) + Math.pow(wp.y - fromNode.y, 2));
-                const distToTo = Math.sqrt(Math.pow(wp.x - toNode.x, 2) + Math.pow(wp.y - toNode.y, 2));
-                // Only add if not too close to the settlement nodes (avoid duplicates)
-                if (distToFrom > 0.5 && distToTo > 0.5) {
-                  coords.push({ x: wp.x, y: wp.y, isNode: false });
-                }
-              });
-            }
-          } else if (road.isShipRoute && road.waypoints && road.waypoints.length > 0) {
-            // Ship routes have waypoints stored directly on the road object
-            // Determine if we need to reverse based on which settlement we're coming from
-            let waypoints = road.waypoints;
+        if (road && typeof road.pathIndex === 'number' && typeof DAYNER_ROADS !== 'undefined') {
+          const roadPath = DAYNER_ROADS.roads[road.pathIndex];
+          if (roadPath && roadPath.length > 0) {
+            // Find the closest points on the road to both start and end nodes
+            const startIdx = this.findClosestPointIndex(roadPath, fromNode.x, fromNode.y);
+            const endIdx = this.findClosestPointIndex(roadPath, toNode.x, toNode.y);
             
-            // Check if we're going in the reverse direction (end -> start)
-            if (road.end === fromId) {
-              waypoints = waypoints.slice().reverse();
+            // Extract only the portion of the road between these points
+            let waypoints;
+            if (startIdx <= endIdx) {
+              waypoints = roadPath.slice(startIdx, endIdx + 1);
+            } else {
+              // Reverse direction
+              waypoints = roadPath.slice(endIdx, startIdx + 1).reverse();
             }
             
-            // Add all waypoints
+            // Add waypoints (skip if too close to start/end nodes)
             waypoints.forEach(wp => {
               const distToFrom = Math.sqrt(Math.pow(wp.x - fromNode.x, 2) + Math.pow(wp.y - fromNode.y, 2));
               const distToTo = Math.sqrt(Math.pow(wp.x - toNode.x, 2) + Math.pow(wp.y - toNode.y, 2));
               // Only add if not too close to the settlement nodes (avoid duplicates)
-              if (distToFrom > 0.5 && distToTo > 0.5) {
+              if (distToFrom > 1 && distToTo > 1) {
                 coords.push({ x: wp.x, y: wp.y, isNode: false });
               }
             });
-          } else if (typeof road.pathIndex === 'number' && typeof DAYNER_ROADS !== 'undefined') {
-            // Regular road - get waypoints from DAYNER_ROADS
-            const roadPath = DAYNER_ROADS.roads[road.pathIndex];
-            if (roadPath && roadPath.length > 0) {
-              // Find the closest points on the road to both start and end nodes
-              const startIdx = this.findClosestPointIndex(roadPath, fromNode.x, fromNode.y);
-              const endIdx = this.findClosestPointIndex(roadPath, toNode.x, toNode.y);
-              
-              // Extract only the portion of the road between these points
-              let waypoints;
-              if (startIdx <= endIdx) {
-                waypoints = roadPath.slice(startIdx, endIdx + 1);
-              } else {
-                // Reverse direction
-                waypoints = roadPath.slice(endIdx, startIdx + 1).reverse();
-              }
-              
-              // Add waypoints (skip if too close to start/end nodes)
-              waypoints.forEach(wp => {
-                const distToFrom = Math.sqrt(Math.pow(wp.x - fromNode.x, 2) + Math.pow(wp.y - fromNode.y, 2));
-                const distToTo = Math.sqrt(Math.pow(wp.x - toNode.x, 2) + Math.pow(wp.y - toNode.y, 2));
-                // Only add if not too close to the settlement nodes (avoid duplicates)
-                if (distToFrom > 1 && distToTo > 1) {
-                  coords.push({ x: wp.x, y: wp.y, isNode: false });
-                }
-              });
-            }
           }
         }
       }
@@ -780,72 +474,6 @@ const ROAD_NETWORK = {
     return coords;
   }
 };
-
-// ===========================================
-// INTEGRATE SHIP ROUTES FROM DAYNER_SHIP_ROUTES
-// This merges the comprehensive ship routes into the road network
-// ===========================================
-(function() {
-  if (typeof DAYNER_SHIP_ROUTES !== 'undefined' && DAYNER_SHIP_ROUTES.routes) {
-    console.log('Integrating ship routes from DAYNER_SHIP_ROUTES...');
-    
-    // Track existing ship route IDs to avoid duplicates
-    const existingShipRoutes = new Set();
-    ROAD_NETWORK.roads.forEach(road => {
-      if (road.isShipRoute) {
-        existingShipRoutes.add(road.id);
-        // Also track by start-end key
-        existingShipRoutes.add(`${road.start}-to-${road.end}`);
-        existingShipRoutes.add(`${road.end}-to-${road.start}`);
-      }
-    });
-    
-    // Add ports as settlements if they don't exist
-    if (DAYNER_SHIP_ROUTES.ports) {
-      Object.entries(DAYNER_SHIP_ROUTES.ports).forEach(([id, port]) => {
-        if (!ROAD_NETWORK.settlements[id]) {
-          ROAD_NETWORK.settlements[id] = {
-            name: port.name,
-            x: port.x,
-            y: port.y,
-            isPort: true
-          };
-        }
-      });
-    }
-    
-    // Add new ship routes
-    let addedCount = 0;
-    Object.values(DAYNER_SHIP_ROUTES.routes).forEach(route => {
-      // Check if this route already exists (in either direction)
-      const key1 = `${route.start}-to-${route.end}`;
-      const key2 = `${route.end}-to-${route.start}`;
-      
-      if (!existingShipRoutes.has(route.id) && 
-          !existingShipRoutes.has(key1) && 
-          !existingShipRoutes.has(key2)) {
-        // Add the route
-        ROAD_NETWORK.roads.push({
-          id: route.id,
-          length: route.length || 50, // Default distance if not set
-          start: route.start,
-          end: route.end,
-          isShipRoute: true,
-          waypoints: route.waypoints || []
-        });
-        existingShipRoutes.add(route.id);
-        existingShipRoutes.add(key1);
-        addedCount++;
-      }
-    });
-    
-    console.log(`Added ${addedCount} new ship routes from DAYNER_SHIP_ROUTES`);
-    console.log(`Total roads/routes: ${ROAD_NETWORK.roads.length}`);
-    console.log(`Total ports: ${ROAD_NETWORK.getPortSettlements().size}`);
-  } else {
-    console.log('DAYNER_SHIP_ROUTES not found - using built-in ship routes only');
-  }
-})();
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = ROAD_NETWORK;

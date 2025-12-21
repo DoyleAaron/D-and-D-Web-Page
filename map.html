@@ -107,6 +107,71 @@
         display: flex !important;
       }
     }
+    
+    /* Travel Mode Toggle */
+    .travel-mode-toggle {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .mode-toggle-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border: 2px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      pointer-events: auto;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .mode-toggle-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+    
+    .mode-toggle-btn.active[data-mode="road"] {
+      background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+      border-color: #8B4513;
+      color: white;
+    }
+    
+    .mode-toggle-btn.active[data-mode="sea"] {
+      background: linear-gradient(135deg, #1e90ff 0%, #0066cc 100%);
+      border-color: #1e90ff;
+      color: white;
+    }
+    
+    /* Sea travel result styling */
+    .result-header.sea {
+      color: #1e90ff;
+    }
+    
+    .result-highlight.sea {
+      background: linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(0, 102, 204, 0.2) 100%);
+      border-color: #1e90ff;
+    }
+    
+    .path-header.sea {
+      color: #1e90ff;
+    }
+    
+    .path-step.sea .step-num {
+      background: #1e90ff;
+    }
+    
+    .path-arrow.sea {
+      color: #1e90ff;
+    }
   </style>
 </head>
 <body>
@@ -199,6 +264,17 @@
           </button>
         </div>
         <div class="calc-body" id="calc-body">
+          <div class="calc-field">
+            <label>Travel Mode</label>
+            <div class="travel-mode-toggle">
+              <button type="button" class="mode-toggle-btn active" data-mode="road">
+                <i class="fas fa-road"></i> Road
+              </button>
+              <button type="button" class="mode-toggle-btn" data-mode="sea">
+                <i class="fas fa-ship"></i> Sea
+              </button>
+            </div>
+          </div>
           <div class="calc-stops" id="calc-stops">
             <div class="calc-field stop-field" data-stop="0">
               <label>From</label>
@@ -220,28 +296,20 @@
               </div>
             </div>
           </div>
-          <div class="calc-field">
-            <label>Travel Mode</label>
-            <select id="travel-mode" class="calc-select">
-              <option value="any" selected>Any (Land + Sea)</option>
-              <option value="land-only">Land Only</option>
-              <option value="sea-only">Sea Only</option>
-            </select>
-          </div>
-          <div class="calc-field">
-            <label>Road Speed</label>
+          <div class="calc-field" id="road-pace-field">
+            <label>Travel Pace (Road)</label>
             <select id="road-pace" class="calc-select">
-              <option value="slow">Slow (20 km/day)</option>
-              <option value="normal" selected>Normal (30 km/day)</option>
-              <option value="fast">Fast (40 km/day)</option>
+              <option value="slow">Slow (20 mi/day) - Stealth possible</option>
+              <option value="normal" selected>Normal (30 mi/day)</option>
+              <option value="fast">Fast (40 mi/day) - -5 Perception</option>
             </select>
           </div>
-          <div class="calc-field">
-            <label>Ship Speed</label>
-            <select id="ship-pace" class="calc-select">
-              <option value="slow">Keelboat (40 km/day)</option>
-              <option value="normal" selected>Sailing Ship (50 km/day)</option>
-              <option value="fast">Galley (70 km/day)</option>
+          <div class="calc-field" id="sea-pace-field" style="display: none;">
+            <label>Sailing Speed</label>
+            <select id="sea-pace" class="calc-select">
+              <option value="slow">Slow (24 mi/day) - Careful/Bad Weather</option>
+              <option value="normal" selected>Normal (48 mi/day)</option>
+              <option value="fast">Fast (72 mi/day) - Full Sail</option>
             </select>
           </div>
           <button type="button" class="calc-btn" id="calculate-travel">
@@ -299,8 +367,10 @@
 
   <!-- Road Network for Travel Calculator -->
   <script src="road-data.js"></script>
-  <script src="ship-routes.js"></script>
   <script src="static/js/road-network.js"></script>
+  
+  <!-- Ship Routes for Sea Travel -->
+  <script src="static/js/ship-routes.js"></script>
   
   <!-- Map JavaScript -->
   <script src="static/js/map.js"></script>
