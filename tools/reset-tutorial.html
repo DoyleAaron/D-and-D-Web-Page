@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reset Tutorial Flags</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #1a1a2e; color: #fff; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    .success { color: #4ade80; }
+    .error { color: #f87171; }
+    #log { background: #2d2d44; padding: 15px; margin-top: 20px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Reset Tutorial Flags</h1>
+  <button onclick="resetLeontius()">Reset Leontius</button>
+  <button onclick="resetAll()">Reset All Users</button>
+  <button onclick="listAll()">List All Tutorial Docs</button>
+  <div id="log"></div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHxPPR05LD9LdvVPfKZnkyH4NTg4qXd1c",
+      authDomain: "dnd-web-439803.firebaseapp.com",
+      projectId: "dnd-web-439803",
+      storageBucket: "dnd-web-439803.firebasestorage.app",
+      messagingSenderId: "786973515498",
+      appId: "1:786973515498:web:25ab145cb6243fa4fb1c99"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    
+    function log(msg, isError = false) {
+      const div = document.getElementById('log');
+      div.innerHTML += `<div class="${isError ? 'error' : 'success'}">${msg}</div>`;
+    }
+
+    async function listAll() {
+      document.getElementById('log').innerHTML = '<strong>Listing all tutorial docs...</strong><br>';
+      try {
+        const snap = await db.collection('userTutorials').get();
+        if (snap.empty) {
+          log('No tutorial documents found');
+          return;
+        }
+        snap.forEach(doc => {
+          log(`${doc.id}: ${JSON.stringify(doc.data())}`);
+        });
+      } catch(e) {
+        log('Error: ' + e.message, true);
+      }
+    }
+
+    async function resetLeontius() {
+      document.getElementById('log').innerHTML = '<strong>Resetting Leontius...</strong><br>';
+      try {
+        // First find Leontius user
+        const usersSnap = await db.collection('users').where('characterId', '==', 'leontius').get();
+        if (usersSnap.empty) {
+          log('Leontius user not found in users collection', true);
+          return;
+        }
+        
+        const leontiusUid = usersSnap.docs[0].id;
+        log(`Found Leontius with UID: ${leontiusUid}`);
+        
+        // Delete their tutorial doc
+        await db.collection('userTutorials').doc(leontiusUid).delete();
+        log('Tutorial flags reset for Leontius!');
+        
+        // Also reset website intro flag
+        await db.collection('userTutorials').doc(leontiusUid).set({
+          seenWebsiteIntro: false,
+          seenBoardIntro: false,
+          seenMissionModal: false,
+          seenAcceptedMission: false
+        });
+        log('All flags set to false');
+      } catch(e) {
+        log('Error: ' + e.message, true);
+      }
+    }
+
+    async function resetAll() {
+      document.getElementById('log').innerHTML = '<strong>Resetting all users...</strong><br>';
+      try {
+        const snap = await db.collection('userTutorials').get();
+        const batch = db.batch();
+        snap.forEach(doc => {
+          batch.delete(doc.ref);
+        });
+        await batch.commit();
+        log(`Deleted ${snap.size} tutorial documents`);
+      } catch(e) {
+        log('Error: ' + e.message, true);
+      }
+    }
+  </script>
+</body>
+</html>

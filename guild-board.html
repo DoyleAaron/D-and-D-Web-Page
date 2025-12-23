@@ -22,8 +22,312 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Tutorial Styles -->
+  <style>
+    .tutorial-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .tutorial-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .tutorial-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 0;
+      z-index: 10001;
+    }
+    .tutorial-guide {
+      width: 140px;
+      height: 200px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .guide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    }
+    /* Fallback if no image - show emoji character */
+    .guide-fallback {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #4a3a5a 0%, #2d2238 100%);
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 2px solid #8b6b9b;
+    }
+    .guide-face {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(180deg, #f5e0c3 0%, #e8cca8 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border: 3px solid #d4a574;
+      position: relative;
+    }
+    .guide-face::before,
+    .guide-face::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      width: 18px;
+      height: 30px;
+      background: #f5e0c3;
+      border: 2px solid #d4a574;
+    }
+    .guide-face::before {
+      left: -12px;
+      border-radius: 50% 0 0 50%;
+      transform: rotate(-20deg);
+    }
+    .guide-face::after {
+      right: -12px;
+      border-radius: 0 50% 50% 0;
+      transform: rotate(20deg);
+    }
+    .guide-body {
+      margin-top: 15px;
+      width: 90px;
+      height: 70px;
+      background: linear-gradient(180deg, #2e5a3a 0%, #1d3d28 100%);
+      border-radius: 8px 8px 0 0;
+      border: 2px solid #4a7c59;
+      position: relative;
+    }
+    .guide-body::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+      height: 25px;
+      background: #d4af37;
+      border-radius: 4px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .guide-name {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'MedievalSharp', serif;
+      color: var(--color-gold);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .speech-bubble {
+      background: #fdf6e3;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      position: relative;
+      max-width: 450px;
+      margin-left: -10px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      border: 3px solid #d4af37;
+      animation: bubblePop 0.3s ease-out;
+    }
+    @keyframes bubblePop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      bottom: 30px;
+      border: 15px solid transparent;
+      border-right-color: #d4af37;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      left: -14px;
+      bottom: 33px;
+      border: 12px solid transparent;
+      border-right-color: #fdf6e3;
+    }
+    .speech-title {
+      font-family: 'MedievalSharp', serif;
+      color: #2c1810;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .speech-text {
+      font-family: 'Fondamento', serif;
+      color: #3d2e22;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .speech-text strong {
+      color: #8b4513;
+    }
+    .tutorial-continue-btn {
+      background: linear-gradient(135deg, #d4af37 0%, #b8962e 100%);
+      color: #1a1a2e;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      font-family: 'MedievalSharp', serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tutorial-continue-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+    }
+    .tutorial-skip {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(0,0,0,0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      z-index: 10002;
+    }
+    .tutorial-skip:hover {
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+    }
+    .tutorial-progress {
+      display: flex;
+      gap: 6px;
+      margin-top: 0.75rem;
+    }
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4c4a8;
+      transition: all 0.3s ease;
+    }
+    .progress-dot.active {
+      background: #d4af37;
+      transform: scale(1.2);
+    }
+    .progress-dot.completed {
+      background: #8b7355;
+    }
+    /* Tutorial Highlight System */
+    .tutorial-highlight {
+      position: relative;
+      z-index: 10001 !important;
+      box-shadow: 0 0 0 4px #d4af37, 0 0 20px 8px rgba(212, 175, 55, 0.6) !important;
+      animation: tutorialPulse 1.5s ease-in-out infinite;
+      border-radius: 8px;
+    }
+    @keyframes tutorialPulse {
+      0%, 100% { box-shadow: 0 0 0 4px #d4af37, 0 0 20px 8px rgba(212, 175, 55, 0.6); }
+      50% { box-shadow: 0 0 0 6px #d4af37, 0 0 30px 12px rgba(212, 175, 55, 0.8); }
+    }
+    .tutorial-highlight-circle {
+      position: absolute;
+      border: 3px dashed #d4af37;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10001;
+      animation: tutorialCircle 1.5s ease-in-out infinite;
+    }
+    @keyframes tutorialCircle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+    }
+    @media (max-width: 768px) {
+      .tutorial-container {
+        flex-direction: column;
+        align-items: flex-start;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+      }
+      .tutorial-guide {
+        width: 80px;
+        height: 120px;
+      }
+      .guide-face {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      .guide-body {
+        width: 60px;
+        height: 45px;
+      }
+      .speech-bubble {
+        margin-left: 0;
+        margin-bottom: 10px;
+        padding: 1rem 1.25rem;
+        max-width: calc(100vw - 40px);
+      }
+      .speech-bubble::before,
+      .speech-bubble::after {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Tutorial Audio -->
+  <audio id="tutorialAudio" preload="auto"></audio>
+
+  <!-- Tutorial Overlay -->
+  <div class="tutorial-overlay" id="tutorialOverlay">
+    <span class="tutorial-skip" id="tutorialSkip"><i class="fas fa-times"></i> Skip</span>
+    <div class="tutorial-container">
+      <div class="tutorial-guide">
+        <img src="static/images/elowen.png" class="guide-image" alt="Elowen Nighthollow">
+        <span class="guide-name">Elowen Nighthollow</span>
+      </div>
+      <div class="speech-bubble">
+        <h3 class="speech-title" id="tutorialTitle">Welcome to the Guild Board!</h3>
+        <p class="speech-text" id="tutorialText">
+          Greetings, adventurer! I'm <strong>Elowen</strong>, keeper of the boards here at the Wayfarers' Accord.
+        </p>
+        <div class="tutorial-progress" id="tutorialProgress">
+          <!-- Progress dots will be generated dynamically -->
+        </div>
+        <button class="tutorial-continue-btn" id="tutorialContinue">
+          <span id="tutorialBtnText">Continue</span> <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Login Required Overlay -->
   <div class="login-required-overlay" id="loginRequiredOverlay">
     <div class="login-required-content">
@@ -201,6 +505,10 @@
           
           <!-- Accept/Complete Buttons -->
           <div class="mission-actions" id="missionActions">
+            <div class="locked-notice" id="lockedNotice" style="display: none;">
+              <i class="fas fa-lock"></i>
+              <span>Your party rank is too low to accept this mission. Complete more contracts to increase your standing with the guild.</span>
+            </div>
             <button class="accept-mission-btn" id="acceptMissionBtn">
               <i class="fas fa-handshake"></i> Accept Mission
             </button>
@@ -209,6 +517,9 @@
             </button>
             <button class="abandon-mission-btn" id="abandonMissionBtn" style="display: none;">
               <i class="fas fa-times-circle"></i> Abandon Mission
+            </button>
+            <button class="personal-todo-btn" id="personalTodoBtn" style="display: none;">
+              <i class="fas fa-clipboard-list"></i> Add to My To-Do
             </button>
           </div>
           
@@ -225,7 +536,7 @@
     <!-- Footer Info -->
     <footer class="guild-footer">
       <div class="footer-content">
-        <p><i class="fas fa-info-circle"></i> Current Party Rank: <strong>D-Tier</strong></p>
+        <p><i class="fas fa-info-circle"></i> Current Party Rank: <strong id="partyRankDisplay">D-Tier</strong></p>
         <p><i class="fas fa-calendar"></i> Available: <strong id="missionCount">0</strong> | Accepted: <strong id="acceptedCount">0</strong></p>
       </div>
     </footer>
@@ -249,7 +560,7 @@
         description: 'The bustling port city chapter, located on the docks.',
         guildmaster: 'Guildmaster Tobren Ashford',
         registrar: 'Registrar Yenna Cole',
-        boardKeeper: 'Board Keeper Dax'
+        boardKeeper: 'Elowen Nighthollow'
       },
       'braewood-city': {
         name: 'Braewood City',
@@ -456,10 +767,40 @@
 
     const PARTY_ID = 'wayfarers_party_1';
 
+    // Character to Party mapping - allows different characters to be in different parties
+    const CHARACTER_PARTIES = {
+      'amdir': 'wayfarers_party_1',
+      'blorf': 'wayfarers_party_1',
+      'morjor': 'wayfarers_party_1',
+      'tearitus': 'wayfarers_party_1',
+      'varin': 'wayfarers_party_1',
+      'leontius': 'test_party'  // Test party for testing player features
+    };
+
     // Party Names (for admin view)
     const PARTY_NAMES = {
-      'wayfarers_party_1': 'The Wayfarers'
-      // Add more parties here as needed
+      'wayfarers_party_1': 'The Wayfarers',
+      'test_party': 'Test Party'
+    };
+
+    // Party Ranks - determines which tier missions can be accepted
+    // D = Can accept D, C only
+    // C = Can accept D, C only  
+    // B = Can accept D, C, B only
+    // A = Can accept D, C, B, A only
+    // S = Can accept all tiers
+    const PARTY_RANKS = {
+      'wayfarers_party_1': 'D',  // Season 1 party starts at D rank
+      'test_party': 'S'  // Test party has S rank to test all features
+    };
+
+    // Which tiers each rank can access
+    const RANK_ACCESS = {
+      'D': ['D', 'C'],
+      'C': ['D', 'C'],
+      'B': ['D', 'C', 'B'],
+      'A': ['D', 'C', 'B', 'A'],
+      'S': ['D', 'C', 'B', 'A', 'S']
     };
 
     // ========================================
@@ -472,6 +813,16 @@
     let currentMissionId = null;
     let currentLocation = 'dawerton';
     let isAdmin = false;
+    let partyRank = 'D';  // Default party rank
+
+    // Tutorial state
+    let tutorialFlags = {
+      seenBoardIntro: false,
+      seenMissionModal: false,
+      seenAcceptedMission: false
+    };
+    let currentTutorialStep = 0;
+    let currentTutorialType = null;
 
     // ========================================
     // DOM Elements
@@ -559,6 +910,7 @@
       document.getElementById('acceptMissionBtn').addEventListener('click', acceptMission);
       document.getElementById('completeMissionBtn').addEventListener('click', completeMission);
       document.getElementById('abandonMissionBtn').addEventListener('click', abandonMission);
+      document.getElementById('personalTodoBtn').addEventListener('click', addToPersonalTodo);
 
       // Listen for auth state
       window.firebaseAuth.onAuthStateChanged(handleAuthStateChange);
@@ -654,7 +1006,7 @@
               character: character.name,
               player: character.player,
               email: email,
-              partyId: PARTY_ID,
+              partyId: CHARACTER_PARTIES[selectedId] || PARTY_ID,
               isAdmin: character.isAdmin || false,
               createdAt: firebase.firestore.FieldValue.serverTimestamp()
             });
@@ -689,8 +1041,9 @@
           if (profileDoc.exists) {
             userProfile = profileDoc.data();
             if (!userProfile.partyId) {
-              await window.firebaseDb.collection('users').doc(user.uid).update({ partyId: PARTY_ID });
-              userProfile.partyId = PARTY_ID;
+              const charPartyId = CHARACTER_PARTIES[userProfile.characterId] || PARTY_ID;
+              await window.firebaseDb.collection('users').doc(user.uid).update({ partyId: charPartyId });
+              userProfile.partyId = charPartyId;
             }
           } else {
             const characterId = user.email.split('@')[0];
@@ -699,7 +1052,7 @@
               characterId: characterId,
               character: user.displayName || character.name || 'Unknown',
               player: character.player || 'Unknown',
-              partyId: PARTY_ID,
+              partyId: CHARACTER_PARTIES[characterId] || PARTY_ID,
               isAdmin: user.email === 'admin@dayner.local'
             };
             await window.firebaseDb.collection('users').doc(user.uid).set(userProfile);
@@ -712,7 +1065,7 @@
             characterId: characterId,
             character: user.displayName || character.name || 'Unknown',
             player: character.player || 'Unknown',
-            partyId: PARTY_ID
+            partyId: CHARACTER_PARTIES[characterId] || PARTY_ID
           };
         }
 
@@ -725,10 +1078,20 @@
         if (isAdmin) {
           document.body.classList.add('admin-view');
         }
+        
+        // Set party rank
+        partyRank = PARTY_RANKS[userProfile.partyId] || 'D';
+        document.getElementById('partyRankDisplay').textContent = `${partyRank}-Tier`;
+
+        // Load tutorial flags
+        await loadTutorialFlags();
 
         updateChapterInfo();
         await loadAcceptedMissions();
         renderMissions('all');
+        
+        // Show board intro tutorial if not seen
+        checkBoardIntroTutorial();
       } else {
         loginRequiredOverlay.style.display = 'flex';
         guildContent.style.display = 'none';
@@ -795,6 +1158,13 @@
     // Helper to get party name
     function getPartyName(partyId) {
       return PARTY_NAMES[partyId] || partyId || 'Unknown Party';
+    }
+
+    // Check if a mission tier is locked for the current party
+    function isTierLocked(tier) {
+      if (isAdmin) return false;  // Admin can see everything
+      const allowedTiers = RANK_ACCESS[partyRank] || ['D', 'C'];
+      return !allowedTiers.includes(tier);
     }
 
     // Check if a mission is accepted (and by which party)
@@ -885,11 +1255,15 @@
     function createMissionPaper(id, mission, isAccepted, missionLocation = null, acceptance = null) {
       const article = document.createElement('article');
       
+      // Check if this tier is locked for the party
+      const isLocked = isTierLocked(mission.tier);
+      
       let classes = 'mission-paper';
       if (mission.tier === 'C') classes += ' parchment-aged';
       if (mission.tier === 'B') classes += ' parchment-worn';
       if (mission.tier === 'A') classes += ' parchment-elite';
       if (isAccepted) classes += ' accepted';
+      if (isLocked) classes += ' locked';
       
       const tilts = ['', 'tilted-left', 'tilted-right'];
       classes += ' ' + tilts[Math.floor(Math.random() * tilts.length)];
@@ -897,6 +1271,7 @@
       article.className = classes;
       article.dataset.tier = mission.tier;
       article.dataset.mission = id;
+      article.dataset.locked = isLocked ? 'true' : 'false';
       if (missionLocation) article.dataset.location = missionLocation;
 
       const pinClass = mission.tier === 'A' ? 'gold-pin' : 
@@ -918,6 +1293,9 @@
       
       const locationBadge = isAccepted && missionLocation ? 
         `<div class="location-badge"><i class="fas fa-map-marker-alt"></i> ${guildLocations[missionLocation]?.name || missionLocation}</div>` : '';
+      
+      const lockedBadge = isLocked ? 
+        `<div class="locked-badge"><i class="fas fa-lock"></i> ${mission.tier}-RANK REQUIRED</div>` : '';
 
       article.innerHTML = `
         <div class="paper-pin ${pinClass}"></div>
@@ -925,6 +1303,7 @@
         ${acceptedBadge}
         ${partyBadge}
         ${locationBadge}
+        ${lockedBadge}
         ${mission.majorBounty ? '<div class="elite-banner">MAJOR BOUNTY</div>' : ''}
         <h3 class="mission-title">${mission.title}</h3>
         ${mission.subtitle ? `<div class="mission-subtitle">— ${mission.subtitle} —</div>` : ''}
@@ -957,6 +1336,9 @@
       if (!mission) return;
 
       currentMissionId = missionId;
+      
+      // Check if mission is locked
+      const isLocked = isTierLocked(mission.tier);
 
       const contactInfo = getContactForMission(mission);
 
@@ -977,19 +1359,35 @@
       const acceptBtn = document.getElementById('acceptMissionBtn');
       const completeBtn = document.getElementById('completeMissionBtn');
       const abandonBtn = document.getElementById('abandonMissionBtn');
+      const personalTodoBtn = document.getElementById('personalTodoBtn');
+      const lockedNotice = document.getElementById('lockedNotice');
 
       if (isAccepted) {
         acceptBtn.style.display = 'none';
         completeBtn.style.display = 'inline-flex';
         abandonBtn.style.display = 'inline-flex';
+        personalTodoBtn.style.display = 'inline-flex';
+        if (lockedNotice) lockedNotice.style.display = 'none';
+      } else if (isLocked) {
+        // Mission is locked - show notice, hide accept button
+        acceptBtn.style.display = 'none';
+        completeBtn.style.display = 'none';
+        abandonBtn.style.display = 'none';
+        personalTodoBtn.style.display = 'none';
+        if (lockedNotice) lockedNotice.style.display = 'flex';
       } else {
         acceptBtn.style.display = 'inline-flex';
         completeBtn.style.display = 'none';
         abandonBtn.style.display = 'none';
+        personalTodoBtn.style.display = 'none';
+        if (lockedNotice) lockedNotice.style.display = 'none';
       }
 
       missionModal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      
+      // Check for mission modal tutorial
+      checkMissionModalTutorial(isAccepted);
     }
 
     function closeMissionModal() {
@@ -1108,6 +1506,40 @@
       }
     }
 
+    async function addToPersonalTodo() {
+      if (!currentMissionId || !currentUser) return;
+
+      const missions = getMissionsForCurrentLocation();
+      const mission = missions[currentMissionId];
+      if (!mission) return;
+
+      try {
+        // Check if already added to personal todo
+        const existingQuery = await window.firebaseDb.collection('checklists')
+          .where('userId', '==', currentUser.uid)
+          .where('missionId', '==', currentMissionId)
+          .get();
+
+        if (!existingQuery.empty) {
+          showNotification('This mission is already on your personal to-do list', 'warning');
+          return;
+        }
+
+        await window.firebaseDb.collection('checklists').add({
+          userId: currentUser.uid,
+          text: `[${mission.tier}] ${mission.title}`,
+          missionId: currentMissionId,
+          completed: false,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        showNotification('Added to your personal to-do list!', 'success');
+      } catch (error) {
+        console.error('Error adding to personal todo:', error);
+        showNotification('Failed to add to personal to-do', 'error');
+      }
+    }
+
     function updateMissionCounts() {
       const missions = getMissionsForCurrentLocation();
       const acceptedIds = acceptedMissions.map(m => m.missionId);
@@ -1138,447 +1570,395 @@
         toast.classList.remove('show');
       }, 3000);
     }
-  </script>
-</body>
-</html>
-          <div class="paper-pin"></div>
-          <div class="tier-badge tier-d">D</div>
-          <h3 class="mission-title">Haunted? Or Hoax?</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-ghost"></i> Investigation</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 35 gp + Lodging</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> The Rusty Anchor
-          </div>
-        </article>
 
-        <!-- C-Tier Missions -->
-        <article class="mission-paper parchment-aged" data-tier="C" data-mission="C-01">
-          <div class="paper-pin red-pin"></div>
-          <div class="tier-badge tier-c">C</div>
-          <h3 class="mission-title">Noble Escort</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-user-shield"></i> Protection</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 200 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Dawerton → Cleamond
-          </div>
-        </article>
-
-        <article class="mission-paper parchment-aged tilted-left" data-tier="C" data-mission="C-02">
-          <div class="paper-pin red-pin"></div>
-          <div class="tier-badge tier-c">C</div>
-          <h3 class="mission-title">The Drowned Man's Secret</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-water"></i> Investigation</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 150 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Docks & Temple District
-          </div>
-        </article>
-
-        <article class="mission-paper parchment-aged tilted-right" data-tier="C" data-mission="C-03">
-          <div class="paper-pin red-pin"></div>
-          <div class="tier-badge tier-c">C</div>
-          <h3 class="mission-title">The Sculptor's Debt</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-gem"></i> Recovery</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 175 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Tidewatch Slums
-          </div>
-        </article>
-
-        <article class="mission-paper parchment-aged" data-tier="C" data-mission="C-04">
-          <div class="paper-pin red-pin"></div>
-          <div class="tier-badge tier-c">C</div>
-          <h3 class="mission-title">Beast of the Southern Road</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-paw"></i> Monster Hunt</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 300 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Southern Road to Mortling
-          </div>
-        </article>
-
-        <!-- B-Tier Missions -->
-        <article class="mission-paper parchment-worn" data-tier="B" data-mission="B-01">
-          <div class="paper-pin purple-pin"></div>
-          <div class="tier-badge tier-b">B</div>
-          <h3 class="mission-title">The Saltmire Syndicate</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-mask"></i> Takedown</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 800+ gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Dawerton Harbor
-          </div>
-        </article>
-
-        <article class="mission-paper parchment-worn tilted-left" data-tier="B" data-mission="B-02">
-          <div class="paper-pin purple-pin"></div>
-          <div class="tier-badge tier-b">B</div>
-          <h3 class="mission-title">The Collector's Request</h3>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-skull"></i> Dungeon Delve</p>
-            <p class="mission-reward"><i class="fas fa-coins"></i> 1,200 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Ashfall Crypts
-          </div>
-          <div class="warning-banner"><i class="fas fa-exclamation-triangle"></i> Undead Confirmed</div>
-        </article>
-
-        <!-- A-Tier Mission - The Spehlina -->
-        <article class="mission-paper parchment-elite" data-tier="A" data-mission="A-01">
-          <div class="paper-pin gold-pin"></div>
-          <div class="tier-badge tier-a">A</div>
-          <div class="elite-banner">MAJOR BOUNTY</div>
-          <h3 class="mission-title">Terror of Lavalto Lake</h3>
-          <div class="mission-subtitle">— The Spehlina —</div>
-          <div class="mission-preview">
-            <p class="mission-type"><i class="fas fa-dragon"></i> Monster Hunt</p>
-            <p class="mission-reward reward-large"><i class="fas fa-coins"></i> 10,000 gp</p>
-          </div>
-          <div class="mission-location">
-            <i class="fas fa-map-marker-alt"></i> Lavalto Lake
-          </div>
-          <div class="death-count"><i class="fas fa-skull-crossbones"></i> 60+ confirmed deaths</div>
-        </article>
-      </div>
-    </div>
-  </main>
-
-  <!-- Mission Detail Modal -->
-  <div class="modal-overlay" id="missionModal">
-    <div class="mission-detail-paper">
-      <button class="close-modal" aria-label="Close mission details">
-        <i class="fas fa-times"></i>
-      </button>
-      
-      <div class="mission-detail-content">
-        <div class="detail-header">
-          <div class="tier-badge-large" id="modalTierBadge">D</div>
-          <h2 class="detail-title" id="modalTitle">Mission Title</h2>
-        </div>
-        
-        <div class="detail-divider"></div>
-        
-        <div class="detail-grid">
-          <div class="detail-section">
-            <h4><i class="fas fa-user-tie"></i> Client</h4>
-            <p id="modalClient">Unknown</p>
-          </div>
-          
-          <div class="detail-section">
-            <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
-            <p id="modalLocation">Unknown</p>
-          </div>
-          
-          <div class="detail-section">
-            <h4><i class="fas fa-hourglass-half"></i> Duration</h4>
-            <p id="modalDuration">Unknown</p>
-          </div>
-          
-          <div class="detail-section">
-            <h4><i class="fas fa-coins"></i> Reward</h4>
-            <p id="modalReward" class="reward-text">Unknown</p>
-          </div>
-          
-          <div class="detail-section">
-            <h4><i class="fas fa-exclamation-triangle"></i> Combat Expected</h4>
-            <p id="modalCombat">Unknown</p>
-          </div>
-          
-          <div class="detail-section">
-            <h4><i class="fas fa-route"></i> Travel</h4>
-            <p id="modalTravel">None required</p>
-          </div>
-        </div>
-        
-        <div class="detail-divider"></div>
-        
-        <div class="detail-section full-width">
-          <h4><i class="fas fa-scroll"></i> The Job</h4>
-          <p id="modalDescription" class="job-description">Job description here...</p>
-        </div>
-        
-        <div class="detail-divider"></div>
-        
-        <div class="detail-section full-width">
-          <h4><i class="fas fa-info-circle"></i> To Accept This Mission</h4>
-          <div class="accept-info" id="modalAcceptInfo">
-            <p><strong>Speak to:</strong> <span id="modalContact">Board Keeper Dax</span></p>
-            <p><strong>At:</strong> <span id="modalContactLocation">Wavecrest Hall, Dawerton Docks</span></p>
-            <p><strong>Requirements:</strong> <span id="modalRequirements">D-Tier rank or higher</span></p>
-          </div>
-        </div>
-        
-        <div class="seal-container">
-          <div class="guild-seal">
-            <i class="fas fa-compass"></i>
-          </div>
-          <span class="seal-text">Official Guild Posting</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer Info -->
-  <footer class="guild-footer">
-    <div class="footer-content">
-      <p><i class="fas fa-info-circle"></i> Current Party Rank: <strong>D-Tier</strong></p>
-      <p><i class="fas fa-calendar"></i> Missions Available: <strong>11</strong></p>
-      <p class="footer-note">Speak to <strong>Registrar Yenna Cole</strong> for registration or <strong>Board Keeper Dax</strong> for mission details.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Mission Data
-    const missions = {
-      'D-01': {
-        tier: 'D',
-        title: 'The Cheating Merchant',
-        client: 'Merchant\'s Guild (Anonymous)',
-        location: 'Dawerton – Market District',
-        duration: '2-3 days',
-        reward: '40 gp (Bonus: +10 gp if bribe refused)',
-        combat: 'Unlikely (social/investigation)',
-        travel: 'None – Mission takes place within Dawerton',
-        description: 'A cloth merchant named Yorvin Thatch is suspected of falsifying quality certifications on imported silks. The Merchant\'s Guild wants proof before taking action. Investigate discreetly—if Yorvin catches wind of the investigation, he\'ll destroy evidence. Evidence of false labeling and the real ledger are required.',
-        contact: 'Board Keeper Dax',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'D-Tier rank or higher'
-      },
-      'D-02': {
-        tier: 'D',
-        title: 'Warehouse Rats',
-        client: 'Grain Collective',
-        location: 'Dawerton – Dock Warehouse #7',
-        duration: '1 day',
-        reward: '25 gp (Bonus: 15 gp if basement chest found)',
-        combat: 'Yes – Straightforward extermination',
-        travel: 'None – Warehouse is at the docks',
-        description: 'Giant rats have infested a grain warehouse. The Grain Collective needs them cleared before the next shipment arrives tomorrow. The warehouse is a large wooden structure with grain sacks stacked high. There may be more rats in the basement—speak to Foreman Gregor Holt on site.',
-        contact: 'Foreman Gregor Holt',
-        contactLocation: 'Dock Warehouse #7, Dawerton',
-        requirements: 'D-Tier rank or higher. Fire is forbidden!'
-      },
-      'D-03': {
-        tier: 'D',
-        title: 'The Missing Shipment',
-        client: 'Wine Merchant Varros Windell',
-        location: 'Cleamond Road (between Dawerton and Cleamond)',
-        duration: '3-5 days',
-        reward: '50 gp + 2 bottles fine wine (Bonus: 20 gp for delivering letter)',
-        combat: 'Possible – Bandits or wild animals',
-        travel: '~35km to Cleamond (1 day travel each way)',
-        description: 'A wagon carrying 20 casks of fine Islefield wine never arrived from Cleamond. Varros suspects theft or bandit activity. Find the shipment and either recover it or discover what happened. The road passes through light woodland—be cautious.',
-        contact: 'Varros Windell',
-        contactLocation: 'Windell Wine Imports, Market District',
-        requirements: 'D-Tier rank or higher. Recovery of wine preferred.'
-      },
-      'D-04': {
-        tier: 'D',
-        title: 'Haunted? Or Hoax?',
-        client: 'Innkeeper Darla Moss',
-        location: 'Dawerton – The Rusty Anchor, Dockside District',
-        duration: '1-2 nights',
-        reward: '35 gp + Free lodging at The Rusty Anchor',
-        combat: 'Possible – Depends on investigation',
-        travel: 'None – Investigation within Dawerton',
-        description: 'Staff at The Rusty Anchor refuse to enter the cellar after dark. They report cold spots, whispers, objects moving, and the feeling of being watched. The innkeeper wants answers—ghost, prank, or something else entirely? Investigate and resolve the disturbance.',
-        contact: 'Darla Moss',
-        contactLocation: 'The Rusty Anchor, Dockside District',
-        requirements: 'D-Tier rank or higher. Discretion appreciated.'
-      },
-      'C-01': {
-        tier: 'C',
-        title: 'Noble Escort – Lady Meren Ashvale',
-        client: 'House Ashvale',
-        location: 'Dawerton → Cleamond → Dawerton',
-        duration: '4 days round trip',
-        reward: '200 gp (Bonus: 50 gp if threat source exposed)',
-        combat: 'Likely – Ambush expected on road',
-        travel: '~35km each way (4 day round trip)',
-        description: 'Lady Meren Ashvale has received threatening letters and requires protection for her journey to Cleamond to meet with a trade partner. Keep her alive for the entire round trip. Threats are credible—expect professional opposition. Lady Meren is capable but not a fighter.',
-        contact: 'Guildmaster Tobren Ashford',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'C-Tier rank or higher. Protection experience preferred.'
-      },
-      'C-02': {
-        tier: 'C',
-        title: 'The Drowned Man\'s Secret',
-        client: 'City Watch (Unofficial)',
-        location: 'Dawerton – Docks & Temple District',
-        duration: '3-7 days',
-        reward: '150 gp (Bonus: 25 gp for live capture of leader)',
-        combat: 'Yes – Cult encounter expected',
-        travel: 'None – Investigation within Dawerton',
-        description: 'A dock worker named Hennik Solt was found floating in the harbor with strange symbols carved into his chest. The Watch is overwhelmed and needs discreet investigators. The symbols appear ritualistic—possibly cult activity. This is an unofficial contract—handle with discretion.',
-        contact: 'Sergeant Kella Bryne',
-        contactLocation: 'City Watch Barracks, Temple District',
-        requirements: 'C-Tier rank or higher. Discretion mandatory.'
-      },
-      'C-03': {
-        tier: 'C',
-        title: 'The Sculptor\'s Debt',
-        client: 'Madame Elara Vance (Sealed Letter)',
-        location: 'Dawerton – Tidewatch Slums',
-        duration: '2-4 days',
-        reward: '175 gp (Bonus: 50 gp for complete discretion)',
-        combat: 'Likely – Hired thugs protecting debtor',
-        travel: 'None – Mission within Dawerton (Tidewatch Slums)',
-        description: 'A marble statue was stolen by Corvin Ashby, a debtor who fled to the Tidewatch Slums. Retrieve the statue intact—it cannot be damaged under any circumstances. The client values discretion highly. The Tidewatch Slums are controlled by the Mudlark gang—navigate carefully.',
-        contact: 'Registrar Yenna Cole (sealed instructions)',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'C-Tier rank or higher. Statue must not be damaged.'
-      },
-      'C-04': {
-        tier: 'C',
-        title: 'Beast of the Southern Road',
-        client: 'Caravan Collective',
-        location: 'Southern Road (Dawerton to Mortling Stronghold)',
-        duration: '5-7 days',
-        reward: '300 gp (Bonus: Beast pelt worth 100 gp)',
-        combat: 'Yes – Monster hunt',
-        travel: '~33km to Mortling (attack zone 15-20km from Dawerton)',
-        description: 'Something is attacking caravans on the road to Mortling Stronghold. Three attacks in two weeks. Survivors describe it as "wolf-like but wrong"—larger than normal, seems to phase through attacks. The Caravan Collective wants it dead. Bring proof of the kill.',
-        contact: 'Board Keeper Dax',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'C-Tier rank or higher. Combat capability essential.'
-      },
-      'B-01': {
-        tier: 'B',
-        title: 'The Saltmire Syndicate',
-        client: 'Dawerton City Council (Official)',
-        location: 'Dawerton Harbor and surrounding areas',
-        duration: '1-2 weeks',
-        reward: '800 gp + bounties on captured members (50 gp each)',
-        combat: 'Yes – Multiple engagements expected',
-        travel: 'None – Operation based in Dawerton',
-        description: 'A smuggling operation called the Saltmire Syndicate is running contraband through the harbor. The City Council wants them dismantled. The syndicate has 15-20 members, including a rumored spellcaster. Lethal force is authorized. Evidence of their operations is required for full payment.',
-        contact: 'Guildmaster Tobren Ashford',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'B-Tier rank or higher. Evidence collection mandatory.'
-      },
-      'B-02': {
-        tier: 'B',
-        title: 'The Collector\'s Request',
-        client: 'Anonymous (via sealed contract)',
-        location: 'Ashfall Crypts',
-        duration: 'Unknown – Previous team did not return',
-        reward: '1,200 gp',
-        combat: 'Yes – Undead presence confirmed',
-        travel: 'Travel to Ashfall Crypts required',
-        description: 'An anonymous collector seeks a specific artifact from a sealed tomb in the Ashfall Crypts. The tomb has been sealed for 200 years. The artifact is a bronze urn with silver inlay. WARNING: A previous team was sent and did not return. Undead presence has been confirmed. Prepare accordingly.',
-        contact: 'Registrar Yenna Cole (sealed instructions)',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'B-Tier rank or higher. Anti-undead capabilities strongly recommended.'
-      },
-      'A-01': {
-        tier: 'A',
-        title: 'Terror of Lavalto Lake – The Spehlina',
-        client: 'Joint Bounty (Dawerton / Crown of Braewood)',
-        location: 'Lavalto Lake',
-        duration: 'Unknown – Multiple previous attempts have failed',
-        reward: '10,000 gp (5,000 from Dawerton, 5,000 from Crown)',
-        combat: 'Yes – Gargantuan aquatic monster',
-        travel: 'Sea/lake travel required. Vessel recommended.',
-        description: 'A massive creature known as the Spehlina terrorizes Lavalto Lake. The monster has destroyed 12 ships in the past year with an estimated 60+ deaths. Local fishermen call it "The Bleeding Shadow." It only attacks at night, and survivors report "the water itself turned against them." The creature is aquatic, gargantuan, and highly aggressive. All previous hunting attempts have failed.',
-        contact: 'Guildmaster Tobren Ashford',
-        contactLocation: 'Wavecrest Hall, Dawerton Docks',
-        requirements: 'B-Tier rank or higher to officially accept. Killing without guild sanction forfeits the reward. Naval support available—speak to the Saltheart Crew at the docks.'
-      }
+    // ========================================
+    // Tutorial System
+    // ========================================
+    const tutorialAudio = document.getElementById('tutorialAudio');
+    
+    // Tutorial content with audio file references
+    // Audio files should be placed in: static/audio/guide/
+    const TUTORIALS = {
+      boardIntro: [
+        {
+          title: "Welcome to the Guild Board!",
+          text: "Ah, there you are! I'm <strong>Elowen</strong>, keeper of the boards here at the Wayfarers' Accord. Let me show you how things work around here.",
+          audio: "static/audio/guide/board-intro-1.m4a",
+          highlight: null // No highlight for intro
+        },
+        {
+          title: "The Mission Board",
+          text: "This wooden board displays all available contracts. Each piece of paper represents a <strong>mission</strong> that needs completing. Jobs are posted by clients throughout Dayner.",
+          audio: "static/audio/guide/board-intro-2.m4a",
+          highlight: ".mission-grid" // Highlight the mission board
+        },
+        {
+          title: "Mission Tiers",
+          text: "Missions are ranked by difficulty: <strong>D-Tier</strong> for beginners, <strong>C-Tier</strong> for experienced, <strong>B-Tier</strong> for elite, and <strong>A-Tier</strong> for legendary adventurers. Your party rank determines which tiers you can accept.",
+          audio: "static/audio/guide/board-intro-3.m4a",
+          highlight: ".tier-tabs" // Highlight the tier filter tabs
+        },
+        {
+          title: "Guild Chapters",
+          text: "Use the <strong>location selector</strong> at the top to view missions from different guild chapters across Dayner. Each chapter has different contracts available.",
+          audio: "static/audio/guide/board-intro-4.m4a",
+          highlight: ".location-selector" // Highlight the location dropdown
+        },
+        {
+          title: "Ready to Begin!",
+          text: "Click on any mission paper to view its details. When you find something that suits your party, you can accept it! Good luck out there, adventurer. 🍺",
+          audio: "static/audio/guide/board-intro-5.m4a",
+          highlight: ".mission-paper:first-child", // Highlight first mission card
+          btnText: "Got it!"
+        }
+      ],
+      missionModal: [
+        {
+          title: "Mission Details",
+          text: "This is the <strong>mission contract</strong>. Here you'll find all the important information: the client, location, expected duration, reward, and a full description of the job.",
+          audio: "static/audio/guide/mission-modal-1.m4a",
+          highlight: ".mission-modal-content" // Highlight the modal content
+        },
+        {
+          title: "Accepting Missions",
+          text: "If you want to take on this contract, click <strong>Accept Mission</strong>. It will be added to your party's active contracts and appear in your accepted missions tab.",
+          audio: "static/audio/guide/mission-modal-2.m4a",
+          highlight: ".accept-mission-btn" // Highlight the accept button
+        },
+        {
+          title: "Mission Requirements",
+          text: "Some missions are <strong>locked</strong> based on your party's rank. Complete more contracts to increase your standing and unlock higher-tier missions!",
+          audio: "static/audio/guide/mission-modal-3.m4a",
+          highlight: ".tier-badge", // Highlight the tier badge
+          btnText: "Understood!"
+        }
+      ],
+      acceptedMission: [
+        {
+          title: "Accepted Contract",
+          text: "This mission is now assigned to your party! The <strong>green badge</strong> indicates it's been accepted and is awaiting completion.",
+          audio: "static/audio/guide/accepted-1.m4a",
+          highlight: ".accepted-badge" // Highlight the accepted badge
+        },
+        {
+          title: "Completing Missions",
+          text: "Once you've finished the job, return here and click <strong>Mark as Complete</strong>. Your party's reputation will grow, and you'll earn your reward!",
+          audio: "static/audio/guide/accepted-2.m4a",
+          highlight: ".complete-mission-btn" // Highlight the complete button
+        },
+        {
+          title: "Personal To-Do",
+          text: "You can also add this mission to your <strong>personal to-do list</strong> for easy tracking. This is separate from the party's shared list.",
+          audio: "static/audio/guide/accepted-3.m4a",
+          highlight: ".add-to-todo-btn", // Highlight the to-do button
+          btnText: "Ready to Adventure!"
+        }
+      ]
     };
 
-    // DOM Elements
-    const missionPapers = document.querySelectorAll('.mission-paper');
-    const modal = document.getElementById('missionModal');
-    const closeModalBtn = document.querySelector('.close-modal');
-    const tierTabs = document.querySelectorAll('.tier-tab');
+    // ========================================
+    // Login Greeting System
+    // ========================================
+    // Character-specific greetings (Elowen has unique lines for specific adventurers)
+    const CHARACTER_GREETINGS = {
+      leontius: [
+        { text: "Leontius! The lion himself returns. Ready to test your mettle on some new contracts?", audio: "static/audio/guide/Test 1.m4a" },
+        { text: "Ah, Leontius! Back so soon? Must've heard about the fresh bounties on the board.", audio: "static/audio/guide/Test 2.m4a" }
+      ],
+      varin: [
+        { text: "Varin! The blade dancer returns. Still showing off with that fancy footwork?", audio: "static/audio/guide/varin-1.m4a" },
+        { text: "Ah, Varin! Back for more glory, or did the last quest not go as planned?", audio: "static/audio/guide/varin-2.m4a" },
+        { text: "Well, well... Varin's here. Try not to break anything this time, yeah?", audio: "static/audio/guide/varin-3.m4a" }
+      ],
+      amdir: [
+        { text: "Amdir! Good to see you, friend. The forest sends its regards, I imagine?", audio: "static/audio/guide/amdir-1.m4a" },
+        { text: "Ah, another elf! Amdir, was it? Always nice to see a fellow with pointed ears.", audio: "static/audio/guide/amdir-2.m4a" },
+        { text: "Amdir! Still communing with nature, or finally joining us mortals at the bar?", audio: "static/audio/guide/amdir-3.m4a" }
+      ],
+      morjor: [
+        { text: "Morjor! The big guy himself. Don't worry, I've reinforced the chairs since last time.", audio: "static/audio/guide/morjor-1.m4a" },
+        { text: "Ah, Morjor's here! Watch your head on the doorframe... or don't. Makes for good stories.", audio: "static/audio/guide/morjor-2.m4a" },
+        { text: "Morjor! Ready to smash some skulls? There's a few contracts that could use your... direct approach.", audio: "static/audio/guide/morjor-3.m4a" }
+      ]
+    };
 
-    // Open mission modal
-    missionPapers.forEach(paper => {
-      paper.addEventListener('click', () => {
-        const missionId = paper.dataset.mission;
-        const mission = missions[missionId];
+    // Generic greetings for characters without specific lines
+    const GENERIC_GREETINGS = [
+      { text: "And who might you be again? Ah right, <strong>{name}</strong>! Welcome back, adventurer.", audio: "static/audio/guide/generic-1.m4a" },
+      { text: "Another day, another adventurer! Good to see you, <strong>{name}</strong>.", audio: "static/audio/guide/generic-2.m4a" },
+      { text: "Ah, <strong>{name}</strong>! Back for more work? The board's been busy today.", audio: "static/audio/guide/generic-3.m4a" },
+      { text: "Welcome back, <strong>{name}</strong>. The usual? Or are you here for something stronger?", audio: "static/audio/guide/generic-4.m4a" },
+      { text: "<strong>{name}</strong>! Just in time. Got some fresh contracts pinned up this morning.", audio: "static/audio/guide/generic-5.m4a" }
+    ];
+
+    // First-time login greeting (before the full tutorial)
+    const FIRST_LOGIN_GREETING = {
+      text: "And who are you again? Hmm... doesn't matter! <strong>New faces</strong> mean new stories. Stick around and I'll show you how things work here.",
+      audio: "static/audio/guide/first-login.m4a"
+    };
+
+    async function showLoginGreeting() {
+      if (!userProfile || isAdmin) return;
+      
+      const characterId = userProfile.characterId;
+      const characterName = userProfile.character;
+      
+      // Check if this is their first login (use seenBoardIntro as indicator)
+      const isFirstLogin = !tutorialFlags.seenBoardIntro;
+      
+      let greeting;
+      
+      if (isFirstLogin) {
+        // First time: special "who are you" greeting, then tutorial
+        greeting = FIRST_LOGIN_GREETING;
+      } else {
+        // Returning: pick random from character-specific or generic pool
+        const charGreetings = CHARACTER_GREETINGS[characterId];
         
-        if (mission) {
-          document.getElementById('modalTierBadge').textContent = mission.tier;
-          document.getElementById('modalTierBadge').className = `tier-badge-large tier-${mission.tier.toLowerCase()}`;
-          document.getElementById('modalTitle').textContent = mission.title;
-          document.getElementById('modalClient').textContent = mission.client;
-          document.getElementById('modalLocation').textContent = mission.location;
-          document.getElementById('modalDuration').textContent = mission.duration;
-          document.getElementById('modalReward').textContent = mission.reward;
-          document.getElementById('modalCombat').textContent = mission.combat;
-          document.getElementById('modalTravel').textContent = mission.travel;
-          document.getElementById('modalDescription').textContent = mission.description;
-          document.getElementById('modalContact').textContent = mission.contact;
-          document.getElementById('modalContactLocation').textContent = mission.contactLocation;
-          document.getElementById('modalRequirements').textContent = mission.requirements;
-          
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
+        if (charGreetings && charGreetings.length > 0) {
+          // 70% chance for character-specific, 30% for generic
+          if (Math.random() < 0.7) {
+            greeting = charGreetings[Math.floor(Math.random() * charGreetings.length)];
+          } else {
+            greeting = GENERIC_GREETINGS[Math.floor(Math.random() * GENERIC_GREETINGS.length)];
+          }
+        } else {
+          greeting = GENERIC_GREETINGS[Math.floor(Math.random() * GENERIC_GREETINGS.length)];
         }
-      });
-    });
-
-    // Close modal
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
+      }
+      
+      // Replace {name} placeholder with character name
+      const greetingText = greeting.text.replace('{name}', characterName);
+      
+      // Show greeting in tutorial overlay
+      document.getElementById('tutorialTitle').textContent = isFirstLogin ? "A Familiar Voice..." : "Welcome Back!";
+      document.getElementById('tutorialText').innerHTML = greetingText;
+      document.getElementById('tutorialProgress').innerHTML = '';
+      document.getElementById('tutorialBtnText').textContent = isFirstLogin ? "Show Me Around" : "Thanks!";
+      document.getElementById('tutorialOverlay').classList.add('active');
+      
+      // Play greeting audio
+      if (greeting.audio) {
+        tutorialAudio.src = greeting.audio;
+        tutorialAudio.play().catch(e => console.log('Audio autoplay blocked:', e));
+      }
+      
+      // Store reference for when user clicks continue
+      window.pendingFirstLogin = isFirstLogin;
     }
 
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
+    function handleGreetingContinue() {
+      if (window.pendingFirstLogin) {
+        // First login: close greeting and start full tutorial
+        window.pendingFirstLogin = undefined;
+        tutorialAudio.pause();
+        tutorialAudio.currentTime = 0;
+        document.getElementById('tutorialOverlay').classList.remove('active');
+        
+        // Show the full board intro tutorial
+        setTimeout(() => showTutorial('boardIntro'), 300);
+      } else {
+        // Returning user: just close the greeting and reset flag
+        window.pendingFirstLogin = undefined;
+        closeTutorial();
+      }
+    }
 
-    // Tier filtering
-    tierTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tier = tab.dataset.tier;
-        
-        // Update active tab
-        tierTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        // Filter missions
-        missionPapers.forEach(paper => {
-          if (tier === 'all' || paper.dataset.tier === tier) {
-            paper.style.display = '';
-            paper.classList.add('fade-in');
-          } else {
-            paper.style.display = 'none';
-            paper.classList.remove('fade-in');
-          }
-        });
+    async function loadTutorialFlags() {
+      if (!currentUser) return;
+      
+      try {
+        const doc = await window.firebaseDb.collection('userTutorials').doc(currentUser.uid).get();
+        if (doc.exists) {
+          const data = doc.data();
+          tutorialFlags = {
+            seenBoardIntro: data.seenBoardIntro || false,
+            seenMissionModal: data.seenMissionModal || false,
+            seenAcceptedMission: data.seenAcceptedMission || false
+          };
+        }
+      } catch (error) {
+        console.error('Error loading tutorial flags:', error);
+      }
+    }
+
+    async function saveTutorialFlag(flagName) {
+      if (!currentUser) return;
+      
+      tutorialFlags[flagName] = true;
+      
+      try {
+        await window.firebaseDb.collection('userTutorials').doc(currentUser.uid).set(
+          { [flagName]: true },
+          { merge: true }
+        );
+      } catch (error) {
+        console.error('Error saving tutorial flag:', error);
+      }
+    }
+
+    function showTutorial(type) {
+      if (!TUTORIALS[type]) return;
+      
+      currentTutorialType = type;
+      currentTutorialStep = 0;
+      
+      // Generate progress dots
+      generateProgressDots();
+      updateTutorialContent();
+      document.getElementById('tutorialOverlay').classList.add('active');
+    }
+
+    function generateProgressDots() {
+      const steps = TUTORIALS[currentTutorialType];
+      const container = document.getElementById('tutorialProgress');
+      container.innerHTML = steps.map((_, i) => 
+        `<div class="progress-dot ${i === 0 ? 'active' : ''}" data-step="${i}"></div>`
+      ).join('');
+    }
+
+    function updateProgressDots() {
+      const dots = document.querySelectorAll('.progress-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.remove('active', 'completed');
+        if (i < currentTutorialStep) {
+          dot.classList.add('completed');
+        } else if (i === currentTutorialStep) {
+          dot.classList.add('active');
+        }
       });
-    });
+    }
 
-    // Add paper hover sound effect (optional enhancement)
-    missionPapers.forEach(paper => {
-      paper.addEventListener('mouseenter', () => {
-        paper.style.transform = paper.classList.contains('tilted-left') 
-          ? 'rotate(-2deg) translateY(-8px) scale(1.02)'
-          : paper.classList.contains('tilted-right')
-            ? 'rotate(2deg) translateY(-8px) scale(1.02)'
-            : 'translateY(-8px) scale(1.02)';
+    function updateTutorialContent() {
+      const steps = TUTORIALS[currentTutorialType];
+      const step = steps[currentTutorialStep];
+      
+      document.getElementById('tutorialTitle').textContent = step.title;
+      document.getElementById('tutorialText').innerHTML = step.text;
+      document.getElementById('tutorialBtnText').textContent = step.btnText || 'Continue';
+      
+      updateProgressDots();
+      
+      // Update highlight
+      updateTutorialHighlight(step.highlight);
+      
+      // Play audio if available
+      playTutorialAudio(step.audio);
+    }
+
+    function updateTutorialHighlight(selector) {
+      // Remove any existing highlights
+      document.querySelectorAll('.tutorial-highlight').forEach(el => {
+        el.classList.remove('tutorial-highlight');
       });
       
-      paper.addEventListener('mouseleave', () => {
-        paper.style.transform = '';
+      // Apply new highlight if selector provided
+      if (selector) {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.classList.add('tutorial-highlight');
+          // Scroll element into view if not visible
+          element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        }
+      }
+    }
+
+    function clearTutorialHighlight() {
+      document.querySelectorAll('.tutorial-highlight').forEach(el => {
+        el.classList.remove('tutorial-highlight');
       });
+    }
+
+    function playTutorialAudio(audioSrc) {
+      if (!audioSrc || !tutorialAudio) return;
+      
+      // Stop any currently playing audio
+      tutorialAudio.pause();
+      tutorialAudio.currentTime = 0;
+      
+      // Set and play new audio
+      tutorialAudio.src = audioSrc;
+      tutorialAudio.play().catch(err => {
+        // Audio might not exist yet or autoplay blocked - that's okay
+        console.log('Tutorial audio not available or blocked:', err.message);
+      });
+    }
+
+    function stopTutorialAudio() {
+      if (tutorialAudio) {
+        tutorialAudio.pause();
+        tutorialAudio.currentTime = 0;
+      }
+    }
+
+    function advanceTutorial() {
+      stopTutorialAudio();
+      
+      // If no tutorial type is set, this might be a greeting - let handleGreetingContinue deal with it
+      if (!currentTutorialType || !TUTORIALS[currentTutorialType]) {
+        return;
+      }
+      
+      const steps = TUTORIALS[currentTutorialType];
+      currentTutorialStep++;
+      
+      if (currentTutorialStep >= steps.length) {
+        closeTutorial();
+      } else {
+        updateTutorialContent();
+      }
+    }
+
+    function closeTutorial() {
+      stopTutorialAudio();
+      clearTutorialHighlight();
+      document.getElementById('tutorialOverlay').classList.remove('active');
+      
+      // Save the appropriate flag
+      if (currentTutorialType === 'boardIntro') {
+        saveTutorialFlag('seenBoardIntro');
+      } else if (currentTutorialType === 'missionModal') {
+        saveTutorialFlag('seenMissionModal');
+      } else if (currentTutorialType === 'acceptedMission') {
+        saveTutorialFlag('seenAcceptedMission');
+      }
+      
+      currentTutorialType = null;
+      currentTutorialStep = 0;
+    }
+
+    function checkBoardIntroTutorial() {
+      // Always show greeting on login (first-time or returning)
+      if (!isAdmin) {
+        setTimeout(() => showLoginGreeting(), 500);
+      }
+    }
+
+    function checkMissionModalTutorial(isAccepted) {
+      if (isAdmin) return;
+      
+      if (isAccepted && !tutorialFlags.seenAcceptedMission) {
+        setTimeout(() => showTutorial('acceptedMission'), 300);
+      } else if (!isAccepted && !tutorialFlags.seenMissionModal) {
+        setTimeout(() => showTutorial('missionModal'), 300);
+      }
+    }
+
+    // Tutorial event listeners
+    document.getElementById('tutorialContinue').addEventListener('click', function() {
+      // Check if we're in greeting mode (pendingFirstLogin is set to true/false, or we have no tutorial type)
+      if (window.pendingFirstLogin === true || window.pendingFirstLogin === false) {
+        handleGreetingContinue();
+      } else if (currentTutorialType) {
+        advanceTutorial();
+      } else {
+        // Fallback: just close
+        closeTutorial();
+      }
+    });
+    document.getElementById('tutorialSkip').addEventListener('click', function() {
+      window.pendingFirstLogin = undefined;
+      closeTutorial();
     });
   </script>
 </body>
