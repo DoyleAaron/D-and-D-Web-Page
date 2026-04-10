@@ -465,7 +465,7 @@ const ROAD_NETWORK = {
         }
       }
       
-      // Add end point
+      // Add end point.
       if (toNode) {
         coords.push({ x: toNode.x, y: toNode.y, isNode: true, nodeId: toId });
       }
