@@ -27,7 +27,9 @@ The ruling body of Kluimont, consisting of ten powerful mages who collectively g
 | **High Archon** (1st Seat) | Lysanthe Kilmora | Leads the council, ultimate authority |
 | **2nd Seat** | Unknown | - |
 | **3rd Seat** | Chris Meudec | Ambitious bureaucrat, techno-mage, owns Scrit familiar |
-| **4th-10th Seats** | Various | Senior mages with specialized portfolios |
+| **4th–7th Seats** | Various | Senior mages with specialized portfolios |
+| **8th Seat** | Vaelor Tinn | Shield and barrier specialist; Kluimont's delegate to the Kadena-Rye Summit (1225 C.C.) |
+| **9th–10th Seats** | Various | Senior mages with specialized portfolios |
 
 ### Departments
 - **Ward-Keepers:** Maintain the city's magical defenses and entry restrictions
@@ -70,6 +72,9 @@ The ruler of Kluimont, a powerful mage whose specialty and age are matters of sp
 
 ### Chris Meudec (3rd Seat)
 An ambitious bureaucrat who advanced by informing on colleagues. He studies the dragon binding with his hovering familiar Scrit, always looking for leverage to climb higher. Most find him insufferable; all find him useful.
+
+### Vaelor Tinn (8th Seat)
+A lean, quietly confident abjuration specialist who earned his Council seat unusually fast. His expertise is defensive ward architecture and barrier magic. He was named Kluimont's delegate to the **Kadena-Rye Summit** in 1225 C.C.—the first time Synod regulations ever permitted him to leave the island.
 
 ## Relationships
 

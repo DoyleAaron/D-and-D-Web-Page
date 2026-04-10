@@ -73,3 +73,6 @@ DM_Private/
 
 # Debug related
 fiveserver.config.js
+
+# Local Salesforce tooling data
+.sfdx/
