@@ -595,6 +595,12 @@
     .npc-tag.rel-hostile  { background: rgba(233,69,96,0.12);  color: var(--color-accent); }
     .npc-tag.rel-unknown  { background: rgba(212,175,55,0.12);  color: var(--color-gold); }
     .npc-tag.faction { background: var(--bg-tertiary); color: var(--text-secondary); }
+    .npc-tag.lore { background: rgba(92,107,192,0.15); color: #7986cb; }
+    .npc-card.lore-npc::before { background: linear-gradient(90deg, #5c6bc0, #9575cd); }
+    .npc-card.lore-npc { border-style: dashed; }
+    .npc-card.lore-npc.already-added { border-style: solid; opacity: 0.65; }
+    .lore-section-header { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); padding: 8px 2px 6px; grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
+    .lore-section-header::after { content: ''; flex: 1; height: 1px; background: var(--border-color); }
 
     /* NPC Side Panel */
     .npc-panel-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 400; display: none; }
@@ -2283,6 +2289,191 @@ function deleteCurrentQuest() {
 }
 
 // ════════════════════════════════════════
+// Lore Character Index (sourced from index.html nav)
+// ════════════════════════════════════════
+const LORE_NPCS = [
+  // Historic – Military Commanders
+  {name:'General Arach Tharne',role:'Military Commander',faction:'Historic'},
+  {name:'General Yon Garathorn',role:'Military Commander',faction:'Historic'},
+  {name:'Imperial Warmaster Dravarian',role:'Imperial Warmaster',faction:'Historic'},
+  {name:'Legate Sienna Valtoris',role:'Legate',faction:'Historic'},
+  // Historic – Rulers & Nobility
+  {name:'High Thane Broldir Flameforged',role:'High Thane',faction:'Historic'},
+  {name:'Pirate Queen Aris Steel-Eye',role:'Pirate Queen',faction:'Historic'},
+  {name:'Princess Araleth Oakheath',role:'Princess',faction:'Historic'},
+  {name:'Sea Lord Helmar Lynth',role:'Sea Lord',faction:'Historic'},
+  // Historic – Notable Figures
+  {name:'Balthazar The Great Wizard',role:'Wizard',faction:'Historic'},
+  {name:'Grand Inquisitor Pellaro',role:'Grand Inquisitor',faction:'Historic'},
+  // Beasts & Creatures
+  {name:'Bagi the Brass Tempest',role:'Creature',faction:''},
+  {name:'The Spehlina',role:'Creature',faction:''},
+  {name:'Scrit',role:'Mysterious Figure',faction:''},
+  // Modern – Royalty & Nobility
+  {name:'King Roden II',role:'King',faction:'Royalty'},
+  {name:'King Tarvin Braeden IV',role:'King',faction:'Braewood'},
+  {name:'Lady Seraphina Caylester',role:'Lady',faction:'Nobility'},
+  {name:'Lady Vera Silke',role:'Lady',faction:'Nobility'},
+  {name:'Lord Adrian Silwynn',role:'Lord',faction:'Nobility'},
+  {name:'Lord-Governor Callum Westmarch',role:'Lord-Governor',faction:'Nobility'},
+  {name:'Lord-Regent Hallovar Greythorne',role:'Lord-Regent',faction:'Nobility'},
+  {name:'Prince Ralston',role:'Prince',faction:'Royalty'},
+  {name:'Queen Atheliana Aeristel',role:'Queen',faction:'Royalty'},
+  {name:'Queen Maera Braeden',role:'Queen',faction:'Braewood'},
+  {name:'Serath Valen',role:'Noble',faction:'Nobility'},
+  {name:'Sir Kael Irondawn',role:'Knight',faction:'Nobility'},
+  // Modern – Military & Wardens
+  {name:'Cadet Alren',role:'Cadet',faction:'Military'},
+  {name:'Bridge-Commander Serena Coldwell',role:'Bridge-Commander',faction:'Military'},
+  {name:'Captain Hilda Stonebreaker',role:'Captain',faction:'Military'},
+  {name:'Captain Mira Blackshore',role:'Captain',faction:'Military'},
+  {name:'Captain Marcus Dunley',role:'Captain',faction:'Military'},
+  {name:'Captain Renna Voss',role:'Captain',faction:'Military'},
+  {name:'Commandant Yara Steele',role:'Commandant',faction:'Military'},
+  {name:'Marshal Corin Ashfeld',role:'Marshal',faction:'Military'},
+  {name:'Commander Brynn Ashworth',role:'Commander',faction:'Military'},
+  {name:'Commander Seral',role:'Commander',faction:'Military'},
+  {name:'Fleet-Captain Isolde Merrick',role:'Fleet-Captain',faction:'Military'},
+  {name:'Knight-Commander Cedric Hallam',role:'Knight-Commander',faction:'Military'},
+  {name:'Lieutenant Seren Valk',role:'Lieutenant',faction:'Military'},
+  {name:'Lord-Marshal Caelric Ironward',role:'Lord-Marshal',faction:'Military'},
+  {name:'Lord-Warden Cassian Velthorpe',role:'Lord-Warden',faction:'Wardens'},
+  {name:'Warden Hella Stonebrow',role:'Warden',faction:'Wardens'},
+  {name:'Warden Torvald Stormwatch',role:'Warden',faction:'Wardens'},
+  {name:'Warden-Captain Halvard Grimstone',role:'Warden-Captain',faction:'Wardens'},
+  {name:'Warden-Mayor Lysa Thorne',role:'Warden-Mayor',faction:'Wardens'},
+  {name:'Watch-Captain Brennan Gale',role:'Watch-Captain',faction:'Military'},
+  {name:'Bridge-Warden Elara Thornguard',role:'Bridge-Warden',faction:'Wardens'},
+  {name:'Captain Darren Glaze',role:'Captain',faction:'Military'},
+  {name:'Captain Drem Holt',role:'Captain',faction:'Military'},
+  {name:'Captain Gareth Wystan',role:'Captain',faction:'Military'},
+  {name:'Drill-Master Vance Korrath',role:'Drill-Master',faction:'Military'},
+  {name:'Sergeant Horace Vane',role:'Sergeant',faction:'Military'},
+  {name:'Sergeant Joris Wavebreak',role:'Sergeant',faction:'Military'},
+  {name:'Sergeant Major Thessa Vorn',role:'Sergeant Major',faction:'Military'},
+  {name:'Shore-Warden Nessa Croft',role:'Shore-Warden',faction:'Wardens'},
+  {name:'Signal-Master Roderick Pale',role:'Signal-Master',faction:'Military'},
+  {name:'Sword-Instructor Daven Rowe',role:'Sword-Instructor',faction:'Military'},
+  // Modern – Dawerton Escort Team
+  {name:'Envoy Pasan',role:'Envoy',faction:'Dawerton Escort'},
+  {name:'Maera of Silverhill',role:'Escort Member',faction:'Dawerton Escort'},
+  {name:'Sergeant Elira Thorn',role:'Sergeant',faction:'Dawerton Escort'},
+  {name:'Corporal Bram Stone',role:'Corporal',faction:'Dawerton Escort'},
+  {name:'Sister Calene Dusk',role:'Sister',faction:'Dawerton Escort'},
+  {name:'Aric "Ash" Vell',role:'Escort Member',faction:'Dawerton Escort'},
+  // Modern – Dawerton Council
+  {name:'Mayor Adrian',role:'Mayor',faction:'Dawerton Council'},
+  {name:'Liora',role:'Councilor',faction:'Dawerton Council'},
+  {name:'Councilor Elara',role:'Councilor',faction:'Dawerton Council'},
+  {name:'Councilor Fenric',role:'Councilor',faction:'Dawerton Council'},
+  {name:'Councilor Jorath',role:'Councilor',faction:'Dawerton Council'},
+  {name:'Councilor Miriam',role:'Councilor',faction:'Dawerton Council'},
+  {name:'Councilor Varis',role:'Councilor',faction:'Dawerton Council'},
+  // Modern – Religious Figures
+  {name:'Cleric Veyner Drosk',role:'Cleric',faction:'Church'},
+  {name:'Father-Commander Aldous Valorian',role:'Father-Commander',faction:'Church'},
+  {name:'Father Aldric Mourning',role:'Father',faction:'Church'},
+  {name:'Father Mikkos Ashford',role:'Father',faction:'Church'},
+  {name:'Father Clement Varro',role:'Father',faction:'Church'},
+  {name:'Father Maltrius Kael',role:'Father',faction:'Church'},
+  {name:'Father Osric Tidewalker',role:'Father',faction:'Church'},
+  {name:'Father-Provost Marius Greave',role:'Father-Provost',faction:'Church'},
+  {name:'Father Wren Stormwright',role:'Father',faction:'Church'},
+  {name:'Keeper Helga Saltblood',role:'Keeper',faction:'Church'},
+  {name:'Mother Selyse',role:'Mother',faction:'Church'},
+  {name:'Sister Evalyn Ashmore',role:'Sister',faction:'Church'},
+  {name:'Brother Aldric Sunhallow',role:'Brother',faction:'Church'},
+  {name:'Father Aldwin Sarre',role:'Father',faction:'Church'},
+  {name:'Father Selwyn Oathkeeper',role:'Father',faction:'Church'},
+  // Modern – Mages & Scholars
+  {name:'Chris Meudec',role:'Scholar',faction:'Mages'},
+  {name:'High Archon Lysanthe Kilmora',role:'High Archon',faction:'Mages'},
+  {name:'Magistra Liriel Dawnweaver',role:'Magistra',faction:'Mages'},
+  {name:'Vaelor Tinn',role:'Mage',faction:'Mages'},
+  // Modern – Merchants & Guilds
+  {name:'Guildmaster Arlen Wain',role:'Guildmaster',faction:'Guilds'},
+  {name:'Guildmaster Brogar Flamevein',role:'Guildmaster',faction:'Guilds'},
+  {name:'Guildmaster Dorvan Ironhand',role:'Guildmaster',faction:'Guilds'},
+  {name:'Guildmaster Orvyn Cartwright',role:'Guildmaster',faction:'Guilds'},
+  {name:'Guildmistress Petra Thornwood',role:'Guildmistress',faction:'Guilds'},
+  {name:'Harbor-Warden Colm Ravencroft',role:'Harbor-Warden',faction:'Guilds'},
+  {name:'Harbormaster Edric Salthollow',role:'Harbormaster',faction:'Guilds'},
+  {name:'Harbormaster Pel Vance',role:'Harbormaster',faction:'Guilds'},
+  {name:'Master Engineer Borin Hammerfall',role:'Master Engineer',faction:'Guilds'},
+  {name:'Master Smith Durgan Steelhand',role:'Master Smith',faction:'Guilds'},
+  {name:'Merchant Ulric Harren',role:'Merchant',faction:'Merchants'},
+  {name:'Merchant-Prince Yoren Salk',role:'Merchant-Prince',faction:'Merchants'},
+  {name:'Old Guildmaster Tomas Ashwell',role:'Guildmaster',faction:'Guilds'},
+  {name:'Trader Korgin Deepdelve',role:'Trader',faction:'Merchants'},
+  {name:'Corbin Fleecewarden',role:'Merchant',faction:'Merchants'},
+  {name:'Dorinda Kettlebrook',role:'Merchant',faction:'Merchants'},
+  {name:'Guildmaster Loren Fairweather',role:'Guildmaster',faction:'Guilds'},
+  {name:'Gulliver Knot',role:'Merchant',faction:'Merchants'},
+  {name:'Harbor-Master Gwen Ashbury',role:'Harbor-Master',faction:'Guilds'},
+  {name:'High Banker Yorin Crestmont',role:'High Banker',faction:'Merchants'},
+  {name:'Marta Reef',role:'Merchant',faction:'Merchants'},
+  {name:'Master Smith Grondar Anvilborn',role:'Master Smith',faction:'Guilds'},
+  {name:'Orna Blackhoof',role:'Merchant',faction:'Merchants'},
+  {name:'Pella Threadsworth',role:'Merchant',faction:'Merchants'},
+  // Modern – Officials & Elders
+  {name:'Clerk Ellisar Wrenford',role:'Clerk',faction:'Officials'},
+  {name:'Consul Alistair Bryne',role:'Consul',faction:'Officials'},
+  {name:'Elder Bram Copperkettle',role:'Elder',faction:'Officials'},
+  {name:'Elder Grunhild Chainbreaker',role:'Elder',faction:'Officials'},
+  {name:'Elder Mira Fell',role:'Elder',faction:'Officials'},
+  {name:'Elder Mordin Greymantle',role:'Elder',faction:'Officials'},
+  {name:'Elder Thora Ironvow',role:'Elder',faction:'Officials'},
+  {name:'Hestia Vael',role:'Official',faction:'Officials'},
+  {name:'High Chamberlain Aldous Fenn',role:'High Chamberlain',faction:'Officials'},
+  {name:'High Elder Korrin Steelhand',role:'High Elder',faction:'Officials'},
+  {name:'Lady Envoy Myrelle',role:'Lady Envoy',faction:'Officials'},
+  {name:'Magistrate Vorn Hallas',role:'Magistrate',faction:'Officials'},
+  {name:'Portreeve Garrett Dunholm',role:'Portreeve',faction:'Officials'},
+  {name:'Quartermaster-General Tobias Marsh',role:'Quartermaster-General',faction:'Officials'},
+  {name:'Lord-Mayor Vellan Harcrow',role:'Lord-Mayor',faction:'Officials'},
+  {name:'Thane Aldric Borugh',role:'Thane',faction:'Officials'},
+  {name:'Watch-Keeper Jareth Dunwald',role:'Watch-Keeper',faction:'Officials'},
+  {name:'Elder Maeven Shawl',role:'Elder',faction:'Officials'},
+  {name:'Harbor-Elder Brennan Cole',role:'Harbor-Elder',faction:'Officials'},
+  {name:'Headman Cotter Marsh',role:'Headman',faction:'Officials'},
+  {name:'High Steward Merylla Davross',role:'High Steward',faction:'Officials'},
+  {name:'Reeve Arton Fellmark',role:'Reeve',faction:'Officials'},
+  {name:'Root-Mother Yseult Greenbough',role:'Root-Mother',faction:'Officials'},
+  // Modern – Commoners & Others
+  {name:'Fenris Thorne',role:'Commoner',faction:''},
+  {name:'Ferryman Jorl Vatton',role:'Ferryman',faction:''},
+  {name:'Greta Borugh',role:'Commoner',faction:''},
+  {name:'Hagen Wheelock',role:'Commoner',faction:''},
+  {name:'Innkeeper Bess Waverly',role:'Innkeeper',faction:''},
+  {name:'Jorik Ironbolt',role:'Commoner',faction:''},
+  {name:'Kessa Vane',role:'Commoner',faction:''},
+  {name:'Maren Tidecaller',role:'Commoner',faction:''},
+  {name:'Old Shepherd Cort',role:'Shepherd',faction:''},
+  {name:'Prisoner 7',role:'Prisoner',faction:''},
+  {name:'Thana Ironvow',role:'Commoner',faction:''},
+  {name:'Tam Bramblewood',role:'Commoner',faction:''},
+  {name:'Aelindra Mistwalker',role:'Commoner',faction:''},
+  {name:'Bramwell Stone',role:'Commoner',faction:''},
+  {name:'Gareth Thornroot',role:'Commoner',faction:''},
+  {name:'Healer Winna Softhand',role:'Healer',faction:''},
+  {name:'Kira Stoneheart',role:'Commoner',faction:''},
+  {name:'Lira Dewfoot',role:'Commoner',faction:''},
+  {name:'Old Barnacle Gorm',role:'Commoner',faction:''},
+  {name:'Old Stormcrow Yentl',role:'Commoner',faction:''},
+  {name:'Tannis Brightwater',role:'Commoner',faction:''},
+  {name:'Isolde Valdris',role:'Commoner',faction:'Valdris Family'},
+  {name:'Theron Valdris',role:'Commoner',faction:'Valdris Family'},
+  {name:'Senna Valdris',role:'Commoner',faction:'Valdris Family'},
+  {name:'Dalla Valdris',role:'Commoner',faction:'Valdris Family'},
+  {name:'Corin Valdris',role:'Commoner',faction:'Valdris Family'},
+  {name:'Tillo Quickfingers',role:'Commoner',faction:''},
+  {name:'Wenna Marsh',role:'Commoner',faction:''},
+  {name:'Widow Selna Brine',role:'Commoner',faction:''},
+  {name:'Young Kira Shawl',role:'Commoner',faction:''},
+  {name:'Young Tam Greenbough',role:'Commoner',faction:''},
+];
+
+// ════════════════════════════════════════
 // NPC Tracker
 // ════════════════════════════════════════
 const NPC_STATUS_CLASS = { alive:'status-alive', dead:'status-dead', unknown:'status-unknown', missing:'status-missing' };
@@ -2298,13 +2489,28 @@ function renderNpcGrid() {
   const search  = (document.getElementById('npc-search-input')?.value||'').toLowerCase();
   const stFilt  = document.getElementById('npc-filter-status')?.value||'';
   const relFilt = document.getElementById('npc-filter-rel')?.value||'';
+
+  // Campaign NPCs
   let npcs = ws.npcs||[];
-  if (search)  npcs = npcs.filter(n => (n.name+n.role+n.faction+n.location).toLowerCase().includes(search));
+  if (search)  npcs = npcs.filter(n => (n.name+n.role+n.faction+(n.location||'')).toLowerCase().includes(search));
   if (stFilt)  npcs = npcs.filter(n => n.status === stFilt);
   if (relFilt) npcs = npcs.filter(n => n.relationship === relFilt);
-  if (!npcs.length) { grid.innerHTML=''; empty.style.display='block'; return; }
+
+  const campaignNames = new Set((ws.npcs||[]).map(n => n.name.toLowerCase()));
+
+  // Lore NPCs — only show when there's a search term, exclude already-added ones
+  let loreMatches = [];
+  if (search) {
+    loreMatches = LORE_NPCS
+      .map((l, i) => ({...l, _idx: i}))
+      .filter(l => !campaignNames.has(l.name.toLowerCase()))
+      .filter(l => (l.name + l.role + l.faction).toLowerCase().includes(search));
+  }
+
+  if (!npcs.length && !loreMatches.length) { grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
-  grid.innerHTML = npcs.map(n => `
+
+  const campaignHtml = npcs.map(n => `
     <div class="npc-card rel-${n.relationship||'unknown'}" onclick="openNpcPanel('${n.id}')">
       <div class="npc-card-name">${esc(n.name||'Unnamed NPC')}</div>
       <div class="npc-card-role">${esc(n.role||'')}</div>
@@ -2314,15 +2520,38 @@ function renderNpcGrid() {
         <span class="npc-tag ${NPC_REL_CLASS[n.relationship]||'rel-unknown'}"><i class="fas ${NPC_REL_ICON[n.relationship]||'fa-question-circle'}" style="font-size:0.6rem;margin-right:3px;"></i>${NPC_REL_LABEL[n.relationship]||'Unknown'}</span>
       </div>
     </div>`).join('');
+
+  const loreDivider = loreMatches.length
+    ? `<div class="lore-section-header"><i class="fas fa-book" style="color:#7986cb;"></i> From Dayner Lore — click to add to campaign</div>`
+    : '';
+  const loreHtml = loreMatches.map(l => `
+    <div class="npc-card lore-npc" onclick="openLoreNpc(${l._idx})">
+      <div class="npc-card-name">${esc(l.name)}</div>
+      <div class="npc-card-role">${esc(l.role)}</div>
+      <div class="npc-card-tags">
+        ${l.faction?`<span class="npc-tag faction">${esc(l.faction)}</span>`:''}
+        <span class="npc-tag lore"><i class="fas fa-book" style="font-size:0.6rem;margin-right:3px;"></i>Lore</span>
+      </div>
+    </div>`).join('');
+
+  grid.innerHTML = campaignHtml + loreDivider + loreHtml;
 }
 
-function openNpcPanel(id) {
+function openLoreNpc(idx) {
+  openNpcPanel(null, LORE_NPCS[idx]);
+}
+
+function openNpcPanel(id, lorePrefill) {
   const panel   = document.getElementById('npc-panel');
   const overlay = document.getElementById('npc-panel-overlay');
   const isNew   = !id;
   activeNpcId   = id;
   let n = id ? ws.npcs.find(x=>x.id===id) : null;
-  document.getElementById('npc-panel-title').innerHTML = isNew ? '<i class="fas fa-plus-circle"></i> New NPC' : '<i class="fas fa-mask"></i> Edit NPC';
+  // If a lore character is clicked, pre-fill fields from lore data
+  if (!id && lorePrefill) n = lorePrefill;
+  document.getElementById('npc-panel-title').innerHTML = isNew
+    ? (lorePrefill ? `<i class="fas fa-book"></i> Add from Lore` : '<i class="fas fa-plus-circle"></i> New NPC')
+    : '<i class="fas fa-mask"></i> Edit NPC';
   document.getElementById('npc-name').value         = n?.name||'';
   document.getElementById('npc-role').value         = n?.role||'';
   document.getElementById('npc-faction').value      = n?.faction||'';
