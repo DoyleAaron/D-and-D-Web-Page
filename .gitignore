@@ -68,11 +68,14 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
-# Private DM notes (not for public)
-DM_Private/
+# Private DM notes are tracked in git
 
 # Debug related
 fiveserver.config.js
 
 # Local Salesforce tooling data
 .sfdx/
+
+# macOS archive metadata
+__MACOSX/
+.DS_Store

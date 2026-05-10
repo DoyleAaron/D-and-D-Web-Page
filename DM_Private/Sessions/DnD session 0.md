@@ -1,0 +1,14 @@
+amdir 20
+elira 20
+Lazo 18
+bram 18
+morjor 17
+Varin 16
+aric 16
+Marea 15
+Tath 12
+Dave 11
+Cornelius 6
+Pasan 3
+Celene 3
+Osmar 3

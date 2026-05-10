@@ -39,10 +39,3 @@ Leader of the Red Scarves movement. Officially a charitable religious leader; un
 
 ## Notable Quote
 > "We ask only to serve. To love. To bring light where there is darkness. Is that so strange?"
-
-## DM Notes
-Mother [Selyse](../../Character%20Lore/Modern%20Characters/Mother%20Selyse.md)'s true nature is deliberately ambiguous. Options include:
-- A vampire thrall establishing a cult for a [Lavalto](../../Kingdoms/Lavalto/Lavalto.md) master
-- An entity from beyond Dayner wearing human form
-- A charismatic human who stumbled onto something she doesn't fully control
-- Exactly what she appears to be—with the horror being that genuine faith can still twist into something wrong

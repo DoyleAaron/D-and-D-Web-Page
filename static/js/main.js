@@ -53,6 +53,45 @@
     return div.innerHTML;
   }
 
+  function stripDmOnlySections(markdown) {
+    const lines = markdown.split('\n');
+    const output = [];
+    let skipSection = false;
+    let skipLevel = 0;
+
+    for (const line of lines) {
+      const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+
+      if (headingMatch) {
+        const level = headingMatch[1].length;
+        const headingText = headingMatch[2].replace(/[*_`]/g, '').trim().toLowerCase();
+
+        if (skipSection && level <= skipLevel) {
+          skipSection = false;
+          skipLevel = 0;
+        }
+
+        if (!skipSection && (headingText === 'dm notes' || headingText.startsWith('dm notes:'))) {
+          skipSection = true;
+          skipLevel = level;
+          continue;
+        }
+      }
+
+      if (skipSection) {
+        continue;
+      }
+
+      if (/^\s*\*\*DM Notes\*\*:/i.test(line)) {
+        continue;
+      }
+
+      output.push(line);
+    }
+
+    return output.join('\n');
+  }
+
   // ========================================
   // DOM ELEMENTS
   // ========================================
@@ -277,7 +316,8 @@
         throw new Error('File not found: ' + filePath);
       }
       
-      const mdText = await response.text();
+      const rawMdText = await response.text();
+      const mdText = stripDmOnlySections(rawMdText);
       
       // DEBUG: Check if markdown contains image
       const hasImageMd = mdText.includes('![');

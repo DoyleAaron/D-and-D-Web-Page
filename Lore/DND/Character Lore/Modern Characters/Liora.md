@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | **Title** | Council Member / Information Broker |
-| **Race** | Vampire (concealed) |
+| **Race** | Unknown |
 | **Location** | Dawerton, Islefield |
 | **Affiliation** | The Dawerton Council |
 
@@ -17,7 +17,7 @@
 
 **Liora** is one of the most influential figures on the Dawerton Council, operating as both a political power and the head of an extensive intelligence network. She presents herself as an elegant, calculating woman who values information above gold and discretion above all else.
 
-Beneath her refined exterior, Liora is a vampire who has survived for centuries through careful manipulation and strategic alliances. She cannot speak openly about certain matters—particularly regarding the **28th**, a date of significance to vampires—but hints at deeper truths for those perceptive enough to notice.
+She shares only what serves the city and her long-term goals, often speaking in careful, deliberate terms. Rumors about her background are widespread, but she neither confirms nor denies them.
 
 ## Appearance
 
@@ -36,7 +36,7 @@ Above all, Liora values results achieved quietly. Those who work for her are exp
 
 ## Relationships
 
-- **Mayor Adrian:** Close ally and fellow vampire; they exchange notes on sensitive matters including Balthazar artifacts
+- **Mayor Adrian:** Close ally on council governance and city security
 - **The Party:** Hired them to investigate disturbances in Dawerton, paying with three questions. Rewarded them after they dealt with Father Halden
 - **Kluimont:** Knows someone within the Council of Ten (a mage she does not name publicly)
 - **Her Network:** Commands an extensive intelligence operation across multiple cities
@@ -53,11 +53,7 @@ The party accepted Liora's job—investigating disturbances in Dawerton. She agr
 3. Relations between Dawerton and Islefield
 
 ### Session 14 (1225 C.C.)
-After the party defeated Father Halden, Liora granted them their three questions. She answered cryptically about vampires, hinted about the 28th without revealing it directly, and offered to cover the remaining cost of a Kluimont spell as additional reward.
-
-## The 28th
-
-Liora knows the significance of the 28th—a date tied to vampiric rituals or events—but cannot reveal it directly. She hints at danger, speaking in careful terms that convey warning without breaking whatever compulsion or oath binds her silence.
+After the party defeated Father Halden, Liora granted them their three questions and offered to cover the remaining cost of a Kluimont spell as additional reward.
 
 ## Notable Quote
 
