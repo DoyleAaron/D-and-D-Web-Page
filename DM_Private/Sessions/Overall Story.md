@@ -48,6 +48,10 @@
     - The **Codex (the Book)** points to **three coordinates**.
         
     - Only **one is genuine**; the other two are deliberate false trails.
+    
+    - **The Book is specifically the *Chart of the Threefold Way*** — a lead-clasped codex obtained by the party from the Sacrificial Fountain at Plalisle Den (Sessions 4–5). When wetted with Fountain water it reveals three coordinate sets; two are decoys. The real set displays a faint astral sigil visible only to the one who sacrificed for it.
+    
+    - **At the April 23rd Summit**, Myrelle (acting as Maltrius's agent) plans to steal the Chart from Queen Braewood during the chaos caused by the Lavalto Peak fireball distraction. The Queen currently holds it as evidence of Kluimont's alleged artefact dealings.
         
 
 ### **The Three Coordinates**

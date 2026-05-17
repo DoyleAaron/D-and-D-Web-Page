@@ -447,35 +447,42 @@
     
     // Process each text node
     textNodes.forEach(textNode => {
-      let text = textNode.nodeValue;
-      let hasMatch = false;
-      
-      // Check each term
+      const originalText = textNode.nodeValue;
+
+      // Collect all matches from the ORIGINAL text first to avoid corrupting
+      // HTML attribute values on subsequent replacements
+      const allMatches = [];
       for (const termKey of termKeys) {
         const term = terms[termKey];
-        // Don't link to the current page
         if (termKey === currentFileName) continue;
-        
-        // Create regex that matches whole words only (case insensitive)
         const regex = new RegExp(`\\b(${escapeRegExp(term.name)})\\b`, 'gi');
-        
-        // Properly escape path and title for HTML attributes
-        const escapedPath = term.path.replace(/"/g, '&quot;');
-        const escapedTitle = (term.title || term.name).replace(/"/g, '&quot;');
-        const replacement = `<a href="#" class="auto-link" data-path="${escapedPath}" title="${escapedTitle}">$1</a>`;
-        
-        const newText = text.replace(regex, replacement);
-        if (newText !== text) {
-          hasMatch = true;
-          text = newText;
+        let match;
+        while ((match = regex.exec(originalText)) !== null) {
+          allMatches.push({ start: match.index, end: match.index + match[0].length, matchedText: match[0], term });
         }
       }
-      
-      if (hasMatch) {
-        const span = document.createElement('span');
-        span.innerHTML = text;
-        textNode.parentNode.replaceChild(span, textNode);
+
+      if (allMatches.length === 0) return;
+
+      // Sort by position; prefer longer matches on ties
+      allMatches.sort((a, b) => a.start !== b.start ? a.start - b.start : (b.end - b.start) - (a.end - a.start));
+
+      // Build result in a single pass, skipping overlapping matches
+      let result = '';
+      let lastEnd = 0;
+      for (const m of allMatches) {
+        if (m.start < lastEnd) continue; // skip overlapping
+        const escapedPath = m.term.path.replace(/"/g, '&quot;');
+        const escapedTitle = (m.term.title || m.term.name).replace(/"/g, '&quot;');
+        result += escapeHtml(originalText.slice(lastEnd, m.start));
+        result += `<a href="#" class="auto-link" data-path="${escapedPath}" title="${escapedTitle}">${escapeHtml(m.matchedText)}</a>`;
+        lastEnd = m.end;
       }
+      result += escapeHtml(originalText.slice(lastEnd));
+
+      const span = document.createElement('span');
+      span.innerHTML = result;
+      textNode.parentNode.replaceChild(span, textNode);
     });
     
     return temp.innerHTML;
