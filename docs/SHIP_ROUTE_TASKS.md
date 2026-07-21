@@ -22,7 +22,7 @@ Rebuild all ship routes properly by:
 - halten (35.7, 77.9) - inside ocean_south
 
 **Lavalto Lake boundary issues:**
-- dawerton (58.8, 52.7) - NOT in lake polygon (should be on edge)
+- darwaeton (58.8, 52.7) - NOT in lake polygon (should be on edge)
 - flison (51.7, 52.9) - NOT in lake polygon (should be on edge)
 - sheyton (69.5, 53.3) - NOT in lake polygon (should be on edge)
 - agosron (50, 62.7) - IS in lake polygon ✓
@@ -35,7 +35,7 @@ Rebuild all ship routes properly by:
 - lavalto_lake: x(45.5-66.1) y(46.6-63.5) ← NEEDS EXPANSION
 
 - [ ] 1.3 Fix ocean_south - move northern boundary further south (below y:74)
-- [ ] 1.4 Fix lavalto_lake - expand to include Dawerton, Flison, Sheyton
+- [ ] 1.4 Fix lavalto_lake - expand to include Darwaeton, Flison, Sheyton
 - [ ] 1.5 Update map-coordinates.js with corrected water regions
 
 ## Phase 2: Identify Ship Nodes ⬜

@@ -129,8 +129,8 @@ name:  Lady Seraphina Caylester
 **Age**: Unknown (Immortal Vampire; active 1061 C.C. to present)  
 **Race**: Vampire (Human origin)  
 **Backstory**:
-- A high-ranking member of the vampiric nobility ruling **Darewaeton** on Lavalto Isle, rumored to practice dark rituals.
-- Led the defense against a Braewood expedition in the **Darewaeton Purge** (1061 C.C.), where she supposedly slew Knight-Captain Stravus.
+- A high-ranking member of the vampiric nobility ruling **Darwaeton** on Lavalto Isle, rumored to practice dark rituals.
+- Led the defense against a Braewood expedition in the **Darwaeton Purge** (1061 C.C.), where she supposedly slew Knight-Captain Stravus.
 
 **Importance**:
 - Maintains the **island’s secrecy** regarding vampiric practices and wields considerable influence over Lavalto’s politics.
@@ -139,7 +139,7 @@ name:  Lord Adrian Silwynn
 **Age**: Unknown (Immortal Vampire; active 1191 C.C. to present)  
 **Race**: Vampire  
 **Backstory**:
-- Patriarch of a prominent vampiric line in Darewaeton, orchestrated the city’s recovery after the **Night of Red Embers** (1191 C.C.).
+- Patriarch of a prominent vampiric line in Darwaeton, orchestrated the city’s recovery after the **Night of Red Embers** (1191 C.C.).
 - Known for lavish spending on rebuilding efforts and rumored to hold dark rituals in hidden lava caverns.
 
 **Importance**:

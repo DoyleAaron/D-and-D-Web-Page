@@ -21,7 +21,7 @@
 **Languages:** Common, Celestial
 **God:** The Steady Flame (multi-faith tradition)
 
-**Location:** The local multi-faith shrine in Dawerton.
+**Location:** The local multi-faith shrine in Darwaeton.
 
 ---
 

@@ -166,33 +166,43 @@ AI tends to reuse the same name patterns. Before creating ANY character, check:
 #### Capital
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Islefield City | ⚠️ PARTIAL | 200,000 | In Kingdoms.md, needs dedicated file |
+| Islefield City | ⚠️ PARTIAL | 200,000 | Dedicated file exists; lighter detail than new settlement files |
 
 #### Large Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Rye | ⚠️ PARTIAL | 105,000 | Major bridge city |
+| Rye | ⚠️ PARTIAL | 105,000 | Dedicated file exists; major Grand Span city |
 
 #### Medium Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Esterhull | ❌ TODO | ~14,000 | Southern port |
-| Cheling | ❌ TODO | ~12,000 | Trade hub |
-| Antstel | ❌ TODO | ~10,000 | Elven scribes |
-| Yhey | ❌ TODO | ~9,000 | Desert border |
+| Esterhull | ✅ DONE | 9,800 | Southernmost city, retired elven elites, Sable teleporter |
+| Cheling | ✅ DONE | 18,200 | Capital soft border and heavily militarised trade city |
+| Antstel | ✅ DONE | 18,600 | Archive city and reserve for Rye |
+| Yhey | ✅ DONE | 28,000 | Third-largest city, joint Kluimont border administration |
+| Agosgas | ✅ DONE | 16,400 | Fortified Kluimont-facing coastal city; reclassified from village |
 
 #### Towns
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Beyross | ❌ TODO | ~4,000 | Salt pans |
-| Halten | ❌ TODO | ~3,500 | Beacon tower |
-| Avinin | ❌ TODO | ~4,500 | Craft fairs |
-| Slido | ❌ TODO | ~3,200 | Cattle fair |
+| Beyross | ✅ DONE | 5,400 | Last mixed mainland town before the capital-side bridge |
+| Halten | ✅ DONE | 6,800 | Fast-grown hospitality town between Praso and Antstel |
+| Avinin | ✅ DONE | 5,200 | Rye-Antstel defensive and trading triangle |
+| Slido | ✅ DONE | 8,600 | Largest town and kingdom-wide trading crossroads |
+| Resross | ✅ DONE | ~4,500 | Prison town, river port, and Iroware access; reclassified from village |
 
 #### Villages
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Cok, Stanron (DESTROYED), Ulsall, Praso, Eighwood, Wrando, Okcaster, Guatpool, Resross, Sable | ❌ TODO | 800-1,500 | Stanron is destroyed (story hook!) |
+| Cok | ✅ DONE | 1,350 | Bridge checkpoint garrison village |
+| Stanron (DESTROYED) | ✅ DONE | 0 (~900 before) | Sealed royal burial village; cause known only to royals |
+| Ulsall | ✅ DONE | 1,150 | Wealthy luxury rest stop on the Esterhull road |
+| Praso | ✅ DONE | 1,000 | Small elven farming and road village |
+| Eighwood | ✅ DONE | 1,300 | Woodland relay between Yhey, Avinin, and Slido |
+| Wrando | ✅ DONE | 1,400 | River trade relay to Islefield City |
+| Okcaster | ✅ DONE | 1,100 | Coastal extremist enclave without a port |
+| Guatpool | ✅ DONE | 850 | Iroware foothill village leaving dragon offerings |
+| Sable | ✅ DONE | 1,200 | All-elven sacred gate to Shercam Woods |
 
 ---
 
@@ -201,29 +211,36 @@ AI tends to reuse the same name patterns. Before creating ANY character, check:
 #### Capital
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Kluimont City | ⚠️ PARTIAL | 180,000 | In Kingdoms.md, needs dedicated file |
+| Kluimont City | ⚠️ PARTIAL | 180,000 | Dedicated file exists; lighter detail than new settlement files |
 
 #### Large Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Eimgend | ⚠️ PARTIAL | 92,000 | Port city, second largest |
+| Eimgend | ⚠️ PARTIAL | 92,000 | Dedicated file exists; second-largest city and naval port |
 
 #### Medium Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Qrey | ❌ TODO | ~12,000 | Northern harbor |
-| Slonmore | ❌ TODO | ~10,000 | Mainland fortress |
+| Qrey | ✅ DONE | 26,500 | Fortified gate to the capital island; third-largest city |
+| Slonmore | ✅ DONE | 14,200 | Smallest city; diverse mainland crossing from Phine |
 
 #### Towns
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Sord | ❌ TODO | ~3,500 | Trade junction |
-| Tarora | ❌ TODO | ~3,000 | Rimdiff Isle |
+| Sord | ✅ DONE | 7,400 | Large mainland crossroads and Varin's home town |
+| Tarora | ✅ DONE | 4,800 permanent | Pirate island town ruled by Captain GreyHorse |
 
 #### Villages
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Lloy (DESTROYED), Aresphia, Kilson, Yuosburn, Ukrolis, Ajag, Ansdale, Klovine | ❌ TODO | 800-1,500 | Lloy destroyed, Ansdale is where Amdir lives! |
+| Lloy (DESTROYED) | ✅ DONE | 0 (~1,100 before) | Destroyed in Bagi's storm; now a military exercise ground |
+| Aresphia | ✅ DONE | 1,250 | Welcoming island harbour known for food and sailors |
+| Kilson | ✅ DONE | 950 | Inland village with a major temple to Valkur |
+| Yuosburn | ✅ DONE | 1,500 | Islefield-facing military watch and privateer base |
+| Ukrolis | ✅ DONE | 1,350 | Braewood-facing island village with many humans |
+| Ajag | ✅ DONE | 1,100 | River-linked lake port with dubious water shrines |
+| Ansdale | ✅ DONE | 1,600 | Sable border crossing and Amdir's residence |
+| Klovine | ✅ DONE | 1,450 | Mortling border crossing |
 
 ---
 
@@ -232,17 +249,17 @@ AI tends to reuse the same name patterns. Before creating ANY character, check:
 #### Large Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Dawerton (Darewaeton) | ⚠️ PARTIAL | 85,000 | Vampire HQ |
+| Darwaeton | ✅ DONE | 85,000 | Canon spelling; Lavalto's principal port and power centre |
 
 #### Medium Cities
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Flison | ❌ TODO | ~8,000 | - |
+| Flison | ✅ DONE | 9,600 | Northwestern Tharnic fortress city; restricted Kluimont trade |
 
 #### Towns
 | Settlement | Status | Pop. | Notes |
 |-----------|--------|------|-------|
-| Agosron | ❌ TODO | ~3,000 | - |
+| Agosron | ✅ DONE | 3,400 registered | Isolated pureblood-controlled southern town |
 
 ---
 
@@ -423,7 +440,7 @@ Starting with **Braewood**, working from the **northernmost settlements** down t
 - **Braewood:** Anglo-Saxon/Old English feel (Eaveton, Mortling, Gitstin)
 - **Islefield:** Elvish-influenced, softer sounds (Aeristel, Shercam, Praso)
 - **Kluimont:** Harder consonants, mystery (Qrey, Rimdiff, Slonmore)
-- **Lavalto:** Italian/Latin volcanic feel (Darewaeton, Flison)
+- **Lavalto:** Italian/Latin volcanic feel (Darwaeton, Flison)
 
 ### Architectural Styles
 - **Braewood:** Stone fortifications, timber halls, military efficiency

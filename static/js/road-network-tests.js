@@ -168,23 +168,23 @@ const ROAD_NETWORK_TESTS = {
   testShipRoutes: function() {
     console.log('\n--- Ship Route Tests ---');
     
-    // Verify Mortling to Dawerton ship route (user's example: 129km = 1.5 days at 86 km/day)
+    // Verify Mortling to Darwaeton ship route (user's example: 129km = 1.5 days at 86 km/day)
     // With new speeds: 129km at 50 km/day = 2.58 days
-    const mortlingDawerton = ROAD_NETWORK.findPath('mortling-stronghold', 'dawerton', { mode: 'sea-only' });
-    this.assert(mortlingDawerton !== null, 'Mortling-Dawerton ship route exists');
+    const mortlingDarwaeton = ROAD_NETWORK.findPath('mortling-stronghold', 'darwaeton', { mode: 'sea-only' });
+    this.assert(mortlingDarwaeton !== null, 'Mortling-Darwaeton ship route exists');
     
-    if (mortlingDawerton) {
-      this.assert(mortlingDawerton.distance === 129, 'Mortling-Dawerton is 129 km');
+    if (mortlingDarwaeton) {
+      this.assert(mortlingDarwaeton.distance === 129, 'Mortling-Darwaeton is 129 km');
       // At normal ship speed (50 km/day): 129/50 = 2.58 days
       const expectedTime = 129 / 50;
       this.assert(
-        Math.abs(mortlingDawerton.travelTime - expectedTime) < 0.1,
-        `Mortling-Dawerton takes ~${expectedTime.toFixed(1)} days at normal ship speed`
+        Math.abs(mortlingDarwaeton.travelTime - expectedTime) < 0.1,
+        `Mortling-Darwaeton takes ~${expectedTime.toFixed(1)} days at normal ship speed`
       );
     }
     
     // Test that ship routes have waypoints
-    const shipRoute = ROAD_NETWORK.roads.find(r => r.id === 'ship-mortling-dawerton');
+    const shipRoute = ROAD_NETWORK.roads.find(r => r.id === 'ship-mortling-darwaeton');
     this.assert(shipRoute !== undefined, 'Ship route object exists');
     if (shipRoute) {
       this.assert(shipRoute.isShipRoute === true, 'Ship route has isShipRoute flag');
@@ -254,7 +254,7 @@ const ROAD_NETWORK_TESTS = {
     const road = ROAD_NETWORK.getRoadById(1);
     this.assert(road !== null, 'getRoadById finds road by number ID');
     
-    const shipRoad = ROAD_NETWORK.getRoadById('ship-mortling-dawerton');
+    const shipRoad = ROAD_NETWORK.getRoadById('ship-mortling-darwaeton');
     this.assert(shipRoad !== null, 'getRoadById finds road by string ID');
   },
 
@@ -378,12 +378,12 @@ const ROAD_NETWORK_TESTS = {
       this.assert(vortonIslefield.path.length === 2, 'Vorton-Islefield is direct (2 stops only)');
     }
     
-    // Dawerton to Islefield should be direct
-    const dawertonIslefield = ROAD_NETWORK.findPath('dawerton', 'islefield-city', { mode: 'sea-only' });
-    this.assert(dawertonIslefield !== null, 'Dawerton-Islefield direct route exists');
-    if (dawertonIslefield) {
-      console.log(`  → Dawerton to Islefield: ${dawertonIslefield.distance} km (${dawertonIslefield.travelTime} days)`);
-      this.assert(dawertonIslefield.path.length === 2, 'Dawerton-Islefield is direct (2 stops only)');
+    // Darwaeton to Islefield should be direct
+    const darwaetonIslefield = ROAD_NETWORK.findPath('darwaeton', 'islefield-city', { mode: 'sea-only' });
+    this.assert(darwaetonIslefield !== null, 'Darwaeton-Islefield direct route exists');
+    if (darwaetonIslefield) {
+      console.log(`  → Darwaeton to Islefield: ${darwaetonIslefield.distance} km (${darwaetonIslefield.travelTime} days)`);
+      this.assert(darwaetonIslefield.path.length === 2, 'Darwaeton-Islefield is direct (2 stops only)');
     }
     
     // Slada to Cok (across the entire coast) should be direct

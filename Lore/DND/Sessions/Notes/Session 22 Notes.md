@@ -1,8 +1,8 @@
-# Session 22 Summary - Return to Dawerton and the Missing Liora
+# Session 22 Summary - Return to Darwaeton and the Missing Liora
 
-## Return to Dawerton
+## Return to Darwaeton
 
-- The party returned to Dawerton after the royal audience in Braewood.
+- The party returned to Darwaeton after the royal audience in Braewood.
 - They went looking for Liora, expecting to follow up on the Queen's payment and the growing vampire threat.
 - Instead, they learned that Liora had been captured by vampires.
 
@@ -11,7 +11,7 @@
 ## Speaking with Adrian
 
 - The party spoke with Mayor Adrian about Liora's disappearance.
-- Adrian explained where Liora had last been seen and pointed the party toward the vampire-controlled house outside Dawerton.
+- Adrian explained where Liora had last been seen and pointed the party toward the vampire-controlled house outside Darwaeton.
 - The trail led toward Blackthorn House, a noble manor being used by Maltrius's brood.
 
 ---
@@ -35,6 +35,6 @@
 ## Major Outcomes
 
 - Liora was confirmed captured by vampires.
-- Adrian became the party's main source of information in Dawerton.
-- The vampire threat near Dawerton escalated from rumor to direct action.
+- Adrian became the party's main source of information in Darwaeton.
+- The vampire threat near Darwaeton escalated from rumor to direct action.
 - The party located Blackthorn House but failed to clear it or recover Liora.

@@ -118,18 +118,18 @@
     - Kluimont eventually retaliated with superior arcane support. The raids ceased under a ceasefire brokered by Islefield in 1005.
     - **Fallout**: Minor border adjustments, ongoing tension but no official declaration of war.
 
-### **1061 C.C.: The Darewaeton Purge**
+### **1061 C.C.: The Darwaeton Purge**
 
-- **Context**: A group of Braewood adventurers attempted to expose vampiric practices in Darewaeton (Lavalto Isle’s large city).
+- **Context**: A group of Braewood adventurers attempted to expose vampiric practices in Darwaeton (Lavalto Isle’s large city).
 - **Key Figures**:
     - **Knight-Captain Rell Stravus** (Braewood envoy)
-    - **Lady Seraphina Caylester** (Vampiric noble, caretaker of Darewaeton)
+    - **Lady Seraphina Caylester** (Vampiric noble, caretaker of Darwaeton)
 - **Tactics**:
     - **Adventurers**: Guerilla strikes, infiltration of catacombs.
     - **Vampiric Elite**: Powerful illusions and thralls used to corner intruders.
 - **Outcome**:
     - The attempt ended in a violent standoff; Knight-Captain Stravus was slain. Survivors retreated.
-    - **Resolution**: Officially, Darewaeton demanded an apology. Braewood’s court quietly shelved the incident. Rumors of horrifying rituals persist.
+    - **Resolution**: Officially, Darwaeton demanded an apology. Braewood’s court quietly shelved the incident. Rumors of horrifying rituals persist.
 
 ### **1135–1140 C.C.: Key Battles of the Great Resource Dispute**
 
@@ -147,13 +147,13 @@
 
 - **Context**: Lavalto’s volcano erupted violently. Local legend claims a **dark ritual** triggered or worsened it. The island’s vampiric rulers clashed with rebellious townsfolk.
 - **Key Figures**:
-    - **Lord Adrian Silwynn** (Head of Darewaeton’s vampiric family)
+    - **Lord Adrian Silwynn** (Head of Darwaeton’s vampiric family)
     - **Acolyte Luriana Emberveil** (Local cleric, rumored to wield volcanic-based magic)
 - **Tactics**:
     - **Vampires**: Unleashed enthralled guardians to quell panic; used control over local militia.
     - **Rebels**: Guerilla skirmishes around lava vents, harnessing natural flows to block vampiric enclaves.
 - **Outcome**:
-    - The revolt was mostly crushed. However, Darewaeton’s port was partly destroyed by lava, hurting trade for years.
+    - The revolt was mostly crushed. However, Darwaeton’s port was partly destroyed by lava, hurting trade for years.
     - **Resolution**: Vampiric lords paid to rebuild, further indebting local populations. Fear and rumors of blood sacrifices soared.
 
 ### **1207 C.C.: The Dwarven Revolt of Northpeak**

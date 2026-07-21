@@ -17,7 +17,7 @@
 
 ## Session Overview
 
-The party (Morjor, Amdir, Varin, + Captain Kirk) must confront the **Spehlina**, a corrupted lake guardian, before it can be weaponized against the upcoming summit. They are currently in Dawerton (or nearby lakeside settlement) and need to recruit allies before taking to the water.
+The party (Morjor, Amdir, Varin, + Captain Kirk) must confront the **Spehlina**, a corrupted lake guardian, before it can be weaponized against the upcoming summit. They are currently in Darwaeton (or nearby lakeside settlement) and need to recruit allies before taking to the water.
 
 **Key Tensions:**
 - Everyone is scared of the Spehlina — persuasion won't be easy
@@ -56,7 +56,7 @@ Track total **radiant damage** dealt to the Spehlina across the fight.
 
 ## Phase 1: Recruitment in Town
 
-The party needs to gather allies before sailing out. They're at the **Dawerton docks** (or a nearby lakeside port). Word has spread about the Spehlina's increased aggression and people are frightened.
+The party needs to gather allies before sailing out. They're at the **Darwaeton docks** (or a nearby lakeside port). Word has spread about the Spehlina's increased aggression and people are frightened.
 
 **General Persuasion Modifiers:**
 - Mentioning the Queen's backing: +2
@@ -534,7 +534,7 @@ Three clerics of varying power are available in the area. Each has their own rea
 
 **Level 3 Cleric (Light Domain) — Follower of The Steady Flame**
 
-**Location:** The local multi-faith shrine in Dawerton.
+**Location:** The local multi-faith shrine in Darwaeton.
 
 **Persuasion DC: 10** (young and idealistic, wants to prove himself)
 
@@ -793,5 +793,5 @@ Use this prompt with an AI image generator (Midjourney, DALL-E, etc.) to create 
 2. **How much gold does the party currently have available** for hiring mercenaries/adventurers? They gave 10k to Liora — do they have reserves?
 3. **Is Varin's curse affecting his spells mechanically yet?** Session 20 notes mention degraded spell reliability. Do you want a specific mechanic (e.g., roll d20, on 1-5 spell fails) or just narrative flavor?
 4. **Captain Kirk's ship — is The Wavecutter fully crewed?** Session 18 mentioned catastrophic crew losses. Have they been replaced?
-5. **Rekka — is she still in the Dawerton area?** Session 19 had Varin leave her 1,000 gp to watch goblins/dwarves. Is she at the same location?
+5. **Rekka — is she still in the Darwaeton area?** Session 19 had Varin leave her 1,000 gp to watch goblins/dwarves. Is she at the same location?
 6. **Is this the session *at* the meeting/summit, or is this a pre-summit mission** to deal with the Spehlina threat before it can crash the summit in 2 months?

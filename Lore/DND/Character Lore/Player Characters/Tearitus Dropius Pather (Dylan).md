@@ -12,7 +12,7 @@ Rogue
 1
 
 **Origin/Home:**  
-Darewaeton, Lavalto Isle
+Darwaeton, Lavalto Isle
 
 **Race:**  
 Human
@@ -37,7 +37,7 @@ Tearitus is small-framed and wiry, built more for slipping through alleyways tha
 - **Distinctive Marks:** A teardrop tattoo under his eye, earned in grief and worn as a warning.
 
 **Backstory:**  
-Raised in the volcanic port city of Darewaeton, Tearitus learned the art of leverage before he could read. With a dockworker mother and an absent smuggler father, he found family in the Thieves’ Guild, running messages and scoping marks before most children finished school.  
+Raised in the volcanic port city of Darwaeton, Tearitus learned the art of leverage before he could read. With a dockworker mother and an absent smuggler father, he found family in the Thieves’ Guild, running messages and scoping marks before most children finished school.  
 
 Everything changed when he broke into a noble estate and stumbled into a vampiric ritual. They never caught him, but their eyes haunted him from that day forward. Since then, he’s carried a bone-deep fear of vampires, one that drives his paranoia and shapes his every move in the dark.  
 

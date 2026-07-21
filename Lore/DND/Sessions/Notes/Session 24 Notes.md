@@ -2,9 +2,9 @@
 
 ## Returning with Liora
 
-- After rescuing Liora from Blackthorn House, the party brought her back to Dawerton.
+- After rescuing Liora from Blackthorn House, the party brought her back to Darwaeton.
 - Liora followed through on the promised business from the Queen's support and began arranging the 10,000 gp payment.
-- The rescue confirmed that Maltrius's forces were acting directly around Dawerton, not only from Lavalto.
+- The rescue confirmed that Maltrius's forces were acting directly around Darwaeton, not only from Lavalto.
 
 ---
 

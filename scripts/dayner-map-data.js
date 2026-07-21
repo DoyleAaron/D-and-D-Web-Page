@@ -356,13 +356,15 @@ const DAYNER_MAP_DATA = {
         { name: 'Esterhull', x: 26.2, y: 96.3 },
         { name: 'Cheling', x: 14.9, y: 86.3 },
         { name: 'Antstel', x: 40.8, y: 74.6 },
-        { name: 'Yhey', x: 32, y: 44.3 }
+        { name: 'Yhey', x: 32, y: 44.3 },
+        { name: 'Agosgas', x: 6.6, y: 65 }
       ],
       towns: [
         { name: 'Beyross', x: 10.9, y: 74.3 },
         { name: 'Halten', x: 35.7, y: 77.9 },
         { name: 'Avinin', x: 42.8, y: 68.8 },
-        { name: 'Slido', x: 18.1, y: 58.9 }
+        { name: 'Slido', x: 18.1, y: 58.9 },
+        { name: 'Resross', x: 28.7, y: 41.8 }
       ],
       villages: [
         { name: 'Cok', x: 15.4, y: 81.7 },
@@ -371,10 +373,8 @@ const DAYNER_MAP_DATA = {
         { name: 'Praso', x: 22.8, y: 71.5 },
         { name: 'Eighwood', x: 32.6, y: 61 },
         { name: 'Wrando', x: 16.8, y: 63 },
-        { name: 'Agosgas', x: 6.6, y: 65 }, // NEW
         { name: 'Okcaster', x: 7.2, y: 56.8 },
         { name: 'Guatpool', x: 13.2, y: 52.3 },
-        { name: 'Resross', x: 28.7, y: 41.8 },
         { name: 'Sable', x: 39.3, y: 44.7 }
       ]
     },
@@ -405,12 +405,16 @@ const DAYNER_MAP_DATA = {
     },
 
     lavalto: {
-      capital: { 
-        name: 'Lavalto', 
-        x: 55.7, y: 58.6, 
-        location: 'Volcanic island in center of Lavalto Lake',
-        ruler: 'Vampire'
-      }
+      largeCities: [
+        { name: 'Darwaeton', x: 58.8, y: 52.7 }
+      ],
+      mediumCities: [
+        { name: 'Flison', x: 51.7, y: 52.9 }
+      ],
+      towns: [
+        { name: 'Agosron', x: 50, y: 62.7 }
+      ],
+      villages: []
     }
   },
 

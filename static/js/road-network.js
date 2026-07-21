@@ -67,7 +67,7 @@ const ROAD_NETWORK = {
     'ajag': { name: 'Ajag', x: 39.8, y: 26.9 },
     'ansdale': { name: 'Ansdale', x: 47.9, y: 40.8 },
     'klovine': { name: 'Klovine', x: 56.4, y: 38.3 },
-    'dawerton': { name: 'Dawerton', x: 58.8, y: 52.7 },
+    'darwaeton': { name: 'Darwaeton', x: 58.8, y: 52.7 },
     'flison': { name: 'Flison', x: 51.7, y: 52.9 },
     'agosron': { name: 'Agosron', x: 50, y: 62.7 },
     // Junction nodes (not visible settlements, just road junctions)
@@ -209,7 +209,7 @@ const ROAD_NETWORK = {
     { id: 62, length: 32, start: 'dalo', end: 'rens', pathIndex: 67 },
     
     // === LAVALTO ===
-    { id: 63, length: 34, start: 'dawerton', end: 'flison', pathIndex: 68 },
+    { id: 63, length: 34, start: 'darwaeton', end: 'flison', pathIndex: 68 },
     
     // === GRAND SPAN BRIDGE (Kadena to Rye) ===
     { id: 64, length: 80, start: 'kadena', end: 'rye' },

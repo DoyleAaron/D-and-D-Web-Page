@@ -1,27 +1,27 @@
-# The Dawerton Council
+# The Darwaeton Council
 
-![The Dawerton Council](/static/images/council_of_dawerton.png)
+![The Darwaeton Council](/static/images/council_of_darwaeton.png)
 
 ## Overview
 
 | | |
 |---|---|
 | **Type** | Ruling Council |
-| **Location** | Dawerton, Islefield |
-| **Territory** | Dawerton and surrounding trade routes |
+| **Location** | Darwaeton, Lavalto |
+| **Territory** | Darwaeton and surrounding trade routes |
 
 ---
 
 ## Description
 
-The **Dawerton Council** is the governing body of Dawerton, one of Islefield's most important port cities. Unlike Islefield City's elven monarchy, Dawerton operates as a semi-autonomous trade hub governed by a council of influential figures who balance commerce, diplomacy, and—beneath the surface—darker powers.
+The **Darwaeton Council** is the governing body of Darwaeton, Lavalto's principal port city. Independent of the three major kingdoms, Darwaeton is governed by a council of influential figures who balance commerce, diplomacy, and—beneath the surface—darker powers.
 
 The council chamber serves as the formal seat of power, where trade agreements are negotiated, disputes are settled, and the city's future is shaped. Foreign delegations, including those from Braewood, are received here with careful ceremony.
 
 ## Known Members
 
-### [Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Dawerton.md)
-**Role:** Mayor of Dawerton
+### [Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Darwaeton.md)
+**Role:** Mayor of Darwaeton
 
 The city's nominal leader and public face. Adrian maintains a veneer of civility and cordiality, meeting with visitors in libraries and council chambers while concealing his true nature. He is known to:
 - Oversee trade and port management
@@ -36,7 +36,7 @@ One of the council's most influential members, Liora operates as both a politica
 - Hosting private dinners to probe intentions
 - Offering unconventional payments—including **three truthful questions** answered by her network
 - Providing jobs that require discretion and results
-- Having deep knowledge of regional politics, including tensions between Dawerton, Kluimont, and Islefield
+- Having deep knowledge of regional politics, including tensions between Darwaeton, Kluimont, and Islefield
 
 ### [Councilor Elara](../../Character%20Lore/Modern%20Characters/Councilor%20Elara.md)
 **Role:** Trade & Commerce
@@ -56,7 +56,7 @@ The council's spymaster who has served for over a century. He manages official r
 ### [Councilor Miriam](../../Character%20Lore/Modern%20Characters/Councilor%20Miriam.md)
 **Role:** Public Affairs & Welfare
 
-A warm, approachable human from an established Dawerton family. She handles citizen complaints and advocates for the human population's welfare within Dawerton's power structure.
+A warm, approachable human from an established Darwaeton family. She handles citizen complaints and advocates for the human population's welfare within Darwaeton's power structure.
 
 ### [Councilor Varis](../../Character%20Lore/Modern%20Characters/Councilor%20Varis.md)
 **Role:** Foreign Relations
@@ -84,7 +84,7 @@ An elegant vampire diplomat with centuries of experience. He manages treaties an
 
 - **Braewood:** Formal diplomatic relations; receives military escorts for trade discussions
 - **Kluimont:** Complex political tensions and hidden conflicts
-- **Islefield Crown:** Nominally subordinate, practically autonomous
+- **Islefield Crown:** Important but cautious diplomatic and trading relationship
 - **Lavalto:** Shared trade and political connections through Adrian and Liora
 
 ## Recent Events (1225 C.C.)
@@ -98,5 +98,5 @@ During the party's visit, the council:
 
 ## Notable Quote
 
-> "Trade, ports, shipping routes—all discussed openly. No hostility, no accusations. But there is always more beneath the surface in Dawerton."
+> "Trade, ports, shipping routes—all discussed openly. No hostility, no accusations. But there is always more beneath the surface in Darwaeton."
 > — Session 10 observations

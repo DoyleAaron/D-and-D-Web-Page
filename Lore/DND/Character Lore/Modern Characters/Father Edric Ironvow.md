@@ -6,7 +6,7 @@
 |---|---|
 | **Race** | Human |
 | **Role** | War cleric |
-| **Location** | Military chapel near Dawerton docks |
+| **Location** | Military chapel near Darwaeton docks |
 | **Faith** | Tyr |
 
 ---

@@ -1,8 +1,8 @@
 # **📘 Session 10 Summary – “Courtesies and Cracks”**
 
-## **1. The Dawerton Council**
+## **1. The Darwaeton Council**
 
-- The party attends a **formal diplomatic meeting** at Dawerton’s council chamber.
+- The party attends a **formal diplomatic meeting** at Darwaeton’s council chamber.
     
 - Introductions are polite and proceedings are smooth:
     
@@ -21,7 +21,7 @@
 
 ## **2. Library & the Mayor**
 
-- Before dinner, the party visits the **Dawerton library** to research:
+- Before dinner, the party visits the **Darwaeton library** to research:
     
     - Local history,
         
@@ -29,7 +29,7 @@
         
     - Ancient magic and artefacts.
         
-- They encounter **Adrian**, the **vampiric mayor of Dawerton**.
+- They encounter **Adrian**, the **vampiric mayor of Darwaeton**.
     
 - The exchange is cordial and civil:
     

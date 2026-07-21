@@ -61,7 +61,7 @@ The **Wayfarers' Accord** is an international guild of mercenaries, investigator
 
 Job boards exist in every guild chapter. The size and variety depend on the location:
 - **Capital Cities:** Full boards with all tiers, including S-tier
-- **Major Towns (Dawerton):** E through A-tier, limited selection
+- **Major Towns (Darwaeton):** E through A-tier, limited selection
 - **Villages:** E and D-tier only, occasionally C-tier
 
 ### Posting Fees (For Clients)
@@ -75,7 +75,7 @@ Job boards exist in every guild chapter. The size and variety depend on the loca
 | A | 2,000 gp | Multi-kingdom (major cities) |
 | S | 10,000 gp | All capital boards |
 
-The Spehlina bounty (10,000 gp reward) was posted with A-tier visibility fees, meaning it appears in guilds across Braewood, Dawerton, and into Lavalto territory.
+The Spehlina bounty (10,000 gp reward) was posted with A-tier visibility fees, meaning it appears in guilds across Braewood, Darwaeton, and into Lavalto territory.
 
 ---
 
@@ -99,7 +99,7 @@ Upon joining as a group:
 
 ---
 
-## Dawerton Guild Chapter
+## Darwaeton Guild Chapter
 
 ### Location
 The **Wavecrest Hall** – A converted warehouse on the docks, three stories tall with the guild's golden compass sigil above the entrance.
@@ -111,7 +111,7 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 - **Appearance:** Stocky, grey-bearded, missing two fingers on left hand
 - **Personality:** Gruff but fair, no tolerance for liars or oath-breakers
 - **Background:** Former A-tier monster hunter, retired after losing his hand to a basilisk
-- **Role:** Oversees Dawerton chapter, approves B-tier and above
+- **Role:** Oversees Darwaeton chapter, approves B-tier and above
 
 #### Registrar Yenna Cole
 - **Race:** Half-elf, Female, 34
@@ -168,12 +168,12 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 
 ---
 
-## Current Job Board – Dawerton Chapter
+## Current Job Board – Darwaeton Chapter
 
 ### E-Tier Jobs (5 Available)
 
 #### 📜 E-01: "The Daily Herald"
-**Client:** Dawerton Printing House  
+**Client:** Darwaeton Printing House  
 **Task:** Deliver 50 newspapers to the merchant quarter before dawn  
 **Duration:** 3 hours  
 **Reward:** 2 gp  
@@ -245,7 +245,7 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 
 #### 📜 C-01: "Noble Escort – Lady Meren Ashvale"
 **Client:** House Ashvale  
-**Task:** Provide security escort for Lady Meren from Dawerton to Cleamond  
+**Task:** Provide security escort for Lady Meren from Darwaeton to Cleamond  
 **Duration:** 4 days round trip  
 **Reward:** 200 gp  
 **Notes:** Lady Meren has received threatening letters. 3+ guards required. No violence unless attacked first.
@@ -276,7 +276,7 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 ### B-Tier Jobs (2 Available)
 
 #### 📜 B-01: "The Saltmire Syndicate"
-**Client:** Dawerton City Council (Official)  
+**Client:** Darwaeton City Council (Official)  
 **Task:** Dismantle a smuggling operation running contraband through the harbor  
 **Duration:** 1-2 weeks  
 **Reward:** 800 gp + bounties on captured members (50 gp each)  
@@ -294,10 +294,10 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 ### A-Tier Jobs (1 Available)
 
 #### 📜 A-01: "Terror of Lavalto Lake – The Spehlina"
-**Client:** Joint Bounty (Dawerton / Crown of Braewood)  
+**Client:** Joint Bounty (Darwaeton / Crown of Braewood)  
 **Task:** Slay the massive creature terrorizing Lavalto Lake  
 **Duration:** Unknown  
-**Reward:** 10,000 gp (5,000 from Dawerton, 5,000 from Crown)  
+**Reward:** 10,000 gp (5,000 from Darwaeton, 5,000 from Crown)  
 **Notes:**  
 - Monster has destroyed 12 ships in the past year
 - Estimated 60+ deaths
@@ -377,7 +377,7 @@ The **Wavecrest Hall** – A converted warehouse on the docks, three stories tal
 
 ## Adaham Sailors – Potential Allies
 
-A group of monster hunters from **Adaham** (the neutral trade city) have arrived in Dawerton, also interested in the Spehlina bounty.
+A group of monster hunters from **Adaham** (the neutral trade city) have arrived in Darwaeton, also interested in the Spehlina bounty.
 
 ### The Saltheart Crew
 

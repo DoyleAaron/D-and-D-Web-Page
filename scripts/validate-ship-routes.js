@@ -25,7 +25,7 @@ const OFFICIAL_PORTS = [
   // South/West Coast (5)
   'islefield-city', 'cok', 'wrando', 'agosgas', 'okcaster',
   // Central River - Braewood System (8)
-  'braewood-city', 'mortling-stronghold', 'adaham', 'dawerton', 
+  'braewood-city', 'mortling-stronghold', 'adaham', 'darwaeton', 
   'flison', 'agosron', 'slonmore', 'vorton',
   // Kluimont River System (7)
   'kluimont-city', 'eimgend-city', 'tarora', 'aresphia', 
@@ -42,7 +42,7 @@ const OFFICIAL_PORTS = [
 const LAND_MASSES = {
   // Lavalto Island - volcanic center of the lake
   // Ships must go AROUND this, not through it
-  // The island center is around (56, 57) but ports like Dawerton (58.8, 52.7)
+  // The island center is around (56, 57) but ports like Darwaeton (58.8, 52.7)
   // and Flison (51.7, 52.9) are on the lake edge, NOT the island
   lavalto_island: {
     name: 'Lavalto Island (Volcanic Center)',

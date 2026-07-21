@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| **Title** | Councilor of Dawerton (Trade & Commerce) |
+| **Title** | Councilor of Darwaeton (Trade & Commerce) |
 | **Age** | Mid 40s |
 | **Race** | Human |
-| **Location** | Dawerton, Lavalto |
+| **Location** | Darwaeton, Lavalto |
 
 ---
 
@@ -15,7 +15,7 @@
 A well-dressed woman with keen merchant's eyes and ink-stained fingers. She wears practical but expensive clothing suitable for both the council chamber and the harbor warehouses. Her dark hair is always neatly pinned, and she carries a leather-bound ledger wherever she goes.
 
 ## Backstory
-Elara rose through the merchant guilds of Dawerton, building a reputation for fair dealing and sharp negotiation. Her appointment to the council came from the human trading families who wanted someone who understood commerce rather than just politics. She serves as the bridge between Dawerton's mortal business interests and the vampiric ruling class.
+Elara rose through the merchant guilds of Darwaeton, building a reputation for fair dealing and sharp negotiation. Her appointment to the council came from the human trading families who wanted someone who understood commerce rather than just politics. She serves as the bridge between Darwaeton's mortal business interests and the vampiric ruling class.
 
 ## Personality
 - **Politely inquisitive:** Always asking questions, gathering information about goods, routes, and opportunities.
@@ -29,7 +29,7 @@ Elara oversees trade agreements, harbor regulations, and merchant disputes. She 
 ## Relationships
 - **[Liora](../../Character%20Lore/Modern%20Characters/Liora.md):** Works closely with her on trade matters; respects her intelligence.
 - **[Councilor Varis](../../Character%20Lore/Modern%20Characters/Councilor%20Varis.md):** Political ally; they often vote together on economic matters.
-- **[Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Dawerton.md):** Maintains professional respect; aware he holds more power than his title suggests.
+- **[Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Darwaeton.md):** Maintains professional respect; aware he holds more power than his title suggests.
 
 ## Notable Quote
 > "Every shipment tells a story. I simply listen to what the manifests whisper."

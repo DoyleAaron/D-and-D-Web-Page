@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** City Watch (Unofficial)  
-**Location:** Dawerton – Docks & Temple District  
+**Location:** Darwaeton – Docks & Temple District  
 **Duration:** 3-7 days  
 **Reward:** 150 gp  
 **Combat Expected:** Yes (cult encounter)
@@ -15,7 +15,7 @@ A dock worker named **Hennik Solt** was found floating in the harbor with strang
 ---
 
 ## The Truth
-Hennik stumbled onto a small **cult of the Drowned God** operating in Dawerton. They worship an ancient sea entity and are preparing a ritual to "call the depths." Hennik saw too much and was silenced.
+Hennik stumbled onto a small **cult of the Drowned God** operating in Darwaeton. They worship an ancient sea entity and are preparing a ritual to "call the depths." Hennik saw too much and was silenced.
 
 ---
 

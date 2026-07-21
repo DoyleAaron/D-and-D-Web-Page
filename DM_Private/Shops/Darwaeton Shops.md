@@ -1,8 +1,8 @@
-# Dawerton Shops
+# Darwaeton Shops
 
 *Comprehensive market toolkit for a large coastal trade city*
 
-Dawerton is a major port and trade hub — significantly larger than Adaham. It has permanent shops, a rotating market square, and black-market contacts through Liora's network. The economy mixes maritime trade, overland caravans from Braewood/Cleamond, and discreet dealings due to the vampire undercurrent.
+Darwaeton is a major port and trade hub — significantly larger than Adaham. It has permanent shops, a rotating market square, and black-market contacts through Liora's network. The economy mixes maritime trade, overland caravans from Braewood/Cleamond, and discreet dealings due to the vampire undercurrent.
 
 ---
 
@@ -477,7 +477,7 @@ Dawerton is a major port and trade hub — significantly larger than Adaham. It 
 
 ---
 
-## 10) Dawerton Stables
+## 10) Darwaeton Stables
 
 **Owner:** Renna Oaks (human, young, good with animals, slightly suspicious of adventurers who get horses killed)  
 **Style:** Open stable yard behind the Salt Lantern. Boarding, buying, selling.

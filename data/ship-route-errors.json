@@ -5,7 +5,7 @@
   "totalErrors": 8,
   "errors": [
     {
-      "routeId": "ship-mortling-dawerton",
+      "routeId": "ship-mortling-darwaeton",
       "errors": [
         {
           "waypointIndex": 8,
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "routeId": "ship-dawerton-flison",
+      "routeId": "ship-darwaeton-flison",
       "errors": [
         {
           "waypointIndex": 0,
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "routeId": "ship-agosron-dawerton",
+      "routeId": "ship-agosron-darwaeton",
       "errors": [
         {
           "waypointIndex": 8,
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "routeId": "ship-dawerton-sheyton",
+      "routeId": "ship-darwaeton-sheyton",
       "errors": [
         {
           "waypointIndex": 0,

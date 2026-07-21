@@ -176,7 +176,7 @@ A Braewood naval sloop flies the crown pennant and pulls alongside.
 - *"We've had reports of ships going dark in the Strait — three in the past month. Crown hasn't officially responded yet."*
 - *"If you're heading west — stay out of the Kadena-Rye passage. Bridge is being locked down for some bloody summit."*
 
-**Tense outcome:** If the party is evasive or has outstanding warrants (Dawerton), Dorn asks them to heave-to for an inspection (DC 14 Deception or Persuasion to talk their way out without inspection, or just allow the inspection — nothing illegal is on board unless Amdir is carrying something).
+**Tense outcome:** If the party is evasive or has outstanding warrants (Darwaeton), Dorn asks them to heave-to for an inspection (DC 14 Deception or Persuasion to talk their way out without inspection, or just allow the inspection — nothing illegal is on board unless Amdir is carrying something).
 
 ---
 
@@ -186,7 +186,7 @@ Something large is circling beneath the ship. The water discolours faintly. The 
 
 **Option A — Giant Shark (CR 5, standard stats):** Attracted by blood or refuse. Rams the hull for **2d10 bludgeoning damage** if not driven off. Can be scared away with fire, loud noise, or a successful DC 14 Persuasion/Animal Handling check. Killing it takes 1–2 rounds of real combat.
 
-**Option B — Corrupted Leviathan Eel (custom, use if closer to Lavalto/Dawerton area):**
+**Option B — Corrupted Leviathan Eel (custom, use if closer to Lavalto/Darwaeton area):**
 
 | Stat | Value |
 |------|-------|
@@ -237,7 +237,7 @@ It doesn't close. It doesn't flee. It simply **matches their speed and heading**
 
 ### Roll 10 – Something From Below
 
-This is reserved for use near the **Spehlina's territory** (approaching Dawerton's lake or coastal transit to Dawerton region). Foreshadowing encounter.
+This is reserved for use near the **Spehlina's territory** (approaching Darwaeton's lake or coastal transit to Darwaeton region). Foreshadowing encounter.
 
 The water changes colour — deep greenish-black. Fish surface dead. A low moan travels through the hull as a sound rather than as a wave.
 
@@ -271,7 +271,7 @@ When a day passes uneventfully, offer one of these roleplay moments depending on
 
 ## PART 3 – LAND TRAVEL ENCOUNTER TABLE
 
-*For any overland travel — arriving at a port and traveling inland, road to Dawerton, or crossing toward Lavalto. Roll **1d8 per half-day of travel**.*
+*For any overland travel — arriving at a port and traveling inland, road to Darwaeton, or crossing toward Lavalto. Roll **1d8 per half-day of travel**.*
 
 ---
 
@@ -348,7 +348,7 @@ She is not in danger. She is not a villain. She is simply well-travelled and sha
 
 **What she can offer:**
 - **Cure Wounds (2nd level)** cast once on any party member, gratis
-- A hand-drawn map of the road network around Dawerton (adds +1 to relevant navigation checks)
+- A hand-drawn map of the road network around Darwaeton (adds +1 to relevant navigation checks)
 
 ---
 
@@ -393,7 +393,7 @@ He's not a vampire. He's not a spy. He's a traumatised man who saw something he 
 | Adaham docks | Low | Social, minor crime |
 | Open Sapphire Strait | Medium | Sea creatures, pirates, weather |
 | Coastal route south | Medium | Bandits, corrupted wildlife |
-| Nearing Dawerton | Medium–High | Spehlina foreshadowing, infernal signs |
+| Nearing Darwaeton | Medium–High | Spehlina foreshadowing, infernal signs |
 | Road toward Lavalto | High | Vampire agents, corrupted beasts, cultists |
 
 ---

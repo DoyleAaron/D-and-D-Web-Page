@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Wine Merchant Varros  
-**Location:** Cleamond Road (between Dawerton and Cleamond)  
+**Location:** Cleamond Road (between Darwaeton and Cleamond)  
 **Duration:** 3-5 days  
 **Reward:** 50 gp + 2 bottles fine wine  
 **Combat Expected:** Possible (bandits or wild animals)
@@ -15,7 +15,7 @@ A wagon carrying 20 casks of fine Islefield wine never arrived from Cleamond. Va
 ---
 
 ## Travel
-- **Cleamond** is ~35km from Dawerton
+- **Cleamond** is ~35km from Darwaeton
 - 1 day travel each way on foot
 - Road passes through light woodland
 
@@ -76,7 +76,7 @@ The wagon was attacked by **Redtooth Bandits**—a small gang operating in the w
 1. **Fight bandits** – Kill or capture, recover all wine
 2. **Negotiate** – Give up 2 casks, avoid combat
 3. **Stealth** – Sneak in at night, steal back wine
-4. **Report location** – Return to Dawerton, let city guard handle it (half reward)
+4. **Report location** – Return to Darwaeton, let city guard handle it (half reward)
 
 ---
 

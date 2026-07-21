@@ -3,8 +3,8 @@
 ## In-Game Date: March 8th–9th, 1225 (Wednesday–Thursday)
 
 **Timeline:**
-- March 7th–8th: Party arrived in Dawerton. Fought Volcanic Screechers on the coast road.
-- March 8th: Party docks / arrives at Dawerton shore. Plans to visit Liora for the 10,000 gp payment.
+- March 7th–8th: Party arrived in Darwaeton. Fought Volcanic Screechers on the coast road.
+- March 8th: Party docks / arrives at Darwaeton shore. Plans to visit Liora for the 10,000 gp payment.
 - **February 28th vampire attack: 9–10 days ago.**
 - **Next vampire attack: March 28th** (~19 days away).
 - **Summit deadline: ~22 days away.**
@@ -14,8 +14,8 @@
 
 ## Session Recap — What Happened in Session 22
 
-- Party encountered **Volcanic Screechers** on the coast road approaching Dawerton. Beat them.
-- They are now at the Dawerton shore and intend to visit Liora to collect the **10,000 gp** the Queen agreed to fund.
+- Party encountered **Volcanic Screechers** on the coast road approaching Darwaeton. Beat them.
+- They are now at the Darwaeton shore and intend to visit Liora to collect the **10,000 gp** the Queen agreed to fund.
 
 ---
 
@@ -37,9 +37,9 @@
 
 ## Session Flow
 
-### 1. Arrival in Dawerton
+### 1. Arrival in Darwaeton
 
-The party arrives at Dawerton's shore. The town mood is grim but functional — guards on higher alert, dock traffic reduced, people moving in groups.
+The party arrives at Darwaeton's shore. The town mood is grim but functional — guards on higher alert, dock traffic reduced, people moving in groups.
 
 > **Read Aloud:**
 > "The harbour wall rises ahead, familiar but quieter than you remember. Fewer ships. More guards on the docks. A fisherman coils rope without looking up. The air carries no market noise — just gulls and the creak of mooring lines."
@@ -87,7 +87,7 @@ The party heads to Liora's office (or wherever she typically meets them). She is
 
 ### 3. Blackthorn House — The Assault
 
-The party travels to Blackthorn House (~2 hours outside Dawerton on the Lavalto road).
+The party travels to Blackthorn House (~2 hours outside Darwaeton on the Lavalto road).
 
 ---
 
@@ -437,8 +437,8 @@ The room is guarded by the **Lava Golem**.
 - Isolde called her "the traitor" and said Maltrius had marked her.
 - The ritual circle was being prepared to **bind Liora's will** to Maltrius's bloodline — forced loyalty rewrite. It hadn't been completed yet.
 - Liora confirms: the Valdris family answers directly to **Father Maltrius Kael** in Lavalto.
-- She overheard Isolde mention that Maltrius is preparing something for the **28th** that is "larger than Dawerton has seen."
-- Liora is willing to share the 10,000 gp the moment they return to Dawerton. No negotiation needed. She owes them her existence.
+- She overheard Isolde mention that Maltrius is preparing something for the **28th** that is "larger than Darwaeton has seen."
+- Liora is willing to share the 10,000 gp the moment they return to Darwaeton. No negotiation needed. She owes them her existence.
 
 ---
 
@@ -493,12 +493,12 @@ Killing **Theron** still satisfies the "kill the sire-line source" condition for
 
 After clearing Blackthorn House and freeing Liora:
 
-- **Liora:** Shaken but operational. Will return to Dawerton under her own power. Wants 24 hours to recover before debriefing fully.
+- **Liora:** Shaken but operational. Will return to Darwaeton under her own power. Wants 24 hours to recover before debriefing fully.
 - **10,000 gp:** Released to the party the following day via Adrian.
 - **Intel drop:** Maltrius is escalating. The March 28th attack will be worse. The party now has ~19 days to prepare, pursue Maltrius directly, or tackle the Spehlina.
 - **Edric Voss:** If alive and restrained, Theron's death means he can be cured via Greater Restoration.
 
 > **Closing Read Aloud (optional):**
-> "The manor burns behind you — or stands empty, depending on what you chose. Liora walks beside you, slower than usual, her wrists wrapped in cloth. She doesn't thank you. Not with words. But when you reach the Dawerton gate and the guards step aside, she turns to each of you once. A nod. One nod. Then she's gone into the alleys she knows better than anyone.
+> "The manor burns behind you — or stands empty, depending on what you chose. Liora walks beside you, slower than usual, her wrists wrapped in cloth. She doesn't thank you. Not with words. But when you reach the Darwaeton gate and the guards step aside, she turns to each of you once. A nod. One nod. Then she's gone into the alleys she knows better than anyone.
 >
 > The money will come. The information will come. But somewhere in the mountains to the south, in a temple built into volcanic rock, a priest turns a page in a ledger and crosses out a name."

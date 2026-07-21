@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** House Ashvale  
-**Location:** Dawerton → Cleamond → Dawerton  
+**Location:** Darwaeton → Cleamond → Darwaeton  
 **Duration:** 4 days round trip  
 **Reward:** 200 gp  
 **Combat Expected:** Likely (ambush on road)
@@ -17,10 +17,10 @@
 ## Travel Schedule
 | Day | Route | Distance | Events |
 |-----|-------|----------|--------|
-| 1 | Dawerton → Cleamond | 35 km | Possible ambush |
+| 1 | Darwaeton → Cleamond | 35 km | Possible ambush |
 | 2 | Cleamond (waiting) | — | Free time / investigation |
-| 3 | Cleamond → Dawerton | 35 km | Possible ambush |
-| 4 | Arrive Dawerton | — | Payment |
+| 3 | Cleamond → Darwaeton | 35 km | Possible ambush |
+| 4 | Arrive Darwaeton | — | Payment |
 
 ---
 
@@ -92,7 +92,7 @@ Lady Meren's former business partner, **Aldric Crane**, sent the threats. He los
 - **200 gp** from House Ashvale
 - **Bonus:** 50 gp if Aldric Crane is exposed
 - **Bonus:** Lady Meren becomes a contact for future work
-- **Reputation:** +1 with Dawerton nobility
+- **Reputation:** +1 with Darwaeton nobility
 
 ---
 

@@ -99,7 +99,7 @@ Clients pay fees to post jobs, which determines how widely the job is advertised
 
 ## Notable Chapters
 
-### Wavecrest Hall (Dawerton)
+### Wavecrest Hall (Darwaeton)
 A converted warehouse on the docks, three stories tall with the guild's golden compass above the entrance. Known for maritime contracts and monster hunting jobs related to Lavalto Lake.
 
 ### The Iron Compass (Braewood City)
@@ -129,4 +129,4 @@ While specific S-tier jobs are confidential, some have become legendary:
 ## Notable Quote
 
 > "The Accord doesn't care if you're human, elf, orc, or something stranger. It cares if you can get the job done, honor your contracts, and not die embarrassingly. Meet those standards, and you'll find work anywhere in the world."
-> — Guildmaster Tobren Ashford, Wavecrest Hall (Dawerton)
+> — Guildmaster Tobren Ashford, Wavecrest Hall (Darwaeton)

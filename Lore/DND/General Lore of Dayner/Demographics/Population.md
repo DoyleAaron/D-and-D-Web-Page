@@ -82,7 +82,7 @@
 - **Humans (60%)**: ~60k
     - Still the bulk of the working populace and merchants.
 - **Elves (5%)**: ~5k
-    - Some elven clans maintain small trade posts; others serve the ruling family in Darewaeton.
+    - Some elven clans maintain small trade posts; others serve the ruling family in Darwaeton.
 - **Dwarves (5%)**: ~5k
     - Typically involved in volcanic mining or metalwork near geothermal vents.
 - **Halflings & Gnomes (5%)**: ~5k
@@ -94,7 +94,7 @@
 
 ### Notable Points
 
-- Dominated by the **vampiric noble family** controlling Darewaeton and two other settlements.
+- Dominated by the **vampiric noble family** controlling Darwaeton and two other settlements.
 - Gains wealth from unique volcanic resources, exotic flora, and **ritual tourism** (for those in the know).
 - Each major kingdom typically **avoids open conflict** with Lavalto, wary of rumored dark powers beneath the volcano.
   

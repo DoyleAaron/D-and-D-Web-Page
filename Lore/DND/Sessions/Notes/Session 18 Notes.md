@@ -41,4 +41,4 @@
 - The Rimduff arc closed with major emotional fallout.
 - Party cohesion shifted under pressure.
 - Varin's departure changed group dynamics immediately.
-- The campaign pivoted back toward Dawerton/Lavalto with new scars.
+- The campaign pivoted back toward Darwaeton/Lavalto with new scars.

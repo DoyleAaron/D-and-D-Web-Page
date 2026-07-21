@@ -24,7 +24,7 @@
 - **February 15, 1225 (end of Session 5):** The Balthazar vault teleported the entire party back to Sheyton — abandoning Smitler at the dungeon entrance. **This is when Tearitus splits off to go find Smitler.**
 
 ### Where the Main Party Is Now
-- **~February 22, 1225 (Session 22):** The main party (Morjor, Amdir, Varin, Captain Kirk) is in Dawerton preparing to confront the Spehlina on the lake.
+- **~February 22, 1225 (Session 22):** The main party (Morjor, Amdir, Varin, Captain Kirk) is in Darwaeton preparing to confront the Spehlina on the lake.
 
 ### Tearitus Catch-Up Timeline
 
@@ -39,9 +39,9 @@
 | 7 | Feb 20 (night) | **Campfire scene.** Tearitus tells them about his vampire fear. Rami and Alora reveal their parents were killed by vampires. The seed is planted |
 | 8 | Feb 21 | **Gathering supplies.** Holy water, silver weapons, stakes. Preparing for a vampire hunt |
 | 9 | Feb 22 | **Infiltrate Lavalto Volcano.** Sneak past the house where Miren was captured. Enter the lair. The ambush. Tearitus is turned |
-| 10 | Feb 22 (night) | Tearitus is in the dungeons. A traitor guard (working for Adrian & Miren) lets him escape back into Darewaeton |
+| 10 | Feb 22 (night) | Tearitus is in the dungeons. A traitor guard (working for Adrian & Miren) lets him escape back into Darwaeton |
 
-> **Result:** Tearitus is now a partially-turned vampire loose in Darewaeton on the same night the main party is hunting the Spehlina on the lake. The timelines converge.
+> **Result:** Tearitus is now a partially-turned vampire loose in Darwaeton on the same night the main party is hunting the Spehlina on the lake. The timelines converge.
 
 ---
 
@@ -74,10 +74,10 @@
 **Scene 4: The Campfire**
 - Night. The four of them camped outside town
 - Tearitus, loosened by drink, talks about why he hates vampires — the noble estate, the ritual, the eyes
-- **Rami speaks up:** "We know those eyes." He and Alora tell the story of their parents — a family of traveling merchants ambushed on the road to Darewaeton. The vampires fed on their parents and left the children alive as a message
+- **Rami speaks up:** "We know those eyes." He and Alora tell the story of their parents — a family of traveling merchants ambushed on the road to Darwaeton. The vampires fed on their parents and left the children alive as a message
 - **Alora (quiet, bitter):** "They left us alive because children aren't worth the blood."
 - This triggers the plan: they're going to **hunt vampires**
-- Rami has heard rumors of where they nest — the volcanic manor above Darewaeton
+- Rami has heard rumors of where they nest — the volcanic manor above Darwaeton
 
 ---
 
@@ -148,7 +148,7 @@
 **Scene 8: The Interruption**
 - A vampire guard bursts in:
 
-> *"My Lord! The prisoner — Miren — she's been taken! The outsiders from Dawerton, they—"*
+> *"My Lord! The prisoner — Miren — she's been taken! The outsiders from Darwaeton, they—"*
 
 - Maltrius snarls. He drops Tearitus
 - **"Throw him in the cells. I'll finish him later."**
@@ -158,7 +158,7 @@
 - Tearitus wakes in a dungeon cell, chained. He feels... wrong. His veins burn. His teeth ache
 - A guard approaches — not hostile. Speaks quietly:
 
-> *"I serve Lord Adrian and Lady Miren. Not this madman. There's a passage behind the third stone on the left wall. It leads to the sewers beneath Darewaeton. Go. Now. Before the others return."*
+> *"I serve Lord Adrian and Lady Miren. Not this madman. There's a passage behind the third stone on the left wall. It leads to the sewers beneath Darwaeton. Go. Now. Before the others return."*
 
 - The guard unlocks his chains and walks away
 - Tearitus escapes into the night — but he has **turned**

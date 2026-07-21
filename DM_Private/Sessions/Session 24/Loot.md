@@ -77,7 +77,7 @@ Comfortable seating, a fireplace, bookshelves. This is where the Valdris sibling
 
 - **55 gp** in a decorative lockbox on the mantle (DC 12 Thieves' Tools or DC 15 Strength to force)
 - **Pearl-handled letter opener** — worth 15 gp. Nonmagical. It's a letter opener.
-- **Two leather-bound journals** — personal. Contain Isolde's thoughts on Dawerton politics and Maltrius's demands. Flavour only, no mechanical value, but confirm the brood's loyalty structure.
+- **Two leather-bound journals** — personal. Contain Isolde's thoughts on Darwaeton politics and Maltrius's demands. Flavour only, no mechanical value, but confirm the brood's loyalty structure.
 
 ---
 
@@ -246,7 +246,7 @@ A stack of letters between Isolde and Father Maltrius Kael. Written in Common wi
 
 A formal directive on heavy parchment, sealed with black wax bearing Asmodeus's mark. Written in precise, cold language:
 
-> *Standing orders for the Dawerton cell.*
+> *Standing orders for the Darwaeton cell.*
 >
 > *The Grand Span meeting must not succeed. The alliance it would forge between Braewood and the western kingdoms would complicate our work for a generation. The creature in the lake can be guided. It follows death — bodies in the water, wreckage, blood. A chain of bait ships and corpses along the correct heading will drive it toward the bridge on the appointed day.*
 >
@@ -284,9 +284,9 @@ A brief status report from an unnamed operative. No signature, no name, no locat
 
 On success, Adrian gives the party:
 
-- **10,000 gp total** as the promised Dawerton payment
+- **10,000 gp total** as the promised Darwaeton payment
 - **4 vials of holy water** — each can be thrown (20/60 ft ranged attack) dealing **2d6 radiant damage** to fiends and undead on a hit
-- **A Dawerton seal of quiet authority** — a wax-stamped document and signet that lets the party request discreet guard cooperation once before the 28th. One use, not renewable.
+- **A Darwaeton seal of quiet authority** — a wax-stamped document and signet that lets the party request discreet guard cooperation once before the 28th. One use, not renewable.
 
 If Liora returns alive, Adrian gives all three without argument.
 

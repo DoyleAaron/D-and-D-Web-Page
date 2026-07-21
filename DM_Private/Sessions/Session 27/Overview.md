@@ -34,7 +34,7 @@
 | **Scroll returns** (Balthazar Chosen locator — paid to Liora) | **March 31st, 1225** | 17 days |
 | **Summit — Queens' Meeting** (Braewood / Islefield) | **April 23rd, 1225** | 40 days |
 
-**What the party knows about the scroll:** They paid Liora to source a divination scroll capable of locating a Balthazar Chosen. The scroll was dispatched to a contact. In 17 days it returns to Dawerton addressed to the party.
+**What the party knows about the scroll:** They paid Liora to source a divination scroll capable of locating a Balthazar Chosen. The scroll was dispatched to a contact. In 17 days it returns to Darwaeton addressed to the party.
 
 **What the party knows about the summit:** They know a meeting between the two queens is imminent, and that the Spehlina was being weaponised specifically to disrupt it. They prevented that. Braewood's queen (Maera Brae) is already deep in preparations.
 
@@ -45,7 +45,7 @@
 ```
 [1] Amdir's Vision (at sea, before docking)
        ↓
-[2] Arrival at Dawerton docks — chaos, payment
+[2] Arrival at Darwaeton docks — chaos, payment
        ↓
 [3] Payment splitting
        ↓
@@ -64,7 +64,7 @@ The **dungeon** (Ossian Vault) is content for Session 28 once the party has acce
 
 ## Part 1 — Amdir's Vision (At Sea, Before Docking)
 
-> **Trigger:** Before the ship reaches the Dawerton docks, as the crew is celebrating, run this privately with Amdir's player. Pass a note or pull them aside.
+> **Trigger:** Before the ship reaches the Darwaeton docks, as the crew is celebrating, run this privately with Amdir's player. Pass a note or pull them aside.
 
 ### The Message (Father Maltrius — Sending Spell)
 
@@ -114,7 +114,7 @@ Maltrius uses a *Sending* spell. Amdir hears a voice in his mind — not a god, 
 
 ### Balthazar → Morjor
 
-> **Trigger:** As the ship draws close to Dawerton. Morjor's ring pulses faintly — not threatening, just warm. If he is asleep, he dreams. If awake, his vision blurs for a moment and the world goes quiet.
+> **Trigger:** As the ship draws close to Darwaeton. Morjor's ring pulses faintly — not threatening, just warm. If he is asleep, he dreams. If awake, his vision blurs for a moment and the world goes quiet.
 
 **What Morjor experiences:** A brief pocket of still. Not a full vision — more like standing in a doorway into somewhere else. An old man's voice, tired but deliberate. The sense of someone who has seen many ages end and wants this one to go differently.
 
@@ -228,11 +228,11 @@ Maltrius uses a *Sending* spell. Amdir hears a voice in his mind — not a god, 
 
 ---
 
-## Part 2 — Arrival at Dawerton Docks
+## Part 2 — Arrival at Darwaeton Docks
 
 ### Scene Setup
 
-The **Luckpenny** is already docked at Dawerton when the party's ships arrive. The crew is moored and waiting. The quartermaster has been here two hours.
+The **Luckpenny** is already docked at Darwaeton when the party's ships arrive. The crew is moored and waiting. The quartermaster has been here two hours.
 
 The docks are **busy and tense**. The explosion of the Spehlina sent a shockwave and sound blast that reached shore. People heard it. They don't know what it was — guesses range from a shipwreck, to a volcano, to a magical detonation. There are **clusters of people on the dock wall** staring at the horizon, talking.
 
@@ -246,7 +246,7 @@ The docks are **busy and tense**. The explosion of the Spehlina sent a shockwave
 
 ### Payment Scene
 
-**Payer:** Garrison Commander **Aldec Tyne** (city military representative, acting for Braewood crown in Dawerton). He is waiting at the dock office — a small stone building by the wharf gate.
+**Payer:** Garrison Commander **Aldec Tyne** (city military representative, acting for Braewood crown in Darwaeton). He is waiting at the dock office — a small stone building by the wharf gate.
 
 - He has heard the explosion. He is pale.
 - He is professional but visibly shaken. He wants a full debrief.
@@ -271,7 +271,7 @@ Run this as actual roleplay with the players. They're tired, probably wet, possi
 - Allies (Harlan's crew, Grint's mercs, adventurers) were paid from the advance earlier. The party owes nothing more unless they choose generosity.
 - Rekka Redtooth declines money. She takes a small sum (50 gp, "for food") and leaves. She has other duties.
 
-**Shopping Note:** With 10k total the party now has real wealth. The Dawerton Shops file has full options. Highlights at this wealth level:
+**Shopping Note:** With 10k total the party now has real wealth. The Darwaeton Shops file has full options. Highlights at this wealth level:
 - Adamantine Weapons / +1 equipment — available through Liora's network
 - Rare spell scrolls — the arcane supplier has restocked
 - *Bag of Holding* (one in stock — 4,000 gp)
@@ -405,4 +405,4 @@ The session ends when the party makes their decision on the Islefield offer. Eit
 5. The queen wants them as escort
 
 **If they accept:** Plan travel south. Session 28 begins with the journey toward Resross and the dungeon.  
-**If they refuse:** Tharion is gracious. He leaves a sealed card with a contact address in Dawerton. *"If you change your mind within ten days."* The Islefield agenda continues regardless — they'll find another way to test the party.
+**If they refuse:** Tharion is gracious. He leaves a sealed card with a contact address in Darwaeton. *"If you change your mind within ten days."* The Islefield agenda continues regardless — they'll find another way to test the party.

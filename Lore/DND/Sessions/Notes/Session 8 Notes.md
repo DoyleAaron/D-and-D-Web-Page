@@ -2,7 +2,7 @@
 
 ## **1. Escort Team Assembled**
 
-The party meets the full Braewood escort detail assigned to the Dawerton mission:
+The party meets the full Braewood escort detail assigned to the Darwaeton mission:
 
 - **Envoy Pasan** – Diplomatic lead, non-combatant.
     
@@ -41,9 +41,9 @@ Initial dynamics form quickly:
 
 ---
 
-## **3. Ship Passage: Mortling → Dawerton**
+## **3. Ship Passage: Mortling → Darwaeton**
 
-- The party boards a small vessel for the final leg to Dawerton.
+- The party boards a small vessel for the final leg to Darwaeton.
     
 - The voyage is calm, with no environmental or external threats.
     
@@ -61,11 +61,11 @@ Initial dynamics form quickly:
 
 ---
 
-## **4. Arrival in Dawerton**
+## **4. Arrival in Darwaeton**
 
 - The ship docks without delay.
     
-- The party arrives in **Dawerton**, a busy port city steeped in trade, secrecy, and intrigue.
+- The party arrives in **Darwaeton**, a busy port city steeped in trade, secrecy, and intrigue.
     
 - Session ends as the group steps onto the docks, poised to begin investigations into:
     

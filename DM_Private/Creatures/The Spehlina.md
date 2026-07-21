@@ -57,7 +57,7 @@ The Spehlina is now a **twisted horror**—a creature in constant agony, driven 
 - The corruption it has absorbed for decades will be **released**
 - The infernal essence still seeping from Maltrius's domain will have **nothing to contain it**
 - The lake will become **toxic within months**
-- Shores touching the lake (Dawerton, parts of Lavalto, fishing villages) will suffer
+- Shores touching the lake (Darwaeton, parts of Lavalto, fishing villages) will suffer
 - Wildlife will die or mutate
 - The water will become undrinkable
 - **Long-term:** A creeping blight spreads across the region

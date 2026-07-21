@@ -16,6 +16,6 @@ Donaer Thess is short and compact for an elf, dressed in plain travelling clothe
 
 ## Role
 
-Donaer served as the Islefield delegation's advance scout. He surveyed Dawerton before Tharion Aelindre approached the party and specialized in stealth, investigation, and rapid withdrawal.
+Donaer served as the Islefield delegation's advance scout. He surveyed Darwaeton before Tharion Aelindre approached the party and specialized in stealth, investigation, and rapid withdrawal.
 
 He is not a frontline fighter. His priority is to observe, report, and preserve intelligence, striking only when a clean opportunity presents itself.

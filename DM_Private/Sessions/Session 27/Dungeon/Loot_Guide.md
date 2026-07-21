@@ -219,8 +219,8 @@
 | Component | Where to Find |
 |-----------|---------------|
 | **Cobalt Ember** (this item) | Room 3, this dungeon |
-| **Quartz Crystal Lens** — ground and polished by a skilled glassworker, optically clear | Fenwick's Glass, Dawerton (near the harbour) — ~60 gp |
-| **Iron Frame treated with Truesight Oil** — oil pressed from the eyes of a Nothic or similar creature | Liora's black market contact in Dawerton ("Pen") — ~100 gp |
+| **Quartz Crystal Lens** — ground and polished by a skilled glassworker, optically clear | Fenwick's Glass, Darwaeton (near the harbour) — ~60 gp |
+| **Iron Frame treated with Truesight Oil** — oil pressed from the eyes of a Nothic or similar creature | Liora's black market contact in Darwaeton ("Pen") — ~100 gp |
 
 *Crafting: a smith and an artificer working together — 3 days. Any major city with an artificer's guild. ~200 gp labour.*
 
@@ -238,7 +238,7 @@
 | Component | Where to Find |
 |-----------|---------------|
 | **Psionic Shard** (this item) | Room 2, this dungeon |
-| **Silver Filigree Band** — silver wire worked into a headband by a jeweller, sized to the wearer | Any skilled jeweller — Dawerton's market has two. ~40 gp |
+| **Silver Filigree Band** — silver wire worked into a headband by a jeweller, sized to the wearer | Any skilled jeweller — Darwaeton's market has two. ~40 gp |
 | **Memory Crystal** — a quartz crystal exposed to a *Modify Memory* spell for at least 1 hour without shattering | Silverleaf Scriptorium, Yhey — 200 gp and 2 days to prepare |
 
 *Crafting: a scholar with psionic theory knowledge (Arcana +7 or higher). Silverleaf Scriptorium in Yhey — 4 days, 150 gp labour.*

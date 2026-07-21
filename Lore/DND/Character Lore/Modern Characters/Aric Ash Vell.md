@@ -39,15 +39,15 @@ Aric presents himself as casual and humorous, bonding quickly with those who sha
 
 Despite his light demeanor, Aric is a capable professional who takes his actual duties seriously—he simply sees no reason to be grim about it.
 
-## The Dawerton Mission
+## The Darwaeton Mission
 
 As part of the escort detail, Aric provided:
 - Intelligence support for the diplomatic mission
 - Skirmish capabilities during potential conflicts
-- Information gathering in Dawerton's shadier districts
+- Information gathering in Darwaeton's shadier districts
 
 ### Session 8 (1225 C.C.)
-During the sea voyage to Dawerton, Aric participated in a friendly hand-to-hand spar with Morjor. Though he lost the bout, the exchange earned Morjor quiet respect from the rogue—professionals recognize skill when they see it.
+During the sea voyage to Darwaeton, Aric participated in a friendly hand-to-hand spar with Morjor. Though he lost the bout, the exchange earned Morjor quiet respect from the rogue—professionals recognize skill when they see it.
 
 ### Session 14 (1225 C.C.)
 Following the completion of the mission, Aric departed with Elira, Bram, and Selene, their assignment concluded.

@@ -141,7 +141,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 - **Central Volcano Island**
     - The **Lavalto Volcano** towers in the center of the sea, surrounded by the three major kingdoms but **claimed by none**.
     - Volcanic soil can be surprisingly fertile along the lower slopes, supporting specialized crops and exotic wildlife.
-- **Darewaeton**
+- **Darwaeton**
     - The largest city on the Lavalto isle, ruled by a **powerful family**.
     - Two other settlements—a **medium city** and a **town**—are also under this family’s control, effectively giving them a small mini-kingdom on the volcanic isle.
     - They maintain neutrality from Braewood, Islefield, and Kluimont through **tight-lipped diplomacy** and rumored threats of sabotage or curses should any kingdom invade.
@@ -153,7 +153,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
     - They present themselves as refined aristocrats or well-to-do merchants, and as the unchallenged authority on their island.
     - Rumors swirl of **occult gatherings** and strange lights on the volcano’s slopes, but none of the main kingdoms have enough proof—or nerve—to press an invasion.
 - **Regional Influence**
-    - Darewaeton profits by trading unique volcanic minerals and rare magical herbs. Passing trade ships often stop for supplies; in exchange, the vampiric lords keep the waters relatively safe from piracy.
+    - Darwaeton profits by trading unique volcanic minerals and rare magical herbs. Passing trade ships often stop for supplies; in exchange, the vampiric lords keep the waters relatively safe from piracy.
     - Adventurers occasionally arrive, lured by legends of hidden catacombs or the possibility of confronting the island’s rumored monsters. Few return to confirm or deny these tales.
 
 ---
@@ -256,7 +256,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 - **Humans (60%)**: ~60k
     - Still the bulk of the working populace and merchants.
 - **Elves (5%)**: ~5k
-    - Some elven clans maintain small trade posts; others serve the ruling family in Darewaeton.
+    - Some elven clans maintain small trade posts; others serve the ruling family in Darwaeton.
 - **Dwarves (5%)**: ~5k
     - Typically involved in volcanic mining or metalwork near geothermal vents.
 - **Halflings & Gnomes (5%)**: ~5k
@@ -268,7 +268,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 
 ### Notable Points
 
-- Dominated by the **vampiric noble family** controlling Darewaeton and two other settlements.
+- Dominated by the **vampiric noble family** controlling Darwaeton and two other settlements.
 - Gains wealth from unique volcanic resources, exotic flora, and **ritual tourism** (for those in the know).
 - Each major kingdom typically **avoids open conflict** with Lavalto, wary of rumored dark powers beneath the volcano.
   
@@ -290,14 +290,14 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
     - A brief conflict, **the Western Tensions**, flares up between Braewood border barons and Kluimont’s mainland enclaves, sparked by arguments over fishing rights and trade tariffs. There’s **no formal war**, but small skirmishes and raids escalate.
     - Islefield brokers a **ceasefire** in 1005, granting Kluimont limited free-trade passages along certain coastal routes.
 
-### Year 1050–1080: Rise of Darewaeton Influence
+### Year 1050–1080: Rise of Darwaeton Influence
 
 - **1053**:
-    - The **vampiric family** ruling **Darewaeton** on the Lavalto Volcano Isle solidifies control over a newly established **medium city** near the volcano’s foothills. They quietly eliminate a local merchant’s guild that threatened their secrecy.
+    - The **vampiric family** ruling **Darwaeton** on the Lavalto Volcano Isle solidifies control over a newly established **medium city** near the volcano’s foothills. They quietly eliminate a local merchant’s guild that threatened their secrecy.
 - **1061**:
     - Adventurers from Braewood claim to have discovered ominous “blood rituals” in a cavern near the Lavalto caldera. Their allegations reach the Braewood court, but no formal action is taken—diplomats fear losing the island’s vital trade route.
 - **1072**:
-    - Darewaeton’s vampiric lords strike a **trade accord** with Islefield, offering precious volcanic minerals in exchange for safe maritime routes. Tensions lessen, but rumors of dark magic swirl.
+    - Darwaeton’s vampiric lords strike a **trade accord** with Islefield, offering precious volcanic minerals in exchange for safe maritime routes. Tensions lessen, but rumors of dark magic swirl.
 
 ### Year 1100–1110: The Dragon Rumors & Kluimont’s Arcane Boom
 
@@ -326,10 +326,10 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 
 ### Year 1190–1200: Lavalto’s Night of Red Embers
 - **1191**:
-    - A disastrous **volcanic flare** ravages farmland near Darewaeton. Townsfolk speak of **blood-red embers** lighting the sky and claim a sacrificial ritual awakened the lava flows.
-    - Despite fear and rumors, Darewaeton’s vampiric rulers rally to rebuild the damaged port, offering financial aid (possibly sourced from hidden coffers or unscrupulous deals).
+    - A disastrous **volcanic flare** ravages farmland near Darwaeton. Townsfolk speak of **blood-red embers** lighting the sky and claim a sacrificial ritual awakened the lava flows.
+    - Despite fear and rumors, Darwaeton’s vampiric rulers rally to rebuild the damaged port, offering financial aid (possibly sourced from hidden coffers or unscrupulous deals).
 - **1195**:
-    - Kluimont quietly sends an emissary to Darewaeton, possibly to barter for volcanic reagents used in advanced arcane experiments. A new trade channel opens, though details remain secretive.
+    - Kluimont quietly sends an emissary to Darwaeton, possibly to barter for volcanic reagents used in advanced arcane experiments. A new trade channel opens, though details remain secretive.
 
 ### Year 1205–1215: Strains on Multiple Fronts
 - **1207**:
@@ -346,7 +346,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 - **1222**:
     - Islefield finalizes a **defensive pact** with certain dwarven clans from Braewood, aimed at fostering cooperation if Braewood and Kluimont’s conflicts escalate. Braewood’s monarchy condemns this act as meddling.
 - **1224**:
-    - Darewaeton’s leadership entertains envoys from both Braewood and Islefield, each seeking advantageous trade deals or alliances. The vampiric household plays both sides diplomatically, stoking tension.
+    - Darwaeton’s leadership entertains envoys from both Braewood and Islefield, each seeking advantageous trade deals or alliances. The vampiric household plays both sides diplomatically, stoking tension.
 - **1225** (Present Day):
     - The continent stands at a precarious balance. **Braewood’s** monarchy wrestles with dwarven unrest, **Islefield** grows in wealth and allies, **Kluimont** protects its magical secrets amid swirling dragon rumors, and **Lavalto** remains an enigmatic wildcard whose alliances could tip the scales in any conflict.
 
@@ -360,13 +360,13 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
     
     - Braewood dwarves pushing for greater autonomy, orcs and goblins seeking acceptance in Kluimont, elven aristocracy in Islefield.
 3. **Vampiric Influence**:
-    - Darewaeton’s shadowy role in pitting kingdoms against each other via subtle manipulations or controlling vital volcanic resources.
+    - Darwaeton’s shadowy role in pitting kingdoms against each other via subtle manipulations or controlling vital volcanic resources.
 4. **Geopolitical Maneuvering**:
     - Islefield’s new alliances with dwarven clans create friction with Braewood.
     - Kluimont’s maritime claims clash with Islefield’s naval patrols.
 5. **Potential Crises**:
     - If the **ancient brass dragon** truly breaks free, Kluimont’s secrets could shatter, unleashing chaos or leading to war.
-    - The “Night of Red Embers” legacy hints that Darewaeton’s volcano may be awakened again—either naturally or through sinister ritual.
+    - The “Night of Red Embers” legacy hints that Darwaeton’s volcano may be awakened again—either naturally or through sinister ritual.
       
 ## KLUIMONT KINGDOM
 
@@ -529,7 +529,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
     - **Trade & Smuggling**: Officially, trade with Kluimont is restricted, so black-market routes and discreet arcane item sales can yield hefty profits—but this wealth is concentrated in a small, secretive elite (the Arcane Synod, city leaders, etc.).
     - **Monstrous Allies**: Goblin and orc enclaves contribute as laborers, scouts, and mercenaries, but they often remain on the lower rungs of the economic ladder. The monarchy uses them to keep certain industries (like mining or smuggling) cheap yet profitable.
 4. **Lavalto Isle (Small but Strategic)**
-    - **Volcanic Resources**: Rare minerals, geothermal energy, and exotic crops thrive in Lavalto’s volcanic soil. Darewaeton’s ruling vampires leverage these unique goods to maintain a profitable trade network despite the island’s small population.
+    - **Volcanic Resources**: Rare minerals, geothermal energy, and exotic crops thrive in Lavalto’s volcanic soil. Darwaeton’s ruling vampires leverage these unique goods to maintain a profitable trade network despite the island’s small population.
     - **Controlled Opulence**: The vampiric nobility are extremely wealthy, funneling trade profits into lavish palaces and secretive subterranean projects. The common folk range from moderately comfortable port workers to impoverished farmers forced into heavy “protection taxes.”
     - **High-Risk, High-Reward**: Adventurers and foreign traders risk the rumored “blood rituals” and volcanic hazards, but if they survive, they can strike lucrative deals for precious raw materials.
 
@@ -573,11 +573,11 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 
 - **Vampiric Nobility**
     - The ruling family and close associates live in opulence, bankrolled by **volcanic exports** (rare metals, gems) and heavy tariffs on passing ships. They quietly manipulate prices to keep themselves in power.
-- **Merchant Class in Darewaeton**
+- **Merchant Class in Darwaeton**
     - Maintains shipping enterprises and arranges trade deals with Braewood, Islefield, and Kluimont. Some suspect they’re unwitting tools of the vampiric lords.
     - Citizens can rise in wealth if they excel at negotiation or maintain loyalty to the vampire family.
 - **Rural Farmers & Town-dwellers**
-    - Forced to pay tribute (sometimes suspiciously “blood-tinted” taxes) to the Darewaeton seat. They see some benefits in the form of strong defenses, but official records rarely reveal how oppressive these tributes can be.
+    - Forced to pay tribute (sometimes suspiciously “blood-tinted” taxes) to the Darwaeton seat. They see some benefits in the form of strong defenses, but official records rarely reveal how oppressive these tributes can be.
 
 ---
 
@@ -590,7 +590,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
 3. **Dwarven Exports**
     - Northern Braewood dwarves trade **metals, crafted goods, and specialized weapons** to all realms. High-demand dwarven steel or magical runic items can fetch fortunes—unless Braewood’s monarchy imposes heavy taxes or export restrictions.
 4. **Lavalto’s Niche Market**
-    - Volcanic minerals, rare herbs, and possibly monstrous creature components (e.g., from lava elementals) flow out of Darewaeton. Despite the island’s small size, these niche exports command **premium prices** among alchemists, artificers, and aristocrats seeking novel luxuries.
+    - Volcanic minerals, rare herbs, and possibly monstrous creature components (e.g., from lava elementals) flow out of Darwaeton. Despite the island’s small size, these niche exports command **premium prices** among alchemists, artificers, and aristocrats seeking novel luxuries.
 5. **Piracy & Smuggling**
     - The Rimdiff Isles (Kluimont) and certain unscrupulous ports in Braewood or Islefield facilitate black-market trade. Contraband includes magical artifacts, stolen dwarven metals, or unholy reagents from Lavalto’s caverns.
     - Such illicit routes widen wealth gaps: pirate captains and criminal kingpins can grow very rich while local coastal villages remain impoverished or extorted.
@@ -606,7 +606,7 @@ These 52 significant settlements are scattered across the kingdoms, with Braewoo
     1. **Merchant Guild Rivalries**: Could a wealthy Islefield merchant attempt to undercut dwarven exports in Braewood, sparking trade wars?
     2. **Rebellion or Reform**: Impoverished northern Braewood towns might rise up against heavy-handed taxes. Or monstrous enclaves in Kluimont demand fair wages for laborers.
     3. **Secret Funding**: If a Braewood warlord sought to purchase advanced Kluimont arcane weaponry, who would finance it—and for what ends?
-    4. **Dark Deals**: Darewaeton’s vampiric rulers might bankroll smaller factions in other kingdoms to sow chaos, thus keeping attention off their island.
+    4. **Dark Deals**: Darwaeton’s vampiric rulers might bankroll smaller factions in other kingdoms to sow chaos, thus keeping attention off their island.
 
 ---
 

@@ -1,7 +1,7 @@
 # Encounter 3 — Maltrius's Brood
 
 **Type:** Combat (Hard/Deadly)  
-**Location:** Ruined farmstead on the road between Dawerton and Lavalto volcano, ~2 hours outside town  
+**Location:** Ruined farmstead on the road between Darwaeton and Lavalto volcano, ~2 hours outside town  
 **Trigger:** Liora gives the party the location; or the party tracks them from Hilde's description  
 **Theme:** Maltrius's reach extends beyond Lavalto — this family serves him out of fear, loyalty, and hunger
 
@@ -9,7 +9,7 @@
 
 ## Setup
 
-The Valdris brood has moved from roadside ambushes into a stolen **noble manor house** outside Dawerton. They now operate as a "respectable household" by day and a hunting cell by night.
+The Valdris brood has moved from roadside ambushes into a stolen **noble manor house** outside Darwaeton. They now operate as a "respectable household" by day and a hunting cell by night.
 
 - **House name:** Blackthorn House (2 stories, attic, and full basement)
 - **Public facade:** quiet wealthy family with staff

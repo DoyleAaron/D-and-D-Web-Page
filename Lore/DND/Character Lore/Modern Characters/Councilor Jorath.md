@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| **Title** | Councilor of Dawerton (Intelligence & Records) |
+| **Title** | Councilor of Darwaeton (Intelligence & Records) |
 | **Age** | Unknown (Vampire) |
 | **Race** | Vampire |
-| **Location** | Dawerton, Lavalto |
+| **Location** | Darwaeton, Lavalto |
 
 ---
 
@@ -15,7 +15,7 @@
 A pale, slender figure with sharp features and dark eyes that miss nothing. He dresses in subdued colors—grays and blacks—and moves with the quiet deliberation of someone used to watching from the shadows. He always carries a small leather notebook and makes notes during meetings with an elegant silver pen.
 
 ## Backstory
-Jorath has served on the Dawerton Council for over a century, surviving multiple political upheavals by being too useful to eliminate. His role is nominally "records and archives," but everyone knows he is the council's spymaster. He collects information on everyone—human and vampire alike—and dispenses it only when strategically advantageous.
+Jorath has served on the Darwaeton Council for over a century, surviving multiple political upheavals by being too useful to eliminate. His role is nominally "records and archives," but everyone knows he is the council's spymaster. He collects information on everyone—human and vampire alike—and dispenses it only when strategically advantageous.
 
 ## Personality
 - **Quietly observant:** Says little but watches everything. A raised eyebrow from Jorath speaks volumes.
@@ -28,7 +28,7 @@ Jorath manages the city's official records, archives, and—unofficially—its i
 
 ## Relationships
 - **[Liora](../../Character%20Lore/Modern%20Characters/Liora.md):** Fellow vampire and information broker; they share sources but guard their best secrets.
-- **[Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Dawerton.md):** Reports directly to Adrian on matters of security.
+- **[Mayor Adrian](../../Character%20Lore/Modern%20Characters/Mayor%20Adrian%20of%20Darwaeton.md):** Reports directly to Adrian on matters of security.
 - **[Councilor Fenric](../../Character%20Lore/Modern%20Characters/Councilor%20Fenric.md):** Provides intelligence; receives protection.
 
 ## Notable Quote

@@ -198,7 +198,7 @@ const SETTLEMENTS = {
   'eimgend-city': { x: 28.2, y: 35.4 },
   
   // Lavalto Lake ports
-  'dawerton': { x: 58.8, y: 52.7 },
+  'darwaeton': { x: 58.8, y: 52.7 },
   'flison': { x: 51.7, y: 52.9 },
   'agosron': { x: 50, y: 62.7 },
   'sheyton': { x: 69.5, y: 53.3 },
@@ -277,7 +277,7 @@ for (const [name, pos] of Object.entries(SETTLEMENTS)) {
 console.log('');
 console.log('LAVALTO LAKE PORT CHECK:');
 console.log('-'.repeat(40));
-const lakePorts = ['dawerton', 'flison', 'agosron', 'sheyton'];
+const lakePorts = ['darwaeton', 'flison', 'agosron', 'sheyton'];
 lakePorts.forEach(port => {
   const pos = SETTLEMENTS[port];
   const inLake = pointInPolygon(pos.x, pos.y, LAVALTO_LAKE_BOUNDARY.outer);

@@ -120,7 +120,7 @@
 
 ## 💡 Reminders
 
-- **Spehlina bounty:** 10,000 gp (5k Dawerton + 5k Braewood Crown)
+- **Spehlina bounty:** 10,000 gp (5k Darwaeton + 5k Braewood Crown)
 - **Party needs:** 10,000 gp for the Balthazar location spell
 - **Kirk's secret goal:** Save the Spehlina, not destroy it
 - **Vampire Hunt Night:** Still approaching (28th) — party needs to be aware

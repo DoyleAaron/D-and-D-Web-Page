@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Type** | Noble manor estate |
-| **Region** | Lavalto approach road, outside Dawerton |
+| **Region** | Lavalto approach road, outside Darwaeton |
 | **Current Occupants** | Valdris vampire household and collared servants |
 | **Status** | Active threat node |
 
@@ -26,7 +26,7 @@ The household uses controlled human servants wearing rune-etched metal collars. 
 
 ## Role in Current Arc
 
-- Base of operations for vampire raids linked to recent Dawerton incidents.
+- Base of operations for vampire raids linked to recent Darwaeton incidents.
 - Source location for intelligence on Maltrius-linked pressure operations.
 - Possible recovery site for enchanted items and control-collar evidence.
 

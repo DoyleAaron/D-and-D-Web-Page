@@ -54,7 +54,7 @@ She immediately takes a flanking ranged position. She does not engage in convers
 
 **Race:** High Elf  
 **Role:** Advance scout / surveillance  
-**Note:** He is the one who was casing the Dawerton docks last night. If the party rolled well on a rumour check, they may already know this.  
+**Note:** He is the one who was casing the Darwaeton docks last night. If the party rolled well on a rumour check, they may already know this.  
 **CR:** 3
 
 ### Appearance

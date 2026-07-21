@@ -7,7 +7,7 @@
 | **Title** | Enforcer of the Pureblood Council |
 | **Age** | Unknown (Immortal Vampire) |
 | **Race** | Vampire (Human origin) |
-| **Location** | Darewaeton, Lavalto Isle |
+| **Location** | Darwaeton, Lavalto Isle |
 
 ---
 

@@ -17,7 +17,7 @@
 
 **Sister Calene Dusk** serves as the war cleric and spiritual support for the Braewood escort detail. Her divine magic provides healing and protection for the team, while her training allows her to contribute to combat when necessary.
 
-However, beneath her clerical role lies a more complicated personality. Sister Calene's behavior during the Dawerton mission revealed personal issues that created significant friction within the escort team.
+However, beneath her clerical role lies a more complicated personality. Sister Calene's behavior during the Darwaeton mission revealed personal issues that created significant friction within the escort team.
 
 ## Role
 
@@ -34,18 +34,18 @@ However, beneath her clerical role lies a more complicated personality. Sister C
 
 ## Personality Issues
 
-Sister Calene displayed concerning behavior during the Dawerton mission:
+Sister Calene displayed concerning behavior during the Darwaeton mission:
 
 ### Inappropriate Interest
 She showed noticeable interest in **Amdir and Varin**, often using **Morjor** as an excuse to remain close to them. This attention was unwelcome and created discomfort.
 
 ### Boundary Violations
-During the sea voyage to Dawerton, Sister Calene crossed personal boundaries, creating discomfort and fracturing trust within the party.
+During the sea voyage to Darwaeton, Sister Calene crossed personal boundaries, creating discomfort and fracturing trust within the party.
 
 ### Violent Reaction
 When Morjor (manipulated by Amdir) entered her room, Calene reacted with disproportionate violence, attempting to **burn Morjor** rather than simply demanding he leave. This required Sergeant Elira's intervention.
 
-## The Dawerton Mission
+## The Darwaeton Mission
 
 ### Session 8 (1225 C.C.)
 Sister Calene's behavior during the voyage created the first fractures in team trust. Her boundary violations marked a clear deterioration in party dynamics.

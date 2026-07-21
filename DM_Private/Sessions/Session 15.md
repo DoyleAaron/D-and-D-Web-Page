@@ -26,10 +26,10 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 ---
 
-### Question 2: Dawerton's Relationship with Kluimont
+### Question 2: Darwaeton's Relationship with Kluimont
 
 **What Liora Says:**
-- Kluimont was supposed to send an **envoy** to Dawerton.
+- Kluimont was supposed to send an **envoy** to Darwaeton.
 - **He never arrived.**
 - Liora assumes they've decided not to come at all.
 
@@ -40,11 +40,11 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 ---
 
-### Question 3: Dawerton's Relationship with Islefield
+### Question 3: Darwaeton's Relationship with Islefield
 
 **What Liora Says:**
 - Relations are... cautious.
-- Dawerton trades with Islefield but keeps them at arm's length.
+- Darwaeton trades with Islefield but keeps them at arm's length.
 - There's mutual benefit but not trust.
 
 *(Flesh out based on your Islefield politics)*
@@ -60,7 +60,7 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 **Official Story:**
 - They're investigating on behalf of the Queen.
 - The Queen's **wizard advisor** has been tracking one of Balthazar's gifted items.
-- The trail leads to **Dawerton**.
+- The trail leads to **Darwaeton**.
 
 **Hidden Truth:**
 - Merelle is really here for her own gain (same agenda as Amdir unknowingly shares).
@@ -80,7 +80,7 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 ## ⚔️ Party Reassignment
 
-**Staying in Dawerton:**
+**Staying in Darwaeton:**
 - The party (asked to remain for the investigation)
 
 **Departing for the Crown:**
@@ -97,7 +97,7 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 **What She Says:**
 - "Something... unpleasant happens near the end of each month."
-- "I would advise leaving Dawerton before the 28th, if you value your safety."
+- "I would advise leaving Darwaeton before the 28th, if you value your safety."
 - "The night air becomes... unhealthy."
 
 **What She Does NOT Say:**
@@ -148,7 +148,7 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 ### Option B: Manually Search for the Item
 - Extremely difficult without magic.
-- Would require investigating everyone in Dawerton.
+- Would require investigating everyone in Darwaeton.
 - High risk of discovery.
 
 ### Option C: Earn Money for the Location Spell
@@ -160,7 +160,7 @@ After defeating Father Halden, **Liora** grants the party **3 questions** as the
 
 ## 🏛️ The Wayfarers' Accord – Adventurer's Guild
 
-**Location:** Wavecrest Hall, Dawerton Docks
+**Location:** Wavecrest Hall, Darwaeton Docks
 
 The party can join the guild to officially take on the lake monster bounty—but there's a catch.
 
@@ -198,7 +198,7 @@ The party can join the guild to officially take on the lake monster bounty—but
 ### The Bounty
 | Source | Amount |
 |--------|--------|
-| Dawerton | 5,000 gp |
+| Darwaeton | 5,000 gp |
 | Crown of Braewood | 5,000 gp |
 | **Total** | **10,000 gp** |
 
@@ -210,7 +210,7 @@ The party can join the guild to officially take on the lake monster bounty—but
 **The Dilemma (Party Won't Know):**
 - If killed, the corruption it has absorbed will be **released into the lake**
 - Without the Spehlina to absorb it, the ongoing infernal seepage will **corrupt the waters**
-- Shores of Dawerton and nearby settlements will suffer blighted water, dead fish, and worse
+- Shores of Darwaeton and nearby settlements will suffer blighted water, dead fish, and worse
 
 *See: [The Spehlina](../Creatures/The%20Spehlina.md) for full stat block and lore*
 
@@ -286,7 +286,7 @@ Monster hunters from Adaham interested in the bounty:
 ### Liora's Offer
 - If the party kills the monster AND helps find Balthazar's dungeon:
 - Liora will **cover the remaining cost** of the Kluimont spell
-- Her motivation: Finding the dungeon benefits Dawerton before vampires get it
+- Her motivation: Finding the dungeon benefits Darwaeton before vampires get it
 
 ### Spell Cost Breakdown
 | Source | Amount |
@@ -322,9 +322,9 @@ Monster hunters from Adaham interested in the bounty:
 ## 🧩 Key NPCs This Session
 
 ### Liora
-- **Role:** Dawerton's spymaster/leader
+- **Role:** Darwaeton's spymaster/leader
 - **Disposition:** Grateful, growing respect for party
-- **Motivation:** Protect Dawerton, find Balthazar resources before vampires
+- **Motivation:** Protect Darwaeton, find Balthazar resources before vampires
 
 ### Merelle
 - **Role:** Queen's "agent"

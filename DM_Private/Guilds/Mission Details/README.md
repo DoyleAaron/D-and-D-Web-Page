@@ -2,15 +2,15 @@
 
 ## Quick Reference Map Locations
 
-| Mission | Tier | Location | Travel from Dawerton |
+| Mission | Tier | Location | Travel from Darwaeton |
 |---------|------|----------|---------------------|
-| D-01: Cheating Merchant | D | Dawerton (Market District) | None |
-| D-02: Warehouse Rats | D | Dawerton (Dock Warehouse) | None |
+| D-01: Cheating Merchant | D | Darwaeton (Market District) | None |
+| D-02: Warehouse Rats | D | Darwaeton (Dock Warehouse) | None |
 | D-03: Missing Shipment | D | Cleamond Road | ~35km (1 day) |
-| D-04: Haunted Cellar | D | Dawerton (The Rusty Anchor) | None |
-| C-01: Noble Escort | C | Dawerton → Cleamond | ~35km each way |
-| C-02: Drowned Man's Secret | C | Dawerton (Docks/Temple District) | None |
-| C-03: Sculptor's Debt | C | Dawerton (Tidewatch Slums) | None |
+| D-04: Haunted Cellar | D | Darwaeton (The Rusty Anchor) | None |
+| C-01: Noble Escort | C | Darwaeton → Cleamond | ~35km each way |
+| C-02: Drowned Man's Secret | C | Darwaeton (Docks/Temple District) | None |
+| C-03: Sculptor's Debt | C | Darwaeton (Tidewatch Slums) | None |
 | C-04: Beast of Southern Road | C | Southern Road to Mortling | ~33km (1 day) |
 
 ---

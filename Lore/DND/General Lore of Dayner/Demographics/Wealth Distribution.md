@@ -13,7 +13,7 @@
     - **Trade & Smuggling**: Officially, trade with Kluimont is restricted, so black-market routes and discreet arcane item sales can yield hefty profits—but this wealth is concentrated in a small, secretive elite (the Arcane Synod, city leaders, etc.).
     - **Monstrous Allies**: Goblin and orc enclaves contribute as laborers, scouts, and mercenaries, but they often remain on the lower rungs of the economic ladder. The monarchy uses them to keep certain industries (like mining or smuggling) cheap yet profitable.
 5. **Lavalto Isle (Small but Strategic)**
-    - **Volcanic Resources**: Rare minerals, geothermal energy, and exotic crops thrive in Lavalto’s volcanic soil. Darewaeton’s ruling vampires leverage these unique goods to maintain a profitable trade network despite the island’s small population.
+    - **Volcanic Resources**: Rare minerals, geothermal energy, and exotic crops thrive in Lavalto’s volcanic soil. Darwaeton’s ruling vampires leverage these unique goods to maintain a profitable trade network despite the island’s small population.
     - **Controlled Opulence**: The vampiric nobility are extremely wealthy, funneling trade profits into lavish palaces and secretive subterranean projects. The common folk range from moderately comfortable port workers to impoverished farmers forced into heavy “protection taxes.”
     - **High-Risk, High-Reward**: Adventurers and foreign traders risk the rumored “blood rituals” and volcanic hazards, but if they survive, they can strike lucrative deals for precious raw materials.
 
@@ -57,11 +57,11 @@
 
 - **Vampiric Nobility**
     - The ruling family and close associates live in opulence, bankrolled by **volcanic exports** (rare metals, gems) and heavy tariffs on passing ships. They quietly manipulate prices to keep themselves in power.
-- **Merchant Class in Darewaeton**
+- **Merchant Class in Darwaeton**
     - Maintains shipping enterprises and arranges trade deals with Braewood, Islefield, and Kluimont. Some suspect they’re unwitting tools of the vampiric lords.
     - Citizens can rise in wealth if they excel at negotiation or maintain loyalty to the vampire family.
 - **Rural Farmers & Town-dwellers**
-    - Forced to pay tribute (sometimes suspiciously “blood-tinted” taxes) to the Darewaeton seat. They see some benefits in the form of strong defenses, but official records rarely reveal how oppressive these tributes can be.
+    - Forced to pay tribute (sometimes suspiciously “blood-tinted” taxes) to the Darwaeton seat. They see some benefits in the form of strong defenses, but official records rarely reveal how oppressive these tributes can be.
 
 ---
 
@@ -74,7 +74,7 @@
 3. **Dwarven Exports**
     - Northern Braewood dwarves trade **metals, crafted goods, and specialized weapons** to all realms. High-demand dwarven steel or magical runic items can fetch fortunes—unless Braewood’s monarchy imposes heavy taxes or export restrictions.
 4. **Lavalto’s Niche Market**
-    - Volcanic minerals, rare herbs, and possibly monstrous creature components (e.g., from lava elementals) flow out of Darewaeton. Despite the island’s small size, these niche exports command **premium prices** among alchemists, artificers, and aristocrats seeking novel luxuries.
+    - Volcanic minerals, rare herbs, and possibly monstrous creature components (e.g., from lava elementals) flow out of Darwaeton. Despite the island’s small size, these niche exports command **premium prices** among alchemists, artificers, and aristocrats seeking novel luxuries.
 5. **Piracy & Smuggling**
     - The Rimdiff Isles (Kluimont) and certain unscrupulous ports in Braewood or Islefield facilitate black-market trade. Contraband includes magical artifacts, stolen dwarven metals, or unholy reagents from Lavalto’s caverns.
     - Such illicit routes widen wealth gaps: pirate captains and criminal kingpins can grow very rich while local coastal villages remain impoverished or extorted.
@@ -90,4 +90,4 @@
     1. **Merchant Guild Rivalries**: Could a wealthy Islefield merchant attempt to undercut dwarven exports in Braewood, sparking trade wars?
     2. **Rebellion or Reform**: Impoverished northern Braewood towns might rise up against heavy-handed taxes. Or monstrous enclaves in Kluimont demand fair wages for laborers.
     3. **Secret Funding**: If a Braewood warlord sought to purchase advanced Kluimont arcane weaponry, who would finance it—and for what ends?
-    4. **Dark Deals**: Darewaeton’s vampiric rulers might bankroll smaller factions in other kingdoms to sow chaos, thus keeping attention off their island.
+    4. **Dark Deals**: Darwaeton’s vampiric rulers might bankroll smaller factions in other kingdoms to sow chaos, thus keeping attention off their island.

@@ -177,10 +177,12 @@ const MAP_SCALE = {
     { name: 'Cheling', kingdom: 'Islefield', x: 14.9, y: 86.3, type: 'medium-city' },
     { name: 'Antstel', kingdom: 'Islefield', x: 40.8, y: 74.6, type: 'medium-city' },
     { name: 'Yhey', kingdom: 'Islefield', x: 32, y: 44.3, type: 'medium-city' },
+    { name: 'Agosgas', kingdom: 'Islefield', x: 6.6, y: 65, type: 'medium-city' },
     { name: 'Beyross', kingdom: 'Islefield', x: 10.9, y: 74.3, type: 'town' },
     { name: 'Halten', kingdom: 'Islefield', x: 35.7, y: 77.9, type: 'town' },
     { name: 'Avinin', kingdom: 'Islefield', x: 42.8, y: 68.8, type: 'town' },
     { name: 'Slido', kingdom: 'Islefield', x: 18.1, y: 58.9, type: 'town' },
+    { name: 'Resross', kingdom: 'Islefield', x: 28.7, y: 41.8, type: 'town' },
     { name: 'Cok', kingdom: 'Islefield', x: 15.4, y: 81.7, type: 'village' },
     { name: 'Stanron', kingdom: 'Islefield', x: 25.9, y: 91.9, type: 'village', destroyed: true },
     { name: 'Ulsall', kingdom: 'Islefield', x: 15.4, y: 93.8, type: 'village' },
@@ -189,7 +191,6 @@ const MAP_SCALE = {
     { name: 'Wrando', kingdom: 'Islefield', x: 16.8, y: 63, type: 'village' },
     { name: 'Okcaster', kingdom: 'Islefield', x: 7.2, y: 56.8, type: 'village' },
     { name: 'Guatpool', kingdom: 'Islefield', x: 13.2, y: 52.3, type: 'village' },
-    { name: 'Resross', kingdom: 'Islefield', x: 28.7, y: 41.8, type: 'village' },
     { name: 'Sable', kingdom: 'Islefield', x: 39.3, y: 44.7, type: 'village' },
     
     // KLUIMONT
@@ -209,7 +210,9 @@ const MAP_SCALE = {
     { name: 'Klovine', kingdom: 'Kluimont', x: 36.2, y: 38.7, type: 'village' },
     
     // LAVALTO
-    { name: 'Lavalto', kingdom: 'Lavalto', x: 55.7, y: 58.6, type: 'capital' }
+    { name: 'Darwaeton', kingdom: 'Lavalto', x: 58.8, y: 52.7, type: 'large-city' },
+    { name: 'Flison', kingdom: 'Lavalto', x: 51.7, y: 52.9, type: 'medium-city' },
+    { name: 'Agosron', kingdom: 'Lavalto', x: 50, y: 62.7, type: 'town' }
   ],
 
   // Key geographic features with distances

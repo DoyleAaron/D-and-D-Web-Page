@@ -51,7 +51,7 @@
         
 - The Queen stresses:
     
-    - Dawerton’s instability,
+    - Darwaeton’s instability,
         
     - The need to secure trade and diplomacy before tensions escalate.
         

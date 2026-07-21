@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Grain Collective  
-**Location:** Dawerton – Dock Warehouse #7  
+**Location:** Darwaeton – Dock Warehouse #7  
 **Duration:** 1 day  
 **Reward:** 25 gp  
 **Combat Expected:** Yes (straightforward extermination)

@@ -45,7 +45,7 @@ The party is inside Blackthorn House. The basement is cleared. The upper floor s
 
 The house fight should feel like a crescendo. The party has momentum from killing the golem. The vampires are cornered, furious, and fighting for survival — not ambush tactics anymore.
 
-After the house clears, the tone shifts. Dawerton owes the party, but the 28th is approaching and the Spehlina is still in play.
+After the house clears, the tone shifts. Darwaeton owes the party, but the 28th is approaching and the Spehlina is still in play.
 
 ---
 
@@ -55,15 +55,15 @@ After the house clears, the tone shifts. Dawerton owes the party, but the 28th i
 2. Push upstairs for the vampire fight.
 3. Vampire kill-box on the upper floor — Isolde, Senna, Theron, golems, servants.
 4. Loot the house room by room.
-5. Return to Dawerton — Adrian reward scene.
+5. Return to Darwaeton — Adrian reward scene.
 6. Liora debrief — Maltrius intel, 28th warning.
-7. **Spehlina hook** — either through Maltrius's orders (if found) or through Dawerton contacts reporting lake activity.
+7. **Spehlina hook** — either through Maltrius's orders (if found) or through Darwaeton contacts reporting lake activity.
 
 ---
 
 ## If The Party Wins The House
 
-- Liora survives and returns to Dawerton badly shaken but useful.
+- Liora survives and returns to Darwaeton badly shaken but useful.
 - Adrian delivers the reward (Scroll of Purity + Wand of Banishment).
 - The party gains hard confirmation that Maltrius is escalating toward the 28th.
 - The Spehlina becomes the next clear threat.

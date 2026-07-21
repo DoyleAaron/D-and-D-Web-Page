@@ -15,7 +15,7 @@
 
 ## Description
 
-**Sergeant Elira Thorn** serves as the frontline commander of the Braewood escort detail assigned to the Dawerton mission. A career soldier with a reputation for decisive action and unwavering discipline, Elira maintains order among her team and responds to threats with swift, professional efficiency.
+**Sergeant Elira Thorn** serves as the frontline commander of the Braewood escort detail assigned to the Darwaeton mission. A career soldier with a reputation for decisive action and unwavering discipline, Elira maintains order among her team and responds to threats with swift, professional efficiency.
 
 Her commanding presence and willingness to intervene in conflicts—even among allies—have earned her respect from those under her command and wariness from those who might cause trouble.
 
@@ -30,7 +30,7 @@ Her commanding presence and willingness to intervene in conflicts—even among a
 ### Intervention Specialist
 When conflicts arise—whether from external threats or internal party disputes—Elira steps in decisively. She has demonstrated willingness to physically subdue troublemakers to maintain order.
 
-## The Dawerton Mission
+## The Darwaeton Mission
 
 Elira led the military component of the escort detail, working alongside:
 - **Envoy Pasan** (diplomatic lead)
@@ -49,10 +49,10 @@ When internal party conflicts escalated—with Sister Calene attempting to burn 
 - Demonstrated her authority and capability
 
 ### Session 13 (1225 C.C.)
-Elira approached the party with a proposition regarding their continued activities in Dawerton, showing her ability to adapt and work with unconventional assets.
+Elira approached the party with a proposition regarding their continued activities in Darwaeton, showing her ability to adapt and work with unconventional assets.
 
 ### Session 14 (1225 C.C.)
-Following the completion of the Dawerton mission, Elira and the escort team (including Bram, Selene, and Aric) departed, their duties fulfilled.
+Following the completion of the Darwaeton mission, Elira and the escort team (including Bram, Selene, and Aric) departed, their duties fulfilled.
 
 ## Personality
 

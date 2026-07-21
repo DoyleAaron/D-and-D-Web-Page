@@ -31,7 +31,7 @@ const SHIP_NETWORK = {
     'port-okcaster': { name: 'Okcaster', x: 5.4, y: 53.7 },
     'port-agosgas': { name: 'Agosgas', x: 4.1, y: 58.6 },
     'port-islefield': { name: 'Islefield', x: 28.4, y: 69.8 },
-    'port-dawerton': { name: 'Dawerton', x: 61.4, y: 49.8 },
+    'port-darwaeton': { name: 'Darwaeton', x: 61.4, y: 49.8 },
     'port-flison': { name: 'Flison', x: 51.7, y: 50.4 },
     'port-agosron': { name: 'Agosron', x: 49.3, y: 58.9 },
     'port-rens': { name: 'Rens', x: 78.7, y: 73.7 },
@@ -534,7 +534,7 @@ const SHIP_NETWORK = {
     ['nav-165', 'nav-166'],
     ['nav-166', 'nav-167'],
     ['nav-167', 'nav-168'],
-    ['nav-168', 'port-dawerton'],
+    ['nav-168', 'port-darwaeton'],
     
     // === SLONMORE AREA ===
     ['nav-246', 'port-slonmore'],

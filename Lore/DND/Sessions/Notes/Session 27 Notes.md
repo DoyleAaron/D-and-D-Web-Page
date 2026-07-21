@@ -2,7 +2,7 @@
 
 ## After the Spehlina
 
-- With the Spehlina defeated and the reward claimed, the party had a short window to recover in Dawerton.
+- With the Spehlina defeated and the reward claimed, the party had a short window to recover in Darwaeton.
 - The wider threat was not over: the summit was approaching, magical items were still being moved or consumed, and Maltrius remained active.
 - The party's success made them harder for political powers to ignore.
 
@@ -28,7 +28,7 @@
 ## Toward the Ossian Vault
 
 - The party accepted or moved toward the Islefield job, setting up the dungeon arc that would eventually lead to Vasskren.
-- This marked the transition from Dawerton and the lake crisis into the most recent dungeon expedition.
+- This marked the transition from Darwaeton and the lake crisis into the most recent dungeon expedition.
 
 ---
 

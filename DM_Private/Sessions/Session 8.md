@@ -13,7 +13,7 @@
         
     - Travel time: ~7–8 hours, **one day**.
         
-3. **Dawerton – 60 km by boat**
+3. **Darwaeton – 60 km by boat**
     
     - Average small coastal or river vessel speed: 4–6 km/h (assuming standard rowed or small sailboat).
         
@@ -74,13 +74,13 @@ _The people here are disciplined and proud. Nearly every family has some connect
 
 ---
 
-### **Dawerton – Read-Aloud Intro**
+### **Darwaeton – Read-Aloud Intro**
 
-_“Dawerton sprawls before you, a bustling port city filled with the chatter of merchants, the creaking of ships’ timbers, and the smells of exotic spices and salted fish. The streets are a maze of markets, guild halls, and narrow alleys, alive with constant movement. Ships unload cargo day and night, some mundane, some mysterious, their contents rarely questioned. Lanterns flicker along the canals and docks, hinting at secretive activities under the cover of darkness._
+_“Darwaeton sprawls before you, a bustling port city filled with the chatter of merchants, the creaking of ships’ timbers, and the smells of exotic spices and salted fish. The streets are a maze of markets, guild halls, and narrow alleys, alive with constant movement. Ships unload cargo day and night, some mundane, some mysterious, their contents rarely questioned. Lanterns flicker along the canals and docks, hinting at secretive activities under the cover of darkness._
 
-_The people of Dawerton are energetic and sharp, used to negotiation, trade, and secrecy. They speak quickly, bargain fiercely, and trust cautiously. While the city thrives on commerce, there’s a sense of underlying intrigue—shadows in alleys, whispered deals, and eyes watching from balconies. Here, information is currency, and one misstep can cost far more than gold.”
+_The people of Darwaeton are energetic and sharp, used to negotiation, trade, and secrecy. They speak quickly, bargain fiercely, and trust cautiously. While the city thrives on commerce, there’s a sense of underlying intrigue—shadows in alleys, whispered deals, and eyes watching from balconies. Here, information is currency, and one misstep can cost far more than gold.”
 
-## Dawerton Escort
+## Darwaeton Escort
 
 ### **1. Arrive
 al & Initial Impressions**
@@ -90,7 +90,7 @@ al & Initial Impressions**
 - **Escort Arrival:** The party is met at the port or city gates by a small contingent of local guards (2–4) and a **courier/liaison** from the city who introduces themselves.
     
 - **Read-Aloud / Description:**  
-    _“The city of Dawerton stretches along the harbor, lanterns flickering on the docks, voices of merchants and sailors echoing in the evening air. Your guards lead you through bustling streets crowded with traders, warehouses, and narrow alleys. Despite the crowds, you notice glances lingering on you—watchful, careful, but never hostile.”_
+    _“The city of Darwaeton stretches along the harbor, lanterns flickering on the docks, voices of merchants and sailors echoing in the evening air. Your guards lead you through bustling streets crowded with traders, warehouses, and narrow alleys. Despite the crowds, you notice glances lingering on you—watchful, careful, but never hostile.”_
     
 - **Checks / Interaction:**
     
@@ -162,12 +162,12 @@ al & Initial Impressions**
     
 - **Meals / Tavern Ambiance:**
     
-    - Other travelers share stories of Dawerton: trade disputes, missing shipments, secretive nobles.
+    - Other travelers share stories of Darwaeton: trade disputes, missing shipments, secretive nobles.
         
     - NPCs may drop hints about nocturnal activities, volcanic reagents, or political intrigue.
         
 - **Scene Hook:**  
-    _“As night falls and lanterns cast long shadows across the tavern’s courtyard, you feel the subtle watchfulness of unseen eyes. Nothing threatens you—yet you know that in Dawerton, the city itself is alive with secrets.”
+    _“As night falls and lanterns cast long shadows across the tavern’s courtyard, you feel the subtle watchfulness of unseen eyes. Nothing threatens you—yet you know that in Darwaeton, the city itself is alive with secrets.”
     
 ## Rumors
 ### 1) “They say the manor inside the volcano houses thirty vampires — and four of them are true purebloods who never leave the lava halls.”
@@ -185,7 +185,7 @@ al & Initial Impressions**
 
 ---
 
-### 2) “The purebloods are isolationist — they think they’re above Dawerton’s politics. They want nothing to do with trade or the diplomatic council.”
+### 2) “The purebloods are isolationist — they think they’re above Darwaeton’s politics. They want nothing to do with trade or the diplomatic council.”
 
 - **Credibility:** ★★☆☆☆ (half‑true, spread by merchants who resent the volcano elite)
     
@@ -200,7 +200,7 @@ al & Initial Impressions**
 
 ---
 
-### 3) “There’s a soul‑forged relic in Dawerton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
+### 3) “There’s a soul‑forged relic in Darwaeton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
 
 - **Credibility:** ★★★☆☆ (frightening tale, some merchants hush about ‘cursed goods’)
     
@@ -307,7 +307,7 @@ al & Initial Impressions**
 
 #### **Purpose:**
 
-- Introduce the Dawerton Council formally.
+- Introduce the Darwaeton Council formally.
     
 - Show political structure and city dynamics.
     
@@ -457,7 +457,7 @@ al & Initial Impressions**
 4. **Scene Closure**
     
     - Dinner ends politely. Liora expresses gratitude:  
-        _“Your vigilance is appreciated. Dawerton is safer when all eyes are open, even those of outsiders.”_
+        _“Your vigilance is appreciated. Darwaeton is safer when all eyes are open, even those of outsiders.”_
         
     - Party leaves with the sense of:
         
@@ -503,7 +503,7 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
 
 - **Pasan (Braewood)**
     
-    - States Braewood has come “in good faith” to ensure **safety of merchants, pilgrims, and diplomats** travelling between Braewood and Dawerton/Lavalto.
+    - States Braewood has come “in good faith” to ensure **safety of merchants, pilgrims, and diplomats** travelling between Braewood and Darwaeton/Lavalto.
         
     - Stresses _co-operation_ and mutual benefit.
         
@@ -511,13 +511,13 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
     
     - Introduces himself as **Special Trade Adviser from Eimgend, Kluimont**.
         
-    - Politely reminds the council that **Kluimont shipping carries a large share of grain, timber and ore** into Dawerton – and those losses hurt _both_ sides.
+    - Politely reminds the council that **Kluimont shipping carries a large share of grain, timber and ore** into Darwaeton – and those losses hurt _both_ sides.
         
-- **Liora / Council (Dawerton)**
+- **Liora / Council (Darwaeton)**
     
-    - Liora welcomes them as “valued partners of Dawerton and, by extension, Lavalto”.
+    - Liora welcomes them as “valued partners of Darwaeton and, by extension, Lavalto”.
         
-    - Elara mentions Dawerton’s desire to “maintain prosperity despite… recent disruptions.”
+    - Elara mentions Darwaeton’s desire to “maintain prosperity despite… recent disruptions.”
         
     - Fenric notes that **security is being tightened**, subtly implying “we’ve got this, stay in your lane”.
         
@@ -530,27 +530,27 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
 
 - **Braewood wants:**
     
-    - Clear **acknowledgment** that people and goods have gone missing near Dawerton 
+    - Clear **acknowledgment** that people and goods have gone missing near Darwaeton 
         
-    - **Assurances** that Dawerton will act – or Braewood will reconsider routing traffic there.
+    - **Assurances** that Darwaeton will act – or Braewood will reconsider routing traffic there.
         
 - **Tathtakmajal wants:**
     
     - **Written guarantees** that:
         
-        - Dawerton patrols the approach channels and coastal roads more actively.
+        - Darwaeton patrols the approach channels and coastal roads more actively.
             
-        - Proven losses to Eimgend-registered ships due to Dawerton negligence result in **partial compensation or tariff reductions**.
+        - Proven losses to Eimgend-registered ships due to Darwaeton negligence result in **partial compensation or tariff reductions**.
             
-    - To slip in language creating a **joint Dawerton–Eimgend “Security Levy”**, giving Eimgend leverage over patrol funding & routes.
+    - To slip in language creating a **joint Darwaeton–Eimgend “Security Levy”**, giving Eimgend leverage over patrol funding & routes.
         
 - **Council responses:**
     
     - **Elara:** Pushes back on compensation, blames “bandits, pirates, and the occasional storm”.
         
-    - **Fenric:** Argues the solution is **more Dawerton authority** – foreign weapons and private guards make things “confused”.
+    - **Fenric:** Argues the solution is **more Darwaeton authority** – foreign weapons and private guards make things “confused”.
         
-    - **Varis:** Suggests only _licensed Dawerton guild ships_ should carry certain profitable cargos “for safety reasons”, which quietly hands Dawerton’s guilds a monopoly.
+    - **Varis:** Suggests only _licensed Darwaeton guild ships_ should carry certain profitable cargos “for safety reasons”, which quietly hands Darwaeton’s guilds a monopoly.
         
 
 **Compromise hook:**
@@ -559,22 +559,22 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
     
 - Hidden clause: Eimgend funds extra patrols BUT gets **oversight rights** (Tathtak win).
     
-- Dawerton gets to **raise a small levy** on each foreign cargo to “pay” for those patrols (Elara/Varis win).
+- Darwaeton gets to **raise a small levy** on each foreign cargo to “pay” for those patrols (Elara/Varis win).
     
 - Braewood gets **public assurances** and a clear complaint channel (Pasan win).
     
 
 ---
 
-### C. Disappearances & Restless Dead in Dawerton
+### C. Disappearances & Restless Dead in Darwaeton
 
 This is where your party & Sister Calene’s concerns can surface.
 
 - **Braewood / Party angle:**
     
-    - Calene raises rumours of **disappearances, restless spirits, and shared nightmares** around Dawerton.
+    - Calene raises rumours of **disappearances, restless spirits, and shared nightmares** around Darwaeton.
         
-    - Pasan frames it as: “Instability in Dawerton can spill across borders; we merely seek clarity and reassurance.”
+    - Pasan frames it as: “Instability in Darwaeton can spill across borders; we merely seek clarity and reassurance.”
         
 - **Tathtakmajal’s public angle:**
     
@@ -601,7 +601,7 @@ This is where your party & Sister Calene’s concerns can surface.
     
 - Whether Braewood clerics (Calene) are allowed to **consecrate problem sites** or whether that’s “religious overreach”.
     
-- Whether there are **formal reporting channels** when a foreign subject disappears in Dawerton.
+- Whether there are **formal reporting channels** when a foreign subject disappears in Darwaeton.
     
 
 ---
@@ -624,22 +624,22 @@ Classic money talk.
     
     - Wants broadly fair treatment for **Braewood merchants**, but is more focused on safety and precedent than specific numbers.
         
-    - Doesn’t want Braewood shut out by any exclusive Eimgend–Dawerton side deal.
+    - Doesn’t want Braewood shut out by any exclusive Eimgend–Darwaeton side deal.
         
 - **Elara / Varis:**
     
     - Want higher tariffs overall, but are willing to offer **“bulk discounts”** in return for guaranteed trade volume and guild contracts.
         
-    - Try to tie any discount to **using Dawerton guild factors and warehouses** (“for efficiency”).
+    - Try to tie any discount to **using Darwaeton guild factors and warehouses** (“for efficiency”).
         
 
 **Potential agreement outline:**
 
-- “Dawerton offers reduced duties to any kingdom meeting minimum tonnage quotas.”
+- “Darwaeton offers reduced duties to any kingdom meeting minimum tonnage quotas.”
     
 - Eimgend is best positioned to exploit this (Tathtak win).
     
-- Varis ensures the handling must go through **Dawerton guilds** (Council win).
+- Varis ensures the handling must go through **Darwaeton guilds** (Council win).
     
 - Pasan gets a line ensuring “no discriminatory tariffs against Braewood-flag ships” (Braewood save).
     
@@ -652,9 +652,9 @@ Who controls whose people once they’re inside the walls?
 
 - **Fenric:**
     
-    - Wants strict rules: foreign guards must **disarm or be clearly marked**, Dawerton watch has ultimate authority.
+    - Wants strict rules: foreign guards must **disarm or be clearly marked**, Darwaeton watch has ultimate authority.
         
-    - Proposes that any foreigner accused of a crime is tried in a **Dawerton court**, with envoys allowed to observe.
+    - Proposes that any foreigner accused of a crime is tried in a **Darwaeton court**, with envoys allowed to observe.
         
 - **Pasan:**
     
@@ -666,7 +666,7 @@ Who controls whose people once they’re inside the walls?
             
 - **Tathtakmajal:**
     
-    - Publicly: Sides with “efficiency” – doesn’t want Eimgend sailors dragged through Dawerton’s courts over bar fights.
+    - Publicly: Sides with “efficiency” – doesn’t want Eimgend sailors dragged through Darwaeton’s courts over bar fights.
         
     - Pushes a middle clause:
         
@@ -676,11 +676,11 @@ Who controls whose people once they’re inside the walls?
         
 - **Liora / Miriam:**
     
-    - Try to frame a compromise that doesn’t look like Dawerton surrendering sovereignty:
+    - Try to frame a compromise that doesn’t look like Darwaeton surrendering sovereignty:
         
         - Special **joint tribunals** for crimes involving foreign citizens.
             
-        - Dawerton magistrate presiding, but envoys sit as “advisers”.
+        - Darwaeton magistrate presiding, but envoys sit as “advisers”.
             
 
 This section gives you plenty of room for:  
@@ -694,7 +694,7 @@ Plant seeds for the volcano arc.
 
 - **Liora:**
     
-    - Mentions that Dawerton’s prosperity is tied to **Lavalto’s volcanic forges and resources**.
+    - Mentions that Darwaeton’s prosperity is tied to **Lavalto’s volcanic forges and resources**.
         
     - Floats the idea of **joint ventures** in Lavalto: financing mines, escorts for caravans, etc.
         
@@ -704,11 +704,11 @@ Plant seeds for the volcano arc.
         
 - **Tathtakmajal:**
     
-    - Very interested in any regular slave or “indentured” traffic between Dawerton and Lavalto (secret reason: looking for his Grey Toad clanmates).
+    - Very interested in any regular slave or “indentured” traffic between Darwaeton and Lavalto (secret reason: looking for his Grey Toad clanmates).
         
     - Officially, he presses for:
         
-        - Data-sharing on **all traffic manifests** between Dawerton and Darewaeton.
+        - Data-sharing on **all traffic manifests** between Darwaeton and Darwaeton.
             
         - The right for Eimgend investors to purchase **shares in Lavalto ventures**.
             
@@ -720,7 +720,7 @@ This gives you an excuse later for Liora to offer the party a mission:
 **Quest Hook:**
 
 - Liora invites the party privately after dinner:  
-    _“There have been troubling deaths in a quarter of Dawerton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
+    _“There have been troubling deaths in a quarter of Darwaeton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
     
 - She warns: Stay discrete, stay alive.
     
@@ -1058,7 +1058,7 @@ All together ≈ 1,200–1,300 XP → perfect for a Level 2 adventure arc.
 
 ### **Lord Adrian Silwynn – Vampiric Patriarch (Pureblood)**
 
-- **Role:** Ruler of Dawerton, pro-outside-world, only pureblood involved in diplomacy.
+- **Role:** Ruler of Darwaeton, pro-outside-world, only pureblood involved in diplomacy.
     
 - **Personality/Roleplay:** Calm, aristocratic, subtly intimidating. Speaks with patience, rarely raises voice. Trusts only loyal vampires.
     
@@ -1098,7 +1098,7 @@ All together ≈ 1,200–1,300 XP → perfect for a Level 2 adventure arc.
 ![[ChatGPT Image Nov 20, 2025, 05_25_26 PM.png]]
 ---
 
-### **Dawerton Council Table (6 Members)**
+### **Darwaeton Council Table (6 Members)**
 
 |Name / Role|Race|Notes|
 |---|---|---|
@@ -1162,7 +1162,7 @@ All together ≈ 1,200–1,300 XP → perfect for a Level 2 adventure arc.
     
 - **Personality:** Subtle, persuasive, and politically savvy. Uses charm and insinuation to influence others, often without them realizing it.
     
-- **Role:** Head of guild relations and economic manipulation. Skilled in behind-the-scenes negotiation and political maneuvering within Dawerton.
+- **Role:** Head of guild relations and economic manipulation. Skilled in behind-the-scenes negotiation and political maneuvering within Darwaeton.
     
 
 ---
@@ -1173,7 +1173,7 @@ All together ≈ 1,200–1,300 XP → perfect for a Level 2 adventure arc.
     
 - **Personality:** Polite, patient, and impeccably courteous. Speaks with calm authority, often soft-spoken but undeniably commanding. Uses charm and subtle intimidation when necessary.
     
-- **Role:** Represents Lord Adrian and the diplomatic vampire faction. Handles formal negotiations with the party, conveying the city’s policies and ensuring Dawerton’s interests are protected.
+- **Role:** Represents Lord Adrian and the diplomatic vampire faction. Handles formal negotiations with the party, conveying the city’s policies and ensuring Darwaeton’s interests are protected.
 ---
 
 
@@ -1254,7 +1254,7 @@ All together ≈ 1,200–1,300 XP → perfect for a Level 2 adventure arc.
 
 ### **Combat / Narrative Tips**
 
-- **Dawerton city vampires:** Mostly for intrigue, social checks, or small encounters if plot forces combat.
+- **Darwaeton city vampires:** Mostly for intrigue, social checks, or small encounters if plot forces combat.
     
 - **Volcano manor vampires:** Should feel extremely dangerous; party should **avoid direct combat** unless narrative pushes them.
     
@@ -1305,11 +1305,11 @@ Since then, Pasan has been almost **fanatical about preventing avoidable sufferi
 
 Pasan rose to become one of the Queen’s more trusted envoys precisely because he **doesn’t crave glory**. He brings back **steady, boring, profitable agreements**, the kind that keep the realm quietly strong.
 
-The Lavalto / Dawerton mission is his **most politically delicate job yet**:
+The Lavalto / Darwaeton mission is his **most politically delicate job yet**:
 
 - Lavalto’s vampires are feared but valuable partners.
     
-- Dawerton is a web of guilds, council factions, and immortal egos.
+- Darwaeton is a web of guilds, council factions, and immortal egos.
     
 - Sabotaged shipments or disappearances could easily **spiral into an international incident**.
     
@@ -1346,7 +1346,7 @@ Since then, Pasan has refused to travel without her.
     
 - If a PC speaks up with a clever compromise, he lights up and **treats them as a junior colleague**, not just “hired swords.”
     
-- Flaw in play: he can be too optimistic that “everyone wants a deal”, and may underreact to clearly malicious actors or cult nonsense in Dawerton.
+- Flaw in play: he can be too optimistic that “everyone wants a deal”, and may underreact to clearly malicious actors or cult nonsense in Darwaeton.
     
 ![[ChatGPT Image Nov 20, 2025, 05_30_27 PM.png]]
 ---
@@ -1394,16 +1394,16 @@ Her talent for nuance got her noticed. She flagged a draft of a minor treaty whe
 
 She was formally attached to Envoy Pasan after the Kluimont idiom incident you’ve already got.
 
-### Maera & Lavalto / Dawerton
+### Maera & Lavalto / Darwaeton
 
 Maera finds vampires **fascinating and unnerving in equal measure**:
 
 - Eternally-living negotiators with perfect memories are her intellectual nightmare; you can’t bluff about “what we said last time.”
     
-- She maintains **private notes on Dawerton idioms and vampiric metaphors**, terrified of accidentally offending a pureblood with a careless phrase.
+- She maintains **private notes on Darwaeton idioms and vampiric metaphors**, terrified of accidentally offending a pureblood with a careless phrase.
     
 
-She is also **deeply disturbed by the reports of disappearances** around Dawerton. The shared nightmares and restless dead near the cleric’s house (from Liora’s mission) will hit her professionally: _“Something is wrong with the language of this place. People are hearing the same words in their dreams.”_
+She is also **deeply disturbed by the reports of disappearances** around Darwaeton. The shared nightmares and restless dead near the cleric’s house (from Liora’s mission) will hit her professionally: _“Something is wrong with the language of this place. People are hearing the same words in their dreams.”_
 
 ### Roleplay Hooks for Maera
 
@@ -1726,7 +1726,7 @@ Warm but firm. Speaks softly most of the time but **cuts through arguments like 
 **Backstory:**  
 Calene was a foundling raised in a **temple near Mortling**, hearing the clang of forges and drill yards through stained-glass windows. She became a battle-chaplain, learning to **bless shields and set broken bones** in equal measure.
 
-When reports came of **restless dead and missing people** near Dawerton, the temple quietly requested that one of their own be attached to the mission – officially to “tend to souls abroad,” unofficially to **report on any unholy rites or undead activity**.
+When reports came of **restless dead and missing people** near Darwaeton, the temple quietly requested that one of their own be attached to the mission – officially to “tend to souls abroad,” unofficially to **report on any unholy rites or undead activity**.
 
 She views the party as **potential instruments of divine justice**, even if she never quite says it that bluntly.
 
@@ -1955,7 +1955,7 @@ He chose wisely. After proving his worth exposing a smuggling ring feeding infor
 
 On this mission, he’s not just a guard. He’s tasked with:
 
-- Watching the **party** as much as he watches Dawerton.
+- Watching the **party** as much as he watches Darwaeton.
     
 - Keeping an eye out for **Lavalto-aligned sympathisers**.
     

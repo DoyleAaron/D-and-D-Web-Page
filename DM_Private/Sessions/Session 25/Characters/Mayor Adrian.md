@@ -4,7 +4,7 @@
 
 Adrian is relieved, but not calm.
 
-- Liora being taken proved Maltrius can reach deeper into Dawerton than he feared.
+- Liora being taken proved Maltrius can reach deeper into Darwaeton than he feared.
 - A successful rescue does not relax him. It convinces him things are accelerating.
 - He becomes more useful once he knows the party can actually finish ugly work.
 

@@ -61,7 +61,7 @@ Carried over from Session 24. The party breached Blackthorn House, cast a light 
 
 - **55 gp** in a decorative lockbox (DC 12 Thieves' Tools or DC 15 STR)
 - **Pearl-handled letter opener** — worth 15 gp
-- **Two leather-bound journals** — Isolde's thoughts on Dawerton politics and Maltrius's demands. Flavour only.
+- **Two leather-bound journals** — Isolde's thoughts on Darwaeton politics and Maltrius's demands. Flavour only.
 
 ---
 
@@ -199,7 +199,7 @@ Recent letter from Father Maltrius Kael:
 
 **Found in:** Study, locked desk drawer.
 
-> *Standing orders for the Dawerton cell.*
+> *Standing orders for the Darwaeton cell.*
 >
 > *The Grand Span meeting must not succeed. The alliance it would forge between Braewood and the western kingdoms would complicate our work for a generation. The creature in the lake can be guided. It follows death — bodies in the water, wreckage, blood. A chain of bait ships and corpses along the correct heading will drive it toward the bridge on the appointed day.*
 >

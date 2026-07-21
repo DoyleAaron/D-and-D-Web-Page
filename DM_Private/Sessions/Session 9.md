@@ -14,7 +14,7 @@
 
 ---
 
-### 2) “The purebloods are isolationist — they think they’re above Dawerton’s politics. They want nothing to do with trade or the diplomatic council.”
+### 2) “The purebloods are isolationist — they think they’re above Darwaeton’s politics. They want nothing to do with trade or the diplomatic council.”
 
 - **Credibility:** ★★☆☆☆ (half‑true, spread by merchants who resent the volcano elite)
     
@@ -29,7 +29,7 @@
 
 ---
 
-### 3) “There’s a soul‑forged relic in Dawerton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
+### 3) “There’s a soul‑forged relic in Darwaeton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
 
 - **Credibility:** ★★★☆☆ (frightening tale, some merchants hush about ‘cursed goods’)
     
@@ -136,7 +136,7 @@
 
 #### **Purpose:**
 
-- Introduce the Dawerton Council formally.
+- Introduce the Darwaeton Council formally.
     
 - Show political structure and city dynamics.
     
@@ -286,7 +286,7 @@
 4. **Scene Closure**
     
     - Dinner ends politely. Liora expresses gratitude:  
-        _“Your vigilance is appreciated. Dawerton is safer when all eyes are open, even those of outsiders.”_
+        _“Your vigilance is appreciated. Darwaeton is safer when all eyes are open, even those of outsiders.”_
         
     - Party leaves with the sense of:
         
@@ -322,7 +322,7 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
 
 - **Pasan (Braewood)**
     
-    - States Braewood has come “in good faith” to ensure **safety of merchants, pilgrims, and diplomats** travelling between Braewood and Dawerton/Lavalto.
+    - States Braewood has come “in good faith” to ensure **safety of merchants, pilgrims, and diplomats** travelling between Braewood and Darwaeton/Lavalto.
         
     - Stresses _co-operation_ and mutual benefit.
         
@@ -330,13 +330,13 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
     
     - Introduces himself as **Special Trade Adviser from Eimgend, Kluimont**.
         
-    - Politely reminds the council that **Kluimont shipping carries a large share of grain, timber and ore** into Dawerton – and those losses hurt _both_ sides.
+    - Politely reminds the council that **Kluimont shipping carries a large share of grain, timber and ore** into Darwaeton – and those losses hurt _both_ sides.
         
-- **Liora / Council (Dawerton)**
+- **Liora / Council (Darwaeton)**
     
-    - Liora welcomes them as “valued partners of Dawerton and, by extension, Lavalto”.
+    - Liora welcomes them as “valued partners of Darwaeton and, by extension, Lavalto”.
         
-    - Elara mentions Dawerton’s desire to “maintain prosperity despite… recent disruptions.”
+    - Elara mentions Darwaeton’s desire to “maintain prosperity despite… recent disruptions.”
         
     - Fenric notes that **security is being tightened**, subtly implying “we’ve got this, stay in your lane”.
         
@@ -349,27 +349,27 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
 
 - **Braewood wants:**
     
-    - Clear **acknowledgment** that people and goods have gone missing near Dawerton 
+    - Clear **acknowledgment** that people and goods have gone missing near Darwaeton 
         
-    - **Assurances** that Dawerton will act – or Braewood will reconsider routing traffic there.
+    - **Assurances** that Darwaeton will act – or Braewood will reconsider routing traffic there.
         
 - **Tathtakmajal wants:**
     
     - **Written guarantees** that:
         
-        - Dawerton patrols the approach channels and coastal roads more actively.
+        - Darwaeton patrols the approach channels and coastal roads more actively.
             
-        - Proven losses to Eimgend-registered ships due to Dawerton negligence result in **partial compensation or tariff reductions**.
+        - Proven losses to Eimgend-registered ships due to Darwaeton negligence result in **partial compensation or tariff reductions**.
             
-    - To slip in language creating a **joint Dawerton–Eimgend “Security Levy”**, giving Eimgend leverage over patrol funding & routes.
+    - To slip in language creating a **joint Darwaeton–Eimgend “Security Levy”**, giving Eimgend leverage over patrol funding & routes.
         
 - **Council responses:**
     
     - **Elara:** Pushes back on compensation, blames “bandits, pirates, and the occasional storm”.
         
-    - **Fenric:** Argues the solution is **more Dawerton authority** – foreign weapons and private guards make things “confused”.
+    - **Fenric:** Argues the solution is **more Darwaeton authority** – foreign weapons and private guards make things “confused”.
         
-    - **Varis:** Suggests only _licensed Dawerton guild ships_ should carry certain profitable cargos “for safety reasons”, which quietly hands Dawerton’s guilds a monopoly.
+    - **Varis:** Suggests only _licensed Darwaeton guild ships_ should carry certain profitable cargos “for safety reasons”, which quietly hands Darwaeton’s guilds a monopoly.
         
 
 **Compromise hook:**
@@ -378,22 +378,22 @@ Use this as your “agenda sheet” behind the screen. You can turn each bullet 
     
 - Hidden clause: Eimgend funds extra patrols BUT gets **oversight rights** (Tathtak win).
     
-- Dawerton gets to **raise a small levy** on each foreign cargo to “pay” for those patrols (Elara/Varis win).
+- Darwaeton gets to **raise a small levy** on each foreign cargo to “pay” for those patrols (Elara/Varis win).
     
 - Braewood gets **public assurances** and a clear complaint channel (Pasan win).
     
 
 ---
 
-### C. Disappearances & Restless Dead in Dawerton
+### C. Disappearances & Restless Dead in Darwaeton
 
 This is where your party & Sister Calene’s concerns can surface.
 
 - **Braewood / Party angle:**
     
-    - Calene raises rumours of **disappearances, restless spirits, and shared nightmares** around Dawerton.
+    - Calene raises rumours of **disappearances, restless spirits, and shared nightmares** around Darwaeton.
         
-    - Pasan frames it as: “Instability in Dawerton can spill across borders; we merely seek clarity and reassurance.”
+    - Pasan frames it as: “Instability in Darwaeton can spill across borders; we merely seek clarity and reassurance.”
         
 - **Tathtakmajal’s public angle:**
     
@@ -420,7 +420,7 @@ This is where your party & Sister Calene’s concerns can surface.
     
 - Whether Braewood clerics (Calene) are allowed to **consecrate problem sites** or whether that’s “religious overreach”.
     
-- Whether there are **formal reporting channels** when a foreign subject disappears in Dawerton.
+- Whether there are **formal reporting channels** when a foreign subject disappears in Darwaeton.
     
 
 ---
@@ -443,22 +443,22 @@ Classic money talk.
     
     - Wants broadly fair treatment for **Braewood merchants**, but is more focused on safety and precedent than specific numbers.
         
-    - Doesn’t want Braewood shut out by any exclusive Eimgend–Dawerton side deal.
+    - Doesn’t want Braewood shut out by any exclusive Eimgend–Darwaeton side deal.
         
 - **Elara / Varis:**
     
     - Want higher tariffs overall, but are willing to offer **“bulk discounts”** in return for guaranteed trade volume and guild contracts.
         
-    - Try to tie any discount to **using Dawerton guild factors and warehouses** (“for efficiency”).
+    - Try to tie any discount to **using Darwaeton guild factors and warehouses** (“for efficiency”).
         
 
 **Potential agreement outline:**
 
-- “Dawerton offers reduced duties to any kingdom meeting minimum tonnage quotas.”
+- “Darwaeton offers reduced duties to any kingdom meeting minimum tonnage quotas.”
     
 - Eimgend is best positioned to exploit this (Tathtak win).
     
-- Varis ensures the handling must go through **Dawerton guilds** (Council win).
+- Varis ensures the handling must go through **Darwaeton guilds** (Council win).
     
 - Pasan gets a line ensuring “no discriminatory tariffs against Braewood-flag ships” (Braewood save).
     
@@ -471,9 +471,9 @@ Who controls whose people once they’re inside the walls?
 
 - **Fenric:**
     
-    - Wants strict rules: foreign guards must **disarm or be clearly marked**, Dawerton watch has ultimate authority.
+    - Wants strict rules: foreign guards must **disarm or be clearly marked**, Darwaeton watch has ultimate authority.
         
-    - Proposes that any foreigner accused of a crime is tried in a **Dawerton court**, with envoys allowed to observe.
+    - Proposes that any foreigner accused of a crime is tried in a **Darwaeton court**, with envoys allowed to observe.
         
 - **Pasan:**
     
@@ -485,7 +485,7 @@ Who controls whose people once they’re inside the walls?
             
 - **Tathtakmajal:**
     
-    - Publicly: Sides with “efficiency” – doesn’t want Eimgend sailors dragged through Dawerton’s courts over bar fights.
+    - Publicly: Sides with “efficiency” – doesn’t want Eimgend sailors dragged through Darwaeton’s courts over bar fights.
         
     - Pushes a middle clause:
         
@@ -495,11 +495,11 @@ Who controls whose people once they’re inside the walls?
         
 - **Liora / Miriam:**
     
-    - Try to frame a compromise that doesn’t look like Dawerton surrendering sovereignty:
+    - Try to frame a compromise that doesn’t look like Darwaeton surrendering sovereignty:
         
         - Special **joint tribunals** for crimes involving foreign citizens.
             
-        - Dawerton magistrate presiding, but envoys sit as “advisers”.
+        - Darwaeton magistrate presiding, but envoys sit as “advisers”.
             
 
 This section gives you plenty of room for:  
@@ -513,7 +513,7 @@ Plant seeds for the volcano arc.
 
 - **Liora:**
     
-    - Mentions that Dawerton’s prosperity is tied to **Lavalto’s volcanic forges and resources**.
+    - Mentions that Darwaeton’s prosperity is tied to **Lavalto’s volcanic forges and resources**.
         
     - Floats the idea of **joint ventures** in Lavalto: financing mines, escorts for caravans, etc.
         
@@ -523,11 +523,11 @@ Plant seeds for the volcano arc.
         
 - **Tathtakmajal:**
     
-    - Very interested in any regular slave or “indentured” traffic between Dawerton and Lavalto (secret reason: looking for his Grey Toad clanmates).
+    - Very interested in any regular slave or “indentured” traffic between Darwaeton and Lavalto (secret reason: looking for his Grey Toad clanmates).
         
     - Officially, he presses for:
         
-        - Data-sharing on **all traffic manifests** between Dawerton and Darewaeton.
+        - Data-sharing on **all traffic manifests** between Darwaeton and Darwaeton.
             
         - The right for Eimgend investors to purchase **shares in Lavalto ventures**.
             
@@ -539,7 +539,7 @@ This gives you an excuse later for Liora to offer the party a mission:
 **Quest Hook:**
 
 - Liora invites the party privately after dinner:  
-    _“There have been troubling deaths in a quarter of Dawerton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
+    _“There have been troubling deaths in a quarter of Darwaeton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
     
 - She warns: Stay discrete, stay alive.
     
@@ -1127,7 +1127,7 @@ _Medium humanoid (human), neutral_
 
 ### **Lord Adrian Silwynn – Vampiric Patriarch (Pureblood)**
 
-- **Role:** Ruler of Dawerton, pro-outside-world, only pureblood involved in diplomacy.
+- **Role:** Ruler of Darwaeton, pro-outside-world, only pureblood involved in diplomacy.
     
 - **Personality/Roleplay:** Calm, aristocratic, subtly intimidating. Speaks with patience, rarely raises voice. Trusts only loyal vampires.
     

@@ -314,10 +314,10 @@ _(She stands, a thin smile.)_ “Float with the tide, or **steer**. Your choice.
     
 - **Deliverables:** (a) etiquette kept, (b) Guard the envoys being sent by the queen. (c) ear open for rumors. 
     
-- **Papers:** Letter of introduction for **Darewaeton** (Lavalto capital/major city), plus border notification on the writ.
+- **Papers:** Letter of introduction for **Darwaeton** (Lavalto capital/major city), plus border notification on the writ.
 
  Queens Concerns:
- - The queen is currently focused on trying to figure out the current kluimont issue. She has islefield in a good position the diplomacy with the dwarves should hold but with Dawerton she is unsure and wants to solidify business and trade to ensure no trouble. 
+ - The queen is currently focused on trying to figure out the current kluimont issue. She has islefield in a good position the diplomacy with the dwarves should hold but with Darwaeton she is unsure and wants to solidify business and trade to ensure no trouble. 
 ### **Interaction with group being guarded by party**
 - Joined by:
 	- Envoy Pasan
@@ -394,7 +394,7 @@ _(She stands, a thin smile.)_ “Float with the tide, or **steer**. Your choice.
         
     - Travel time: ~7–8 hours, **one day**.
         
-3. **Dawerton – 60 km by boat**
+3. **Darwaeton – 60 km by boat**
     
     - Average small coastal or river vessel speed: 4–6 km/h (assuming standard rowed or small sailboat).
         
@@ -455,13 +455,13 @@ _The people here are disciplined and proud. Nearly every family has some connect
 
 ---
 
-### **Dawerton – Read-Aloud Intro**
+### **Darwaeton – Read-Aloud Intro**
 
-_“Dawerton sprawls before you, a bustling port city filled with the chatter of merchants, the creaking of ships’ timbers, and the smells of exotic spices and salted fish. The streets are a maze of markets, guild halls, and narrow alleys, alive with constant movement. Ships unload cargo day and night, some mundane, some mysterious, their contents rarely questioned. Lanterns flicker along the canals and docks, hinting at secretive activities under the cover of darkness._
+_“Darwaeton sprawls before you, a bustling port city filled with the chatter of merchants, the creaking of ships’ timbers, and the smells of exotic spices and salted fish. The streets are a maze of markets, guild halls, and narrow alleys, alive with constant movement. Ships unload cargo day and night, some mundane, some mysterious, their contents rarely questioned. Lanterns flicker along the canals and docks, hinting at secretive activities under the cover of darkness._
 
-_The people of Dawerton are energetic and sharp, used to negotiation, trade, and secrecy. They speak quickly, bargain fiercely, and trust cautiously. While the city thrives on commerce, there’s a sense of underlying intrigue—shadows in alleys, whispered deals, and eyes watching from balconies. Here, information is currency, and one misstep can cost far more than gold.”
+_The people of Darwaeton are energetic and sharp, used to negotiation, trade, and secrecy. They speak quickly, bargain fiercely, and trust cautiously. While the city thrives on commerce, there’s a sense of underlying intrigue—shadows in alleys, whispered deals, and eyes watching from balconies. Here, information is currency, and one misstep can cost far more than gold.”
 
-## Dawerton Escort
+## Darwaeton Escort
 
 ### **1. Arrive
 al & Initial Impressions**
@@ -471,7 +471,7 @@ al & Initial Impressions**
 - **Escort Arrival:** The party is met at the port or city gates by a small contingent of local guards (2–4) and a **courier/liaison** from the city who introduces themselves.
     
 - **Read-Aloud / Description:**  
-    _“The city of Dawerton stretches along the harbor, lanterns flickering on the docks, voices of merchants and sailors echoing in the evening air. Your guards lead you through bustling streets crowded with traders, warehouses, and narrow alleys. Despite the crowds, you notice glances lingering on you—watchful, careful, but never hostile.”_
+    _“The city of Darwaeton stretches along the harbor, lanterns flickering on the docks, voices of merchants and sailors echoing in the evening air. Your guards lead you through bustling streets crowded with traders, warehouses, and narrow alleys. Despite the crowds, you notice glances lingering on you—watchful, careful, but never hostile.”_
     
 - **Checks / Interaction:**
     
@@ -543,12 +543,12 @@ al & Initial Impressions**
     
 - **Meals / Tavern Ambiance:**
     
-    - Other travelers share stories of Dawerton: trade disputes, missing shipments, secretive nobles.
+    - Other travelers share stories of Darwaeton: trade disputes, missing shipments, secretive nobles.
         
     - NPCs may drop hints about nocturnal activities, volcanic reagents, or political intrigue.
         
 - **Scene Hook:**  
-    _“As night falls and lanterns cast long shadows across the tavern’s courtyard, you feel the subtle watchfulness of unseen eyes. Nothing threatens you—yet you know that in Dawerton, the city itself is alive with secrets.”
+    _“As night falls and lanterns cast long shadows across the tavern’s courtyard, you feel the subtle watchfulness of unseen eyes. Nothing threatens you—yet you know that in Darwaeton, the city itself is alive with secrets.”
     
 ## Rumors
 ### 1) “They say the manor inside the volcano houses thirty vampires — and four of them are true purebloods who never leave the lava halls.”
@@ -566,7 +566,7 @@ al & Initial Impressions**
 
 ---
 
-### 2) “The purebloods are isolationist — they think they’re above Dawerton’s politics. They want nothing to do with trade or the diplomatic council.”
+### 2) “The purebloods are isolationist — they think they’re above Darwaeton’s politics. They want nothing to do with trade or the diplomatic council.”
 
 - **Credibility:** ★★☆☆☆ (half‑true, spread by merchants who resent the volcano elite)
     
@@ -581,7 +581,7 @@ al & Initial Impressions**
 
 ---
 
-### 3) “There’s a soul‑forged relic in Dawerton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
+### 3) “There’s a soul‑forged relic in Darwaeton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
 
 - **Credibility:** ★★★☆☆ (frightening tale, some merchants hush about ‘cursed goods’)
     
@@ -686,7 +686,7 @@ al & Initial Impressions**
 
 ### **Lord Adrian Silwynn – Vampiric Patriarch (Pureblood)**
 
-- **Role:** Ruler of Dawerton, pro-outside-world, only pureblood involved in diplomacy.
+- **Role:** Ruler of Darwaeton, pro-outside-world, only pureblood involved in diplomacy.
     
 - **Personality/Roleplay:** Calm, aristocratic, subtly intimidating. Speaks with patience, rarely raises voice. Trusts only loyal vampires.
     
@@ -726,7 +726,7 @@ al & Initial Impressions**
 
 ---
 
-### **Dawerton Council Table (6 Members)**
+### **Darwaeton Council Table (6 Members)**
 
 |Name / Role|Race|Notes|
 |---|---|---|
@@ -790,7 +790,7 @@ al & Initial Impressions**
     
 - **Personality:** Subtle, persuasive, and politically savvy. Uses charm and insinuation to influence others, often without them realizing it.
     
-- **Role:** Head of guild relations and economic manipulation. Skilled in behind-the-scenes negotiation and political maneuvering within Dawerton.
+- **Role:** Head of guild relations and economic manipulation. Skilled in behind-the-scenes negotiation and political maneuvering within Darwaeton.
     
 
 ---
@@ -801,7 +801,7 @@ al & Initial Impressions**
     
 - **Personality:** Polite, patient, and impeccably courteous. Speaks with calm authority, often soft-spoken but undeniably commanding. Uses charm and subtle intimidation when necessary.
     
-- **Role:** Represents Lord Adrian and the diplomatic vampire faction. Handles formal negotiations with the party, conveying the city’s policies and ensuring Dawerton’s interests are protected.
+- **Role:** Represents Lord Adrian and the diplomatic vampire faction. Handles formal negotiations with the party, conveying the city’s policies and ensuring Darwaeton’s interests are protected.
 ---
 
 
@@ -882,7 +882,7 @@ al & Initial Impressions**
 
 ### **Combat / Narrative Tips**
 
-- **Dawerton city vampires:** Mostly for intrigue, social checks, or small encounters if plot forces combat.
+- **Darwaeton city vampires:** Mostly for intrigue, social checks, or small encounters if plot forces combat.
     
 - **Volcano manor vampires:** Should feel extremely dangerous; party should **avoid direct combat** unless narrative pushes them.
     
@@ -911,7 +911,7 @@ Do you want me to make those full 5e stat blocks next?
 
 #### **Purpose:**
 
-- Introduce the Dawerton Council formally.
+- Introduce the Darwaeton Council formally.
     
 - Show political structure and city dynamics.
     
@@ -1061,7 +1061,7 @@ Do you want me to make those full 5e stat blocks next?
 4. **Scene Closure**
     
     - Dinner ends politely. Liora expresses gratitude:  
-        _“Your vigilance is appreciated. Dawerton is safer when all eyes are open, even those of outsiders.”_
+        _“Your vigilance is appreciated. Darwaeton is safer when all eyes are open, even those of outsiders.”_
         
     - Party leaves with the sense of:
         
@@ -1101,7 +1101,7 @@ Do you want me to make those full 5e stat blocks next?
 **Quest Hook:**
 
 - Liora invites the party privately after dinner:  
-    _“There have been troubling deaths in a quarter of Dawerton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
+    _“There have been troubling deaths in a quarter of Darwaeton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
     
 - She warns: Stay discrete, stay alive.
     
@@ -1813,7 +1813,7 @@ _(If players state carriers in play, overwrite the suggestions above.)_
 
 ## World overview (public-facing)
 
-- **Polities in play:** **Braewood**, **Islefield**, **Kluimont**, **Lavalto**. Capitals/major cities referenced in the compendium include **Braewood City**, **Islefield City**, **Kluimont City**, and **Darewaeton** (Lavalto, large city). [bubba-d-and-d-web-page.vercel.app](https://bubba-d-and-d-web-page.vercel.app/)
+- **Polities in play:** **Braewood**, **Islefield**, **Kluimont**, **Lavalto**. Capitals/major cities referenced in the compendium include **Braewood City**, **Islefield City**, **Kluimont City**, and **Darwaeton** (Lavalto, large city). [bubba-d-and-d-web-page.vercel.app](https://bubba-d-and-d-web-page.vercel.app/)
     
 - Lore sections for **History** and **Politics** exist in the compendium and are the in-world canon reference your NPC scholars would quote. [bubba-d-and-d-web-page.vercel.app](https://bubba-d-and-d-web-page.vercel.app/)
     
@@ -2149,7 +2149,7 @@ A clerk with ink-black fingertips sorts seals on a tray. “Coin, slips, and sig
     
 - **Sea leg or coastal road + ferry:** Use the **Safe-Path Compass** to nullify one navigation miscue per leg (1/short rest). (You already set its rules in Item 4.)
     
-- **First scene on Lavalto (Night Dock, Darewaeton):**  
+- **First scene on Lavalto (Night Dock, Darwaeton):**  
     **Read-aloud:**  
     Basalt quay, braziers like red-glass eyes. Stevedores move with ritual calm, collars bearing wax seals. The **seneschal’s pennon** snaps above an obsidian archway.
     
@@ -2257,7 +2257,7 @@ You can run this **two ways**: clean (with permission) or dirty (infiltration). 
         
     - **Sleight of Hand (13)** to swap a copy.
         
-- **Fail-forward:** They still grab a **partial manifest** (missing one page) and a **dock scrip** tying a shipment to **Darewaeton → Islefield** (not Kluimont).
+- **Fail-forward:** They still grab a **partial manifest** (missing one page) and a **dock scrip** tying a shipment to **Darwaeton → Islefield** (not Kluimont).
     
 
 **Tactical notes (if combat breaks out)**
@@ -2282,7 +2282,7 @@ You can run this **two ways**: clean (with permission) or dirty (infiltration). 
 
 **If they sneak/force it:**
 
-- **Partial proof:** copied ledgers (one page missing) + **dock scrip** (Darewaeton → Islefield).
+- **Partial proof:** copied ledgers (one page missing) + **dock scrip** (Darwaeton → Islefield).
     
 - **Heat:** Lavalto clocks +1: **Watched** (shadow eyes on them).
     
@@ -2334,7 +2334,7 @@ _(Use standard 5e vampire/spawn flavour to colour Virelle’s court; you don’t
 
 - **If Aaron used the token (14–18 Feb):**
     
-    - **Consequence:** Myrelle knows their timing; a **“customs scribe”** in Darewaeton feeds them a **false tip** leading to a dead room (burn 30–60 minutes).
+    - **Consequence:** Myrelle knows their timing; a **“customs scribe”** in Darwaeton feeds them a **false tip** leading to a dead room (burn 30–60 minutes).
         
 - **If they confront Myrelle later with Lavalto proof:**
     
@@ -2922,7 +2922,7 @@ Use this if you want the feel of a big construct without the full CR 7 statline.
 
 **Consequences**
 
-- If Aaron uses the token: She knows timing → plants a **false tip** later in Darewaeton.
+- If Aaron uses the token: She knows timing → plants a **false tip** later in Darwaeton.
     
 
 ---
@@ -3091,11 +3091,11 @@ Use this if you want the feel of a big construct without the full CR 7 statline.
         
     - **Boon (pick one):** **Night Dock Pass** (skip 1st customs hurdle next visit), **Ash-Glass Lens** (1× adv. on a Perception check in dim light), or **Korm’s Seal** (1× adv. on Persuasion with port officials).
         
-    - **Letter of trade intent** from **Countess Virelle** (future bargaining chip). Lavalto/Darewaeton are canonical on Dayner. [bubba-d-and-d-web-page.vercel.app](https://bubba-d-and-d-web-page.vercel.app/)
+    - **Letter of trade intent** from **Countess Virelle** (future bargaining chip). Lavalto/Darwaeton are canonical on Dayner. [bubba-d-and-d-web-page.vercel.app](https://bubba-d-and-d-web-page.vercel.app/)
         
 - **If infiltration/violence:**
     
-    - **Partial proof:** copied ledgers (one page missing) + **dock scrip** (Darewaeton → Islefield route).
+    - **Partial proof:** copied ledgers (one page missing) + **dock scrip** (Darwaeton → Islefield route).
         
     - **Heat:** mark **Lavalto Heat +1 (Watched)** (see Consequences).
         

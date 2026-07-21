@@ -33,7 +33,7 @@
 
 ## Session Overview
 
-The party (Morjor, Amdir, Varin, + Captain Kirk) must confront the **Spehlina**, a corrupted lake guardian, before it can be weaponized against the upcoming summit. They are currently in Dawerton (or nearby lakeside settlement) and need to recruit allies before taking to the water.
+The party (Morjor, Amdir, Varin, + Captain Kirk) must confront the **Spehlina**, a corrupted lake guardian, before it can be weaponized against the upcoming summit. They are currently in Darwaeton (or nearby lakeside settlement) and need to recruit allies before taking to the water.
 
 **Key Tensions:**
 - Everyone is scared of the Spehlina — persuasion won't be easy
@@ -70,7 +70,7 @@ Track total **radiant damage** dealt to the Spehlina across the fight.
 
 ## Phase 1: Recruitment
 
-**Location:** Dawerton docks and surrounding town.
+**Location:** Darwaeton docks and surrounding town.
 
 **General Persuasion Modifiers:**
 - Mentioning the Queen's backing: **+2**
@@ -160,5 +160,5 @@ Track total **radiant damage** dealt to the Spehlina across the fight.
 2. **How much gold does the party have** after giving 10k to Liora?
 3. **Varin's curse mechanic** — specific roll (d20, 1-5 fizzle) or narrative?
 4. **Is the Wavecutter fully crewed** after Session 18 losses?
-5. **Is Rekka still near Dawerton?**
+5. **Is Rekka still near Darwaeton?**
 6. **Pre-summit mission or at the summit?**

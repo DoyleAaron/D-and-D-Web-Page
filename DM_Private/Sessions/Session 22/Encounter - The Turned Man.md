@@ -1,7 +1,7 @@
 # Encounter 2 — The Turned Man
 
 **Type:** Combat / RP (can resolve either way)  
-**Location:** Dawerton — a residential street near the eastern market  
+**Location:** Darwaeton — a residential street near the eastern market  
 **Trigger:** Liora or a guard report directs the party; or they hear screaming  
 **Theme:** The human cost of Maltrius's expansion — a man destroyed by something he didn't choose
 
@@ -9,7 +9,7 @@
 
 ## Setup
 
-**Edric Voss** was a carpenter. Three nights ago, one of Maltrius's brood vampires entered Dawerton and fed on him, leaving enough of its blood to turn him. Edric woke the next night confused, starving, and unable to control the hunger. He killed his wife (Maren) and young son (Tobin, age 8). He's been hiding in his family home since, horrified by what he's done, occasionally lurching into the street when the hunger overwhelms him.
+**Edric Voss** was a carpenter. Three nights ago, one of Maltrius's brood vampires entered Darwaeton and fed on him, leaving enough of its blood to turn him. Edric woke the next night confused, starving, and unable to control the hunger. He killed his wife (Maren) and young son (Tobin, age 8). He's been hiding in his family home since, horrified by what he's done, occasionally lurching into the street when the hunger overwhelms him.
 
 When the party arrives, Edric is crouched in the doorway of his home. The door is smashed. Blood smears the frame. Neighbors are watching from shuttered windows. A town guard lies unconscious (not dead) in the street — Edric knocked him out but couldn't bring himself to feed again.
 

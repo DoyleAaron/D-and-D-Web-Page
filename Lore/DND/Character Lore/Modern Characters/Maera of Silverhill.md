@@ -15,7 +15,7 @@
 
 ## Description
 
-**Maera of Silverhill** serves as the linguist and analyst for Braewood's diplomatic mission to Dawerton. Her expertise extends beyond mere translation—she reads people, situations, and hidden meanings with the same precision she applies to foreign languages.
+**Maera of Silverhill** serves as the linguist and analyst for Braewood's diplomatic mission to Darwaeton. Her expertise extends beyond mere translation—she reads people, situations, and hidden meanings with the same precision she applies to foreign languages.
 
 Cold and critical by nature, Maera maintains professional distance from those she works with, reserving particular disdain for those she considers untrustworthy or morally questionable.
 
@@ -40,12 +40,12 @@ Maera is notably reserved and judgmental. She shows:
 
 Her cold demeanor suggests either personal history with dark magic practitioners, or simply a firm moral compass that rejects those who dabble in forbidden arts.
 
-## The Dawerton Mission
+## The Darwaeton Mission
 
 As part of the Braewood escort detail, Maera provided:
 - Translation services for diplomatic meetings
-- Analysis of the Dawerton Council's intentions
-- Assessment of political dynamics between Dawerton, Kluimont, and Islefield
+- Analysis of the Darwaeton Council's intentions
+- Assessment of political dynamics between Darwaeton, Kluimont, and Islefield
 
 ## Relationships
 

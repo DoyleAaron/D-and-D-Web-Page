@@ -10,11 +10,11 @@
         
     - Its historical movement,
         
-    - And its possible connection to Dawerton.
+    - And its possible connection to Darwaeton.
         
 - This confirms that:
     
-    - Dawerton’s leadership knows more about Balthazar than they admit.
+    - Darwaeton’s leadership knows more about Balthazar than they admit.
         
     - Information is being deliberately compartmentalised.
         

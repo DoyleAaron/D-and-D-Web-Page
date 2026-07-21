@@ -1,6 +1,6 @@
 # **📘 Session 14 Summary - "Revelations and Terms"**
 
-## **1. Reward Meeting in Dawerton**
+## **1. Reward Meeting in Darwaeton**
 
 - After Father Halden's defeat, the party met **Liora** to settle payment and next steps.
 - Liora confirmed the major funding split for the locator ritual:
@@ -18,7 +18,7 @@ Liora gave each of them a tailored gift:
 - **Amdir:** arcane book / grimoire
 - **Morjor:** claw insignia for improved unarmed strikes
 
-These gifts marked trust, but also tied the party more tightly to Dawerton's deeper politics.
+These gifts marked trust, but also tied the party more tightly to Darwaeton's deeper politics.
 
 ---
 
@@ -26,7 +26,7 @@ These gifts marked trust, but also tied the party more tightly to Dawerton's dee
 
 - The party agreed to a **blood-bound secrecy pact** with Liora.
 - The pact established consequences for betrayal and locked in mutual leverage.
-- Following the pact, Liora was more direct about the scale of the threat around Dawerton and Lavalto.
+- Following the pact, Liora was more direct about the scale of the threat around Darwaeton and Lavalto.
 
 ---
 
@@ -45,4 +45,4 @@ These gifts marked trust, but also tied the party more tightly to Dawerton's dee
 - The 15k ritual cost was formally set.
 - Liora's contribution (5k) was confirmed.
 - Each party member received a personal magical gift.
-- The blood pact changed the party's relationship with Dawerton power players.
+- The blood pact changed the party's relationship with Darwaeton power players.

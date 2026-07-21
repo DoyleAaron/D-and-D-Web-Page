@@ -19,7 +19,7 @@ These are settlements with harbors that ships can dock at.
 | Okcaster | port-okcaster | 5.4 | 53.7 |
 | Agosgas | port-agosgas | 4.1 | 58.6 |
 | Islefield | port-islefield | 28.4 | 69.8 |
-| Dawerton | port-dawerton | 61.4 | 49.8 |
+| Darwaeton | port-darwaeton | 61.4 | 49.8 |
 | Flison | port-flison | 51.7 | 50.4 |
 | Agosron | port-agosron | 49.3 | 58.9 |
 | Rens | port-rens | 78.7 | 73.7 |
@@ -316,7 +316,7 @@ const PORT_SETTLEMENTS = {
   'port-okcaster': { name: 'Okcaster', x: 5.4, y: 53.7 },
   'port-agosgas': { name: 'Agosgas', x: 4.1, y: 58.6 },
   'port-islefield': { name: 'Islefield', x: 28.4, y: 69.8 },
-  'port-dawerton': { name: 'Dawerton', x: 61.4, y: 49.8 },
+  'port-darwaeton': { name: 'Darwaeton', x: 61.4, y: 49.8 },
   'port-flison': { name: 'Flison', x: 51.7, y: 50.4 },
   'port-agosron': { name: 'Agosron', x: 49.3, y: 58.9 },
   'port-rens': { name: 'Rens', x: 78.7, y: 73.7 },

@@ -176,7 +176,7 @@ At the **Wayfarers' Accord** guild hall:
 
 *Use these during the journey to Adaham, Quey, or the Rimduff Isles. Roll or pick as needed.*
 
-### Road Encounters (Dawerton → Adaham)
+### Road Encounters (Darwaeton → Adaham)
 
 #### Encounter 1: Highwaymen Ambush
 **Setup:** Bandits block the road with a fallen tree.  

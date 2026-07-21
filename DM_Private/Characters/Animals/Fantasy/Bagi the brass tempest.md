@@ -22,7 +22,7 @@ From Bagi’s side, the betrayal is simple: they converted hospitality into leve
 
 Kluimont’s **secrecy and arcane boom** reshape the balance of power: the kingdom presents as modest militarily while quietly becoming terrifying when its projects wake up. Ports like **Qrey** grow into well-warded hubs; smuggling and black-market reagent routes blossom in the shadows to feed Synod experiments. Through it all, Bagi’s power hums under the western forest—felt in compasses that drift, in copper that greens overnight, in the hush before a storm that isn’t purely natural.
 
-Meanwhile elsewhere, the world lurches: **Darewaeton** on Lavalto Isle suffers the **Night of Red Embers** (**1191 C.C.**), and Kluimont quietly opens trade for volcanic reagents (**1195**). These external pressures only harden the Synod’s instinct: keep the island’s trump cards secret—especially the bound dragon in the woods.
+Meanwhile elsewhere, the world lurches: **Darwaeton** on Lavalto Isle suffers the **Night of Red Embers** (**1191 C.C.**), and Kluimont quietly opens trade for volcanic reagents (**1195**). These external pressures only harden the Synod’s instinct: keep the island’s trump cards secret—especially the bound dragon in the woods.
 
 ## The Storm of Unbound Chains (1220 C.C.)
 

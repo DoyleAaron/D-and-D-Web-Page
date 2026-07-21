@@ -1,0 +1,214 @@
+{
+  "main": {
+    "id": "35530ef418bb07e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "b19b38002dc8fb51",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1455c7a698817336",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b0eafd9b1cf1f488",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc6b1fafc48d3174",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "52811e32c9e30654",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e01c9df98df6a310",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4f52c774d03095ab",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "babaf06211db6b66",
+    "type": "split",
+    "children": [
+      {
+        "id": "31cb26153e0dc30c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b82dd5ea65de29be",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c97353027eb7a606",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "8c8657afde128a44",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "80b322dda4f71061",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "602d35ce24c41222",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "1455c7a698817336",
+  "lastOpenFiles": [
+    "Lore/DND/Kingdoms/Islefield/POI/Shercam Woods.md",
+    "Lore/DND/Kingdoms/Islefield/POI/Iroware Heights.md",
+    "Lore/DND/Kingdoms/Islefield/POI/Parrneau Hollow.md",
+    "Lore/DND/Kingdoms/Islefield/POI/Prairie Kingfisher Grove.md",
+    "Lore/DND/Kingdoms/Islefield/POI",
+    "Lore/DND/Kingdoms/Islefield/Village/Sable.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Guatpool.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Okcaster.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Wrando.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Eighwood.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Praso.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Ulsall.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Stanron.md",
+    "Lore/DND/Kingdoms/Islefield/Village/Cok.md",
+    "Lore/DND/Kingdoms/Islefield/Village",
+    "Lore/DND/Kingdoms/Islefield/Town/Resross.md",
+    "Lore/DND/Kingdoms/Islefield/Town/Slido.md",
+    "Lore/DND/Kingdoms/Islefield/Town/Avinin.md",
+    "Lore/DND/Kingdoms/Islefield/Town/Halten.md",
+    "Lore/DND/Kingdoms/Islefield/Town/Beyross.md",
+    "Lore/DND/Kingdoms/Islefield/Town",
+    "node_modules/html-entities/README.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities/Agosgas.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities/Yhey.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities/Antstel.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities/Cheling.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities/Esterhull.md",
+    "Lore/DND/Kingdoms/Islefield/Medium Cities",
+    "FIles.base",
+    "README.md",
+    "intro.mp4",
+    "map.jpg"
+  ]
+}

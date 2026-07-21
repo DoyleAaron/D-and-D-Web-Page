@@ -48,7 +48,7 @@ Some scholars theorize the creature is not evil—merely suffering, driven mad b
 
 ## The Bounty
 
-The **Wayfarers' Accord** has listed the Spehlina as an A-tier threat with a bounty of **10,000 gold pieces**—5,000 from Dawerton and 5,000 from the Crown of Braewood. Trade across Lavalto Lake has been devastated, and both powers want the creature eliminated.
+The **Wayfarers' Accord** has listed the Spehlina as an A-tier threat with a bounty of **10,000 gold pieces**—5,000 from Darwaeton and 5,000 from the Crown of Braewood. Trade across Lavalto Lake has been devastated, and both powers want the creature eliminated.
 
 Many have tried. Adventuring parties, monster hunters, even a small naval expedition. None have succeeded. The creature's lair lies somewhere in the lake's depths, and fighting it in its own element has proven fatal.
 
@@ -57,7 +57,7 @@ Many have tried. Adventuring parties, monster hunters, even a small naval expedi
 - Some say the Spehlina can **phase through solid objects**, explaining how it catches ships by surprise
 - Old texts from Islefield describe Spehlinas as **sacred to nature spirits**, and that killing one brings terrible consequences
 - Fishermen claim that on certain nights, the creature surfaces and **screams at the mountains**—as if calling to something, or cursing it
-- A druid passing through Dawerton reportedly wept upon sensing the creature, saying "It's not a monster. It's a prisoner."
+- A druid passing through Darwaeton reportedly wept upon sensing the creature, saying "It's not a monster. It's a prisoner."
 
 ## Notable Quote
 

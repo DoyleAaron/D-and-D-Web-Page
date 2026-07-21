@@ -1,7 +1,7 @@
 # Lavalto Peak — Journey Prep
 
 **When:** Travel window is approximately **April 10–22** (10-12 days before the April 23 summit)  
-**From:** Dawerton (or wherever the party is based by then)  
+**From:** Darwaeton (or wherever the party is based by then)  
 **To:** Lavalto Peak — the active volcanic island/peninsula where the summit takes place  
 **Context:** Maltrius has granted the party **unimpeded passage** through vampire territory along the route. No vampire ambushes. The undead simply do not engage. This will feel strange — wrong — to the party if they've been expecting trouble.
 
@@ -10,14 +10,14 @@
 ## Route Overview
 
 ```
-Dawerton → [Coastal Road South] → Resross → [Heights Track] → Ironwarf Pass → [Volcanic Foothills] → Lavalto Road → Summit Gate
+Darwaeton → [Coastal Road South] → Resross → [Heights Track] → Ironwarf Pass → [Volcanic Foothills] → Lavalto Road → Summit Gate
 ```
 
 **Approximate distances and travel time (on foot / horse):**
 
 | Leg | Distance | Time (foot) | Time (horse) | Notes |
 |-----|----------|-------------|--------------|-------|
-| Dawerton → Resross | ~30 miles | 2 days | 1 day | Coastal road, maintained |
+| Darwaeton → Resross | ~30 miles | 2 days | 1 day | Coastal road, maintained |
 | Resross → Ironwarf Pass | ~18 miles | 1.5 days | 1 day | Heights track, rougher |
 | Ironwarf Pass → Volcanic Foothills | ~22 miles | 2 days | 1.5 days | Unmaintained, narrow paths |
 | Volcanic Foothills → Lavalto Gate | ~12 miles | 1 day | — (too steep for horses) | Steep, ash-covered, hot |
@@ -43,7 +43,7 @@ Dawerton → [Coastal Road South] → Resross → [Heights Track] → Ironwarf P
 
 Roll a d6 at the start of each travel day. On a 5 or 6, the encounter occurs.
 
-### Leg 1 — Dawerton to Resross (Coastal Road)
+### Leg 1 — Darwaeton to Resross (Coastal Road)
 
 | d6 | Encounter |
 |----|-----------|

@@ -28,23 +28,23 @@ Practical and reliable, Bram represents the capable professional soldiers that f
 - Survival expertise
 
 ### Street-Level Operations
-In urban environments like Dawerton, Bram adapts his skills to:
+In urban environments like Darwaeton, Bram adapts his skills to:
 - Local scouting
 - Street-level credibility
 - Information gathering
 - Additional protection
 
-## The Dawerton Mission
+## The Darwaeton Mission
 
 Bram served under Sergeant Elira Thorn as part of the escort detail. During the mission, he provided:
 - Scouting during the overland journey from Braewood to Mortling
-- Navigation support during the sea voyage to Dawerton
-- Local reconnaissance in Dawerton
+- Navigation support during the sea voyage to Darwaeton
+- Local reconnaissance in Darwaeton
 
 ### Session 12 (1225 C.C.)
-When the party began investigating disturbances in Dawerton, they recruited Bram to assist. He provided:
+When the party began investigating disturbances in Darwaeton, they recruited Bram to assist. He provided:
 - Local scouting capabilities
-- Street-level credibility with Dawerton citizens
+- Street-level credibility with Darwaeton citizens
 - Additional protection as threats escalated
 
 ### Session 14 (1225 C.C.)

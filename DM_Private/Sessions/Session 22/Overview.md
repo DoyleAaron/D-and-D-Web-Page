@@ -1,12 +1,12 @@
-# Session 22 — Return to Dawerton
+# Session 22 — Return to Darwaeton
 
 ## In-Game Date: March 7th–8th, 1225 (Tuesday–Wednesday)
 
 **Timeline:**
 - March 4th (Sat): Royal audience in Braewood. Party receives rewards. Stays the night.
 - March 5th (Sun): Party departs Braewood on horseback.
-- March 7th–8th (Tue–Wed): Arrive in Dawerton (~3 days on horseback via trade road).
-- **February 28th vampire attack: 8–9 days ago** (aftermath visible in Dawerton).
+- March 7th–8th (Tue–Wed): Arrive in Darwaeton (~3 days on horseback via trade road).
+- **February 28th vampire attack: 8–9 days ago** (aftermath visible in Darwaeton).
 - **Next vampire attack: March 28th** (~20 days away).
 - **Summit deadline: ~23 days away** (late March / early April).
 - **Mirelle's "14th" meeting: March 14th** (~6 days after arrival).
@@ -91,7 +91,7 @@
 
 ## Session Theme
 
-**"The Tightening Noose"** — Dawerton is shaken by an unusually brutal February 28th vampire attack. Father Maltrius's forces are growing bolder, extending beyond Lavalto. The party returns to find a city on edge, a recently turned victim, and political pressure from multiple directions. This session pushes the story toward its climax.
+**"The Tightening Noose"** — Darwaeton is shaken by an unusually brutal February 28th vampire attack. Father Maltrius's forces are growing bolder, extending beyond Lavalto. The party returns to find a city on edge, a recently turned victim, and political pressure from multiple directions. This session pushes the story toward its climax.
 
 ---
 
@@ -101,18 +101,18 @@
 - Queen agreed to pay 10,000 gp for the Spehlina bounty/scroll.
 - Party needs to speak with Liora about receiving the payment and next steps.
 - Liora will redirect: she's more concerned about the escalating vampire threat.
-- **Mayor Adrian** (Liora's boss, fellow vampire) is increasingly worried about Dawerton's safety.
+- **Mayor Adrian** (Liora's boss, fellow vampire) is increasingly worried about Darwaeton's safety.
 - Liora and Adrian **cannot act directly** against vampires (compulsion/pact), but the party can.
 
 ### 2. The February 28th Aftermath
 - The previous 28th attack was **extra brutal** — multiple deaths, a family slaughtered.
-- Father Maltrius is not panicked but is making **extreme measures**: expanding his vampire network closer to Dawerton.
+- Father Maltrius is not panicked but is making **extreme measures**: expanding his vampire network closer to Darwaeton.
 - A group of 6–8 vampires (a family unit) have set up on the road to Lavalto volcano, attacking passersby on Maltrius's behalf.
 - One of them recently came into town and **turned a man** who then killed his own family.
 - The town guard is stretched thin. Fear is spreading.
 
 ### 3. Liora's Request
-- Liora fears for the safety of Dawerton's people and Mayor Adrian.
+- Liora fears for the safety of Darwaeton's people and Mayor Adrian.
 - She can't move directly against the vampires, but she can point the party at them.
 - **Ask:** Eradicate the vampire family camped on the Lavalto road.
 - She'll share intelligence: location, numbers, habits (they hunt at dusk, sleep in a ruined farmstead by day).
@@ -128,10 +128,10 @@
 
 ## Session Flow (Flexible)
 
-1. **Travel to Dawerton** — 1 ocean/road encounter (Volcanic Screechers).
-2. **Arrive in Dawerton** — Sense the mood. Town is tense. Guards on edge.
+1. **Travel to Darwaeton** — 1 ocean/road encounter (Volcanic Screechers).
+2. **Arrive in Darwaeton** — Sense the mood. Town is tense. Guards on edge.
 3. **Meet Liora** — Payment conversation → pivots to vampire crisis. Introduces the turned man situation.
-4. **The Turned Man** — Encounter in Dawerton. Emotional, can be combat or RP.
+4. **The Turned Man** — Encounter in Darwaeton. Emotional, can be combat or RP.
 5. **Vampire Hunt** — Party goes after Maltrius's Brood on the Lavalto road.
 6. **Optional: Spehlina** — If the party wants to tackle the lake creature this session.
 
@@ -141,8 +141,8 @@
 
 | NPC | Role | Notes |
 |---|---|---|
-| **Liora** | Spymaster, vampire (allied) | Cannot act directly against vampires. Fears for Dawerton. |
-| **Mayor Adrian** | Mayor of Dawerton, vampire (concealed to public) | Aristocratic, calm. Increasingly worried behind closed doors. |
+| **Liora** | Spymaster, vampire (allied) | Cannot act directly against vampires. Fears for Darwaeton. |
+| **Mayor Adrian** | Mayor of Darwaeton, vampire (concealed to public) | Aristocratic, calm. Increasingly worried behind closed doors. |
 | **Father Maltrius Kael** | Pureblood vampire, Asmodeus high priest (Lavalto) | Not present but his forces are. Making extreme moves. |
 | **The Turned Man** (Edric Voss — see encounter) | Recently turned civilian | Killed his family. Confused, terrified, dangerous. |
 | **Brood Mother Isolde** (see encounter) | Leader of the vampire family | Old, cunning, loyal to Maltrius. Camps on Lavalto road. |
@@ -154,6 +154,6 @@
 | # | Encounter | Type | Location | File |
 |---|---|---|---|---|
 | 1 | Volcanic Screechers | Combat (medium) | Ocean/coast | `Encounter - Volcanic Screechers.md` |
-| 2 | The Turned Man | Combat/RP | Dawerton streets | `Encounter - The Turned Man.md` |
+| 2 | The Turned Man | Combat/RP | Darwaeton streets | `Encounter - The Turned Man.md` |
 | 3 | Maltrius's Brood | Combat (hard) | Lavalto road, ruined farmstead | `Encounter - Maltrius Brood.md` |
 | 4 | The Spehlina | Combat (deadly) | Lavalto Lake | `Encounter - The Spehlina.md` |

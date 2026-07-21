@@ -29,4 +29,4 @@
 - Liora was rescued from Blackthorn House.
 - The party recovered from the failed first assault and turned the situation into a successful extraction.
 - The vampires at Blackthorn House were disrupted, but the wider Maltrius threat remained active.
-- With Liora safe, the party could finally return to Dawerton and deal with the promised payment and the Spehlina threat.
+- With Liora safe, the party could finally return to Darwaeton and deal with the promised payment and the Spehlina threat.

@@ -49,7 +49,7 @@ If rescued alive, Liora becomes:
 - Sharper
 - More direct
 - Less tolerant of hesitation
-- More personally protective of the party's access in Dawerton
+- More personally protective of the party's access in Darwaeton
 
 ---
 

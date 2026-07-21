@@ -9,9 +9,9 @@
 
 1. **Information on Balthazar** — his history, works, and known movements.
     
-2. **Relations between Dawerton and Kluimont** — political tensions, trade, and hidden conflicts.
+2. **Relations between Darwaeton and Kluimont** — political tensions, trade, and hidden conflicts.
     
-3. **Relations between Dawerton and Islefield** — alliances, grievances, and trust.
+3. **Relations between Darwaeton and Islefield** — alliances, grievances, and trust.
     
 
 - Liora agrees, emphasizing discretion and results.
@@ -21,7 +21,7 @@
 
 ## **2. Beginning the Investigation**
 
-- The party begins investigating disturbances within **Dawerton**.
+- The party begins investigating disturbances within **Darwaeton**.
     
 - Early information gathering reveals a troubling pattern:
     

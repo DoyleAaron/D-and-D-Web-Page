@@ -595,7 +595,7 @@ const VIABLE_WATER_NODES = {
     { id: 'rv_6', x: 42, y: 44, name: 'River to Lake' },
     // Braewood Rivers
     { id: 'rv_7', x: 66.6, y: 39.5, name: 'Mortling River' },
-    { id: 'rv_8', x: 58.8, y: 52.7, name: 'Dawerton River' },
+    { id: 'rv_8', x: 58.8, y: 52.7, name: 'Darwaeton River' },
     { id: 'rv_9', x: 85, y: 45, name: 'East River' },
   ],
 };

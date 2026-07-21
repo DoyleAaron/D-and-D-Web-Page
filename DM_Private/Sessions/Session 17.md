@@ -39,7 +39,7 @@ The party travels to **Adaham** to retrieve Captain Kirk's ship, **The Wavecutte
 ## 🚢 Part 1: Journey to Adaham
 
 ### Travel Montage
-- 2-day journey from Dawerton to Adaham
+- 2-day journey from Darwaeton to Adaham
 - Use road encounters from [SPECIAL Captain Kirks Daughter](../Guilds/Mission%20Details/SPECIAL%20Captain%20Kirks%20Daughter.md) if desired
 - Or skip with narration if time is short
 
@@ -490,7 +490,7 @@ Each ship can take **ONE ship action** plus crew actions:
 - Count the cost (ships, crew, wounds)
 - Kirk reunites with Marina (emotional)
 - Decide what to do with captured ships/pirates
-- **Hook:** Return to Dawerton, continue Spehlina mission
+- **Hook:** Return to Darwaeton, continue Spehlina mission
 
 ---
 

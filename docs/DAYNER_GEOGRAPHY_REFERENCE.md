@@ -136,7 +136,7 @@ Small river from (34.2, 27.9) to (40.9, 28.3)
 ### Braewood (East/Central)
 - Major rivers connect:
   - Mortling → Eimgend (Kluimont River system)
-  - Mortling → Dawerton → Flison → Agosron (river system)
+  - Mortling → Darwaeton → Flison → Agosron (river system)
   - Braewood City connected to river system
   - Adaham on river
 - **River 5** runs through Braewood territory

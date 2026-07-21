@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Innkeeper Darla Moss, The Rusty Anchor  
-**Location:** Dawerton – Dockside District  
+**Location:** Darwaeton – Dockside District  
 **Duration:** 1-2 nights  
 **Reward:** 35 gp + free lodging  
 **Combat Expected:** Possible (depends on investigation)

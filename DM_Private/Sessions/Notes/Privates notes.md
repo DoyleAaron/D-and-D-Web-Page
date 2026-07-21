@@ -91,9 +91,9 @@
     - A final safeguard against Chaos
         
 
-### Dawerton Connection
+### Darwaeton Connection
 
-- The **gifted item currently influencing Dawerton** is **Morjor’s Trinity component**.
+- The **gifted item currently influencing Darwaeton** is **Morjor’s Trinity component**.
     
 - This makes Morjor:
     
@@ -101,7 +101,7 @@
         
     - A target for Marelle
         
-    - A liability in Dawerton if discovered
+    - A liability in Darwaeton if discovered
         
 
 ### Narrative Pressure
@@ -138,13 +138,13 @@
 - He wants into Kluimont badly enough to **ignore red flags**.
     
 
-### What Amdir Has Learned in Dawerton
+### What Amdir Has Learned in Darwaeton
 
 - **Bram is also working for Marelle**.
     
 - The **Queen of Braewood suspects the Clerk of treason** and has begun an investigation.
     
-- A **gifted item of Balthazar** is currently in Dawerton.
+- A **gifted item of Balthazar** is currently in Darwaeton.
     
 - Marelle wants:
     
@@ -238,7 +238,7 @@
     
 - **The Queen of Braewood is wrong** about Kluimont—but not foolish.
     
-- **Dawerton** is already inside the danger radius of Chaos influence.
+- **Darwaeton** is already inside the danger radius of Chaos influence.
     
 - The party unknowingly holds:
     

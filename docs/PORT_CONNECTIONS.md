@@ -25,7 +25,7 @@ This file tracks all ports and their ship route connections.
 - **braewood-city** - River port
 - **mortling-stronghold** - River port
 - **adaham** - River port
-- **dawerton** - River port
+- **darwaeton** - River port
 - **flison** - River port
 - **agosron** - River port
 - **slonmore** - River port
@@ -55,7 +55,7 @@ All port-to-port connections now exist. Routes use realistic coastal/river waypo
 ## Complete Route List by Port
 
 ### slada (14 connections)
-- [x] adaham, agosgas, agosron, braewood-city, cok, dawerton, flison
+- [x] adaham, agosgas, agosron, braewood-city, cok, darwaeton, flison
 - [x] ioxyhull, islefield-city, mortling-stronghold, okcaster, rens, vorton, wrando
 
 ### borugham (12 connections)  
@@ -93,26 +93,26 @@ All port-to-port connections now exist. Routes use realistic coastal/river waypo
 - [x] mortling-stronghold, slonmore, vorton
 
 ### braewood-city (15 connections)
-- [x] agosgas, agosron, aresphia, cok, dawerton, eimgend-city
+- [x] agosgas, agosron, aresphia, cok, darwaeton, eimgend-city
 - [x] flison, islefield-city, kluimont-city, mortling-stronghold
 - [x] okcaster, rens, tarora, vorton, wrando
 
 ### mortling-stronghold (12 connections)
-- [x] agosgas, agosron, aresphia, braewood-city, cok, dawerton
+- [x] agosgas, agosron, aresphia, braewood-city, cok, darwaeton
 - [x] eimgend-city (via kluimont), flison, islefield-city
 - [x] okcaster, rens, tarora, wrando
 
 ### adaham (17 connections)
-- [x] agosgas, agosron, aresphia, braewood-city, cok, dawerton
+- [x] agosgas, agosron, aresphia, braewood-city, cok, darwaeton
 - [x] eimgend-city, flison, islefield-city, kluimont-city
 - [x] mortling-stronghold, okcaster, rens, slonmore, tarora, vorton, wrando
 
-### dawerton (12 connections)
+### darwaeton (12 connections)
 - [x] agosgas, agosron, aresphia, cok, eimgend-city
 - [x] islefield-city, kluimont-city, okcaster, rens, tarora, wrando
 
 ### flison (14 connections)
-- [x] agosgas, agosron, aresphia, cok, dawerton, eimgend-city
+- [x] agosgas, agosron, aresphia, cok, darwaeton, eimgend-city
 - [x] islefield-city, kluimont-city, mortling-stronghold, okcaster
 - [x] rens, tarora, wrando
 
@@ -122,13 +122,13 @@ All port-to-port connections now exist. Routes use realistic coastal/river waypo
 - [x] okcaster, rens, tarora, wrando
 
 ### slonmore (13 connections)
-- [x] agosron, braewood-city, cok, dawerton, eimgend-city
+- [x] agosron, braewood-city, cok, darwaeton, eimgend-city
 - [x] flison, islefield-city, kluimont-city, mortling-stronghold
 - [x] okcaster, rens, vorton, wrando
 
 ### vorton (18 connections)
 - [x] agosgas, agosron, ajag, aresphia, braewood-city
-- [x] cok, dawerton, eimgend-city, flison, islefield-city
+- [x] cok, darwaeton, eimgend-city, flison, islefield-city
 - [x] kluimont-city, mortling-stronghold, okcaster, rens
 - [x] slonmore, tarora, wrando, yuosburn (via ukrolis)
 

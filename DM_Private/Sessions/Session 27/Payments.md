@@ -4,7 +4,7 @@
 
 ---
 
-## Session 27 — Arrival at Dawerton (March 14th)
+## Session 27 — Arrival at Darwaeton (March 14th)
 
 ### 1. Aldec Tyne Payment — 10,000 gp
 **Who:** Aldec Tyne (Braewood crown intermediary) pays the party  
@@ -74,7 +74,7 @@ Rough total if party sells everything:
 | Shard of Witnessing (Eye Golem core) | Not for sale — Second Council would want it |
 | **Rough sell total** | **~3,000–4,000 gp** |
 
-*Exact prices depend on where they sell. Dawerton's general market: 60% value. Liora's network: 80% value. Yhey specialist buyers: full value for Tharnic items.*
+*Exact prices depend on where they sell. Darwaeton's general market: 60% value. Liora's network: 80% value. Yhey specialist buyers: full value for Tharnic items.*
 
 ---
 
@@ -93,4 +93,4 @@ Rough total if party sells everything:
 | Party pool | Minimal (spent) | 10,000 gp Letters of Credit |
 | Per player (4-way) | — | 2,500 gp |
 | Scroll commission | Already paid | — |
-| Ongoing costs | Food, lodging, supplies | ~5–10 gp/day in Dawerton |
+| Ongoing costs | Food, lodging, supplies | ~5–10 gp/day in Darwaeton |

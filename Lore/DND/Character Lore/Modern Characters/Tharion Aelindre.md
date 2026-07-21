@@ -21,7 +21,7 @@ Tharion served as a junior council aide during Amdir Aeristel's banishment proce
 
 ## Current Role
 
-Tharion approached the party in Dawerton after the Spehlina mission. He offered temporary relief from Islefield travel restrictions and commissioned the party to recover the Cloak of the Watcher's Veil from the Ossian Vault.
+Tharion approached the party in Darwaeton after the Spehlina mission. He offered temporary relief from Islefield travel restrictions and commissioned the party to recover the Cloak of the Watcher's Veil from the Ossian Vault.
 
 He is a capable Way of Shadow monk and a careful political operator. His composure, silence, and exact language make it difficult to tell where diplomacy ends and surveillance begins.
 

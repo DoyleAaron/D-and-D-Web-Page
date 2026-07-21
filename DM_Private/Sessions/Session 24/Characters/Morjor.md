@@ -37,4 +37,4 @@
 
 - How many more cells like this exist?
 - Was Liora a target of convenience or part of a wider purge?
-- Is the 28th aimed at Dawerton, the lake, or both?
+- Is the 28th aimed at Darwaeton, the lake, or both?

@@ -3,7 +3,7 @@
 ## Maps Needed
 
 ### D-Tier Maps
-- [ ] **Dawerton Market District** – Shops, stalls, Thatch's Fine Fabrics (D-01)
+- [ ] **Darwaeton Market District** – Shops, stalls, Thatch's Fine Fabrics (D-01)
 - [ ] **Dock Warehouse interior** – 60x40, grain sacks, basement (D-02)
 - [ ] **Forest Road** – General travel map for investigations (D-03)
 - [ ] **Bandit Camp** – 3 tents, fire pit, forest clearing (D-03)

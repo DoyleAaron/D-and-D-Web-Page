@@ -53,15 +53,15 @@ The Queen wants speed, clarity, and controllable assets before the bridge summit
 She covers:
 - Current summit framework at the Kadena-Rye bridge.
 - Heightened concern over internal traitors.
-- The report of a Balthazar-linked item found near Dawerton.
+- The report of a Balthazar-linked item found near Darwaeton.
 - Direct check on party progress and reliability.
 
 ## Queen's Questions to the Party
 Use these in order, or pick as needed:
 
 1. "What do you know right now that I do not?"
-2. "How exposed are the roads and ports between Dawerton and the bridge route?"
-3. "What is your read on the Dawerton item report - real lead, bait, or planted panic?"
+2. "How exposed are the roads and ports between Darwaeton and the bridge route?"
+3. "What is your read on the Darwaeton item report - real lead, bait, or planted panic?"
 4. "If I grant you resources now, what is your exact next move?"
 
 ## What She Reveals
@@ -147,12 +147,12 @@ She will tolerate pragmatism, but not silence. She expects regular updates.
 
 You are now in a 30-day clock to summit. Prep by branch so you can pivot instantly based on player choice.
 
-## Branch A: They Take Funding and Return to Dawerton (Liora + Scroll)
+## Branch A: They Take Funding and Return to Darwaeton (Liora + Scroll)
 Likely player logic: secure the scroll first, then return with leverage.
 
 ### Time Risk (DM)
 - Full round trip plus investigation can consume most or all of the month.
-- If they spend too long in Dawerton, the summit may begin without them.
+- If they spend too long in Darwaeton, the summit may begin without them.
 
 ### Prep This Ahead
 - 3-tier clue ladder for finding Liora fast:
@@ -185,9 +185,9 @@ Likely player logic: stop catastrophe route before political meeting.
 Likely player logic: split priorities and race the clock.
 
 ### Prep This Ahead
-- A hard choice moment around mid-month: continue Dawerton chase or turn back for summit security.
+- A hard choice moment around mid-month: continue Darwaeton chase or turn back for summit security.
 - Consequence matrix:
-  - Choose Dawerton: stronger relic intel, weaker summit control
+  - Choose Darwaeton: stronger relic intel, weaker summit control
   - Choose Spehlina: stronger summit safety, weaker relic intel
   - Try both fully: exhaustion, attrition, and higher ambush risk
 
@@ -225,7 +225,7 @@ Mirelle pressures Amdir: the summit cannot be allowed to complete as planned unl
 Pick one ask depending on pacing:
 - Quiet intelligence from court movement schedules.
 - Delaying action at a critical logistics point.
-- Confirmation whether party is committing to Dawerton or Spehlina first.
+- Confirmation whether party is committing to Darwaeton or Spehlina first.
 
 ### DM Note
 Keep Mirelle useful but constrained. She should add pressure, not provide easy solutions.
@@ -254,7 +254,7 @@ Use this prompt in your AI text or image tool:
 ## Suggested Session Flow
 1. Border checkpoint recognition and royal escort (not arrest).
 2. Queen audience and structured debrief.
-3. Traitor reveal (Bram) and Dawerton item discussion.
+3. Traitor reveal (Bram) and Darwaeton item discussion.
 4. Reward ceremony (4 magic items + mount solution for Varin).
 5. Strategic alignment: next objective and reporting expectations.
 6. Morjor premonition drop (scene-end hook).
@@ -265,7 +265,7 @@ Use this prompt in your AI text or image tool:
 - [ ] Confirm Session 20 outcomes exactly (trackers/hounds/Tavnen/horse death)
 - [ ] Run border summons as authority, not custody
 - [ ] Deliver queen's summit + traitor briefing
-- [ ] Ask for party opinion on Dawerton Balthazar-item report
+- [ ] Ask for party opinion on Darwaeton Balthazar-item report
 - [ ] Reveal Bram as traitor tied to Mirelle network
 - [ ] Award Bag of Holding + 3 additional magic items
 - [ ] Resolve Varin's mount replacement in-scene

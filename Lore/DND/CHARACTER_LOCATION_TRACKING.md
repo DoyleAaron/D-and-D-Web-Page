@@ -39,6 +39,11 @@
 
 ## 👤 CHARACTERS CREATED (By Location)
 
+### Tarora Characters
+| Name | Race | Age | Role | Character File |
+|------|------|-----|------|----------------|
+| Captain GreyHorse | Unknown | Unknown | Pirate Captain / Harbour-Lord of Tarora | ✅ Created |
+
 ### Vorton Characters
 | Name | Race | Age | Role | Character File |
 |------|------|-----|------|----------------|

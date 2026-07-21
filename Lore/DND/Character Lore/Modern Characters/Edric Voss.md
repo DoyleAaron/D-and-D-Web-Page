@@ -7,14 +7,14 @@
 | **Known As** | The Turned Man |
 | **Race** | Human |
 | **Former Occupation** | Carpenter |
-| **Location** | Dawerton |
+| **Location** | Darwaeton |
 | **Condition** | Fledgling vampire spawn |
 
 ---
 
 ## Description
 
-Edric Voss was a Dawerton carpenter before one of Father Maltrius Kael's brood fed on him and forced vampire blood into his body. He woke confused, starving, and unable to control what he had become.
+Edric Voss was a Darwaeton carpenter before one of Father Maltrius Kael's brood fed on him and forced vampire blood into his body. He woke confused, starving, and unable to control what he had become.
 
 The hunger drove Edric to kill his wife, Maren, and their young son, Tobin. Horrified by his actions, he covered their bodies and hid in the family home, fighting against the urge to feed again.
 

@@ -34,7 +34,7 @@ const QuizModule = (function() {
         'Serath Valen.md', 'Kira Stoneheart.md', 'Hestia Vael.md', 'Elder Maeven Shawl.md',
         'Harbormaster Edric Salthollow.md', 'Father-Commander Aldous Valorian.md', 'High Archon Lysanthe Kilmora.md',
         'Chris Meudec.md', 'Scrit.md',
-        'Brell Hammerstone.md', 'Brother Aldwin Oathheart.md', 'Captain Harlan Dusk.md',
+        'Brell Hammerstone.md', 'Brother Aldwin Oathheart.md', 'Captain GreyHorse.md', 'Captain Harlan Dusk.md',
         'Commander Aleth Varne.md', 'Donaer Thess.md', 'Dorek Ashfall.md', 'Edric Voss.md',
         'Father Edric Ironvow.md', 'Fiora Dawnpetal.md', 'Grint Copperhand.md',
         'Mother Thessaly Brightwater.md', 'Rekka Redtooth.md', 'Selen Vareth.md',
@@ -70,14 +70,31 @@ const QuizModule = (function() {
       },
       Islefield: {
         capital: ['Capital/Islefield City.md'],
-        large: ['Large Cities/Rye.md']
+        large: ['Large Cities/Rye.md'],
+        medium: [
+          'Medium Cities/Agosgas.md', 'Medium Cities/Antstel.md', 'Medium Cities/Cheling.md',
+          'Medium Cities/Esterhull.md', 'Medium Cities/Yhey.md'
+        ],
+        towns: ['Town/Avinin.md', 'Town/Beyross.md', 'Town/Halten.md', 'Town/Resross.md', 'Town/Slido.md'],
+        villages: [
+          'Village/Cok.md', 'Village/Eighwood.md', 'Village/Guatpool.md', 'Village/Okcaster.md',
+          'Village/Praso.md', 'Village/Sable.md', 'Village/Stanron.md', 'Village/Ulsall.md', 'Village/Wrando.md'
+        ]
       },
       Kluimont: {
         capital: ['Capital/Kluimont City.md'],
-        large: ['Large Cities/Eimgend.md']
+        large: ['Large Cities/Eimgend.md'],
+        medium: ['Medium Cities/Qrey.md', 'Medium Cities/Slonmore.md'],
+        towns: ['Town/Sord.md', 'Town/Tarora.md'],
+        villages: [
+          'Village/Ajag.md', 'Village/Ansdale.md', 'Village/Aresphia.md', 'Village/Kilson.md',
+          'Village/Klovine.md', 'Village/Lloy.md', 'Village/Ukrolis.md', 'Village/Yuosburn.md'
+        ]
       },
       Lavalto: {
-        large: ['Large Cities/Darewaeton.md']
+        large: ['Large Cities/Darwaeton.md'],
+        medium: ['Medium Cities/Flison.md'],
+        towns: ['Town/Agosron.md']
       }
     }
   };
@@ -196,9 +213,9 @@ const QuizModule = (function() {
     // Kingdom data
     loreData.kingdoms = [
       { name: 'Braewood', ruler: 'King Tarvin Braeden IV', specialty: 'largest army', race: 'Human majority', capital: 'Braewood City', path: 'Kingdoms/Braewood/Braewood.md' },
-      { name: 'Islefield', ruler: 'High King Aleron Oakheath III', specialty: 'trade and diplomacy', race: 'Elven-led', capital: 'Islefield City', path: 'Kingdoms/Islefield/Islefield.md' },
-      { name: 'Kluimont', ruler: 'Archmage Orineth', specialty: 'arcane magic', race: 'Secretive', capital: 'Kluimont City', path: 'Kingdoms/Kluimont/Kluimont.md' },
-      { name: 'Lavalto', ruler: 'Lord Adrian Silwynn', specialty: 'vampire-ruled', race: 'Undead/Vampire', capital: 'Darewaeton', path: 'Kingdoms/Lavalto/Lavalto.md' }
+      { name: 'Islefield', ruler: 'Queen Atheliana Aeristel', specialty: 'trade and diplomacy', race: 'Elven-led', capital: 'Islefield City', path: 'Kingdoms/Islefield/Islefield.md' },
+      { name: 'Kluimont', ruler: 'High Archon Lysanthe Kilmora', specialty: 'arcane magic', race: 'Secretive', capital: 'Kluimont City', path: 'Kingdoms/Kluimont/Kluimont.md' },
+      { name: 'Lavalto', ruler: 'Lord Adrian Silwynn', specialty: 'vampire-ruled', race: 'Undead/Vampire', capital: 'Darwaeton', path: 'Kingdoms/Lavalto/Lavalto.md' }
     ];
 
     isLoading = false;

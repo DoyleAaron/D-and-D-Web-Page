@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Merchant's Guild (Anonymous)  
-**Location:** Dawerton – Market District  
+**Location:** Darwaeton – Market District  
 **Duration:** 2-3 days  
 **Reward:** 40 gp  
 **Combat Expected:** Unlikely (social/investigation)

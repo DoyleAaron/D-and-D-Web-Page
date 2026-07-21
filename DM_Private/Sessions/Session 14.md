@@ -22,7 +22,7 @@ The party returns to the tavern after defeating **Father Halden**.
 The party went to meet **Liora** to collect their reward.
 
 ### Present at the Meeting
-- **Liora** – Dawerton's spymaster
+- **Liora** – Darwaeton's spymaster
 - **Commander Seral** – Crown military officer
 - **Envoy Maerelle** – Queen's agent (tension with the party)
 
@@ -103,13 +103,13 @@ After the meeting with Liora, **Maerelle** spoke privately with the party:
 
 ### What She Revealed
 - The Queen suspects a **traitor** in her ranks
-- A **Balthazar item** has been traced to Dawerton
+- A **Balthazar item** has been traced to Darwaeton
 - The Queen's wizard advisor tracked it using magic pattern matching
 - Maerelle did NOT share this with Liora (she withheld it from her)
 
 ### What the Party Now Knows
 - They need a **Chosen** to open the Balthazar dungeon
-- Someone in Dawerton has a Balthazar item (unknown: it's Morjor's ring)
+- Someone in Darwaeton has a Balthazar item (unknown: it's Morjor's ring)
 - The Queen wants the item found
 
 ---
@@ -129,7 +129,7 @@ After the meeting with Liora, **Maerelle** spoke privately with the party:
 ## 🏛️ The Wayfarers' Accord
 
 Liora told the party about the **Wayfarers' Accord** adventurer's guild:
-- Location: Wavecrest Hall, Dawerton Docks
+- Location: Wavecrest Hall, Darwaeton Docks
 - They can take the **Spehlina bounty** (10,000 gp) to fund the scroll
 - But they need to rank up first (starts at D-tier, bounty requires B-tier)
 
@@ -156,7 +156,7 @@ Liora told the party about the **Wayfarers' Accord** adventurer's guild:
 - Liora is a vampire (pact-bound secret)
 - February 28th is dangerous (vampire hunt night)
 - There's a Balthazar dungeon in Lavalto (needs Chosen to open)
-- Someone in Dawerton has a Balthazar item
+- Someone in Darwaeton has a Balthazar item
 - The Queen suspects a traitor
 - Spehlina bounty = 10,000 gp (enough for scroll)
 - Need to join Wayfarers' Accord and rank up to take bounty

@@ -183,9 +183,9 @@ Every kingdom believes **someone else** is stealing magical artefacts.
 
 ---
 
-## **VI. The Next Geographic Arc: Dawerton**
+## **VI. The Next Geographic Arc: Darwaeton**
 
-- The Queen of Braewood sends the party to **Dawerton**, a border town and political hotspot.
+- The Queen of Braewood sends the party to **Darwaeton**, a border town and political hotspot.
     
 - Reason:
     
@@ -195,7 +195,7 @@ Every kingdom believes **someone else** is stealing magical artefacts.
         
     - Strange disappearances in the north roads.
         
-- Dawerton becomes the **launch point** for pursuing the cleric and the vampires’ trail.
+- Darwaeton becomes the **launch point** for pursuing the cleric and the vampires’ trail.
     
 
 ---
@@ -266,4 +266,4 @@ Every kingdom believes **someone else** is stealing magical artefacts.
 A cleric of a Chaos god has converted the vampires of Lavalto into worshippers, sending them to gather magical artefacts and the ancient **Trinity of Balthazar**, which can revive their god.  
 The three kingdoms—Braewood, Islefield, and Kluimont—wrongly suspect each other, while Marelle secretly aids the vampires, hoping to become one.  
 The party now holds the **Book**, which hides the true location of the Trinity vault—**Islefield**, the homeland of the beloved of Balthazar.  
-Varin is touched by Bahamut, Morjor has been tasked to become Islefield’s future advisor, and the group is being drawn into the political and mystical conflict that will culminate in Dawerton—where the trail of the Chaos cleric begins.
+Varin is touched by Bahamut, Morjor has been tasked to become Islefield’s future advisor, and the group is being drawn into the political and mystical conflict that will culminate in Darwaeton—where the trail of the Chaos cleric begins.

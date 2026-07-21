@@ -14,7 +14,7 @@
 
 ---
 
-### 2) “The purebloods are isolationist — they think they’re above Dawerton’s politics. They want nothing to do with trade or the diplomatic council.”
+### 2) “The purebloods are isolationist — they think they’re above Darwaeton’s politics. They want nothing to do with trade or the diplomatic council.”
 
 - **Credibility:** ★★☆☆☆ (half‑true, spread by merchants who resent the volcano elite)
     
@@ -29,7 +29,7 @@
 
 ---
 
-### 3) “There’s a soul‑forged relic in Dawerton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
+### 3) “There’s a soul‑forged relic in Darwaeton — a blade/amulet that feeds on sacrificed souls and grants deadly power to its wielder.”
 
 - **Credibility:** ★★★☆☆ (frightening tale, some merchants hush about ‘cursed goods’)
     
@@ -136,7 +136,7 @@
 
 #### **Purpose:**
 
-- Introduce the Dawerton Council formally.
+- Introduce the Darwaeton Council formally.
     
 - Show political structure and city dynamics.
     
@@ -286,7 +286,7 @@
 4. **Scene Closure**
     
     - Dinner ends politely. Liora expresses gratitude:  
-        _“Your vigilance is appreciated. Dawerton is safer when all eyes are open, even those of outsiders.”_
+        _“Your vigilance is appreciated. Darwaeton is safer when all eyes are open, even those of outsiders.”_
         
     - Party leaves with the sense of:
         
@@ -317,7 +317,7 @@
 **Quest Hook:**
 
 - Liora invites the party privately after dinner:  
-    _“There have been troubling deaths in a quarter of Dawerton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
+    _“There have been troubling deaths in a quarter of Darwaeton… nothing the council can explain, and nothing related to our kind. I would like you to investigate discreetly. If you succeed, I can provide you with valuable knowledge about the pureblood factions—and perhaps even some arcane secrets useful in your work.”_
     
 - She warns: Stay discrete, stay alive.
     
@@ -904,7 +904,7 @@ _Medium humanoid (human), neutral_
 
 ### **Lord Adrian Silwynn – Vampiric Patriarch (Pureblood)**
 
-- **Role:** Ruler of Dawerton, pro-outside-world, only pureblood involved in diplomacy.
+- **Role:** Ruler of Darwaeton, pro-outside-world, only pureblood involved in diplomacy.
     
 - **Personality/Roleplay:** Calm, aristocratic, subtly intimidating. Speaks with patience, rarely raises voice. Trusts only loyal vampires.
     

@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Caravan Collective  
-**Location:** Southern Road (Dawerton to Mortling Stronghold)  
+**Location:** Southern Road (Darwaeton to Mortling Stronghold)  
 **Duration:** 5-7 days  
 **Reward:** 300 gp  
 **Combat Expected:** Yes (monster hunt)
@@ -20,15 +20,15 @@ A **Dire Wolf** corrupted by residual magic from an old battlefield. It's larger
 ---
 
 ## Travel
-- **Mortling Stronghold** is ~33 km from Dawerton
+- **Mortling Stronghold** is ~33 km from Darwaeton
 - Road passes through rocky hills and sparse woodland
-- Attack zone is 15-20 km from Dawerton
+- Attack zone is 15-20 km from Darwaeton
 
 ---
 
 ## Investigation
 
-### Talking to Survivors (Dawerton)
+### Talking to Survivors (Darwaeton)
 - Caravan survivor **Hennis**: "It came from nowhere. Like mist. Killed two horses before we could blink."
 - Guard survivor **Koltar**: "I hit it with my sword—went right through! But it bled when Mira shot it with an arrow."
 

@@ -2,7 +2,7 @@
 
 **Type:** Combat (Medium)  
 **Location:** Coastal waters or road along the coast, within sight of Lavalto's volcanic peaks  
-**Trigger:** During travel from Braewood to Dawerton, as the party nears the volcanic coastline  
+**Trigger:** During travel from Braewood to Darwaeton, as the party nears the volcanic coastline  
 **Theme:** The volcano's corruption is spreading — even the wildlife is affected
 
 ---

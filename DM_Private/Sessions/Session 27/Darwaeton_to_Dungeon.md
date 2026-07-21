@@ -1,7 +1,7 @@
-# Dawerton → The Ossian Vault — Travel Notes
+# Darwaeton → The Ossian Vault — Travel Notes
 
 **When:** Immediately after accepting Tharion's commission (~March 14–17, 1225)  
-**Route:** Dawerton → [Coastal Road South] → Yhey (Islefield border city) → [Foothills Track] → Resross → [Ironwarf Heights path] → The Ossian Vault  
+**Route:** Darwaeton → [Coastal Road South] → Yhey (Islefield border city) → [Foothills Track] → Resross → [Ironwarf Heights path] → The Ossian Vault  
 **Total Travel Time:** ~1 day on horse | ~3 days on foot
 
 ---
@@ -10,13 +10,13 @@
 
 | Leg | Distance | Horse | Foot | Notes |
 |-----|----------|-------|------|-------|
-| Dawerton → Yhey | ~20 miles | Half day | 1.5 days | Coastal road, then border crossing at Gate of Two Crowns |
+| Darwaeton → Yhey | ~20 miles | Half day | 1.5 days | Coastal road, then border crossing at Gate of Two Crowns |
 | Yhey → Resross | ~15 miles | Half day | 1 day | Foothills track, less maintained |
 | Resross → Dungeon | 6 miles NE | — | 2 hours | Cliff path up into Ironwarf Heights |
 
 ---
 
-## Leg A — Dawerton to Yhey
+## Leg A — Darwaeton to Yhey
 
 **Terrain:** Well-maintained coastal road. Sea visible to the west for the first half. Road turns inland as it approaches the border. Traffic is consistent — this is an active trade corridor.
 

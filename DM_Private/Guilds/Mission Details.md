@@ -2,15 +2,15 @@
 
 ## Quick Reference Map Locations
 
-| Mission | Tier | Location | Travel from Dawerton |
+| Mission | Tier | Location | Travel from Darwaeton |
 |---------|------|----------|---------------------|
-| D-01: Cheating Merchant | D | Dawerton (Market District) | None |
-| D-02: Warehouse Rats | D | Dawerton (Dock Warehouse) | None |
+| D-01: Cheating Merchant | D | Darwaeton (Market District) | None |
+| D-02: Warehouse Rats | D | Darwaeton (Dock Warehouse) | None |
 | D-03: Missing Shipment | D | Cleamond Road | ~35km (1 day) |
-| D-04: Haunted Cellar | D | Dawerton (The Rusty Anchor) | None |
-| C-01: Noble Escort | C | Dawerton → Cleamond | ~35km each way |
-| C-02: Drowned Man's Secret | C | Dawerton (Docks/Temple District) | None |
-| C-03: Sculptor's Debt | C | Dawerton (Tidewatch Slums) | None |
+| D-04: Haunted Cellar | D | Darwaeton (The Rusty Anchor) | None |
+| C-01: Noble Escort | C | Darwaeton → Cleamond | ~35km each way |
+| C-02: Drowned Man's Secret | C | Darwaeton (Docks/Temple District) | None |
+| C-03: Sculptor's Debt | C | Darwaeton (Tidewatch Slums) | None |
 | C-04: Beast of Southern Road | C | Southern Road to Mortling | ~33km (1 day) |
 
 ---
@@ -23,7 +23,7 @@
 
 ### Overview
 **Client:** Merchant's Guild (Anonymous)  
-**Location:** Dawerton – Market District  
+**Location:** Darwaeton – Market District  
 **Duration:** 2-3 days  
 **Reward:** 40 gp  
 **Combat Expected:** Unlikely (social/investigation)
@@ -82,7 +82,7 @@ A cloth merchant named **Yorvin Thatch** is suspected of falsifying quality cert
 
 ### Overview
 **Client:** Grain Collective  
-**Location:** Dawerton – Dock Warehouse #7  
+**Location:** Darwaeton – Dock Warehouse #7  
 **Duration:** 1 day  
 **Reward:** 25 gp  
 **Combat Expected:** Yes (straightforward extermination)
@@ -147,7 +147,7 @@ Giant rats have infested a grain warehouse. The Grain Collective needs them clea
 
 ### Overview
 **Client:** Wine Merchant Varros  
-**Location:** Cleamond Road (between Dawerton and Cleamond)  
+**Location:** Cleamond Road (between Darwaeton and Cleamond)  
 **Duration:** 3-5 days  
 **Reward:** 50 gp + 2 bottles fine wine  
 **Combat Expected:** Possible (bandits or wild animals)
@@ -156,7 +156,7 @@ Giant rats have infested a grain warehouse. The Grain Collective needs them clea
 A wagon carrying 20 casks of fine Islefield wine never arrived from Cleamond. Varros suspects theft or bandit activity. The party must find the shipment and either recover it or discover what happened.
 
 ### Travel
-- **Cleamond** is ~35km from Dawerton
+- **Cleamond** is ~35km from Darwaeton
 - 1 day travel each way on foot
 - Road passes through light woodland
 
@@ -207,7 +207,7 @@ The wagon was attacked by **Redtooth Bandits**—a small gang operating in the w
 1. **Fight bandits** – Kill or capture, recover all wine
 2. **Negotiate** – Give up 2 casks, avoid combat
 3. **Stealth** – Sneak in at night, steal back wine
-4. **Report location** – Return to Dawerton, let city guard handle it (half reward)
+4. **Report location** – Return to Darwaeton, let city guard handle it (half reward)
 
 ### Rewards
 - **50 gp** + 2 bottles fine wine (worth 25 gp each)
@@ -227,7 +227,7 @@ The wagon was attacked by **Redtooth Bandits**—a small gang operating in the w
 
 ### Overview
 **Client:** Innkeeper Darla Moss, The Rusty Anchor  
-**Location:** Dawerton – Dockside District  
+**Location:** Darwaeton – Dockside District  
 **Duration:** 1-2 nights  
 **Reward:** 35 gp + free lodging  
 **Combat Expected:** Possible (depends on investigation)
@@ -310,7 +310,7 @@ There's no ghost. A **smuggler's tunnel** connects the cellar to the docks. Loca
 
 ### Overview
 **Client:** House Ashvale  
-**Location:** Dawerton → Cleamond → Dawerton  
+**Location:** Darwaeton → Cleamond → Darwaeton  
 **Duration:** 4 days round trip  
 **Reward:** 200 gp  
 **Combat Expected:** Likely (ambush on road)
@@ -321,10 +321,10 @@ There's no ghost. A **smuggler's tunnel** connects the cellar to the docks. Loca
 ### Travel Schedule
 | Day | Route | Distance | Events |
 |-----|-------|----------|--------|
-| 1 | Dawerton → Cleamond | 35 km | Possible ambush |
+| 1 | Darwaeton → Cleamond | 35 km | Possible ambush |
 | 2 | Cleamond (waiting) | — | Free time / investigation |
-| 3 | Cleamond → Dawerton | 35 km | Possible ambush |
-| 4 | Arrive Dawerton | — | Payment |
+| 3 | Cleamond → Darwaeton | 35 km | Possible ambush |
+| 4 | Arrive Darwaeton | — | Payment |
 
 ### The Threat
 Lady Meren's former business partner, **Aldric Crane**, sent the threats. He lost a fortune when she exposed his embezzlement. He's hired mercenaries to kidnap her for ransom—or kill her if capture fails.
@@ -386,7 +386,7 @@ Lady Meren's former business partner, **Aldric Crane**, sent the threats. He los
 - **200 gp** from House Ashvale
 - **Bonus:** 50 gp if Aldric Crane is exposed
 - **Bonus:** Lady Meren becomes a contact for future work
-- **Reputation:** +1 with Dawerton nobility
+- **Reputation:** +1 with Darwaeton nobility
 
 ### Roll20 Prep Checklist
 - [ ] Forest road ambush map (fallen tree, flanking positions)
@@ -401,7 +401,7 @@ Lady Meren's former business partner, **Aldric Crane**, sent the threats. He los
 
 ### Overview
 **Client:** City Watch (Unofficial)  
-**Location:** Dawerton – Docks & Temple District  
+**Location:** Darwaeton – Docks & Temple District  
 **Duration:** 3-7 days  
 **Reward:** 150 gp  
 **Combat Expected:** Yes (cult encounter)
@@ -410,7 +410,7 @@ Lady Meren's former business partner, **Aldric Crane**, sent the threats. He los
 A dock worker named **Hennik Solt** was found floating in the harbor with strange symbols carved into his chest. The Watch is overwhelmed and needs discreet investigators. The symbols appear ritualistic—possibly cult activity.
 
 ### The Truth
-Hennik stumbled onto a small **cult of the Drowned God** operating in Dawerton. They worship an ancient sea entity and are preparing a ritual to "call the depths." Hennik saw too much and was silenced.
+Hennik stumbled onto a small **cult of the Drowned God** operating in Darwaeton. They worship an ancient sea entity and are preparing a ritual to "call the depths." Hennik saw too much and was silenced.
 
 ### Investigation Timeline
 
@@ -500,7 +500,7 @@ Hennik stumbled onto a small **cult of the Drowned God** operating in Dawerton. 
 
 ### Overview
 **Client:** Private (Sealed Letter from **Madame Elara Vance**)  
-**Location:** Dawerton – Tidewatch Slums  
+**Location:** Darwaeton – Tidewatch Slums  
 **Duration:** 2-4 days  
 **Reward:** 175 gp  
 **Combat Expected:** Likely (hired thugs)
@@ -515,7 +515,7 @@ A marble statue was stolen by **Corvin Ashby**, a debtor who fled to the Tidewat
 - **Secret:** Contains hidden compartment with love letters between Madame Vance and a married noble—the real reason she wants it back
 
 ### The Tidewatch Slums
-- Poorest district of Dawerton
+- Poorest district of Darwaeton
 - Narrow alleys, leaning buildings, hostile residents
 - Outsiders are noticed immediately
 - Local gang: **The Mudlarks** control the area
@@ -599,7 +599,7 @@ A marble statue was stolen by **Corvin Ashby**, a debtor who fled to the Tidewat
 
 ### Overview
 **Client:** Caravan Collective  
-**Location:** Southern Road (Dawerton to Mortling Stronghold)  
+**Location:** Southern Road (Darwaeton to Mortling Stronghold)  
 **Duration:** 5-7 days  
 **Reward:** 300 gp  
 **Combat Expected:** Yes (monster hunt)
@@ -611,13 +611,13 @@ Something is attacking caravans on the road to Mortling Stronghold. Three attack
 A **Dire Wolf** corrupted by residual magic from an old battlefield. It's larger than normal, partially phased, and hunts with unnatural intelligence. It's not evil—just territorial and starving after its pack was killed.
 
 ### Travel
-- **Mortling Stronghold** is ~33 km from Dawerton
+- **Mortling Stronghold** is ~33 km from Darwaeton
 - Road passes through rocky hills and sparse woodland
-- Attack zone is 15-20 km from Dawerton
+- Attack zone is 15-20 km from Darwaeton
 
 ### Investigation
 
-**Talking to Survivors** (Dawerton)
+**Talking to Survivors** (Darwaeton)
 - Caravan survivor **Hennis**: "It came from nowhere. Like mist. Killed two horses before we could blink."
 - Guard survivor **Koltar**: "I hit it with my sword—went right through! But it bled when Mira shot it with an arrow."
 
@@ -701,7 +701,7 @@ A **Dire Wolf** corrupted by residual magic from an old battlefield. It's larger
 ## Maps Needed
 
 ### D-Tier Maps
-- [ ] **Dawerton Market District** – Shops, stalls, Thatch's Fine Fabrics (D-01)
+- [ ] **Darwaeton Market District** – Shops, stalls, Thatch's Fine Fabrics (D-01)
 - [ ] **Dock Warehouse interior** – 60x40, grain sacks, basement (D-02)
 - [ ] **Forest Road** – General travel map for investigations (D-03)
 - [ ] **Bandit Camp** – 3 tents, fire pit, forest clearing (D-03)

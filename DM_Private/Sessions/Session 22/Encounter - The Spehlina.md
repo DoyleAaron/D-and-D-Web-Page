@@ -118,7 +118,7 @@ At initiative 20 (after lair action), corruption pushes back:
 ## Encounter Setup
 
 **Getting There:**
-- Lavalto Lake is ~3–4 hours from Dawerton by road, then across the lake by boat.
+- Lavalto Lake is ~3–4 hours from Darwaeton by road, then across the lake by boat.
 - The Spehlina lurks in the deeper waters near the volcanic vents on the lake's south side.
 - Local fishermen refuse to go near the south end. Party must acquire/hire a boat.
 
@@ -154,7 +154,7 @@ At initiative 20 (after lair action), corruption pushes back:
 - It may try to **Submerge** and flee toward the volcanic vents.
 
 ### Phase 4: Death or Mercy
-**If killed:** Death Throes trigger. Massive necrotic + poison explosion. Lake corrupted in 1-mile radius. Story consequence: Dawerton's water supply threatened. Maltrius wins this round.
+**If killed:** Death Throes trigger. Massive necrotic + poison explosion. Lake corrupted in 1-mile radius. Story consequence: Darwaeton's water supply threatened. Maltrius wins this round.
 
 **If subdued/driven off:** The Spehlina retreats to the deep volcanic vents. The party learns the creature can be saved — but only if Maltrius's infernal source is sealed first. Sets up the final arc.
 
@@ -185,7 +185,7 @@ With the Purification Meter system, this partial cleanse can be represented as:
 |---|---|---|
 | Spehlina's Moonstone Eye (×2) | 1,500 gp each | Arcane focus. Grants underwater darkvision 120 ft. while held. |
 | Corrupted Essence Shard | — | Alchemical. Can be used to create 1 Potion of Necrotic Resistance or sold for 800 gp. |
-| Bounty reward | 10,000 gp | 5,000 from Dawerton + 5,000 from Braewood Crown. |
+| Bounty reward | 10,000 gp | 5,000 from Darwaeton + 5,000 from Braewood Crown. |
 
 **XP:** 13,000 (CR 15) + swarms
 

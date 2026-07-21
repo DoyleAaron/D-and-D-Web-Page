@@ -129,7 +129,7 @@ Braewood
 
 ### **Population:**
 
-**80,000** (smallest of Braewood’s large cities; only Darewaeton in Lavalto is larger)
+**80,000** (smallest of Braewood’s large cities; only Darwaeton in Lavalto is larger)
 
 ### **Wealth:**
 
@@ -513,7 +513,7 @@ Kluimont
 - **Central Volcano Island**
     - The **Lavalto Volcano** towers in the center of the sea, surrounded by the three major kingdoms but **claimed by none**.
     - Volcanic soil can be surprisingly fertile along the lower slopes, supporting specialized crops and exotic wildlife.
-- **Darewaeton**
+- **Darwaeton**
     - The largest city on the Lavalto isle, ruled by a **powerful family**.
     - Two other settlements—a **medium city** and a **town**—are also under this family’s control, effectively giving them a small mini-kingdom on the volcanic isle.
     - They maintain neutrality from Braewood, Islefield, and Kluimont through **tight-lipped diplomacy** and rumored threats of sabotage or curses should any kingdom invade.
@@ -525,14 +525,14 @@ Kluimont
     - They present themselves as refined aristocrats or well-to-do merchants, and as the unchallenged authority on their island.
     - Rumors swirl of **occult gatherings** and strange lights on the volcano’s slopes, but none of the main kingdoms have enough proof—or nerve—to press an invasion.
 - **Regional Influence**
-    - Darewaeton profits by trading unique volcanic minerals and rare magical herbs. Passing trade ships often stop for supplies; in exchange, the vampiric lords keep the waters relatively safe from piracy.
+    - Darwaeton profits by trading unique volcanic minerals and rare magical herbs. Passing trade ships often stop for supplies; in exchange, the vampiric lords keep the waters relatively safe from piracy.
     - Adventurers occasionally arrive, lured by legends of hidden catacombs or the possibility of confronting the island’s rumored monsters. Few return to confirm or deny these tales.
 
 >_All star ratings (Wealth, Military, Happiness) are in **perspective to other settlements of the same size category**._
 
 ### **Name:**
 
-Darewaeton
+Darwaeton
 
 ### **Kingdom:**
 
@@ -583,6 +583,6 @@ Lord Adrian Silwynn (Vampiric Patriarch)
 
 - Founded on the fertile volcanic slopes as a neutral trading port between kingdoms.
     
-- The ruling family, secretly vampiric, consolidated control over two centuries and transformed Darewaeton into a bastion of secrecy and dark luxury.
+- The ruling family, secretly vampiric, consolidated control over two centuries and transformed Darwaeton into a bastion of secrecy and dark luxury.
     
 - Known for towering basalt spires, smoky streets lit by enchanted lanterns, and whispers of catacombs beneath the city that lead to ancient lava-choked chambers.

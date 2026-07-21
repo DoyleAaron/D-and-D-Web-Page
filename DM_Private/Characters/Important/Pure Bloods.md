@@ -1,7 +1,7 @@
 
 ## **Lord Adrian Silwynn – Vampiric Patriarch (Level 10)**
 
-**Role:** Ruler of Dawerton; pro-outside-world; primary pureblood diplomat. Oversees political matters and maintains order among vampires.
+**Role:** Ruler of Darwaeton; pro-outside-world; primary pureblood diplomat. Oversees political matters and maintains order among vampires.
 
 **Personality/Roleplay:**
 

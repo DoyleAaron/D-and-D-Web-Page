@@ -86,5 +86,5 @@ Once Liora is free, this session should pivot from horror back into grim momentu
 
 - The house is broken
 - The party has proof of escalation
-- Dawerton now owes them
+- Darwaeton now owes them
 - The March 28th clock becomes impossible to ignore

@@ -16,14 +16,14 @@
     - A brief conflict, **the Western Tensions**, flares up between Braewood border barons and Kluimont’s mainland enclaves, sparked by arguments over fishing rights and trade tariffs. There’s **no formal war**, but small skirmishes and raids escalate.
     - Islefield brokers a **ceasefire** in 1005, granting Kluimont limited free-trade passages along certain coastal routes.
 
-### Year 1050–1080: Rise of Darewaeton Influence
+### Year 1050–1080: Rise of Darwaeton Influence
 
 - **1053**:
-    - The **vampiric family** ruling **Darewaeton** on the Lavalto Volcano Isle solidifies control over a newly established **medium city** near the volcano’s foothills. They quietly eliminate a local merchant’s guild that threatened their secrecy.
+    - The **vampiric family** ruling **Darwaeton** on the Lavalto Volcano Isle solidifies control over a newly established **medium city** near the volcano’s foothills. They quietly eliminate a local merchant’s guild that threatened their secrecy.
 - **1061**:
     - Adventurers from Braewood claim to have discovered ominous “blood rituals” in a cavern near the Lavalto caldera. Their allegations reach the Braewood court, but no formal action is taken—diplomats fear losing the island’s vital trade route.
 - **1072**:
-    - Darewaeton’s vampiric lords strike a **trade accord** with Islefield, offering precious volcanic minerals in exchange for safe maritime routes. Tensions lessen, but rumors of dark magic swirl.
+    - Darwaeton’s vampiric lords strike a **trade accord** with Islefield, offering precious volcanic minerals in exchange for safe maritime routes. Tensions lessen, but rumors of dark magic swirl.
 
 ### Year 1100–1110: The Dragon Rumors & Kluimont’s Arcane Boom
 
@@ -52,10 +52,10 @@
 
 ### Year 1190–1200: Lavalto’s Night of Red Embers
 - **1191**:
-    - A disastrous **volcanic flare** ravages farmland near Darewaeton. Townsfolk speak of **blood-red embers** lighting the sky and claim a sacrificial ritual awakened the lava flows.
-    - Despite fear and rumors, Darewaeton’s vampiric rulers rally to rebuild the damaged port, offering financial aid (possibly sourced from hidden coffers or unscrupulous deals).
+    - A disastrous **volcanic flare** ravages farmland near Darwaeton. Townsfolk speak of **blood-red embers** lighting the sky and claim a sacrificial ritual awakened the lava flows.
+    - Despite fear and rumors, Darwaeton’s vampiric rulers rally to rebuild the damaged port, offering financial aid (possibly sourced from hidden coffers or unscrupulous deals).
 - **1195**:
-    - Kluimont quietly sends an emissary to Darewaeton, possibly to barter for volcanic reagents used in advanced arcane experiments. A new trade channel opens, though details remain secretive.
+    - Kluimont quietly sends an emissary to Darwaeton, possibly to barter for volcanic reagents used in advanced arcane experiments. A new trade channel opens, though details remain secretive.
 
 ### Year 1205–1215: Strains on Multiple Fronts
 - **1207**:
@@ -72,7 +72,7 @@
 - **1222**:
     - Islefield finalizes a **defensive pact** with certain dwarven clans from Braewood, aimed at fostering cooperation if Braewood and Kluimont’s conflicts escalate. Braewood’s monarchy condemns this act as meddling.
 - **1224**:
-    - Darewaeton’s leadership entertains envoys from both Braewood and Islefield, each seeking advantageous trade deals or alliances. The vampiric household plays both sides diplomatically, stoking tension.
+    - Darwaeton’s leadership entertains envoys from both Braewood and Islefield, each seeking advantageous trade deals or alliances. The vampiric household plays both sides diplomatically, stoking tension.
 - **1225** (Present Day):
     - The continent stands at a precarious balance. **Braewood’s** monarchy wrestles with dwarven unrest, **Islefield** grows in wealth and allies, **Kluimont** protects its magical secrets amid swirling dragon rumors, and **Lavalto** remains an enigmatic wildcard whose alliances could tip the scales in any conflict.
 

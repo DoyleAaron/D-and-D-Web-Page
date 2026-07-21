@@ -23,7 +23,7 @@ Theron is reckless, impatient, and eager to prove himself as more than his mothe
 
 ## Role in Current Arc
 
-- Primary suspect in Dawerton's recent forced turning.
+- Primary suspect in Darwaeton's recent forced turning.
 - Key target for reversing Edric's condition within the active cure window.
 
 ## Notable Quote

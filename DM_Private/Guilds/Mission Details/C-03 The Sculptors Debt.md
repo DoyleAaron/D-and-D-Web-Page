@@ -2,7 +2,7 @@
 
 ## Overview
 **Client:** Private (Sealed Letter from **Madame Elara Vance**)  
-**Location:** Dawerton – Tidewatch Slums  
+**Location:** Darwaeton – Tidewatch Slums  
 **Duration:** 2-4 days  
 **Reward:** 175 gp  
 **Combat Expected:** Likely (hired thugs)
@@ -23,7 +23,7 @@ A marble statue was stolen by **Corvin Ashby**, a debtor who fled to the Tidewat
 ---
 
 ## The Tidewatch Slums
-- Poorest district of Dawerton
+- Poorest district of Darwaeton
 - Narrow alleys, leaning buildings, hostile residents
 - Outsiders are noticed immediately
 - Local gang: **The Mudlarks** control the area

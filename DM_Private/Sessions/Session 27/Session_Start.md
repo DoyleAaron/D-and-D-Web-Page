@@ -1,13 +1,13 @@
 # Session 27 — Opening Scene
 
 **Date (in-game):** March 14th, 1225  
-**Location:** Dawerton docks
+**Location:** Darwaeton docks
 
 ---
 
 ## Scene 1 — Arriving at Shore
 
-The party arrives at the Dawerton docks after the journey back. The harbour is busy — Dawerton is always busy — but there are a few groups who are clearly waiting rather than passing through. Other people with business today.
+The party arrives at the Darwaeton docks after the journey back. The harbour is busy — Darwaeton is always busy — but there are a few groups who are clearly waiting rather than passing through. Other people with business today.
 
 > *The dock smells like salt and rope and money. There are ships being loaded three berths down, arguments about weights at the exchange, a harbour guard collecting a toll with the resignation of a man who has done this thirty thousand times. And then there are the people who are not doing any of that. Just standing. Watching the water. Watching you.*
 

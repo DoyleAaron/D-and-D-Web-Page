@@ -34,7 +34,7 @@ The god of justice and honor, Bahamut is revered by paladins, metallic dragons, 
 Tyr represents justice tempered by wisdom and the courage to uphold what is right even when it costs everything. Unlike Bahamut's protective nature, Tyr's followers actively hunt evil and enforce law. Many judges, soldiers, and paladins in Braewood follow his tenets.
 
 **Notable Followers:**
-- **Father Halden** — A priest who fell to corruption and was later slain by adventurers in Dawerton
+- **Father Halden** — A priest who fell to corruption and was later slain by adventurers in Darwaeton
 
 ---
 
@@ -83,6 +83,25 @@ Selûne is the goddess of the moon, protector of travelers and those who walk in
 **Notable Aspects:**
 - Popular among sailors and those who travel by night
 - Her temples often serve as safe havens for travelers
+
+---
+
+### Valkur — The Mighty
+| | |
+|---|---|
+| **Domain** | Sailors, Ships, Courage, Favourable Winds |
+| **Alignment** | Chaotic Good |
+| **Symbol** | A cloud crossed by three bolts of lightning |
+| **Worship Centers** | Aresphia, Kilson, the Rimduff Isles |
+
+Valkur is the patron of sailors who face dangerous water through skill and courage rather than conquest. His followers value capable crews, aid for ships in distress, and the belief that fear is natural but must not be allowed to command the helm.
+
+On the island shared by Aresphia and Kilson, his worship shapes everyday life. Aresphia maintains a practical harbour chapel for departing crews, while inland Kilson protects one of Dayner's largest temples to Valkur and treats its freshwater springs as the beginning of every safe voyage.
+
+**Notable Aspects:**
+- Common among independent sailors who reject both piracy and rigid naval authority
+- Associated with safe passage, honest crews, and bravery during storms
+- Sometimes worshipped alongside Selûne in more religiously tolerant ports
 
 ---
 

@@ -10,7 +10,7 @@ Use this as a direct continuation of the failed first assault. If the party retu
 
 ## What Happened Last Session
 
-- The party went to Dawerton looking for **Liora**.
+- The party went to Darwaeton looking for **Liora**.
 - They checked her house, then city hall, and met **Mayor Adrian**.
 - Adrian pointed them toward **Blackthorn House**.
 - The party entered the manor, tried to withdraw, and the fight escalated into a full retreat.
@@ -119,13 +119,13 @@ Use the manor like a hunted-house stronghold, not a static dungeon.
 5. Basement breach.
 6. Lava golem fight.
 7. Free Liora.
-8. Return to Dawerton for Adrian's payment and fallout.
+8. Return to Darwaeton for Adrian's payment and fallout.
 
 ---
 
 ## If The Party Wins
 
-- Liora survives and returns to Dawerton badly shaken but still useful.
+- Liora survives and returns to Darwaeton badly shaken but still useful.
 - Adrian releases the promised reward.
 - The party gains hard confirmation that **Maltrius is escalating toward the 28th**.
 - Blackthorn House becomes a major victory, but not the end of the vampire problem.

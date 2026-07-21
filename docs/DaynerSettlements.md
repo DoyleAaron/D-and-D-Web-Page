@@ -57,12 +57,14 @@
 #### Cheling
 #### Antstel
 #### Yhey
+#### Agosgas
 
 ## Towns:
 #### Beyross
 #### Halten
 #### Avinin
 #### Slido
+#### Resross
 
 ## Villages:
 #### Cok
@@ -73,7 +75,6 @@
 #### Wrando
 #### Okcaster
 #### Guatpool
-#### Resross
 #### Sable
 ## POI
 #### Prairie Kingfisher Grove
@@ -124,7 +125,7 @@
 ## Capital:
 
 ## Large Cities:
-#### Dawerton
+#### Darwaeton
 
 ## Medium Cities:
 #### Flison
