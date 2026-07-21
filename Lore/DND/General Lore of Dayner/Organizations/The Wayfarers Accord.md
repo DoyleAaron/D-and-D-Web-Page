@@ -13,7 +13,7 @@
 
 ## Description
 
-The **Wayfarers' Accord** is the largest and most respected guild of mercenaries, investigators, monster hunters, and problem-solvers on the continent. With licensed chapters in most cities and towns, the Accord provides a framework for adventurers to find work and for clients to find reliable help.
+The **Wayfarers' Accord** is Dayner's largest recognised guild of mercenaries, investigators, monster hunters, escorts, and problem-solvers. Licensed chapters provide a framework for adventurers to find work and for clients to hire people whose contracts and identities can be verified elsewhere.
 
 Guild halls are recognizable by their **golden compass sigil**—a reminder that members travel where the work takes them.
 
@@ -99,16 +99,16 @@ Clients pay fees to post jobs, which determines how widely the job is advertised
 
 ## Notable Chapters
 
-### Wavecrest Hall (Darwaeton)
-A converted warehouse on the docks, three stories tall with the guild's golden compass above the entrance. Known for maritime contracts and monster hunting jobs related to Lavalto Lake.
+### Wavecrest Hall ([[Kingdoms/Lavalto/Large Cities/Darwaeton|Darwaeton]])
+A converted dockside warehouse known for maritime contracts, lake work, and politically sensitive jobs. The Spehlina bounty was administered through the wider Accord network and is now complete.
 
-### The Iron Compass (Braewood City)
+### The Iron Compass ([[Kingdoms/Braewood/Capital/Braewood City|Braewood City]])
 The largest chapter on the continent, located near the military district. Handles many Crown-contracted jobs and military support work.
 
-### The Gilded Quill (Islefield City)
+### The Gilded Quill ([[Kingdoms/Islefield/Capital/Islefield City|Islefield City]])
 An elegant chapter house that specializes in investigation, diplomatic escort, and artifact recovery. Known for its extensive archives.
 
-### The Hidden Hand (Kluimont City)
+### The Hidden Hand ([[Kingdoms/Kluimont/Capital/Kluimont City|Kluimont City]])
 The most secretive chapter, befitting its home. Specializes in arcane recovery, planar investigation, and jobs that require... discretion.
 
 ## Famous S-Tier Postings
@@ -119,12 +119,24 @@ While specific S-tier jobs are confidential, some have become legendary:
 - **The Sealed God:** An ongoing mission to prevent the return of a dark deity. Posted for 112 years.
 - **The Dragon Concordat:** A diplomatic mission to the dragon flights of the Northern Reaches. Multiple failures recorded.
 
+## Notable Completed Contract
+
+### The Spehlina of Lavalto Lake
+
+The [[Character Lore/Beasts & Creatures/The Spehlina|Spehlina]] was listed as an A-tier threat with a 10,000-gold reward jointly funded by Darwaeton and Braewood. The party recruited sailors, mercenaries, adventurers, and clerics, defeated the corrupted guardian, and purified the lake. The contract is closed, though records concerning the corruption remain valuable.
+
 ## Relationships
 
-- **The Crown of Braewood:** Strong working relationship; many military contracts
-- **Islefield Throne:** Respectful cooperation, particularly for trade protection
-- **Kluimont Synod:** Cautious partnership; some jobs are "off the books"
-- **Lavalto Rulers:** Professional distance; the guild operates there but asks few questions
+- **[[Kingdoms/Braewood/Braewood|Braewood Crown]]:** Strong working relationship and frequent military or road contracts.
+- **[[Kingdoms/Islefield/Islefield|Islefield Throne]]:** Respectful cooperation in investigation, escort, and artefact recovery.
+- **[[General Lore of Dayner/Organizations/The Arcane Synod|Kluimont Synod]]:** Cautious partnership; selected contracts remain unofficial.
+- **Lavalto powers:** Professional distance. Wavecrest Hall operates in Darwaeton without claiming authority over the island's families.
+
+## Related Lore
+
+- [[General Lore of Dayner/Politics/Factions and Orgs|Factions and Organizations]]
+- [[General Lore of Dayner/History/Recent History|Recent History]]
+- [[General Lore of Dayner/Politics/Power & Disputes|Power and Disputes]]
 
 ## Notable Quote
 

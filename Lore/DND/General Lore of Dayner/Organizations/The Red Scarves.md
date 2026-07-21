@@ -6,7 +6,7 @@
 |---|---|
 | **Type** | Charitable Cult / Religious Organization |
 | **Founded** | Unknown (recent decades) |
-| **Headquarters** | Sheyton, Islefield |
+| **Headquarters** | [[Kingdoms/Braewood/Medium City/Sheyton|Sheyton, Braewood]] |
 | **Symbol** | Red scarf worn visibly |
 
 ---
@@ -19,14 +19,14 @@ However, beneath this charitable facade lies something darker. The organization 
 
 ## Leadership
 
-### Mother Selyse
+### [[Character Lore/Modern Characters/Mother Selyse|Mother Selyse]]
 The spiritual leader of the Red Scarves, Mother Selyse is a woman of indeterminate age with an unsettling presence. She:
 - Gives passionate sermons about charity and community
 - Wears flowing red robes and speaks with hypnotic cadence
 - Claims to channel divine power (the true source is unclear)
 - Commands fierce loyalty from her followers
 
-### Cleric Veyner Drosk
+### [[Character Lore/Modern Characters/Cleric Veyner Drosk|Cleric Veyner Drosk]]
 A mid-ranking priest within the organization who serves as one of Mother Selyse's trusted agents. Notable for:
 - Possessing a **magical pendant** that creates confusion and compulsion in targets
 - Operating in the field to recruit and "convince" potential members
@@ -79,7 +79,8 @@ Members are identified by their **red scarves**, worn visibly at all times. Deep
 ## Relationships
 
 - **Sheyton authorities:** Tolerated due to genuine charitable work
-- **Islefield Crown:** Unaware of darker aspects
+- **Braewood Crown:** Has no complete public case against the movement; local concern is rising
+- **Sheyton authorities:** The Lord-Mayor and Watch suspect coercion but must account for the organisation's genuine public support
 - **General public:** Viewed as helpful, if eccentric, do-gooders
 - **The party:** Hostile after Session 2 confrontation
 - **Unknown patron:** The true source of their power remains hidden
@@ -97,9 +98,15 @@ Their primary base of operations, a converted warehouse in Sheyton's poorer dist
 > "Come, child. You look hungry. The Red Scarves feed all who seek us—and ask only that you listen."
 > — Mother Selyse
 
-## Adventure Hooks
+## Open Questions
 
-- What deity or power does Mother Selyse truly serve?
-- Are there Red Scarf chapters in other cities?
-- What happened to members who tried to leave?
-- Is there a connection to Lavalto's vampire lords?
+- What power does Mother Selyse truly serve?
+- How far beyond Sheyton does the movement extend?
+- What happens to members who attempt to leave?
+- Is the resemblance to Shar or blood magic real, borrowed, or deliberately misleading?
+
+## Related Lore
+
+- [[General Lore of Dayner/Religion/Gods of Dayner/Shar|Shar]]
+- [[General Lore of Dayner/Politics/Factions and Orgs|Factions and Organizations]]
+- [[General Lore of Dayner/Politics/Race|Peoples and Social Relations]]

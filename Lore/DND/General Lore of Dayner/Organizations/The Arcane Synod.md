@@ -13,7 +13,7 @@
 
 ## Description
 
-The **Arcane Synod** is the governing body of Kluimont, a council of powerful mages who rule the island kingdom through magical authority and carefully guarded secrets. Unlike other kingdoms ruled by monarchs, Kluimont's government is a magocracy—power flows to those with arcane talent and political cunning.
+The **Arcane Synod** is the governing body of [[Kingdoms/Kluimont/Kluimont|Kluimont]], a council of powerful mages who rule through magical authority, administration, and carefully guarded secrets. Unlike Dayner's monarchies, Kluimont is a magocracy: power flows through arcane credentials, Council position, institutional control, and political cunning.
 
 The Synod controls access to the main city, regulates magical research, and maintains Kluimont's reputation as the continent's center of arcane advancement. Their symbol is an **eye within a gear**, representing observation and systematic study.
 
@@ -24,11 +24,11 @@ The ruling body of Kluimont, consisting of ten powerful mages who collectively g
 
 | Position | Current Holder | Notes |
 |----------|---------------|-------|
-| **High Archon** (1st Seat) | Lysanthe Kilmora | Leads the council, ultimate authority |
+| **High Archon** (1st Seat) | [[Character Lore/Modern Characters/High Archon Lysanthe Kilmora|Lysanthe Kilmora]] | Leads the council, ultimate authority |
 | **2nd Seat** | Unknown | - |
-| **3rd Seat** | Chris Meudec | Ambitious bureaucrat, techno-mage, owns Scrit familiar |
+| **3rd Seat** | [[Character Lore/Modern Characters/Chris Meudec|Chris Meudec]] | Arcane compliance, containment, and field audits |
 | **4th–7th Seats** | Various | Senior mages with specialized portfolios |
-| **8th Seat** | Vaelor Tinn | Shield and barrier specialist; Kluimont's delegate to the Kadena-Rye Summit (1225 C.C.) |
+| **8th Seat** | [[Character Lore/Modern Characters/Vaelor Tinn|Vaelor Tinn]] | Defensive wards and Kluimont's summit delegation |
 | **9th–10th Seats** | Various | Senior mages with specialized portfolios |
 
 ### Departments
@@ -43,21 +43,18 @@ The ruling body of Kluimont, consisting of ten powerful mages who collectively g
 As the three main kingdoms took shape after the Tharnic Empire's fall, the northwestern islands developed a unique culture centered on arcane research and maritime trade. The Synod formalized as powerful mages consolidated control, establishing the Council of Ten.
 
 ### The Dragon Pact (1101 C.C.)
-Around 1101 C.C., the Synod achieved something unprecedented—they captured and bound an **ancient brass dragon** named Bagi in the western old-growth forest. Using meteoric standing stones, clockwork timing rituals, and bound names, they turned the dragon into a living power source for their ward-grid. This "pact" (in truth, enslavement) dramatically increased Kluimont's magical capabilities.
+Around 1101 C.C., the Synod captured and bound [[Character Lore/Beasts & Creatures/Bagi the Brass Tempest|Bagi the Brass Tempest]] in [[Kingdoms/Kluimont/POI/Tempawa Forest|Tempawa Forest]]. Meteoric standing stones, clockwork timing rituals, and bound names turned the dragon into a living power source for the national ward-grid. The Synod calls the arrangement a pact; the surviving evidence describes enslavement.
 
 ### The Arcane Storm (1220 C.C.)
-Bagi never stopped working to free himself. Through patient draconic magic, he taught the very oaks and stones to mispronounce the binding names. When enough failures cascaded, an **arcane storm** ripped the sky above the western forest for three nights, scorching fields near Qrey and forcing evacuations. The Synod contained it, but the event revealed their secret to many.
+Bagi never stopped working to free himself. Through patient draconic magic, he taught oaks and stones to mispronounce the binding names. When enough failures cascaded, the **Storm of Unbound Chains** ripped the sky above the forest for three nights, threatened [[Kingdoms/Kluimont/Medium Cities/Qrey|Qrey]], and destroyed [[Kingdoms/Kluimont/Village/Lloy|Lloy]]. The Synod contained the immediate disaster but could no longer erase every rumour.
 
 ### Modern Era (1225 C.C.)
-The Synod maintains its grip on power, though internal factions debate the ethics and sustainability of the dragon binding. The Council has doubled containment efforts since the 1220 storm, but whispers persist that Bagi may yet break free.
+The Synod maintains its grip on power, though internal factions dispute the ethics, safety, and profitability of the dragon binding. Containment has intensified since 1220. Vaelor Tinn's appointment to the queens' summit shows that the Council is willing to engage abroad when Kluimont's security requires it.
 
 ## Policies
 
 ### Entry Restrictions
-Kluimont City is notoriously difficult to enter. Visitors require:
-- Official invitation from a Council member
-- Verified magical credentials
-- Or exceptional circumstances (and extensive screening)
+Ordinary visitors must first arrive through Qrey on a whitelisted vessel. Permission to dock does not grant permission to leave Qrey. Travel to [[Kingdoms/Kluimont/Capital/Kluimont City|Kluimont City]] requires a separate invitation, verified identity, and an authorised escort.
 
 ### Research Regulation
 All magical research must be registered with the Synod. Unregistered experiments are treated as crimes. This creates a black market for forbidden knowledge.
@@ -68,21 +65,27 @@ The Synod officially denies holding any dragon captive. Those who investigate to
 ## Key Figures
 
 ### High Archon Lysanthe Kilmora
-The ruler of Kluimont, a powerful mage whose specialty and age are matters of speculation. She maintains iron control over the Council while projecting an image of wisdom and restraint.
+[[Character Lore/Modern Characters/High Archon Lysanthe Kilmora|Lysanthe Kilmora]] is Kluimont's ruler and the Synod's first seat. She maintains control of the Council while presenting secrecy as national survival rather than personal ambition.
 
 ### Chris Meudec (3rd Seat)
-An ambitious bureaucrat who advanced by informing on colleagues. He studies the dragon binding with his hovering familiar Scrit, always looking for leverage to climb higher. Most find him insufferable; all find him useful.
+[[Character Lore/Modern Characters/Chris Meudec|Chris Meudec]] is an ambitious compliance official who advanced through audits, denunciations, and useful reports. He studies the binding with his hovering familiar [[Character Lore/Modern Characters/Scrit|Scrit]].
 
 ### Vaelor Tinn (8th Seat)
-A lean, quietly confident abjuration specialist who earned his Council seat unusually fast. His expertise is defensive ward architecture and barrier magic. He was named Kluimont's delegate to the **Kadena-Rye Summit** in 1225 C.C.—the first time Synod regulations ever permitted him to leave the island.
+[[Character Lore/Modern Characters/Vaelor Tinn|Vaelor Tinn]] is an abjuration specialist responsible for defensive architecture and summit security. His assignment to the Kadena-Rye summit required exceptional permission to leave the capital island.
 
 ## Relationships
 
-- **Braewood:** Cautious cooperation; trade agreements but mutual suspicion
-- **Islefield:** Commercial partnerships; Kluimont arcane goods for Islefield resources
-- **Lavalto:** Arms-length dealings; too many dark secrets on both sides
-- **The Wayfarers' Accord:** Professional relationship; some jobs are "off the books"
-- **Bagi the Brass Tempest:** Their prisoner and power source; the secret shame of Kluimont
+- **[[Kingdoms/Braewood/Braewood|Braewood]]:** Cautious trade and persistent military suspicion.
+- **[[Kingdoms/Islefield/Islefield|Islefield]]:** Commercial exchange mixed with maritime and border rivalry.
+- **[[Kingdoms/Lavalto/Lavalto|Lavalto]]:** Restricted trade between powers that conceal different kinds of dangerous knowledge.
+- **[[General Lore of Dayner/Organizations/The Wayfarers Accord|The Wayfarers' Accord]]:** Professional access to specialists, including work the Synod does not want publicly attached to itself.
+- **Bagi:** Prisoner, power source, and the institution's greatest political liability.
+
+## Related Lore
+
+- [[General Lore of Dayner/History/Historic Battles/Modern Conflicts|Modern Conflicts]]
+- [[General Lore of Dayner/Politics/Power & Disputes|Power and Disputes]]
+- [[General Lore of Dayner/Geography & Climate/Kluimont Geography|Kluimont Geography]]
 
 ## Notable Quote
 

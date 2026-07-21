@@ -1,93 +1,94 @@
-## 1. Big Picture: Inter-Kingdom Wealth
+# Wealth Distribution in Dayner
 
-2. **Islefield (Outright Richest)**
-    - **Abundant Resources**: Fertile farmland, vast fishing grounds, and dense forests (Shercam Woods) allow Islefield to export food, timber, and unique crafts.
-    - **Stable Trade**: Controls key bridges and shipping lanes. Its coastlines, well-maintained ports, and diplomatic ties make it the trade hub for the entire continent.
-    - **Elven Aristocracy**: Wealth is concentrated among ancient elven houses who have owned prime farmland for generations. However, human merchants and farmers can also ascend socially, reflecting Islefield’s generally stable (if somewhat classist) society.
-3. **Braewood (Large Economy, but Unequal)**
-    - **Size & Population**: Being the biggest kingdom, Braewood’s _total_ economic output rivals Islefield, but its wealth is _less concentrated._
-    - **Internal Disparities**: Many small towns and remote regions struggle, lacking robust trade networks. Wealthy nobility in central/southern Braewood can be extremely rich, but the north’s dwarven mines produce income that often remains in dwarven hands or is siphoned by the crown.
-    - **Military Focus**: A significant portion of Braewood’s resources goes to maintaining armies and fortifications. This reduces reinvestment in infrastructure, leading to stark divides between prosperous trade centers and poorer rural communities.
-4. **Kluimont (Modest but Arcane-Boosted)**
-    - **Arcane Investments**: Though smaller in overall GDP, Kluimont gains wealth from magical research, artifact creation, and specialized arcane services. These can fetch premium prices from neighboring kingdoms.
-    - **Trade & Smuggling**: Officially, trade with Kluimont is restricted, so black-market routes and discreet arcane item sales can yield hefty profits—but this wealth is concentrated in a small, secretive elite (the Arcane Synod, city leaders, etc.).
-    - **Monstrous Allies**: Goblin and orc enclaves contribute as laborers, scouts, and mercenaries, but they often remain on the lower rungs of the economic ladder. The monarchy uses them to keep certain industries (like mining or smuggling) cheap yet profitable.
-5. **Lavalto Isle (Small but Strategic)**
-    - **Volcanic Resources**: Rare minerals, geothermal energy, and exotic crops thrive in Lavalto’s volcanic soil. Darwaeton’s ruling vampires leverage these unique goods to maintain a profitable trade network despite the island’s small population.
-    - **Controlled Opulence**: The vampiric nobility are extremely wealthy, funneling trade profits into lavish palaces and secretive subterranean projects. The common folk range from moderately comfortable port workers to impoverished farmers forced into heavy “protection taxes.”
-    - **High-Risk, High-Reward**: Adventurers and foreign traders risk the rumored “blood rituals” and volcanic hazards, but if they survive, they can strike lucrative deals for precious raw materials.
+Dayner's wealth does not follow population alone. Islefield has the strongest average prosperity, Braewood produces the greatest volume of ordinary goods and military supply, Kluimont concentrates wealth in arcane and maritime elites, and Lavalto controls rare resources far beyond what its population would suggest.
 
----
+## Comparative Position
 
-## 2. Within Each Kingdom: Social Classes & Wealth Gaps
+| Realm | Economic Character | Main Sources of Wealth | Main Weakness |
+|---|---|---|---|
+| [[Kingdoms/Islefield/Islefield|Islefield]] | Richest per resident | Agriculture, timber, fishing, wards, tolls, luxury craft | Entrenched elven ownership and class barriers |
+| [[Kingdoms/Braewood/Braewood|Braewood]] | Largest broad economy | Farming, mining, metalwork, military contracts, internal trade | Military expenditure and severe regional inequality |
+| [[Kingdoms/Kluimont/Kluimont|Kluimont]] | Arcane and maritime economy | Enchanting, research, shipping, smuggling, specialised craft | Wealth concentrated around the Synod and major ports |
+| [[Kingdoms/Lavalto/Lavalto|Lavalto]] | Small but strategically valuable | Volcanic minerals, obsidian, reagents, rare plants, controlled trade | Dangerous terrain and coercive ruling households |
 
-### Islefield
+## Islefield
 
-- **Elven Upper Class**
-    - Old families control farmland, trade fleets, and timber rights. Because of long elven lifespans, ancestral wealth accumulates over centuries.
-    - The royal treasury benefits from consistent export taxes and bridging tolls, ensuring the monarch and high nobility live in near-constant luxury.
-- **Middle Tier (Humans, Some Elven Merchants)**
-    - Merchants, ship captains, and skilled artisans can achieve comfortable lives. Many major trade cities (Rye, Cheiling, Esterhull) have a thriving mercantile middle class.
-    - Cultural acceptance of commerce means humans have pathways to wealth, though they rarely match the oldest elven families.
-- **Lower Class**
-    - Primarily rural laborers, fishermen, or newly arrived migrants from Braewood or Kluimont. They’re not destitute—Islefield’s resources cushion them—but they lack security or significant upward mobility.
+Islefield's fertile land, managed forests, fisheries, and transport network give it the highest ordinary standard of living in Dayner. The kingdom can export food and timber while still supporting wealthy cities and large rural populations.
 
-### Braewood
+### Where Wealth Sits
 
-- **Royal & Noble Elite**
-    - The monarchy maintains vast estates along the main river and around the capital. Some families in Eaveton and Mortling Stronghold own valuable farmland or military supply contracts, generating steady income.
-    - Military-based nepotism can bring sudden wealth to families of successful generals or war heroes.
-- **Wealthy Dwarven Clans (Northern Braewood)**
-    - Control lucrative mines, forging operations, and precious metal trade. Their riches often stay within close-knit clans, causing friction with the royal court that periodically demands higher taxes or resource tributes.
-- **Town & City Middle Class**
-    - Merchants and artisans in southern/central cities can thrive, but they’re heavily taxed to fund the military. Some grow wealthy through well-placed bribes or royal connections, while others stagnate.
-- **Rural Poverty**
-    - Many homesteads in remote north or east see limited trade routes and face monster threats. People here might barter more than use coin, leading to pockets of extreme poverty.
+- Ancient elven houses control extensive estates, timber rights, shipping interests, and court offices. Long lifespans allow wealth and influence to accumulate for centuries.
+- [[Kingdoms/Islefield/Capital/Islefield City|Islefield City]] concentrates administration, finance, scholarship, and aristocratic consumption.
+- [[Kingdoms/Islefield/Large Cities/Rye|Rye]], [[Kingdoms/Islefield/Medium Cities/Antstel|Antstel]], and [[Kingdoms/Islefield/Town/Avinin|Avinin]] profit from the Grand Span trade and its supporting roads.
+- [[Kingdoms/Islefield/Medium Cities/Esterhull|Esterhull]] is the richest city per resident, but its wealth belongs to a small, invitation-only population of retired elites rather than a broad merchant class.
+- [[Kingdoms/Islefield/Medium Cities/Yhey|Yhey]] displays the kingdom's inequality most visibly: the elven Crescent holds capital and institutions while the mixed Basin performs much of the industrial work.
 
-### Kluimont
+Humans, half-elves, and other residents can become prosperous through trade and skilled work, but access to land, elite guilds, sacred institutions, and senior office remains unequal.
 
-- **Arcane Synod & High Archon Circle**
-    - Magical research and artifact sales bring in significant coin, though much is reinvested into hush-hush experiments. This small ruling class can quietly outbid Braewood or Islefield for rare ingredients because they _do_ have substantial vaults—just not broad-based wealth.
-- **City Elites & Smugglers**
-    - Eimgend’s port masters, Qrey’s harbor captains, and certain Rimdiff Isle pirate lords hold localized fortunes. They frequently cooperate via black-market deals, controlling exotic goods (alchemical reagents, contraband) that fetch high prices offshore.
-- **Common Folk & Monstrous Races**
-    - In Rimdiff Isles or the mainland, goblins, orcs, and humans survive through fishing, small-scale farming, or odd jobs. The kingdom’s secretive nature limits broad economic growth—wealth is very top-heavy.
+## Braewood
 
-### Lavalto Isle
+Braewood's size makes its total production comparable to Islefield's, but prosperity is distributed unevenly and a large share of revenue supports the army, roads, forts, and crown supply system.
 
-- **Vampiric Nobility**
-    - The ruling family and close associates live in opulence, bankrolled by **volcanic exports** (rare metals, gems) and heavy tariffs on passing ships. They quietly manipulate prices to keep themselves in power.
-- **Merchant Class in Darwaeton**
-    - Maintains shipping enterprises and arranges trade deals with Braewood, Islefield, and Kluimont. Some suspect they’re unwitting tools of the vampiric lords.
-    - Citizens can rise in wealth if they excel at negotiation or maintain loyalty to the vampire family.
-- **Rural Farmers & Town-dwellers**
-    - Forced to pay tribute (sometimes suspiciously “blood-tinted” taxes) to the Darwaeton seat. They see some benefits in the form of strong defenses, but official records rarely reveal how oppressive these tributes can be.
+### Where Wealth Sits
 
----
+- The Crown and noble estates control productive land around [[Kingdoms/Braewood/Capital/Braewood City|Braewood City]] and the main river corridors.
+- [[Kingdoms/Braewood/Large Cities/Eaveton|Eaveton]] and [[Kingdoms/Braewood/Large Cities/Mortling Stronghold|Mortling Stronghold]] benefit from administration, military contracts, logistics, and regional trade.
+- Northern dwarven clans retain substantial wealth through mines, smithing, and metal exports, creating recurring disputes over tax, autonomy, and ownership.
+- Trade towns can support strong middle classes, while remote farms, frontier settlements, and communities away from maintained roads may rely heavily on barter.
 
-## 3. Cross-Kingdom Economic Interactions
+Military service offers humans a common route to wages, status, and land, but it also directs public money away from civilian development.
 
-1. **Bridge Tolls & Maritime Tariffs**
-    - Islefield and Braewood each guard major bridges, collecting tolls for crossing. Islefield’s thoroughfares are more profitable (higher traffic, less fear of conflict). Kluimont also charges fees for any official passage to Qrey.
-2. **Arcane Commerce**
-    - Kluimont occasionally sells advanced magical devices or potions. Braewood purchases some for its military; Islefield invests in protective wards. These deals, however, are often **shrouded in secrecy** or brokered by traveling wizards.
-3. **Dwarven Exports**
-    - Northern Braewood dwarves trade **metals, crafted goods, and specialized weapons** to all realms. High-demand dwarven steel or magical runic items can fetch fortunes—unless Braewood’s monarchy imposes heavy taxes or export restrictions.
-4. **Lavalto’s Niche Market**
-    - Volcanic minerals, rare herbs, and possibly monstrous creature components (e.g., from lava elementals) flow out of Darwaeton. Despite the island’s small size, these niche exports command **premium prices** among alchemists, artificers, and aristocrats seeking novel luxuries.
-5. **Piracy & Smuggling**
-    - The Rimdiff Isles (Kluimont) and certain unscrupulous ports in Braewood or Islefield facilitate black-market trade. Contraband includes magical artifacts, stolen dwarven metals, or unholy reagents from Lavalto’s caverns.
-    - Such illicit routes widen wealth gaps: pirate captains and criminal kingpins can grow very rich while local coastal villages remain impoverished or extorted.
+## Kluimont
 
----
+Kluimont is governed by the [[General Lore of Dayner/Organizations/The Arcane Synod|Arcane Synod]], not a monarchy. Its economy is smaller than Braewood's or Islefield's but capable of producing extremely valuable magical goods and services.
 
-## 4. Class Dynamics & Adventure Hooks
+### Where Wealth Sits
 
-- **Social Strata**:
-    - In all kingdoms, **nobles/elites** command most wealth. Middle classes of merchants, artisans, and mages strive for advancement, while rural folks or monstrous enclaves face economic struggles.
-    - **Elves** in Islefield have centuries to build generational wealth. **Humans** in Braewood rely on the monarchy or military for opportunity. **Kluimont** fosters an arcane “academy aristocracy.” **Lavalto** is dominated by vampiric overlords.
-- **Potential Conflicts & Story Seeds**:
-    1. **Merchant Guild Rivalries**: Could a wealthy Islefield merchant attempt to undercut dwarven exports in Braewood, sparking trade wars?
-    2. **Rebellion or Reform**: Impoverished northern Braewood towns might rise up against heavy-handed taxes. Or monstrous enclaves in Kluimont demand fair wages for laborers.
-    3. **Secret Funding**: If a Braewood warlord sought to purchase advanced Kluimont arcane weaponry, who would finance it—and for what ends?
-    4. **Dark Deals**: Darwaeton’s vampiric rulers might bankroll smaller factions in other kingdoms to sow chaos, thus keeping attention off their island.
+- The Synod and senior academy families control research licences, arcane infrastructure, restricted materials, and state contracts.
+- [[Kingdoms/Kluimont/Large Cities/Eimgend|Eimgend]] holds naval, shipbuilding, academic, and export wealth.
+- [[Kingdoms/Kluimont/Medium Cities/Qrey|Qrey]] profits from controlling legal access to the capital island and is exceptionally wealthy for its size.
+- [[Kingdoms/Kluimont/Town/Tarora|Tarora]] and other Rimduff ports move stolen cargo, repairs, information, and unofficial trade.
+- Mainland communities such as [[Kingdoms/Kluimont/Medium Cities/Slonmore|Slonmore]] and [[Kingdoms/Kluimont/Town/Sord|Sord]] generate substantial traffic but receive less investment from the island government.
+
+Kluimont accepts orcs, goblins, and unusual ancestries more readily than its neighbours, yet acceptance does not guarantee equal wages or political power. Many still perform dangerous maritime, military, industrial, or illicit work beneath a small arcane elite.
+
+## Lavalto
+
+Lavalto's economy depends on scarcity. Obsidian, volcanic glass, sulfur, rare ores, mineral salts, unusual plants, and alchemical reagents command high prices abroad.
+
+### Where Wealth Sits
+
+- [[Kingdoms/Lavalto/Large Cities/Darwaeton|Darwaeton]] controls most legal foreign trade, warehousing, information brokerage, and island diplomacy.
+- [[Kingdoms/Lavalto/Medium Cities/Flison|Flison]] combines military contracts, quarrying, and restricted trade with Kluimont.
+- [[Kingdoms/Lavalto/Town/Agosron|Agosron]] possesses valuable mines and estates, but its wealth is almost entirely controlled by pureblood households.
+- Ordinary residents pay heavy levies and depend on powerful families for safety, work, and permission to trade.
+
+The island imports much of its grain, timber, cloth, livestock, and worked steel. This dependence limits its rulers even while rare exports give them diplomatic leverage.
+
+## Trade Between Realms
+
+### The Grand Span
+
+The [[Kingdoms/Braewood/POI/The Grand Span|Grand Span]] links Rye and Kadena. Tolls, inspections, lodging, and protected caravan movement make it one of Dayner's richest transport corridors.
+
+### Arcane Commerce
+
+Kluimont sells enchantments, reagents, ward components, and specialist services. Islefield purchases protective expertise; Braewood buys selected devices for military and infrastructure use. Many deals are licensed, but forbidden research supports a parallel black market.
+
+### Dwarven Metalwork
+
+Braewood's northern clans export ore, tools, weapons, armour, and runic craft. Crown restrictions and clan autonomy disputes can change prices across the continent.
+
+### Volcanic Goods
+
+Darwaeton and Flison export minerals, herbs, salts, glass, and heat-worked products. Foreign traders accept high risk because substitutes are rare.
+
+### Piracy and Smuggling
+
+The [[Kingdoms/Kluimont/POI/Rimduff Isles|Rimduff Isles]], Kluimont's mainland, and discreet foreign ports support contraband routes. Stolen artefacts, restricted reagents, forged documents, weapons, and untaxed luxury goods enrich captains and brokers while exposing small communities to extortion and naval retaliation.
+
+## Related Lore
+
+- [[General Lore of Dayner/Demographics/Population|Population of Dayner]]
+- [[General Lore of Dayner/Politics/Power & Disputes|Power and Disputes]]
+- [[General Lore of Dayner/Politics/Race|Peoples and Social Relations]]

@@ -1,72 +1,33 @@
 # Recovered Books and Tomes
 
-## Overview
-This file tracks books and written codices the party has acquired or been directly entrusted with, plus what is currently known from each.
+This index tracks written works recovered, carried, decrypted, or directly studied during the campaign. Each child note separates confirmed knowledge from questions that remain open.
 
----
+## Balthazar and the Threefold Way
 
-## 1. Balthazar's Book (The Chart of the Threefold Way)
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Chart of the Threefold Way|Chart of the Threefold Way]] - The star-charted codex recovered at Plalisle and later identified as a guide to three hidden powers.
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Ossian's Research Codex|Ossian's Research Codex]] - The manuscript that connects Gaia, Balthazar, Avethis, and the Threefold creations.
 
-| | |
-|---|---|
-| **Type** | Ancient arcane codex |
-| **Origin** | Recovered through early Balthazar vault events |
-| **Current Status** | In party custody (active long-term objective) |
+## Avethis and the Ossian Vault
 
-### What Is Confirmed
-- The book cannot be opened by ordinary means.
-- It opens only when submerged in water that has touched a magical artefact gifted by Balthazar.
-- The water must carry the magical "signature" of the relic.
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Tome of Avethis|Tome of Avethis]] - Old Elvish manuscript concerning the Eye, witness, and the cult's beliefs.
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Ossian's Journals|Ossian's Journals]] - Personal, ciphered, and working records recovered from multiple rooms in the vault.
 
-### Campaign Importance
-- Serves as a key to locating deeper Balthazar pathways.
-- Tied directly to the Chosen/relic architecture driving current summit-era conflict.
+## Personal and Political Texts
 
-### Unknowns (Still Not Decoded)
-- Full map/route payload inside the codex.
-- Whether it contains anti-vampiric or anti-infernal safeguards.
-- Whether multiple Chosen are required for later sections.
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Grimoire of Amplification|Grimoire of Amplification]] - Amdir's arcane reward from the Darwaeton mission.
+- [[General Lore of Dayner/History/Recovered Books and Tomes/Mirelle's Correspondence|Mirelle's Correspondence]] - Letters and directives tied to the summit, hidden artefacts, and competing factions.
 
----
+## Most Important Confirmed Revelations
 
-## 2. Grimoire of Amplification (Amdir's Gift)
+1. The Chart concerns three powers: a ring, a crown, and an amulet.
+2. Gaia made the Three and hid them so completely that even their maker lost exact knowledge of their locations.
+3. Gaia is the being now known as Balthazar.
+4. Gaia made the Eye as a companion and watcher; Ossian identifies that Eye as Avethis.
+5. Records concerning Gaia may survive beneath Islefield in a sealed lower archive.
 
-| | |
-|---|---|
-| **Type** | Personal arcane grimoire |
-| **Received** | Liora's reward package |
-| **Bearer** | Amdir |
+## Related Lore
 
-### What Is Confirmed
-- Functions as an arcane focus.
-- Grants a once-per-day amplification effect for a spell (double damage/healing trigger).
-
-### What Is Not Yet Cataloged In-World
-- Original author or school signature.
-- Whether the amplification is stable or carries long-term side effects.
-- Whether hidden pages/wards are present.
-
----
-
-## 3. Mirelle's Written Network (Letters, Not a Bound Book)
-
-| | |
-|---|---|
-| **Type** | Covert correspondence |
-| **Current Role** | Strategic intelligence pressure around summit timing |
-
-### What Is Confirmed
-- Messages indicate factions racing to secure key knowledge before the summit.
-- References to "the book" and location-fountain strategy suggest active parallel operations.
-
-### Notes
-- These are letters and directives, not a single tome, but they function as a living record of covert intent.
-
----
-
-## DM Tracking Hook
-If you want to reveal more content gradually, unlock one new "book truth" per major milestone:
-
-1. Successful ritual or relic interaction
-2. Major boss defeat tied to Lavalto
-3. Trusted high-level arcane consultation
+- [[Character Lore/Historic Characters/Balthazar The Great Wizard|Balthazar the Great Wizard]]
+- [[Character Lore/Historic Characters/Valdrek Ossian|Valdrek Ossian]]
+- [[General Lore of Dayner/Religion/Gods of Dayner/Avethis|Avethis]]
+- [[General Lore of Dayner/History/Recent History|Recent History]]

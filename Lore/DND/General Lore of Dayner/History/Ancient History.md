@@ -1,4 +1,6 @@
-## 1. The Old Empire & Dwarven Enslavement (650–710 C.C.)
+# Ancient History of Dayner
+
+## 1. The Old Empire and Dwarven Enslavement (650-710 C.C.)
 
 - **650 C.C.**: A monolithic power—often referred to as the **Tharnic Empire**—dominates much of the continent, long before Kluimont, Islefield, and Braewood existed as separate realms.
     - The Tharnic Empire rules from a central seat (near modern Braewood territory) and enforces tribute from outlying territories.
@@ -13,7 +15,7 @@
 ## 2. The War of the Sundered Chains (710–730 C.C.)
 
 - **710–712 C.C.: The Breaking Point**
-    - A charismatic dwarven leader, **High Thane Broldir Flameforged**, unites multiple dwarven clans scattered throughout the empire’s northern mines.
+    - A charismatic dwarven leader, [[Character Lore/Historic Characters/High Thane Broldir Flameforged|High Thane Broldir Flameforged]], unites multiple dwarven clans scattered throughout the empire's northern mines.
     - Secret alliances form with oppressed human villages, fey enclaves in the west, and certain elven houses who despise the empire’s cruelty.
     - The movement is called the **Sundered Chain Rebellion**, echoing dwarves literally breaking their shackles.
 - **715 C.C.: Major Uprisings**
@@ -21,7 +23,7 @@
     - Simultaneous revolts erupt across multiple territories—some farmland communities refuse to pay taxes, while coastal ports blockade shipments to the imperial heartland.
 - **720–730 C.C.: War Ravages the Continent**
     - The empire’s armies attempt a grand offensive to crush dwarven strongholds. However, the dwarves (bolstered by new allies) hold strategic mountain passes.
-    - An alliance of **human, elven, dwarven, and orcish** forces draws out the conflict, eventually fracturing the Tharnic Empire from within.
+    - An alliance of **human, elven, dwarven, and orcish** forces draws out the conflict, eventually fracturing the Tharnic Empire from within. Detailed battles are recorded in [[General Lore of Dayner/History/Historic Battles/War of the Sundered Chains|War of the Sundered Chains]].
     - By **730 C.C.**, the empire effectively **collapses**. Many of its provincial lords either declare independence or are ousted by local uprisings.
 
 ---
@@ -42,14 +44,14 @@
 
 - **760–800 C.C.: Islefield Consolidation**
     - Elven families in the fertile south unite smaller fiefs that survived the famine relatively intact (thanks to well-managed farmland and druidic support).
-    - Over ~40 years, they bring stability to coastal trade and form the embryonic **Islefield** monarchy, which quickly grows wealthy by reviving commerce.
+    - Over roughly forty years, they bring stability to coastal trade and form the embryonic [[Kingdoms/Islefield/Islefield|Islefield]] monarchy, which quickly grows wealthy by reviving commerce.
 - **780–840 C.C.: Seeds of Braewood**
     - A powerful human warlord lineage—the Braeden family—establishes a large domain in the eastern heartland.
     - They negotiate alliances with dwarven clans, trading protection for consistent metal supplies.
-    - Over time, this domain becomes **Braewood**, recognized for its expanding farmland, strong military tradition, and the largest human population.
+    - Over time, this domain becomes [[Kingdoms/Braewood/Braewood|Braewood]], recognised for its expanding farmland, strong military tradition, and the largest human population.
 - **800–900 C.C.: Formation of Kluimont**
     - Western coastal and island enclaves, initially chaotic, begin uniting under **arcane** or maritime leaders.
-    - **Kluimont** emerges after a string of pirate lords and wizard-scholar councils discover that forging a single kingdom can better secure trade lanes.
+    - [[Kingdoms/Kluimont/Kluimont|Kluimont]] emerges after a string of pirate lords and wizard-scholar councils discover that a shared kingdom can better secure trade lanes.
     - Rumors persist that dwarven or orcish help was crucial in establishing early Kluimont. Possibly dwarves from the War of the Sundered Chains sought new frontiers there, or orcish communities found acceptance.
 
 ---
@@ -76,3 +78,9 @@ By **975 C.C.**, the foundation for the three kingdoms is largely set:
 - **Islefield** is an elven-led, resource-rich domain on relatively good terms with neighbors (so long as trade remains profitable).
 - **Kluimont** is forging its own path, mixing arcane research with maritime ambitions.
 - The old empire’s memory lingers mostly in **ruined keeps**, dusty tomes, and dwarven songs of liberation—though a small subset of scholars still wonder if any remnants of that tyranny survive, perhaps hidden in ancient fortresses or within vampiric circles on Lavalto Isle.
+
+## Related Lore
+
+- [[General Lore of Dayner/History/Historic Battles|Historic Battles of Dayner]]
+- [[General Lore of Dayner/History/Recent History|Recent History]]
+- [[General Lore of Dayner/Politics/Race|Peoples and Social Relations]]

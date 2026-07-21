@@ -1,22 +1,47 @@
+# Geography and Climate of Dayner
 
-## Geographical Overview
-- **Geographical Shape & Size:**
-    - The Dayner continent stretches roughly **1,040 miles** from the far north (where Kluimont’s island sits.) down to the southern coasts of Islefield. From east to west (Braewood’s heartland to the ocean beyond Kluimont), it spans about **900 miles*.
+Dayner consists of a broad mainland, a northwestern island chain, and the volcanic island of Lavalto within the Great Lavalto Lake. Historical estimates place the mapped region at roughly **1,040 miles north to south** and **900 miles east to west**, though distances vary between crown surveys and modern road measurements.
 
-- **Geographic Highlights:**
-    - **Braewood**: Eastern mainland region, politically powerful and home to the capital city of the entire continent.
-    - **Islefield**: Southern stretches with a coastal flair, typically milder climate and robust trade routes.
-    - **Kluimont**: Island off the northwestern coast, somewhat isolated.
-    - **Volcanic Isle**: A striking landmass in the center of the surrounding seas, featuring an active volcano and a handful of independent towns or villages.
+There is no single continental capital. [[Kingdoms/Braewood/Capital/Braewood City|Braewood City]] is the largest political and military seat, but Islefield and Kluimont recognise only their own governments.
 
-- **Three Large Kingdoms**:
-    1. **Braewood Kingdom** (capital on the east side; also referred to as the capital of the entire country)
-    2. **Islefield Kingdom** (occupies the southern mainland/coastline)
-    3. **Kluimont Kingdom** (on the large island in the northwestern seas)
+## The Four Realms
 
-- **Independent Volcanic Isle**:
-    - A separate, unofficial territory featuring settlements that do not pledge direct fealty to any of the three major kingdoms. Often a hotbed of trade, piracy, and expeditions into the volcanic interior.
+### [[General Lore of Dayner/Geography & Climate/Braewood Geography Reference|Braewood]]
 
-## Climate Overview
-**Overall Climate**: 
-- The entire region is **warm**, with coastal breezes and a variety of microclimates—from the lush southern plains of Islefield to the desert-like northern Braewood and breezy islands of Kluimont.
+Braewood occupies the eastern and central mainland. Its great river systems support cities and trade, while the north becomes drier, rockier, and more strongly associated with dwarven settlement. Southern Braewood is warmer and more fertile.
+
+### [[General Lore of Dayner/Geography & Climate/Islefield Geography|Islefield]]
+
+Islefield covers much of the southern and southwestern mainland. Fertile plains, humid coasts, broad rivers, sacred forests, and the dry [[Kingdoms/Islefield/POI/Iroware Heights|Iroware Heights]] create the sharpest environmental contrasts in the region.
+
+### [[General Lore of Dayner/Geography & Climate/Kluimont Geography|Kluimont]]
+
+Kluimont includes a guarded capital island, the [[Kingdoms/Kluimont/POI/Rimduff Isles|Rimduff Isles]], and a strip of northwestern mainland. Its climate is warm and maritime, but each island has its own reefs, forests, currents, and local weather.
+
+### [[General Lore of Dayner/Geography & Climate/Lavalto Geography|Lavalto]]
+
+Lavalto is an independent volcanic island dominated by the [[Kingdoms/Lavalto/POI/Lavalto Volcano|Lavalto Volcano]]. Settlements occupy dangerous coastal ground around the massif and trade across the surrounding lake.
+
+## Climate Pattern
+
+Dayner is warm overall, with major regional variation:
+
+- **Humid south and southwest:** Islefield's coasts, plains, forests, and riverlands receive regular rain.
+- **Dry highlands:** The Iroware Heights create desert and rain-shadow conditions in northern Islefield.
+- **Eastern mainland:** Braewood ranges from fertile warm southern land to dry hills, exposed northern coasts, and colder uplands.
+- **Northwestern islands:** Kluimont is moderated by sea wind, rain, and fast-changing maritime weather.
+- **Volcanic centre:** Lavalto is humid, ash-prone, geothermally active, and subject to tremors, eruptions, and sudden mudflows.
+
+## Major Geographic Systems
+
+- **The Great Lavalto Lake:** Central ring of navigable water around Lavalto, touching the shores and trade interests of the three kingdoms.
+- **The Grand Span:** The immense bridge linking [[Kingdoms/Braewood/Medium City/Kadena|Kadena]] and [[Kingdoms/Islefield/Large Cities/Rye|Rye]].
+- **The Rimduff Channels:** Reef-filled waters connecting Kluimont's islands, patrol routes, fishing grounds, and pirate harbours.
+- **The Iroware Heights:** A vast highland and desert region also called the Ironwarf Heights in local and military records.
+- **Shercam and the Kingfisher Grove:** Islefield's two great magical woodland systems, important to elven birth, sacred tradition, and protective wardcraft.
+
+## Travel
+
+Road and river travel dominate the mainland. Sea routes are essential around Kluimont and Lavalto. Distances between major settlements mean local governments maintain their own stores, patrols, and emergency plans even within stable kingdoms.
+
+Maps show political control more cleanly than the land itself. Border cities such as [[Kingdoms/Islefield/Medium Cities/Yhey|Yhey]], [[Kingdoms/Kluimont/Medium Cities/Slonmore|Slonmore]], and the Grand Span exist because rivers, passes, and trade routes matter more than neat lines.
