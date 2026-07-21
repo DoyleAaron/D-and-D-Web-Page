@@ -63,18 +63,80 @@ When he hits with a melee attack, he can expend a spell slot to deal bonus radia
 Pool of **50 HP** (healing). Can use as action: touch to heal any amount from pool, or expend 5 to cure disease/poison.
 
 ### Spellcasting
-**Spell Save DC:** 16 | **Spell Attack:** +8  
-**Slots:** 1st ×4, 2nd ×3, 3rd ×2
+**Spell Save DC:** 16 | **Spell Attack:** +8
 
-| Level | Spells |
-|-------|--------|
-| 1st | *Bless, Command, Shield of Faith, Compelled Duel* |
-| 2nd | *Hold Person, Misty Step, Warding Bond* |
-| 3rd | *Aura of Vitality, Fear, Dispel Magic* |
+**Spell Slots:**
+| Level | Slots | Slots Remaining (track here) |
+|-------|-------|-------------------------------|
+| 1st | 4 | ☐ ☐ ☐  |
+| 2nd | 3 | ☐ ☐ ☐ |
+| 3rd | 2 | ☐ ☐ |
 
-**Oath of the Crown spells (always prepared):**
-- 1st: *Command, Compelled Duel*
-- 2nd: *Hold Person, Warding Bond*
+*Note: Divine Smite consumes spell slots. Each smite in combat will drain from this pool.*
+
+---
+
+**Oath of the Crown spells (always prepared, do not count against prepared limit):**
+
+#### Command *(1st level — Oath spell)*
+**Casting Time:** 1 action | **Range:** 60 ft | **Duration:** 1 round | **Cost:** 1st-level slot  
+One creature that can hear and understand you must succeed a **DC 16 WIS save** or obey a one-word command on their next turn. No concentration.  
+Common commands: *Halt* (spend movement, no actions), *Flee* (move away), *Grovel* (fall prone), *Drop* (drop held item).  
+**Upcast:** Each additional slot level targets one additional creature.  
+*Use: Control without killing. Forces targets into disadvantageous positions.*
+
+#### Compelled Duel *(1st level — Oath spell)*
+**Casting Time:** 1 bonus action | **Range:** 30 ft | **Duration:** 1 minute (concentration) | **Cost:** 1st-level slot  
+One creature must succeed a **DC 16 WIS save** or be drawn into a duel. While active: the target has disadvantage on attack rolls against anyone other than Aleth, and must make a DC 16 WIS save to willingly move more than 30 ft away from him.  
+*Use: Locks a dangerous melee attacker onto Aleth and away from Tharion. His most-used opener.*
+
+#### Hold Person *(2nd level — Oath spell)*
+**Casting Time:** 1 action | **Range:** 60 ft | **Duration:** 1 minute (concentration) | **Cost:** 2nd-level slot  
+One humanoid must succeed a **DC 16 WIS save** or be **Paralyzed**. Can repeat the save at end of each turn. While paralyzed: cannot move or speak, automatically fails STR and DEX saves, attack rolls against them have advantage, melee hits within 5 ft are automatic critical hits.  
+**Upcast:** Each additional slot level targets one additional humanoid.  
+*Use: Hard shutdown on a single human/elf/etc. threat. Melee followup with Divine Smite on a paralyzed target is devastating — auto-crit doubles smite dice.*
+
+#### Warding Bond *(2nd level — Oath spell)*
+**Casting Time:** 1 action | **Range:** Touch | **Duration:** 1 hour | **Cost:** 2nd-level slot  
+Aleth touches a willing creature. For the duration: target gains +1 AC and +1 to all saves, and resistance to all damage. Whenever the target takes damage, Aleth takes the same amount (no resistance applies to his share).  
+*Use: Almost certainly cast on Tharion before entering any dangerous area. Aleth absorbs half of all damage Tharion takes. He considers this part of the job.*
+
+---
+
+**Additional Prepared Spells:**
+
+#### Bless *(1st level)*
+**Casting Time:** 1 action | **Range:** 30 ft | **Duration:** 1 minute (concentration) | **Cost:** 1st-level slot  
+Up to 3 creatures of choice add **1d4** to every attack roll and saving throw for the duration.  
+**Upcast:** Each additional slot level targets one additional creature.  
+*Use: Strong opener if combat is expected. +1d4 to attacks and saves across three allies is significant action economy.*
+
+#### Shield of Faith *(1st level)*
+**Casting Time:** 1 bonus action | **Range:** 60 ft | **Duration:** 10 minutes (concentration) | **Cost:** 1st-level slot  
+One creature gains **+2 AC** for the duration.  
+*Use: Cast on Tharion if he's being targeted directly. Stacks with existing AC.*
+
+#### Misty Step *(2nd level)*
+**Casting Time:** 1 bonus action | **Range:** Self | **Duration:** Instant | **Cost:** 2nd-level slot  
+Teleport up to **30 ft** to an unoccupied space Aleth can see. No opportunity attacks triggered.  
+*Use: Close distance to a retreating caster, reposition to protect Tharion, escape a grapple.*
+
+#### Aura of Vitality *(3rd level)*
+**Casting Time:** 1 action | **Range:** Self (30 ft aura) | **Duration:** 1 minute (concentration) | **Cost:** 3rd-level slot  
+For the duration, Aleth can use a bonus action each turn to heal one creature within 30 ft for **2d6 HP**.  
+*Use: Sustained healing across a long fight. Can keep Tharion and the party up without burning Lay on Hands.*
+
+#### Fear *(3rd level)*
+**Casting Time:** 1 action | **Range:** Self (30 ft cone) | **Duration:** 1 minute (concentration) | **Cost:** 3rd-level slot  
+All creatures in a 30 ft cone must succeed a **DC 16 WIS save** or become **Frightened** and must use their movement to flee Aleth on each turn. Can repeat save at end of each turn.  
+*Note: Friendly creatures in the cone are also affected. Use carefully in mixed space.*  
+*Use: Clears a corridor. Buys Tharion escape time. Aleth will not use this unless he has determined there is no other option — it's not a controlled tool.*
+
+#### Dispel Magic *(3rd level)*
+**Casting Time:** 1 action | **Range:** 120 ft | **Duration:** Instant | **Cost:** 3rd-level slot  
+Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends automatically. For spells of 4th level or higher, make an ability check: **1d20 + 4** vs. **DC 10 + spell level**.  
+**Upcast:** If cast with a higher slot, automatically ends spells of that level or lower.  
+*Use: Counter active magical effects — Darkness, ongoing enchantments, summoned barriers. Aleth knows to prioritise concentration spells.*
 
 ### Channel Divinity (1/rest)
 - **Champion Challenge:** Each creature of choice within 30 ft must succeed DC 16 CHA save or cannot willingly leave Aleth's presence for 1 minute.
@@ -87,11 +149,17 @@ For 1 minute: longsword attacks count as magical, +4 to attack rolls, sheds brig
 
 ## Actions
 
-### Longsword
-**+9 to hit** | 1d8+5 slashing (or 1d10+5 versatile)
+### Elven Longsword
+*Islefield royal commission blade — straight, narrow fuller, silver-grey steel with a kingfisher etched into the ricasso. Elvish script along the flat reads "hold until none remain." The grip is wrapped in deep blue cord, worn smooth at the thumb-rest.*
 
-### Longsword + Divine Smite (Level 1 slot)
+Standard longsword, non-magical (unless Sacred Weapon is active).  
+**+9 to hit** | 1d8+5 slashing (one-handed) | 1d10+5 slashing (versatile, two-handed)
+
+### Elven Longsword + Divine Smite (1st-level slot)
 **+9 to hit** | 1d8+5 + 2d8 radiant
+
+### Elven Longsword + Divine Smite (2nd-level slot)
+**+9 to hit** | 1d8+5 + 3d8 radiant
 
 ### Shield Bash (Bonus Action)
 **+9 to hit** | 1d4+5 bludgeoning | Target DC 15 STR save or knocked prone

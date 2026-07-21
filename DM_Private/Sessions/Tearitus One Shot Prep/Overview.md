@@ -38,8 +38,8 @@
 | 6 | Feb 20 | **Meet Rami and Alora** — caught trying to rob the same mark. Mutual respect. Team up |
 | 7 | Feb 20 (night) | **Campfire scene.** Tearitus tells them about his vampire fear. Rami and Alora reveal their parents were killed by vampires. The seed is planted |
 | 8 | Feb 21 | **Gathering supplies.** Holy water, silver weapons, stakes. Preparing for a vampire hunt |
-| 9 | Feb 22 | **Infiltrate Lavalto Volcano.** Sneak past the house where Liora was captured. Enter the lair. The ambush. Tearitus is turned |
-| 10 | Feb 22 (night) | Tearitus is in the dungeons. A traitor guard (working for Adrian & Liora) lets him escape back into Darewaeton |
+| 9 | Feb 22 | **Infiltrate Lavalto Volcano.** Sneak past the house where Miren was captured. Enter the lair. The ambush. Tearitus is turned |
+| 10 | Feb 22 (night) | Tearitus is in the dungeons. A traitor guard (working for Adrian & Miren) lets him escape back into Darewaeton |
 
 > **Result:** Tearitus is now a partially-turned vampire loose in Darewaeton on the same night the main party is hunting the Spehlina on the lake. The timelines converge.
 
@@ -86,7 +86,7 @@
 **Scene 5: Approach**
 - The four sneak up the volcanic slopes toward the manor
 - **Stealth checks** (DC 14) to avoid patrols of regular vampires
-- They pass the estate house where Liora was being held — through a window, they **witness the capture happening in real time** (Liora being dragged into the building by vampire guards)
+- They pass the estate house where Miren was being held — through a window, they **witness the capture happening in real time** (Miren being dragged into the building by vampire guards)
   - This is a glimpse only — they cannot intervene without being overwhelmed
   - It establishes the stakes
 
@@ -148,17 +148,17 @@
 **Scene 8: The Interruption**
 - A vampire guard bursts in:
 
-> *"My Lord! The prisoner — Liora — she's been taken! The outsiders from Dawerton, they—"*
+> *"My Lord! The prisoner — Miren — she's been taken! The outsiders from Dawerton, they—"*
 
 - Maltrius snarls. He drops Tearitus
 - **"Throw him in the cells. I'll finish him later."**
-- The purebloods scatter to deal with the crisis *(this is when the main party rescued Liora)*
+- The purebloods scatter to deal with the crisis *(this is when the main party rescued Miren)*
 
 **Scene 9: The Escape**
 - Tearitus wakes in a dungeon cell, chained. He feels... wrong. His veins burn. His teeth ache
 - A guard approaches — not hostile. Speaks quietly:
 
-> *"I serve Lord Adrian and Lady Liora. Not this madman. There's a passage behind the third stone on the left wall. It leads to the sewers beneath Darewaeton. Go. Now. Before the others return."*
+> *"I serve Lord Adrian and Lady Miren. Not this madman. There's a passage behind the third stone on the left wall. It leads to the sewers beneath Darewaeton. Go. Now. Before the others return."*
 
 - The guard unlocks his chains and walks away
 - Tearitus escapes into the night — but he has **turned**

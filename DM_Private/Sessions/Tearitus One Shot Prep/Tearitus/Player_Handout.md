@@ -7,7 +7,7 @@
 
 Father Maltrius bit you in the lair beneath Lavalto Volcano. He was interrupted before the turning was complete. You are not fully a vampire — but you are not fully human anymore either.
 
-A guard working for Lord Adrian and Liora let you escape. Before you left, you were given a ring.
+A guard working for Lord Adrian and Miren let you escape. Before you left, you were given a ring.
 
 ---
 

@@ -8,7 +8,7 @@ Tearitus was bitten by Father Maltrius but the turning was **interrupted** befor
 
 ## The Daylight Ring
 
-*Given to Tearitus by Liora after his escape — delivered via the traitor guard or in a later meeting.*
+*Given to Tearitus by Miren after his escape — delivered via the traitor guard or in a later meeting.*
 
 **Daylight Ring (Attunement Required)**
 - While equipped: Tearitus can walk in sunlight without taking damage

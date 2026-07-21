@@ -15,7 +15,7 @@
 | [Ghouls](Dungeon/Ghouls.md) | Room K — 2 ghouls, paralysis, full saves |
 | [Gargoyles](Dungeon/Gargoyles.md) | Rooms B & J — 2 gargoyles, full saves |
 | [Weeping Angels](Dungeon/Weeping_Angels.md) | Room P approach — 2 angels, full saves |
-| [Avethis — The Eye God](Lore_Avethis.md) | God lore, pedestal interaction, Varin event |
+| [Avethis — The Eye God](Lore_Avethis.md) | God lore, the Sight (Room 17), Varin event |
 | [Town: Yhey](Towns/Yhey.md) | Border megacity, Kluimont/Islefield |
 | [Town: Resross](Towns/Resross.md) | Prison town near Ironwarf Heights |
 | [Town: Sable](Towns/Sable.md) | Elven haven, gateway to Sable Woods |
@@ -209,6 +209,22 @@ Maltrius uses a *Sending* spell. Amdir hears a voice in his mind — not a god, 
 - The **April 23rd summit** is a convergence point Bahamut cannot see past — ominous signal
 
 **DM Note:** Varin now knows the exact same shape of the threat as Morjor, via completely different divine channels. Whether they compare notes is up to the players. Neither knows about Amdir's Maltrius message.
+
+**Aegis of the Platinum Scale — Mechanics (DM Reference):**
+
+- **Open Channel:** Any prayer, question, or request Varin speaks aloud (or silently intends as a prayer) is immediately heard by Bahamut. No roll needed. Bahamut may not always respond visibly, but he always hears. Varin will often receive a faint warmth in the arm as acknowledgement — brief, deliberate, unmistakeable.
+- **Call Upon Bahamut (Severe Circumstances):** Varin can invoke Bahamut's direct intervention. This draws on the divine charges stored in his draconic arm.
+
+| Severity | What Varin Can Ask For | Arm Charge Cost |
+|----------|------------------------|-----------------|
+| **Minor** | A subtle sign, a moment of calm, a brief impression of guidance | 0 — Bahamut responds through the channel naturally |
+| **Moderate** | Bolstering in combat, a divine shield absorbing one hit, advantage on a saving throw | 1 charge |
+| **Severe** | Protection from a killing blow (drop to 1 HP instead of 0), smite a creature of great evil, turn undead area-wide | 3 charges |
+| **Crisis** | Direct divine manifestation — Bahamut's presence is felt by everyone in the area; one miracle-scale effect | 5 charges |
+
+- After each invocation above Minor, the arm grows noticeably warmer and the scales creep slightly further than before.
+- **Bahamut can also act unasked** — in moments of extreme moral weight (Varin is about to die for another, or a great evil is about to win), the arm may pulse and act without Varin calling for it. This still costs charges.
+- Charge total is still 10. The arm still tracks as before — each use is visible in the dimming platinum scale-runes along the forearm.
 
 ---
 

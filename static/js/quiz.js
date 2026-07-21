@@ -33,7 +33,12 @@ const QuizModule = (function() {
         'Fleet-Captain Isolde Merrick.md', 'Fenris Thorne.md', 'Aelindra Mistwalker.md',
         'Serath Valen.md', 'Kira Stoneheart.md', 'Hestia Vael.md', 'Elder Maeven Shawl.md',
         'Harbormaster Edric Salthollow.md', 'Father-Commander Aldous Valorian.md', 'High Archon Lysanthe Kilmora.md',
-        'Chris Meudec.md', 'Scrit.md'
+        'Chris Meudec.md', 'Scrit.md',
+        'Brell Hammerstone.md', 'Brother Aldwin Oathheart.md', 'Captain Harlan Dusk.md',
+        'Commander Aleth Varne.md', 'Donaer Thess.md', 'Dorek Ashfall.md', 'Edric Voss.md',
+        'Father Edric Ironvow.md', 'Fiora Dawnpetal.md', 'Grint Copperhand.md',
+        'Mother Thessaly Brightwater.md', 'Rekka Redtooth.md', 'Selen Vareth.md',
+        'Seyla Vane.md', 'Sister Maren Tidecaller.md', 'Tharion Aelindre.md', 'Welan Orvath.md'
       ]
     },
     historicCharacters: {
@@ -43,13 +48,16 @@ const QuizModule = (function() {
         'General Arach Tharne.md', 'General Yon Garathorn.md', 'Grand Inquisitor Pellaro.md',
         'High Thane Broldir Flameforged.md', 'Imperial Warmaster Dravarian.md',
         'Legate Sienna Valtoris.md', 'Pirate Queen Aris Steel-Eye.md',
-        'Princess Araleth Oakheath.md', 'Sea Lord Helmar Lynth.md'
+        'Princess Araleth Oakheath.md', 'Sea Lord Helmar Lynth.md', 'Valdrek Ossian.md'
       ]
     },
     beastsCreatures: {
       basePath: 'Character Lore/Beasts & Creatures/',
       files: [
-        'Bagi the Brass Tempest.md', 'The Spehlina.md'
+        'Amethyst Golem.md', 'Bagi the Brass Tempest.md', 'Blue Fire Golem.md',
+        'Elven Tree Golem.md', 'Eye Golem.md', 'Lava Golem.md', 'Sandmaw.md',
+        'The Spehlina.md', 'Vasskren the Undying Sentinel.md', 'Volcanic Screecher.md',
+        'Weeping Angel.md', 'Wrought-Iron House Golem.md'
       ]
     },
     kingdoms: {
@@ -107,13 +115,24 @@ const QuizModule = (function() {
     { name: 'Legate Sienna Valtoris', race: 'Human', faction: 'Tharnic Empire', role: 'Fortress commander', era: '715 C.C.', path: 'Character Lore/Historic Characters/Legate Sienna Valtoris.md' },
     { name: 'Princess Araleth Oakheath', race: 'Elf', faction: 'Allied Coalition', role: 'Elven envoy', era: '690-770 C.C.', path: 'Character Lore/Historic Characters/Princess Araleth Oakheath.md' },
     { name: 'Sea Lord Helmar Lynth', race: 'Human', faction: 'Kluimont', role: 'Naval commander', era: '770-830 C.C.', path: 'Character Lore/Historic Characters/Sea Lord Helmar Lynth.md' },
-    { name: 'Pirate Queen Aris Steel-Eye', race: 'Human', faction: 'Reef Confederacy', role: 'Pirate leader', era: '~802 C.C.', path: 'Character Lore/Historic Characters/Pirate Queen Aris Steel-Eye.md' }
+    { name: 'Pirate Queen Aris Steel-Eye', race: 'Human', faction: 'Reef Confederacy', role: 'Pirate leader', era: '~802 C.C.', path: 'Character Lore/Historic Characters/Pirate Queen Aris Steel-Eye.md' },
+    { name: 'Valdrek Ossian', race: 'Human (Undead)', faction: 'Cult of Avethis', role: 'Vault creator and cultist', era: 'Modern history', path: 'Character Lore/Historic Characters/Valdrek Ossian.md' }
   ];
 
   // Beasts and Creatures
   const BEASTS_CREATURES = [
-    { name: 'Bagi the Brass Tempest', race: 'Brass Dragon', faction: 'Kluimont (Bound)', role: 'Ancient Guardian', era: '~1200 years old', path: 'Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md' },
-    { name: 'The Spehlina', race: 'Corrupted Elemental', faction: 'Lavalto Lake', role: 'Lake Monster', era: 'Ancient (corrupted ~40 years ago)', path: 'Character Lore/Beasts & Creatures/The Spehlina.md' }
+    { name: 'Amethyst Golem', type: 'Psionic Construct', role: 'Vault guardian', path: 'Character Lore/Beasts & Creatures/Amethyst Golem.md' },
+    { name: 'Bagi the Brass Tempest', type: 'Brass Dragon', role: 'Ancient guardian', path: 'Character Lore/Beasts & Creatures/Bagi the Brass Tempest.md' },
+    { name: 'Blue Fire Golem', type: 'Elemental Construct', role: 'Vault guardian', path: 'Character Lore/Beasts & Creatures/Blue Fire Golem.md' },
+    { name: 'Elven Tree Golem', type: 'Construct', role: 'Vault guardian', path: 'Character Lore/Beasts & Creatures/Elven Tree Golem.md' },
+    { name: 'Eye Golem', type: 'Arcane Construct', role: 'Watcher and vault guardian', path: 'Character Lore/Beasts & Creatures/Eye Golem.md' },
+    { name: 'Lava Golem', type: 'Infernal Construct', role: 'Blackthorn House guardian', path: 'Character Lore/Beasts & Creatures/Lava Golem.md' },
+    { name: 'Sandmaw', type: 'Monstrosity', role: 'Desert predator', path: 'Character Lore/Beasts & Creatures/Sandmaw.md' },
+    { name: 'The Spehlina', type: 'Corrupted Elemental', role: 'Ancient lake guardian', path: 'Character Lore/Beasts & Creatures/The Spehlina.md' },
+    { name: 'Vasskren the Undying Sentinel', type: 'Undead Guardian', role: 'Final vault sentinel', path: 'Character Lore/Beasts & Creatures/Vasskren the Undying Sentinel.md' },
+    { name: 'Volcanic Screecher', type: 'Monstrosity', role: 'Volcanic predator', path: 'Character Lore/Beasts & Creatures/Volcanic Screecher.md' },
+    { name: 'Weeping Angel', type: 'Necromantic Construct', role: 'Corridor guardian', path: 'Character Lore/Beasts & Creatures/Weeping Angel.md' },
+    { name: 'Wrought-Iron House Golem', type: 'Construct', role: 'Blackthorn House guardian', path: 'Character Lore/Beasts & Creatures/Wrought-Iron House Golem.md' }
   ];
 
   async function init() {
@@ -320,7 +339,9 @@ const QuizModule = (function() {
       generateKingdomCapitalQuestion,
       generateHistoricEventQuestion,
       generateHistoricCharacterFactionQuestion,
-      generateHistoricCharacterRoleQuestion
+      generateHistoricCharacterRoleQuestion,
+      generateCreatureTypeQuestion,
+      generateCreatureRoleQuestion
     ];
     
     for (let i = 0; i < count; i++) {
@@ -437,6 +458,22 @@ const QuizModule = (function() {
     const wrongAnswers = allRoles.filter(r => r !== char.role).slice(0, 3);
     if (wrongAnswers.length < 3) wrongAnswers.push('Merchant', 'Scholar', 'Diplomat');
     return { question: `What was ${char.name}'s role?`, correct: char.role, options: shuffleArray([char.role, ...wrongAnswers.slice(0, 3)]), category: 'Historic Characters', sourcePath: char.path, sourceName: char.name };
+  }
+
+  function generateCreatureTypeQuestion() {
+    const creature = randomItem(loreData.beastsCreatures);
+    const allTypes = [...new Set(loreData.beastsCreatures.map(c => c.type))];
+    const wrongAnswers = shuffleArray(allTypes.filter(type => type !== creature.type)).slice(0, 3);
+    if (wrongAnswers.length < 3) return null;
+    return { question: `What type of creature is ${creature.name}?`, correct: creature.type, options: shuffleArray([creature.type, ...wrongAnswers]), category: 'Beasts & Creatures', sourcePath: creature.path, sourceName: creature.name };
+  }
+
+  function generateCreatureRoleQuestion() {
+    const creature = randomItem(loreData.beastsCreatures);
+    const allRoles = [...new Set(loreData.beastsCreatures.map(c => c.role))];
+    const wrongAnswers = shuffleArray(allRoles.filter(role => role !== creature.role)).slice(0, 3);
+    if (wrongAnswers.length < 3) return null;
+    return { question: `What role is ${creature.name} known for?`, correct: creature.role, options: shuffleArray([creature.role, ...wrongAnswers]), category: 'Beasts & Creatures', sourcePath: creature.path, sourceName: creature.name };
   }
 
   function showQuestion() {

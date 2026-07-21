@@ -1,4 +1,4 @@
-# Seyla Vane
+# celia Vane
 
 *Medium humanoid (human), neutral*
 **Level 5 Rogue (Swashbuckler)** — Leader of the Driftwood Four

@@ -47,7 +47,8 @@ Roll a d6 at the start of each travel day. On a 5 or 6, the encounter occurs.
 
 | d6 | Encounter |
 |----|-----------|
-| 1–2 | Nothing notable |
+| 1 | **Stirge swarm (8 stirges, CR 1/8 each)** — roosting in a dead tree by the road, disturbed as the party passes. They swarm the nearest warm body first. |
+| 2 | **Wolf pack (4 wolves, CR 1/4 each)** — trailing the party at 60 ft, picking their moment. Attack at nightfall unless driven off (DC 12 Animal Handling or a torch thrown toward them). |
 | 3 | Merchant caravan going north — they're nervous, moving fast. They've seen something on the road at night. |
 | 4 | **Kluimont patrol (4 soldiers, 1 officer)** checking papers. DC 13 Persuasion or valid documentation to pass without delay. They're suspicious of a heavily armed group heading south. |
 | 5 | **Bandit ambush (6 bandits, 1 bandit captain)** — CR 2 each, 8 total. Not organised. Targeting merchants. The party walks into it. |
@@ -57,7 +58,8 @@ Roll a d6 at the start of each travel day. On a 5 or 6, the encounter occurs.
 
 | d6 | Encounter |
 |----|-----------|
-| 1–2 | Nothing notable |
+| 1 | **2 Giant Eagles (CR 1 each)** — circling above, nesting nearby. They dive if the party gets within 100 ft of the nest (DC 13 Perception to spot it first). Non-hostile if the party backs off or takes a wide berth. |
+| 2 | **Wolf pack (6 wolves, CR 1/4 each)** — more aggressive at elevation, hungry. They spread out to flank before attacking. |
 | 3 | **Rock slide hazard** — DC 14 Perception (passive) to notice. Avoiding: DC 13 Acrobatics or take 3d6 bludgeoning. |
 | 4 | **Mountain goat herd** (20+) blocking the narrow path. Nothing dangerous. Takes 20 minutes to navigate through. |
 | 5 | **2 Mountain Lions** (Panther stat block, HP 32 each) — territorial, attack if party enters their den area. |
@@ -65,13 +67,16 @@ Roll a d6 at the start of each travel day. On a 5 or 6, the encounter occurs.
 
 ### Leg 3 — Ironwarf Pass to Volcanic Foothills
 
+*The air gets hot and sulphurous here. Flying predators ride the thermals from the volcanic vents.*
+
 | d6 | Encounter |
 |----|-----------|
-| 1–2 | Nothing notable |
+| 1 | **3 Pteranodons — "Ash Screechers" (CR 1/4 each)** — riding thermals off the volcanic rock. They screech before diving (DC 12 Perception; success = party is not surprised). Target isolated or smaller party members. Their screech carries 300 ft — DC 10 Perception for one round of warning. |
+| 2 | **4 Fire Snakes (CR 1/8 each)** — nesting in a warm rock crevice along the path. Disturbed when the party steps too close. They scatter and bite; after taking any damage they flee into the rocks. |
 | 3 | **Ash cloud** rolling down from the peak — low visibility (40 ft) for 1 hour. DC 12 CON save or disadvantaged on Perception for the duration. |
 | 4 | **Goblin scouts (8 goblins)** — not Kluimont-affiliated. These are feral volcanic goblins (Magmin-adjacent, fire-resistant). CR 1/4 each. Throwing rocks from ridges. They stop if driven off or if the party gives them food. |
 | 5 | **Collapsed bridge** over a 30 ft lava-heated chasm. Can be jumped (DC 15 Athletics) or crossed on the remnants (DC 13 Acrobatics, fail = 10 ft fall onto hot rocks = 2d6 bludgeoning + 1d6 fire). Rope-bridging it takes 20 minutes. |
-| 6 | **Fire Elemental (Small, CR 1)** that has wandered down from the peak. Not aggressive unless the party attacks it first. It's lost. A DC 14 Nature or Arcana check reveals it's been displaced \u2014 something disrupted the volcanic vent it called home. This is a hint about activity at the summit. |
+| 6 | **Fire Elemental (Small, CR 1)** that has wandered down from the peak. Not aggressive unless attacked first. It's lost. A DC 14 Nature or Arcana check reveals it's been displaced — something disrupted the volcanic vent it called home. Hint about activity at the summit. |
 
 ### Leg 4 — Volcanic Foothills to Lavalto Gate (On Foot Only)
 
@@ -82,6 +87,11 @@ The path narrows to a single file track along a ridge. Loose volcanic rock. Sulp
 > *The rock here is black and glassy — obsidian, not stone. It's warm underfoot through boot leather.*
 
 Hazard: the path is **treacherous** — DC 12 Athletics or Acrobatics each 30 minutes of travel or lose footing (10 ft fall, 1d6 bludgeoning, DC 13 CON save or stunned 1 round from the impact).
+
+**Encounter A2 — Harpy Roost (2.5 miles out, optional):**
+The cliff face to the east has a cluster of harpies — **3 Harpies (CR 1 each)** — roosting on an outcrop. They use their **Luring Song** against any party members who fail a DC 11 WIS save (affected character moves toward the harpies on their turn and can't use reactions). They screech constantly in combat, audible for half a mile.
+- This is optional: only run it if the party is too comfortable or if they deviate from the main path.
+- A DC 14 Perception check before reaching the outcrop lets the party spot them and plan ahead.
 
 **Encounter B — The Kluimont Forward Watch (1 mile out):**
 Three Kluimont soldiers in volcanic-ash-grey armour. They are posted here specifically to watch who approaches the summit.

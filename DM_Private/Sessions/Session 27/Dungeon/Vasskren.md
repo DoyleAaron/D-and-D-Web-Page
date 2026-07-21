@@ -1,6 +1,6 @@
 # Vasskren the Undying Sentinel — Final Boss
 
-**Location:** Grand Hall (centre dungeon) — rises after all 4 golems are defeated  
+**Location:** Grand Hall (centre dungeon) — rises after Ossian is defeated  
 **CR:** 15 | **XP:** 13,000  
 **Type:** Undead Construct (Avethis-Anchored)
 
@@ -32,7 +32,7 @@ Parts can be targeted individually (player declares target: torso, left claw, ri
 
 ### Vasskren — Torso (Main Body)
 
-**HP:** 300 | **AC:** 18 (divine bone plating)  
+**HP:** 240 | **AC:** 18 (divine bone plating)  
 **Speed:** 30 ft  
 **Initiative:** +4 (rolls first among all parts)
 
@@ -52,7 +52,7 @@ Parts can be targeted individually (player declares target: torso, left claw, ri
 **Senses:** Darkvision 120 ft, Truesight 30 ft | Passive Perception 12  
 **Languages:** None
 
-#### Legendary Resistance (3/day)
+#### Legendary Resistance (2/day)
 If Vasskren fails a saving throw, it can choose to succeed instead.
 
 #### Bone Collapse (Triggered)
@@ -66,7 +66,7 @@ All creatures within 20 ft: DC 17 CON save. Fail: 4d8 piercing. Success: half.
 
 #### Legendary Actions (3/round, end of another creature's turn)
 1. **Stomp (cost 1):** All creatures within 15 ft: DC 17 STR save or knocked prone.
-2. **Harvest Soul (cost 2):** Ranged attack, +10 to hit, range 60 ft. Hit: 4d8 necrotic. Target max HP reduced by half the damage taken until a short rest. (Does not stack beyond −30 HP reduction.)
+2. **Harvest Soul (cost 2):** Ranged attack, +10 to hit, range 60 ft. Hit: 4d8 necrotic. Target max HP reduced by half the damage taken until a short rest. (Does not stack beyond −20 HP reduction per creature.)
 3. **Limb Emergency (cost 3):** One destroyed limb is **reattached** at 40 HP. This can only happen once per limb, once total per combat.
 
 ---

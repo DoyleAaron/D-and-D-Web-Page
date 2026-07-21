@@ -7,6 +7,19 @@
 
 ---
 
+## Key Lore Context
+
+### The Chart of the Threefold Way — The Book
+The party has had this since Sessions 4–5. They retrieved it from the Sacrificial Fountain at Plalisle Den; someone in the party paid something real for it. It is a lead-clasped codex. When wetted with Fountain water it reveals three coordinate sets — two decoys, one genuine (Islefield). The genuine coordinates display a faint astral sigil visible only to the one who sacrificed.
+
+**Balthazar made it.** Not as a navigation tool — as a record. The Book encodes the first of Balthazar's three acts of creation (see Notes_and_Documents.md — Ossian's cipher journal). It is one third of the Trinity. The other two are the Ring (currently with Morjor, with instructions to deliver it to the Queen of Islefield at the Summit) and the Crown (location unknown).
+
+**Current location of the Book:** Queen Maera Brae of Braewood is holding it — she took it as evidence of Kluimont's alleged artefact dealings. She is bringing it to the **April 23rd Summit**. Myrelle (acting as Maltrius's agent) plans to steal it during the chaos of the Lavalto Peak fireball distraction.
+
+The party does not yet know the Book is one-third of the Trinity, nor that Balthazar made it, nor what happens if all three are assembled in one place. Ossian knew. His cipher journal (Room 3) and the loose page in his regular journal (Room 7) both reference it directly — including a note that Avethis has already witnessed whoever sacrificed at the Fountain to read it.
+
+---
+
 ## The Curse
 
 When Valdrek Ossian claimed the abandoned Tharnic mine and converted it to a place of worship for **Avethis**, he layered it with a temporal curse derived from the god's domain over witnessing — the idea that the Eye sees all time at once.
@@ -115,7 +128,7 @@ The moment any creature touches Ossian or the worshippers, or takes the cloak wh
 
 **Valdrek Ossian — Mummy Lord (modified, CR 11)**
 - HP: 198 | AC: 17 | Speed: 20 ft
-- Legendary Resistance (3/day)
+- Legendary Resistance (2/day)
 - Mummy Rot: On successful slam attack, DC 16 CON save or cursed (can't regain HP, STR max reduced 3d6 per day until 0 → death → sand)
 - Frightening Gaze: DC 16 WIS save or frightened, paralysed until end of next turn
 - Legendary Actions (3/round):
@@ -228,7 +241,7 @@ A chamber converted into a magical forge. The walls are scorched blue-black. In 
 
 **Tactical hazard:** The blue fire aura of the golem (2d6 cold damage to creatures that start turn within 5 ft) combines poorly with the doorway choke point. Players who charge in without thinking will be punished.
 
-**Loot (after golem):** The metal rods are worth 40 gp as magical conductors (Arcana DC 12 to identify value). A **Spell Scroll of Counterspell (3rd level)** is etched onto a metal plate on the wall — requires 1 minute to carefully transcribe or can be used directly.
+**Loot (after golem):** **Ossian's Cipher Journal** — in a sealed fireproof case on the west-wall plate shelf (survived the heat); DC 18 Investigation to crack, or *Comprehend Languages* (the Islefield-surveyor conspiracy thread — full text in Notes_and_Documents.md, Room 3). A **Spell Scroll of Counterspell (3rd level)** is etched onto a metal plate on the wall — requires 1 minute to carefully transcribe or can be used directly.
 
 ---
 

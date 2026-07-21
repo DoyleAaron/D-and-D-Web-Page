@@ -36,9 +36,11 @@
 
 ### **What They Are**
 
-- Three legendary artefacts crafted by **Archmage Balthazar**, the most brilliant mage of the old world.
-    
-- When united, they form a **key**, unlocking a **vault of catastrophic chaotic energy** sealed eons ago.
+- Three objects that carry pieces of **Balthazar's own essence** — not weapons, not constructed artefacts. Creation records. Each one is a log of an act of making, left by the soul of the world itself as it shaped this place.
+
+- Balthazar is not a mage. They are the **animating soul of the planet** — not a god of all creation, but the consciousness of this world specifically. Good in the broadest sense. Not lawful. Not bound by mortal ethics. They have existed since before memory and appear in history as different people, different forms — always choosing how and what they appear as. The "great-great-great mage to the Queen of Islefield" is merely their most recent historical footprint before the Second Council began suppressing the name.
+
+- When the Trinity is united, it does not unlock a vault of destructive energy. **It calls Balthazar's full attention back to a single point.** The planet noticing you — truly noticing you — has never been a small thing. What happens is unknown. The vampires believe they can use that moment of convergence to break the seal on their god. They may be wrong about what the Trinity actually does. They are not wrong that it is powerful.
     
 
 ### **The Locations**

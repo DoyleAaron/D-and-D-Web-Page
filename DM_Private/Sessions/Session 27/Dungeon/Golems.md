@@ -238,6 +238,6 @@ Each golem does drop a residual magical core on death (the power source):
 | Tree Golem | Verdant Core | 200 gp / crafting |
 | Blue Fire Golem | Cobalt Ember | 250 gp / crafting (can relight magically as blue flame) |
 | Amethyst Golem | Psionic Shard | 300 gp / used in *Headband of Intellect* crafting |
-| Eye Golem | **Shard of Witnessing** | 500 gp / see note |
+| Eye Golem | **Shard of Discernment** | 500 gp / see note |
 
-**Shard of Witnessing (Eye Golem Core):** This is a semi-divine artefact. It glows with faint white light. Holding it, a character can once per day sense whether a creature within 30 ft is being actively deceptive (as *Zone of Truth* for one creature, instantaneous). No charges — it regenerates this ability at dawn. Value as a magic item: significant. Selling it in Islefield would attract Second Council attention.
+**Shard of Discernment (Eye Golem Core):** This is a semi-divine artefact. It glows with faint white light. Holding it, a character can once per day sense whether a creature within 30 ft is being actively deceptive (as *Zone of Truth* for one creature, instantaneous). No charges — it regenerates this ability at dawn. Value as a magic item: significant. Selling it in Islefield would attract Second Council attention.

@@ -124,3 +124,91 @@ Tharion does **not** want to fight. He is here diplomatically. If combat is forc
 | The party | Three weeks of surveillance by Donaer and Welan. He knows their rough abilities. |
 | Amdir's book | He doesn't know about the charge system, but he knows Amdir uses a grimoire |
 | The summit | He knows about it. His councillor wants Islefield represented in the outcome. |
+
+---
+
+## Bag of Holding — Tharion's Supplies
+
+Tharion carries a **Bag of Holding** provisioned for the party. He is not generous with it freely — he dispenses items when he judges the need is real. The bag is a diplomatic investment, not a charity.
+
+> *"These are Council resources. I will not watch you squander them."*
+
+He keeps a mental tally. When items are gone, they're gone.
+
+---
+
+### Healing
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Potion of Healing (2d4+2) | 5 | Standard issue |
+| Potion of Greater Healing (4d4+4) | 4 | For serious wounds only |
+| Potion of Superior Healing (8d4+8) | 2 | Emergency use — he will resist handing these out casually |
+| Potion of Vitality | 1 | Removes exhaustion and disease. One use, he guards this closely |
+
+---
+
+### Combat & Utility Potions
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Potion of Fire Resistance | 2 | |
+| Potion of Climbing | 2 | |
+| Potion of Water Breathing | 1 | |
+| Potion of Invisibility | 1 | He will not give this away without good reason |
+| Antitoxin (vial) | 4 | |
+| Potion of Mind Shielding | 1 | He keeps this for himself unless someone is actively being dominated |
+
+---
+
+### Scrolls
+
+| Scroll | Level | Qty | Notes |
+|--------|-------|-----|-------|
+| Scroll of Revivify | 3rd | 1 | For death only. He will use it himself if needed — he won't hand it to a panicking player |
+| Scroll of Lesser Restoration | 2nd | 3 | Conditions, disease, paralysis |
+| Scroll of Greater Restoration | 5th | 1 | Curses, ability drain, petrification — rare, one use |
+| Scroll of Misty Step | 2nd | 2 | |
+| Scroll of Identify | 1st | 2 | |
+| Scroll of Sending | 3rd | 1 | For reporting back to the Council |
+
+---
+
+### Rest & Recovery
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Rations (trail, 1 day each) | 10 | Basic food for the party |
+| Goodberry Pouch | 2 | Each pouch holds 10 berries (1 HP each, sustains for a day) |
+| Healer's Kit | 2 | 10 uses each — stabilise at 0 HP or restore 1 HP with a DC 10 Medicine check |
+| Bedroll (compact) | 4 | |
+| Tinderbox | 2 | |
+| Lamp Oil (flask) | 4 | |
+| Rope, Hempen 50 ft | 2 | |
+
+---
+
+### Short Rest Aid
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Periapt of Wound Closure | 1 | Whoever holds it doubles rolled hit dice during short rests. Tharion lends, not gives. |
+| Potion of Healing | *(see above)* | He allows 1 per person per short rest, no more |
+
+---
+
+### Long Rest Aid
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Elven Trance Candle | 3 | Burns for 4 hours. Any creature within 10 ft gains the benefit of a long rest in 4 hours instead of 8. Single use per candle. Only works once per 24 hours per creature. |
+| Scroll of Leomund's Tiny Hut | 3rd | 1 | Creates a safe, weatherproof dome for 8 hours — party can long rest inside with no watch needed |
+
+---
+
+### DM Notes — Rationing
+
+- Tharion **will not give out items proactively**. The party must ask, and he judges the request.
+- He keeps a **mental count** — if players try to abuse access, he starts locking the bag.
+- The **Revivify scroll** and **Potion of Invisibility** require persuasion or a strong in-fiction justification.
+- If the party earns his trust over sessions, he becomes more forthcoming.
