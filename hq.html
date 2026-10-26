@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Gilded Hand headquarters: guild services, games and campaign calculators.">
+  <title>The Gilded Hand · Headquarters</title>
+  <link rel="stylesheet" href="static/css/variables.css">
+  <link rel="stylesheet" href="static/css/base.css">
+  <link rel="stylesheet" href="static/css/hq.css">
+  <script defer src="data/hq-data.js"></script><script defer src="data/hq-catalogue.js"></script>
+  <script defer src="static/js/hq-core.js"></script><script defer src="static/js/hq.js"></script>
+</head>
+<body class="hq-page">
+<a class="skip-link" href="#services">Skip to services</a>
+<header class="hq-header"><a href="index.html">← Dayner lore</a><span>ROOK &amp; LEDGER <span aria-hidden="true">/</span> SORD</span><a href="guild-board.html">Wayfarers’ board →</a></header>
+<main>
+  <div class="hq-intro"><div><p class="eyebrow">The Gilded Hand · Headquarters</p><h1>A place at the table.</h1><p>Count your coin. Know your standing. Prepare for the next job.</p></div><div class="seal" aria-hidden="true">GH</div></div>
+  <p class="notice">Calculators and practice games only. The DM records all money, XP, ranks and access manually; nothing here changes campaign records.</p>
+  <details class="map-details"><summary>Explore the headquarters plan <span class="muted">· schematic placeholder</span></summary><div id="hq-map" class="hq-map"><img id="map-image" alt="Headquarters service plan"><div id="map-markers"></div></div><p class="hint">Service positions are provisional. All destinations are also listed below.</p></details>
+  <nav id="services" class="service-grid" aria-label="Headquarters services" tabindex="-1"></nav>
+  <noscript><p>This page needs JavaScript for calculators. Enable it to use the headquarters services.</p></noscript>
+  <section id="counting" class="service-panel" tabindex="-1" aria-labelledby="counting-title">
+    <p class="eyebrow">Beren Holt · Brass bars &amp; coin scales</p><h2 id="counting-title">Counting house</h2>
+    <div class="two-columns"><form id="counting-form" novalidate><h3>Calculate a deposit</h3><p>Enter any amount. Your recorded balance is not checked.</p><div class="coin-fields">
+      <label>Platinum<input name="pp" inputmode="numeric" value="0"></label><label>Gold<input name="gp" inputmode="numeric" value="1"></label><label>Electrum<input name="ep" inputmode="numeric" value="0"></label><label>Silver<input name="sp" inputmode="numeric" value="0"></label><label>Copper<input name="cp" inputmode="numeric" value="0"></label>
+    </div><label>Previous copper carry<input name="carry" inputmode="numeric" value="0" aria-describedby="carry-hint"></label><p id="carry-hint" class="hint">Optional: leave blank for zero. Otherwise enter 0–15 cp.</p><button type="submit">Calculate XP</button><p class="error" id="counting-error" role="alert"></p></form>
+    <div class="result" id="counting-result" aria-live="polite" aria-atomic="true"></div></div>
+    <details><summary>Counting rules</summary><p>1 pp = 10 gp = 20 ep = 100 sp = 1,000 cp. Every complete 16 cp in the full deposit plus previous carry gives 1 XP to <strong>each character</strong>. XP is not divided by party size. Remaining copper carries forward. Crew payout uses only the new deposit and is rounded down to whole copper; it never reduces the XP calculation.</p></details>
+  </section>
+  <section id="gambling" class="service-panel" tabindex="-1" aria-labelledby="gambling-title"><p class="eyebrow">Nell Quill · The Copper Corner</p><h2 id="gambling-title">Gambling hall</h2><p>Choose a table. Each result shows the stake, total returned and net profit or loss. No purse or house till checks are made here.</p><div id="games" class="game-grid"></div></section>
+  <section id="leaderboard" class="service-panel" tabindex="-1" aria-labelledby="leaderboard-title"><p class="eyebrow">The Lifetime Board</p><h2 id="leaderboard-title">Registered crews</h2><p id="board-note"></p><div class="table-scroll"><table><caption>Current manually posted standings · full deposits before crew cut</caption><thead><tr><th scope="col">Rank</th><th scope="col">Team</th><th scope="col">Deposited</th></tr></thead><tbody id="standings"></tbody></table></div><p id="board-source" class="hint"></p><details><summary>Rank requirements &amp; crew shares</summary><div id="rank-info"></div><p>Ties are settled by the crew that reached the tied score first. Terms change only when the DM posts the new rank.</p></details></section>
+  <section id="missions" class="service-panel" tabindex="-1" aria-labelledby="missions-title"><p class="eyebrow">Mara Venn · Mission desk</p><h2 id="missions-title">Know the assignment</h2><p>Higher shelves require stronger standing. Difficulty describes preparation and risk, not a promise of safety.</p><div id="mission-tiers" class="info-grid"></div></section>
+  <section id="scout" class="service-panel" tabindex="-1" aria-labelledby="scout-title"><p class="eyebrow">Ivo Fen · Scout desk</p><h2 id="scout-title">Price a report</h2><div class="two-columns"><form id="scout-form"><label>District or ward<select id="district"></select></label><label>Depth of information<select id="depth"></select></label></form><div id="scout-result" class="result" aria-live="polite" aria-atomic="true"></div></div><p class="hint">Prices cover Ivo’s time, not certainty. This calculator provides a price only. It does not create a report or charge the crew.</p></section>
+  <section id="quarters" class="service-panel" tabindex="-1" aria-labelledby="quarters-title"><p class="eyebrow">Residential corridor · Captain Sera Doss</p><h2 id="quarters-title">A room of your own</h2><p>Room and two ordinary meals are covered while the crew is in good standing. Storage is separate from carried equipment; capacities below are information, not an inventory.</p><div id="room-tiers" class="info-grid"></div></section>
+  <section id="trader" class="service-panel" tabindex="-1" aria-labelledby="trader-title"><p class="eyebrow">Tamsin Rook · Rook’s Stores</p><h2 id="trader-title">What will it fetch?</h2><p id="trader-policy"></p><p class="hint">Equipment packs are valued as complete bundles; estimate a pack or its contents once. Spellcasting supplies are ordinary equipment, and spellbooks are blank. Retail references follow <a href="https://www.dndbeyond.com/sources/dnd/basic-rules-2014/equipment">2014 equipment prices</a> with the guild’s campaign prices taking precedence.</p>
+    <div class="two-columns trader-layout"><div><label>Search mundane items<input id="item-search" type="search" placeholder="Try longsword, armour, rope…"></label><label>Category<select id="item-category"><option value="">All categories</option></select></label><p id="catalogue-status" role="status" class="hint"></p><div id="catalogue" class="catalogue"></div></div>
+    <div><h3>Sale estimate</h3><p class="hint">This is what Tamsin pays the party, not what the party pays at retail.</p><div id="sale-lines"></div><p class="error" id="trader-error" role="alert"></p><div class="result" id="sale-total" aria-live="polite" aria-atomic="true"></div></div></div>
+  </section>
+  <footer><p>Dario Vescari, house lieutenant · Rook &amp; Ledger, near the Long Stable</p><a href="#services">Back to headquarters services ↑</a><details><summary>Equipment attribution</summary><p>This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at <a href="https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf">SRD 5.1</a>. The SRD 5.1 is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>. Campaign stock prices, buy offers, salvage values and guild rules are adaptations.</p></details></footer>
+</main>
+</body></html>

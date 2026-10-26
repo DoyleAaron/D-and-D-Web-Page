@@ -79,3 +79,5 @@ fiveserver.config.js
 # macOS archive metadata
 __MACOSX/
 .DS_Store
+# Local HQ staging, runtime and verification artifacts
+.hq-work/

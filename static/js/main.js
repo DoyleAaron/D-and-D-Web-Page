@@ -659,6 +659,9 @@
         </div>
 
         <div style="text-align: center; margin-top: 1.5rem;">
+          <a class="btn btn-primary" href="hq.html">
+            <i class="fas fa-coins" aria-hidden="true"></i> Gilded Hand HQ
+          </a>
           <button class="btn btn-secondary" onclick="showHome()">
             <i class="fas fa-sync-alt"></i> Show Different Lore
           </button>
