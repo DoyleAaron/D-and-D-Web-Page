@@ -18,7 +18,7 @@ This workspace initially contained the campaign notes and assets but none of the
 
 There were no applicable `AGENTS.md` files in the workspace, its checked parent directories or the upstream tree. The actual app entry points were verified in the source: `index.html`, `guild-board.html`, `map.html`, and `dm.html`.
 
-During implementation, other work changed some local campaign notes. These changes were retained, and the relevant updated ledger, handout, progression and quarters notes were re-read. HQ uses the latest recorded **20 gp, 9 cp / posted rank 21**, without inferring additional receipts or rank changes. The source restoration manifest and initial note hashes are in `.hq-work/` for local auditing; that directory is not player content.
+During implementation, other work changed some local campaign notes. These changes were retained, and the relevant updated ledger, handout, progression and quarters notes were re-read. HQ now uses the user's latest manually confirmed **24 gp / posted rank 21**, superseding the earlier displayed 20 gp, 9 cp without inferring a receipt breakdown or rank change. The source restoration manifest and initial note hashes are in `.hq-work/` for local auditing; that directory is not player content.
 
 ## Manual campaign configuration
 
@@ -41,9 +41,9 @@ Ranks are informational. Every service and calculator remains usable regardless 
 
 ### Recorded standings and unresolved history
 
-Initial sources: `DM_Private/Campaign 2/Guild/Handouts/Leaderboard.md`, `03 Teams and Standing.md`, and the receipt entries in `08 DM Tracker.md`. The user's subsequent manual update confirms **Hollow Pence at 120 gp and rank 17**. Candle Dogs move to 18, Sixth Key to 19 and Marsh Rats to 20; Fantastic 4 remain 21 with 20 gp, 9 cp. These are explicit data edits, not automatic re-ranking. **Do not sort the board by calculator results.** The underlying campaign notes have been left untouched.
+Initial sources: `DM_Private/Campaign 2/Guild/Handouts/Leaderboard.md`, `03 Teams and Standing.md`, and the receipt entries in `08 DM Tracker.md`. The user's subsequent manual updates confirm **Hollow Pence at 120 gp and rank 17** and **Fantastic 4 at 24 gp, rank 21**. Candle Dogs are 18, Sixth Key 19 and Marsh Rats 20. These are explicit data edits, not automatic re-ranking. **Do not sort the board by calculator results.** The underlying campaign notes have been left untouched.
 
-The updated tracker explicitly preserves a conflict: older preparation described only 10 sp / 1 gp deposited; retained later entries add 17 gp, 9 cp and then 2 gp, totalling 20 gp, 9 cp. Sources, depositors and timing of the later entries are unresolved. HQ displays the retained recorded aggregate and a player-safe caveat. It does not resolve the chronology, turn planned money into a receipt, or award the ledger's calculated XP again. Member-name discrepancies in the updated notes are not needed by the public board, which displays only team names.
+The tracker explicitly preserves a historical conflict: older preparation described only 10 sp / 1 gp deposited; retained later entries add 17 gp, 9 cp and then 2 gp, totalling 20 gp, 9 cp. Sources, depositors and timing of those entries are unresolved. The user's latest confirmed 24 gp total supersedes that aggregate for the public board; HQ retains a player-safe historical caveat. It does not invent a receipt breakdown, resolve the chronology or award XP. Member-name discrepancies in the notes are not needed by the public board, which displays only team names.
 
 ## Counting-house arithmetic
 

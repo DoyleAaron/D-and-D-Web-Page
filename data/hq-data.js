@@ -5,7 +5,7 @@
     guild: 'The Gilded Hand', front: 'Rook & Ledger', town: 'Sord',
     currentCrewPercent: 25,
     boardNote: 'Posted ranks are maintained by the DM at bank close. Deposits shown can be newer than the posted rank.',
-    sourceNotice: 'Fantastic 4’s retained receipt entries total 20 gp, 9 cp, including the initial 10 sp once. Older 1 gp lifetime summaries conflict with those entries; the sources and timing of later receipts remain unresolved. Posted rank remains 21 until the DM records a bank close.',
+    sourceNotice: 'Fantastic 4’s current total is 24 gp, manually confirmed by the DM. Historical receipt sources and timing remain unresolved. Posted rank remains 21.',
     standings: [
       [1, 'Black Lanterns', '1800000'], [2, 'Velvet Knives', '1300000'],
       [3, 'Ash Runners', '1000000'], [4, 'Gilt Foxes', '850000'],
@@ -17,7 +17,7 @@
       [15, 'Blue Chalk', '22500'], [16, 'Rose Wire', '15000'],
       [17, 'Hollow Pence', '12000'], [18, 'Candle Dogs', '10000'],
       [19, 'Sixth Key', '7000'], [20, 'Marsh Rats', '4500'],
-      [21, 'Fantastic 4', '2009']
+      [21, 'Fantastic 4', '2400']
     ].map(([rank, team, depositedCp]) => ({ rank, team, depositedCp })),
     ranks: [
       { ranks: '21–16', share: 25, access: 'Ordinary jobs, quarters and basic services' },

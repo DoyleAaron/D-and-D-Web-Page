@@ -91,7 +91,7 @@ try {
   await check('new mundane gear contributes its guild offer to itemised totals', `document.querySelector('#sale-total .big-number').textContent === '106 gp, 7 sp, 5 cp' && document.querySelector('[data-subtotal="spyglass"]').textContent.includes('100 gp')`);
   await evaluate(`document.querySelector('[data-quantity="longsword"]').value = '1.5'; document.querySelector('[data-quantity="longsword"]').dispatchEvent(new Event('input', {bubbles:true}))`);
   await check('invalid sale quantity clears total', `document.querySelector('#trader-error').textContent.length > 0 && !document.querySelector('#sale-total .big-number')`);
-  await check('manually updated standings unchanged by calculator operations', `document.querySelector('#standings tr:last-child').textContent.includes('21Fantastic 420 gp, 9 cp') && document.querySelectorAll('#standings tr')[16].textContent.includes('17Hollow Pence120 gp') && localStorage.length === 0 && sessionStorage.length === 0`);
+  await check('manually updated standings unchanged by calculator operations', `document.querySelector('#standings tr:last-child').textContent.includes('21Fantastic 424 gp') && document.querySelectorAll('#standings tr')[16].textContent.includes('17Hollow Pence120 gp') && localStorage.length === 0 && sessionStorage.length === 0`);
   await navigate(origin + '/hq.html');
   await fs.writeFile(path.join(output, 'hq-desktop.png'), Buffer.from((await command('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
   await evaluate(`document.querySelector('.map-details').open = true`);

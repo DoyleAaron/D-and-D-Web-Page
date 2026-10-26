@@ -156,7 +156,7 @@ test('2014 catalogue audit adds missing mundane gear and preserves campaign over
 });
 test('standings are recorded explicitly, never sorted by calculated deposits', () => {
   assert.equal(D.standings.length, 21);
-  assert.deepEqual(D.standings.at(-1), { rank: 21, team: 'Fantastic 4', depositedCp: '2009' });
+  assert.deepEqual(D.standings.at(-1), { rank: 21, team: 'Fantastic 4', depositedCp: '2400' });
   assert.deepEqual(D.standings[16], { rank: 17, team: 'Hollow Pence', depositedCp: '12000' });
   assert.deepEqual(D.standings.slice(17, 20).map(row => [row.rank, row.team]), [[18, 'Candle Dogs'], [19, 'Sixth Key'], [20, 'Marsh Rats']]);
 });
