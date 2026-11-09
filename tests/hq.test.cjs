@@ -156,9 +156,9 @@ test('2014 catalogue audit adds missing mundane gear and preserves campaign over
 });
 test('standings are recorded explicitly, never sorted by calculated deposits', () => {
   assert.equal(D.standings.length, 21);
-  assert.deepEqual(D.standings.at(-1), { rank: 21, team: 'Fantastic 4', depositedCp: '2400' });
+  assert.deepEqual(D.standings[18], { rank: 19, team: 'Fantastic 4', depositedCp: '7400' });
   assert.deepEqual(D.standings[16], { rank: 17, team: 'Hollow Pence', depositedCp: '12000' });
-  assert.deepEqual(D.standings.slice(17, 20).map(row => [row.rank, row.team]), [[18, 'Candle Dogs'], [19, 'Sixth Key'], [20, 'Marsh Rats']]);
+  assert.deepEqual(D.standings.slice(17).map(row => [row.rank, row.team, row.depositedCp]), [[18, 'Candle Dogs', '10000'], [19, 'Fantastic 4', '7400'], [20, 'Marsh Rats', '7200'], [21, 'Sixth Key', '7000']]);
 });
 test('public HQ assets contain no private source paths, campaign hooks or persistence APIs', () => {
   for (const file of ['hq.html', 'data/hq-data.js', 'data/hq-catalogue.js', 'static/js/hq.js', 'static/js/hq-core.js']) {
