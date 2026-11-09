@@ -10,13 +10,13 @@
       [1, 'Black Lanterns', '1800000'], [2, 'Velvet Knives', '1300000'],
       [3, 'Ash Runners', '1000000'], [4, 'Gilt Foxes', '850000'],
       [5, 'Iron Moths', '700000'], [6, 'Red Ledger', '550000'],
-      [7, 'Copper Choir', '420000'], [8, 'Dusk Cart', '320000'],
+      [7, 'Copper Choir', '495000'], [8, 'Dusk Cart', '320000'],
       [9, 'Silver Hooks', '240000'], [10, 'Nine Crows', '180000'],
       [11, 'North Gate', '130000'], [12, 'Lantern Jacks', '90000'],
       [13, 'Low Tide', '60000'], [14, 'Stone Thieves', '35000'],
       [15, 'Blue Chalk', '22500'], [16, 'Rose Wire', '15000'],
       [17, 'Hollow Pence', '12000'], [18, 'Candle Dogs', '10000'],
-      [19, 'Sixth Key', '7000'], [20, 'Marsh Rats', '4500'],
+      [19, 'Sixth Key', '7000'], [20, 'Marsh Rats', '12000'],
       [21, 'Fantastic 4', '2400']
     ].map(([rank, team, depositedCp]) => ({ rank, team, depositedCp })),
     ranks: [

@@ -43,6 +43,8 @@ Ranks are informational. Every service and calculator remains usable regardless 
 
 Initial sources: `DM_Private/Campaign 2/Guild/Handouts/Leaderboard.md`, `03 Teams and Standing.md`, and the receipt entries in `08 DM Tracker.md`. The user's subsequent manual updates confirm **Hollow Pence at 120 gp and rank 17** and **Fantastic 4 at 24 gp, rank 21**. Candle Dogs are 18, Sixth Key 19 and Marsh Rats 20. These are explicit data edits, not automatic re-ranking. **Do not sort the board by calculator results.** The underlying campaign notes have been left untouched.
 
+The latest leaderboard additions are **750 gp for Copper Choir**, taking their total from **4,200 gp to 4,950 gp**, and **75 gp for Marsh Rats**, taking their total from **45 gp to 120 gp**. Their posted ranks remain 7 and 20 respectively.
+
 The tracker explicitly preserves a historical conflict: older preparation described only 10 sp / 1 gp deposited; retained later entries add 17 gp, 9 cp and then 2 gp, totalling 20 gp, 9 cp. Sources, depositors and timing of those entries are unresolved. The user's latest confirmed 24 gp total supersedes that aggregate for the public board; HQ retains a player-safe historical caveat. It does not invent a receipt breakdown, resolve the chronology or award XP. Member-name discrepancies in the notes are not needed by the public board, which displays only team names.
 
 ## Counting-house arithmetic
