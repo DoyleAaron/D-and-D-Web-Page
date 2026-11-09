@@ -25,6 +25,13 @@ async function evaluate(expression) {
 async function check(name, expression) {
   assert.equal(await evaluate(expression), true, name); checks.push(name); console.log('PASS ' + name);
 }
+async function waitFor(expression) {
+  for (let i = 0; i < 50; i++) {
+    if (await evaluate(expression)) return;
+    await pause(50);
+  }
+  throw new Error('Timed out: ' + expression);
+}
 async function navigate(url) {
   await command('Page.navigate', { url });
   for (let i = 0; i < 100; i++) { if (await evaluate('document.readyState === "complete"')) return; await pause(100); }
@@ -71,13 +78,30 @@ try {
   await evaluate(`document.querySelector('#game-cup').requestSubmit()`);
   await check('cup choice required before rolling', `document.querySelector('#game-cup .error').textContent.includes('Choose a cup') && !document.querySelector('#game-cup [type=submit]').disabled`);
   await evaluate(`window.originalRandom = HQCore.randomInt; window.randomCalls = 0; HQCore.randomInt = () => { randomCalls++; return 1; }; document.querySelector('#game-cup [value="1"]').click(); document.querySelector('#game-cup').requestSubmit(); document.querySelector('#game-cup').requestSubmit()`);
+  await check('cup animation locks the round before showing the result', `randomCalls === 1 && document.querySelector('#game-cup').getAttribute('aria-busy') === 'true' && document.querySelector('#game-cup .game-stage').classList.contains('is-rolling') && !document.querySelector('#game-cup .round-result .result') && document.querySelector('#game-cup .next-round').hidden`);
+  await evaluate(`document.querySelector('#game-cup .next-round').click(); document.querySelector('#game-cup').requestSubmit()`);
+  await check('reset and repeat submit during animation cannot reroll', `randomCalls === 1 && document.querySelector('#game-cup .round-inputs').disabled`);
+  await waitFor(`!!document.querySelector('#game-cup .round-result .result')`);
   await check('one cup round resolves once with 4 gp return and 3 gp profit', `randomCalls === 1 && document.querySelector('#game-cup .round-result').textContent.includes('4 gp') && document.querySelector('#game-cup .round-result').textContent.includes('+3 gp') && document.querySelector('#game-cup .round-inputs').disabled`);
-  await evaluate(`document.querySelector('#game-cup .next-round').click(); document.querySelector('#game-cup [value="2"]').click(); document.querySelector('#game-cup').requestSubmit()`);
+  await check('cup visual reveals the actual winner and selected cup', `document.querySelector('#game-cup .is-winning').dataset.cup === '1' && document.querySelector('#game-cup .is-picked').dataset.cup === '1' && !document.querySelector('#game-cup').hasAttribute('aria-busy') && document.querySelector('#game-cup .game-stage').getAttribute('aria-hidden') === 'true'`);
+  await evaluate(`document.querySelector('#game-cup .next-round').click()`);
+  await check('new round clears the reveal and restores keyboard controls', `!document.querySelector('#game-cup .is-revealed') && !document.querySelector('#game-cup .is-winning') && document.querySelector('#game-cup .round-result').textContent === '' && !document.querySelector('#game-cup .round-inputs').disabled && document.activeElement === document.querySelector('#game-cup [type=submit]')`);
+  await evaluate(`document.querySelector('#game-cup [value="2"]').click(); document.querySelector('#game-cup').requestSubmit()`);
+  await waitFor(`!!document.querySelector('#game-cup .round-result .result')`);
   await check('cup loss returns zero', `document.querySelector('#game-cup .round-result').textContent.includes('House wins') && document.querySelector('#game-cup .round-result').textContent.includes('−1 gp')`);
   await evaluate(`HQCore.randomInt = () => 50; document.querySelector('#game-seven').requestSubmit(); HQCore.randomInt = () => 4; document.querySelector('#game-bones').requestSubmit(); HQCore.randomInt = originalRandom`);
+  await waitFor(`!!document.querySelector('#game-seven .round-result .result') && !!document.querySelector('#game-bones .round-result .result')`);
   await check('other games display gate loss and High Bones double-profit win', `document.querySelector('#game-seven .round-result').textContent.includes('The gate!') && document.querySelector('#game-bones .round-result').textContent.includes('4 + 4 + 4 = 12') && document.querySelector('#game-bones .round-result').textContent.includes('Total returned6 cp') && document.querySelector('#game-bones .round-result').textContent.includes('+4 cp')`);
+  await check('settled dice match the resolved rolls', `document.querySelector('#game-seven .percentile-die').textContent === '50' && [...document.querySelectorAll('#game-bones .die')].every(die => die.dataset.face === '4' && die.querySelectorAll('circle').length === 4) && !document.querySelector('#games .is-rolling')`);
   await evaluate(`HQCore.randomInt = () => 1; document.querySelector('#game-seven .next-round').click(); document.querySelector('#game-seven [name=denomination]').value = 'pp'; document.querySelector('#game-seven').requestSubmit(); HQCore.randomInt = () => 4; document.querySelector('#game-bones .next-round').click(); document.querySelector('#game-bones [name=denomination]').value = 'gp'; document.querySelector('#game-bones').requestSubmit(); HQCore.randomInt = originalRandom`);
+  await waitFor(`!!document.querySelector('#game-seven .round-result .result') && !!document.querySelector('#game-bones .round-result .result')`);
   await check('platinum and gold gambling pay converted stakes correctly', `document.querySelector('#game-seven .round-result').textContent.includes('Total returned20 gp') && document.querySelector('#game-bones .round-result').textContent.includes('Total returned6 gp') && document.querySelector('#game-bones .round-result').textContent.includes('+4 gp')`);
+  await command('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
+  await evaluate(`HQCore.randomInt = () => 100; document.querySelector('#game-seven .next-round').click(); document.querySelector('#game-seven [value="high"]').click(); document.querySelector('#game-seven').requestSubmit(); HQCore.randomInt = originalRandom`);
+  await check('reduced motion reveals immediately without dice or result animation', `!!document.querySelector('#game-seven .round-result .result') && document.querySelector('#game-seven .percentile-die').textContent === '100' && !document.querySelector('#game-seven').hasAttribute('aria-busy') && !document.querySelector('#games .is-rolling') && getComputedStyle(document.querySelector('#game-seven .percentile-die')).animationName === 'none' && getComputedStyle(document.querySelector('#game-seven .round-result .result')).animationName === 'none'`);
+  await command('Emulation.setEmulatedMedia', { features: [] });
+  const gamesRect = await evaluate(`(() => { const r = document.querySelector('#games').getBoundingClientRect(); return {x:r.x + scrollX, y:r.y + scrollY, width:r.width, height:r.height, scale:1}; })()`);
+  await fs.writeFile(path.join(output, 'hq-gambling.png'), Buffer.from((await command('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: gamesRect })).data, 'base64'));
   await evaluate(`document.querySelector('#district').value = '9'; document.querySelector('#depth').value = '2'; document.querySelector('#scout-form').dispatchEvent(new Event('change'))`);
   await check('magical ward detailed quote available at every rank', `document.querySelector('#district').selectedOptions[0].text.includes('Magistracy Quarter') && document.querySelector('#scout-result').textContent.includes('600 gp') && document.querySelector('#scout-result').textContent.includes('All registered crews') && !/Rank \d|respect/.test(document.querySelector('#scout-result').textContent)`);
   await evaluate(`document.querySelector('#item-search').value = 'zz-no-such-item'; document.querySelector('#item-search').dispatchEvent(new Event('input', {bubbles:true}))`);
@@ -91,7 +115,7 @@ try {
   await check('new mundane gear contributes its guild offer to itemised totals', `document.querySelector('#sale-total .big-number').textContent === '106 gp, 7 sp, 5 cp' && document.querySelector('[data-subtotal="spyglass"]').textContent.includes('100 gp')`);
   await evaluate(`document.querySelector('[data-quantity="longsword"]').value = '1.5'; document.querySelector('[data-quantity="longsword"]').dispatchEvent(new Event('input', {bubbles:true}))`);
   await check('invalid sale quantity clears total', `document.querySelector('#trader-error').textContent.length > 0 && !document.querySelector('#sale-total .big-number')`);
-  await check('manually updated standings unchanged by calculator operations', `document.querySelector('#standings tr:last-child').textContent.includes('21Fantastic 420 gp, 9 cp') && document.querySelectorAll('#standings tr')[16].textContent.includes('17Hollow Pence120 gp') && localStorage.length === 0 && sessionStorage.length === 0`);
+  await check('manually updated standings unchanged by calculator operations', `(() => { const rows = document.querySelectorAll('#standings tr'); return rows[16].textContent.includes('17Hollow Pence120 gp') && rows[18].textContent.includes('19Fantastic 474 gp') && rows[19].textContent.includes('20Marsh Rats72 gp') && rows[20].textContent.includes('21Sixth Key70 gp') && localStorage.length === 0 && sessionStorage.length === 0; })()`);
   await navigate(origin + '/hq.html');
   await fs.writeFile(path.join(output, 'hq-desktop.png'), Buffer.from((await command('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
   await evaluate(`document.querySelector('.map-details').open = true`);

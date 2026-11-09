@@ -18,7 +18,7 @@ This workspace initially contained the campaign notes and assets but none of the
 
 There were no applicable `AGENTS.md` files in the workspace, its checked parent directories or the upstream tree. The actual app entry points were verified in the source: `index.html`, `guild-board.html`, `map.html`, and `dm.html`.
 
-During implementation, other work changed some local campaign notes. These changes were retained, and the relevant updated ledger, handout, progression and quarters notes were re-read. HQ uses the latest recorded **20 gp, 9 cp / posted rank 21**, without inferring additional receipts or rank changes. The source restoration manifest and initial note hashes are in `.hq-work/` for local auditing; that directory is not player content.
+During implementation, other work changed some local campaign notes. These changes were retained, and the relevant updated ledger, handout, progression and quarters notes were re-read. HQ initially used the DM-confirmed **24 gp / posted rank 21**. The latest ring update adds **50 gp**, making the current total **74 gp / posted rank 19**; earlier receipt sources remain unresolved. The source restoration manifest and initial note hashes are in `.hq-work/` for local auditing; that directory is not player content.
 
 ## Manual campaign configuration
 
@@ -41,9 +41,19 @@ Ranks are informational. Every service and calculator remains usable regardless 
 
 ### Recorded standings and unresolved history
 
-Initial sources: `DM_Private/Campaign 2/Guild/Handouts/Leaderboard.md`, `03 Teams and Standing.md`, and the receipt entries in `08 DM Tracker.md`. The user's subsequent manual update confirms **Hollow Pence at 120 gp and rank 17**. Candle Dogs move to 18, Sixth Key to 19 and Marsh Rats to 20; Fantastic 4 remain 21 with 20 gp, 9 cp. These are explicit data edits, not automatic re-ranking. **Do not sort the board by calculator results.** The underlying campaign notes have been left untouched.
+Initial sources were the campaign handout, standings and tracker. Current website totals use the DM's subsequent manual updates: Copper Choir **4,950 gp** after +750 gp; Fantastic 4 **74 gp** after adding the ring's 50 gp to their previous 24 gp; Marsh Rats **72 gp overall**, superseding their earlier 120 gp and 100 gp totals. The current posted lower board is:
 
-The updated tracker explicitly preserves a conflict: older preparation described only 10 sp / 1 gp deposited; retained later entries add 17 gp, 9 cp and then 2 gp, totalling 20 gp, 9 cp. Sources, depositors and timing of the later entries are unresolved. HQ displays the retained recorded aggregate and a player-safe caveat. It does not resolve the chronology, turn planned money into a receipt, or award the ledger's calculated XP again. Member-name discrepancies in the updated notes are not needed by the public board, which displays only team names.
+| Rank | Team | Total |
+| ---: | --- | ---: |
+| 17 | Hollow Pence | 120 gp |
+| 18 | Candle Dogs | 100 gp |
+| 19 | Fantastic 4 | 74 gp |
+| 20 | Marsh Rats | 72 gp |
+| 21 | Sixth Key | 70 gp |
+
+These are explicit board edits. **Do not sort the board by calculator results.** Older campaign ledgers remain historical; the ring addition, score correction and current order are recorded in the quick tracking notes.
+
+The tracker explicitly preserves a historical conflict: older preparation described only 10 sp / 1 gp deposited; retained later entries add 17 gp, 9 cp and then 2 gp, totalling 20 gp, 9 cp. Sources, depositors and timing of those entries are unresolved. The DM previously confirmed 24 gp and now explicitly adds 50 gp for the ring, giving 74 gp on the public board. HQ retains a player-safe historical caveat for the earlier receipts; this score edit does not award XP or resolve the old chronology. Member-name discrepancies in the notes are not needed by the public board, which displays only team names.
 
 ## Counting-house arithmetic
 
@@ -60,6 +70,8 @@ The updated tracker explicitly preserves a conflict: older preparation described
 ## Games and current rule overrides
 
 The complete rules were read from `Guild/Gambling/*.md`. The UI's rules are opened by native `details/summary`, supporting pointer, touch and keyboard Space. Stakes are not checked against player balances or house till records. One resolved round is locked until **New round**, preventing repeated submissions from resolving it twice. Random rolls use `crypto.getRandomValues` with rejection sampling.
+
+Each game now has a small visual table: tumbling dice for High Bones, a rolling number for Seven at the Gate, and a short cup shuffle followed by a coin reveal for The Empty Cup. The 700 ms animation starts after the actual rolls and payout are calculated; decorative frames never consume random rolls. Inputs and reset stay locked while rolling. **New round** clears the visual result and returns focus to the submit button. Reduced-motion preferences skip the delay and disable animation. The decorative table is hidden from screen readers; the existing live result announces the final outcome.
 
 | Game | Valid stake | Win | Total returned | Net profit on win |
 | --- | --- | --- | --- | --- |
@@ -136,6 +148,6 @@ Focused tests cover all coin conversions and validation/limits, XP carry and ori
 
 The existing Dayner and road-network suites are also run against the restored source. They contain pre-existing failures (the Dayner tests refer to a missing player-select element; the road tests expect nested `TRAVEL_SPEEDS.road/ship` that the current implementation does not provide). They are reported separately rather than changing unrelated application logic or weakening their assertions.
 
-Latest results: **14 focused test groups passed; 39 HQ browser checks passed**, with no HQ/editor runtime exceptions. Mobile counting-house/trader and desktop screenshots are captured for visual inspection. The existing Dayner suite reached 57 passes, two missing-player-select assertion failures and one consequent null-options exception; the same three failures were reproduced against the untouched upstream index. The road suite reached one pass, two speed-shape failures and a consequent exception; its source files are byte-identical to the staged upstream versions. No package-manager build/lint scripts exist in this static repository. New JavaScript syntax checks pass.
+Latest results: **14 focused test groups passed; 45 HQ browser checks passed**, with no HQ/editor runtime exceptions. Animation checks cover duplicate submits/reset during rolling, settled faces, selected/winning cups, keyboard reset and immediate reduced-motion results. Gambling, mobile counting-house/trader and desktop screenshots are captured for visual inspection. The existing Dayner suite reached 57 passes, two missing-player-select assertion failures and one consequent null-options exception; the same three failures were reproduced against the untouched upstream index. The road suite reached one pass, two speed-shape failures and a consequent exception; its source files are byte-identical to the staged upstream versions. No package-manager build/lint scripts exist in this static repository. New JavaScript syntax checks pass.
 
 Remaining asset limitation: the real HQ image and its final marker positions are still to be supplied. Accounting chronology remains explicitly unresolved. Scouting, room upgrades and low buy prices include the documented defaults above.

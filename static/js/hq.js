@@ -42,6 +42,53 @@
   $('counting-form').addEventListener('input', () => { $('counting-result').textContent = 'Amounts changed. Calculate to see the new result.'; $('counting-error').textContent = ''; });
   count();
 
+  function dieFace(value) {
+    const pips = { 1: [[30, 30]], 2: [[16, 16], [44, 44]], 3: [[16, 16], [30, 30], [44, 44]], 4: [[16, 16], [44, 16], [16, 44], [44, 44]], 5: [[16, 16], [44, 16], [30, 30], [16, 44], [44, 44]], 6: [[16, 16], [44, 16], [16, 30], [44, 30], [16, 44], [44, 44]] };
+    return `<svg viewBox="0 0 60 60" focusable="false"><rect x="2" y="2" width="56" height="56" rx="10"/>${pips[value].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4"/>`).join('')}</svg>`;
+  }
+
+  function resetStage(stage, id, choice) {
+    stage.className = `game-stage game-stage-${id}`;
+    if (id === 'cup') {
+      stage.innerHTML = [1, 2, 3, 4].map(n => `<span class="cup-slot${n === choice ? ' is-picked' : ''}" data-cup="${n}"><span class="cup-coin"></span><span class="cup-shell"></span><span class="cup-number">${n}</span></span>`).join('');
+    } else if (id === 'bones') {
+      stage.innerHTML = [1, 2, 3].map(n => `<span class="die" data-face="${n}">${dieFace(n)}</span>`).join('');
+    } else {
+      stage.innerHTML = '<span class="percentile-die">--</span><span class="stage-caption">d100</span>';
+    }
+  }
+
+  function animateRound(stage, id, rolls) {
+    const showDice = values => {
+      if (id === 'bones') stage.querySelectorAll('.die').forEach((die, index) => {
+        die.dataset.face = values[index];
+        die.innerHTML = dieFace(values[index]);
+      });
+      if (id === 'seven') stage.querySelector('.percentile-die').textContent = String(values[0]).padStart(2, '0');
+    };
+    const reveal = () => {
+      stage.classList.remove('is-rolling');
+      if (id === 'cup') {
+        stage.querySelector(`[data-cup="${rolls[0]}"]`).classList.add('is-winning');
+        stage.classList.add('is-revealed');
+      } else showDice(rolls);
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveal();
+      return Promise.resolve();
+    }
+    stage.classList.add('is-rolling');
+    return new Promise(resolve => {
+      let tick = 0;
+      // Decorative faces never consume or change the round's random rolls.
+      const frames = id === 'cup' ? null : setInterval(() => {
+        tick++;
+        showDice(id === 'bones' ? [0, 2, 4].map(offset => (tick + offset) % 6 + 1) : [(tick * 17) % 100 + 1]);
+      }, 85);
+      setTimeout(() => { clearInterval(frames); reveal(); resolve(); }, 700);
+    });
+  }
+
   const games = [
     { id: 'seven', title: 'Seven at the Gate', tagline: 'Percentile dice · choose a side', rules: 'Stake 1–5 coins in your selected denomination (pp, gp, ep, sp or cp). Choose Low or High, then roll d100. Low wins on 1–49; High wins on 52–100. The gate (50–51) always wins for the house. A win returns 2× the stake total (1× net profit). A loss returns zero. No ties or pushes. Win chance: 49%.', stake: '1', choices: '<legend>Choose your side</legend><div class="choices"><label><input type="radio" name="choice" value="low" checked> Low · 1–49</label><label><input type="radio" name="choice" value="high"> High · 52–100</label></div>' },
     { id: 'bones', title: 'High Bones', tagline: 'Three dice · beat eleven', rules: 'Stake exactly 2 or 4 coins in your selected denomination (pp, gp, ep, sp or cp). Roll 3d6 once and add them: 12–18 wins, 3–11 loses. A win earns 2× the stake in net profit and returns 3× the stake TOTAL, including your original stake. For example, 2 gp returns 6 gp total: your 2 gp stake plus 4 gp profit. A loss returns zero. No dealer total, ties or pushes. Win chance: 37.5%.', stake: '2', choices: '<legend>Roll all three dice together</legend><p class="hint">⚄ + ⚂ + ⚅ · total 12 or higher wins</p>' },
@@ -50,8 +97,14 @@
   $('games').innerHTML = games.map(game => `<article class="game"><h3>${game.title}</h3><p class="hint">${game.tagline}</p><details><summary>Rules &amp; payouts</summary><p>${game.rules}</p></details><form id="game-${game.id}" novalidate><fieldset class="round-inputs"><div class="stake-fields"><label>Stake amount<input name="stake" inputmode="numeric" value="${game.stake}" aria-label="${game.title} stake amount"></label><label>Coin<select name="denomination" aria-label="${game.title} coin denomination"><option value="pp">Platinum (pp)</option><option value="gp">Gold (gp)</option><option value="ep">Electrum (ep)</option><option value="sp">Silver (sp)</option><option value="cp" selected>Copper (cp)</option></select></label></div><fieldset>${game.choices}</fieldset></fieldset><div class="game-controls"><button type="submit">${game.id === 'cup' ? 'Reveal winning cup' : 'Roll dice'}</button><button type="button" class="next-round" hidden>New round</button></div><p class="error" role="alert"></p><div class="round-result" aria-live="polite" aria-atomic="true"></div></form></article>`).join('');
   games.forEach(game => {
     const form = $(`game-${game.id}`), button = form.querySelector('[type=submit]'), next = form.querySelector('.next-round');
-    let resolved = false;
-    form.addEventListener('submit', event => {
+    const stage = document.createElement('div');
+    stage.setAttribute('aria-hidden', 'true');
+    form.querySelector('.round-inputs').after(stage);
+    const selectedChoice = () => Number(form.querySelector('[name=choice]:checked')?.value);
+    resetStage(stage, game.id, selectedChoice());
+    form.addEventListener('change', () => { if (!resolved) resetStage(stage, game.id, selectedChoice()); });
+    let resolved = false, animating = false;
+    form.addEventListener('submit', async event => {
       event.preventDefault();
       if (resolved) return;
       form.querySelector('.error').textContent = '';
@@ -64,15 +117,32 @@
         const rolls = game.id === 'bones' ? [C.randomInt(6), C.randomInt(6), C.randomInt(6)] : [C.randomInt(game.id === 'seven' ? 100 : 4)];
         const result = C.resolveGame(game.id, form.elements.stake.value, choice, rolls, denomination);
         resolved = true;
+        animating = true;
         button.disabled = true;
         form.querySelector('.round-inputs').disabled = true;
+        form.setAttribute('aria-busy', 'true');
+        form.querySelector('.round-result').textContent = game.id === 'cup' ? 'Revealing the cups...' : 'Rolling dice...';
+        await animateRound(stage, game.id, rolls);
+        animating = false;
+        form.removeAttribute('aria-busy');
+        stage.classList.toggle('is-win', result.win);
         next.hidden = false;
         const rolled = game.id === 'cup' ? `You chose cup ${choice}. Winning cup: ${rolls[0]}.` : game.id === 'bones' ? `Dice: ${rolls.join(' + ')} = ${rolls.reduce((a, b) => a + b, 0)}` : `${choice === 'low' ? 'Low' : 'High'} · d100: ${rolls[0]}${[50, 51].includes(rolls[0]) ? ' · The gate!' : ''}`;
         form.querySelector('.round-result').innerHTML = `<div class="dice-result">${rolled}</div><div class="result"><strong>${result.win ? 'You win' : 'House wins'}</strong><dl>${stat('Stake', fmt(result.stake))}${stat('Total returned', fmt(result.returned))}${stat('Net profit / loss', (result.net > 0n ? '+' : '') + fmt(result.net))}</dl></div>`;
-      } catch (error) { form.querySelector('.error').textContent = error.message; }
+      } catch (error) {
+        form.querySelector('.error').textContent = error.message;
+        resolved = false; animating = false; button.disabled = false;
+        form.querySelector('.round-inputs').disabled = false;
+        form.removeAttribute('aria-busy');
+        form.querySelector('.round-result').textContent = '';
+        next.hidden = true;
+        resetStage(stage, game.id, selectedChoice());
+      }
     });
     next.addEventListener('click', () => {
+      if (animating || !resolved) return;
       resolved = false; button.disabled = false; next.hidden = true;
+      resetStage(stage, game.id, selectedChoice());
       form.querySelector('.round-inputs').disabled = false;
       form.querySelector('.round-result').textContent = '';
       form.querySelector('.error').textContent = '';
